@@ -13,6 +13,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 require_once 'helpers/M4Helpers.php';
+require_once 'helpers/M4Blocks.php';
 
 if ( ! function_exists( 'fancynerds_setup' ) ) :
 	/**
@@ -145,9 +146,12 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fancynerds-style', 'rtl', 'replace' );
 
-	// wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
-	// wp_enqueue_style( $handle, $src = '', $deps = array, $ver = false, $media = 'all' )
+	#all styles
+	wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
+
+
 
 	wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -195,129 +199,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Gutenberg custom stylesheet
 add_theme_support('editor-styles');
 add_editor_style( 'editor-style.css' ); // make sure path reflects where the file is located
-
-
-
-
-
-
-
-add_action('acf/init', 'my_acf_init_block_types');
-function my_acf_init_block_types() {
-
-	// Check function exists.
-	if( function_exists('acf_register_block_type') ) {
-
-		// register a testimonial block.
-		acf_register_block_type(array(
-			'name'              => 'testimonials',
-			'title'             => __('Testimonials'),
-			'description'       => __('A custom testimonials block.'),
-			'render_template'   => 'components/blocks/testimonials/testimonials.php',
-			'category'          => 'formatting',
-			'icon'              => 'admin-comments',
-			'keywords'          => array( 'testimonial', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ),'all' );
-			},
-		));
-
-		#Jumbotron
-		acf_register_block_type(array(
-			'name'              => 'jumbotron',
-			'title'             => __('Jumbotron'),
-			'description'       => __('A custom jumbotron block.'),
-			'render_template'   => 'components/blocks/jumbotron/jumbotron.php',
-			'category'          => 'formatting',
-			'icon'              => 'welcome-view-site',
-			'keywords'          => array( 'jumbotron', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ),'all' );
-			},
-		));
-
-		#Steps
-		acf_register_block_type(array(
-			'name'              => 'steps',
-			'title'             => __('Steps'),
-			'description'       => __('A custom steps block.'),
-			'render_template'   => 'components/blocks/steps/steps.php',
-			'category'          => 'formatting',
-			'icon'              => 'money',
-			'keywords'          => array( 'steps', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-
-		#about
-		acf_register_block_type(array(
-			'name'              => 'about',
-			'title'             => __('About'),
-			'description'       => __('A custom about block.'),
-			'render_template'   => 'components/blocks/about/about.php',
-			'category'          => 'formatting',
-			'icon'              => 'format-status',
-			'keywords'          => array( 'about', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-
-		#Partners
-		acf_register_block_type(array(
-			'name'              => 'partners',
-			'title'             => __('Partners'),
-			'description'       => __('A custom partners block.'),
-			'render_template'   => 'components/blocks/partners/partners.php',
-			'category'          => 'formatting',
-			'icon'              => 'editor-ul',
-			'keywords'          => array( 'partners', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-
-		#Services
-		acf_register_block_type(array(
-			'name'              => 'services',
-			'title'             => __('Services'),
-			'description'       => __('A custom services block.'),
-			'render_template'   => 'components/blocks/services/services.php',
-			'category'          => 'formatting',
-			'icon'              => 'admin-site-alt3',
-			'keywords'          => array( 'services', 'quote' ),
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-
-		#Benefits
-		acf_register_block_type(array(
-			'name'              => 'benefits',
-			'title'             => __('Benefits'),
-			'description'       => __('A custom benefits block.'),
-			'render_template'   => 'components/blocks/benefits/benefits.php',
-			'category'          => 'formatting',
-			'icon'              => 'saved',
-			'keywords'          => array( 'benefits', 'quote' ), 
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-
-		#Plans
-		acf_register_block_type(array(
-			'name'              => 'plans',
-			'title'             => __('Plans'),
-			'description'       => __('A custom plans block.'),
-			'render_template'   => 'components/blocks/plans/plans.php',
-			'category'          => 'formatting',
-			'icon'              => 'money-alt',
-			'keywords'          => array( 'plans', 'quote' ), 
-			'enqueue_assets'	=> function(){
-				wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ), 'all' );
-			},
-		));
-	}
-}
