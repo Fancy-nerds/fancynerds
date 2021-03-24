@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 762.5 457.5">
+    <defs>
+        <style>
+            .cls-1{fill:url(#Безымянный_градиент_68);}
+        </style>
+        <linearGradient id="Безымянный_градиент_68" x1="679.47" y1="978.16" x2="722.21" y2="489.63" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#23713d"/>
+            <stop offset="1" stop-color="#46b569"/>
+        </linearGradient>
+    </defs>
+    <path class="cls-1" d="M340.15,526.86,308.49,907.05a38.64,38.64,0,0,0,42.83,41.62l685.25-77.6a38.66,38.66,0,0,0,33.77-44.68l-46.21-281.15a38.63,38.63,0,0,0-36.74-32.36L380,491.44A38.63,38.63,0,0,0,340.15,526.86Z" transform="translate(-308.36 -491.42)"/>
+</svg>

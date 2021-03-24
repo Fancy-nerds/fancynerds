@@ -1,0 +1,19 @@
+<svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 762.5 457.5">
+    <defs>
+        <style>.cls-1{fill:url(#Безымянный_градиент_68);}</style>
+        <linearGradient id="Безымянный_градиент_68" x1="1600.47" y1="1071.16" x2="1643.21" y2="582.63" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#04dbf1"/>
+            <stop offset="1" stop-color="#0039e4"/>
+        </linearGradient>
+    </defs>
+    <path class="cls-1" d="M1261.15,619.86l-31.66,380.19a38.64,38.64,0,0,0,42.83,41.62l685.25-77.6a38.66,38.66,0,0,0,33.77-44.68l-46.21-281.15a38.63,38.63,0,0,0-36.74-32.36L1301,584.44A38.63,38.63,0,0,0,1261.15,619.86Z" transform="translate(-1229.36 -584.42)"/>
+    <filter id="dropShadow">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
+        <feOffset dx="10" dy="10" />
+        <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+    </filter>
+    
+</svg>
