@@ -46,7 +46,7 @@
 
     &--standard {
       &:before {
-        background: url(../../assets/images/standard_bg.png) no-repeat 0 0/cover;
+        background: url(../../../assets/images/standard_bg.png) no-repeat 0 0/cover;
         width: 213px;
         height: 105px;
       }
@@ -58,7 +58,7 @@
         height: 109px;
         bottom: 0;
         left: 0;
-        background-image: url(../../assets/images/standard_after.png) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/standard_after.png) no-repeat 0 0/cover;
         border-bottom-left-radius: 15px;
         z-index: -1;
       }
@@ -76,7 +76,7 @@
 
     &--economy {
       &:before {
-        background-image: url(../../assets/images/economy_bg.png) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/economy_bg.png) no-repeat 0 0/cover;
         width: 213px;
         height: 122px;
       }
@@ -88,7 +88,7 @@
         height: 199px;
         bottom: 0;
         left: 0;
-        background-image: url(../../assets/images/economy_after.png) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/economy_after.png) no-repeat 0 0/cover;
         z-index: -1;
         left: 55%;
       }
@@ -109,7 +109,7 @@
 
     &--executive {
       &:before {
-        background-image: url(../../assets/images/executive_bg.png) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/executive_bg.png) no-repeat 0 0/cover;
         width: 200px;
         height: 110px;
       }
