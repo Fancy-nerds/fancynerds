@@ -1,0 +1,82 @@
+@import '../utils/vars.scss';
+
+.header {
+    background-color: $white;
+    box-shadow: 7px 5px 30px rgba(#2a4371, 0.15);
+    padding: 0 40px;
+    z-index: 111;
+    position: relative;
+
+    &__top {
+        height: 50px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        box-sizing: border-box;
+    }
+
+    &__main {
+        height: 110px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &-item {
+        font-size: $default;
+        font-family: "RedHatDisplay", Arial, sans-serif;
+        font-weight: 700;
+        margin-right: 30px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:before, 
+        &:after {
+            position: absolute;
+            content: "";
+            height: 5px;
+            width: 0%;
+            bottom: -3px;
+            left: 0;
+            background: $blue;
+            display: block;
+            transition: all 0.3s linear;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 5px;
+        }
+
+        &:before {
+            left: auto;
+            right: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 0;
+        }
+
+        &:hover {
+            &:before {
+                left: 50%;
+                width: 50%;
+            }
+
+            &:after {
+                left: auto;
+                right: 50%;
+                width: 50%;
+            }
+        }
+    }
+}

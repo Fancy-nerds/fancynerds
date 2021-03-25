@@ -1,0 +1,59 @@
+@import '../utils/vars.scss';
+
+.benefits {
+  margin-bottom: 100px;
+  
+  &__bg {
+    transform: rotate(178.6deg) scale(-1, 1);
+    position: absolute;
+    top: -56px;
+    right: -274px;
+    width: 1374px;
+    height: 822px;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding-right: 300px;
+    padding-left: 20px;
+    padding-top: 116px;
+    box-sizing: border-box;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+    margin-bottom: 30px;
+    padding-right: 40px;
+    box-sizing: border-box;
+  }
+
+  &__count {
+    font-family: "RedHatDisplay";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 30px;
+    color: $blue;
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    color: $black;
+    font-family: "RedHatDisplay";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 14px;
+  }
+
+  &__image {
+    padding-top: 35px;
+    padding-left: 20px;
+  }
+}

@@ -1,0 +1,220 @@
+@import '../utils/vars.scss';
+
+.plans {
+  margin-bottom: 200px;
+
+  .heading {
+    width: 50%;
+    margin: 0 auto 40px;
+  }
+
+  &__item {
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 45px 75px;
+    transition: all linear 0.3s;
+    cursor: pointer;
+    text-align: center;
+    z-index: 11;
+    box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.1);
+    border-radius: 15px;
+    background-color: $white;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+
+    &:hover {
+      transform: translateY(-15px);
+    }
+
+    &--filled {
+      background-color: #FF4B38;
+      background-image: linear-gradient(90deg, #ff403e 0%, #ff811b 160%);
+
+      .plans__price,
+      .plans__package,
+      .plans__point {
+        color: $white;
+      }
+    }
+
+    &--standard {
+      &:before {
+        background: url(../../assets/images/standard_bg.png) no-repeat 0 0/cover;
+        width: 213px;
+        height: 105px;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 130px;
+        height: 109px;
+        bottom: 0;
+        left: 0;
+        background-image: url(../../assets/images/standard_after.png) no-repeat 0 0/cover;
+        border-bottom-left-radius: 15px;
+        z-index: -1;
+      }
+
+      .plans__label {
+        color: $white;
+        background-color: $blue;
+      }
+
+      .button {
+        color: $white;
+        background-color: $blue;
+      }
+    }
+
+    &--economy {
+      &:before {
+        background-image: url(../../assets/images/economy_bg.png) no-repeat 0 0/cover;
+        width: 213px;
+        height: 122px;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 199px;
+        bottom: 0;
+        left: 0;
+        background-image: url(../../assets/images/economy_after.png) no-repeat 0 0/cover;
+        z-index: -1;
+        left: 55%;
+      }
+
+      .plans__label {
+        color: $orange;
+      }
+
+      .button {
+        color: $orange;
+        background-color: $white;
+
+        &:after {
+          background-color: $orange;
+        }
+      }
+    }
+
+    &--executive {
+      &:before {
+        background-image: url(../../assets/images/executive_bg.png) no-repeat 0 0/cover;
+        width: 200px;
+        height: 110px;
+      }
+
+      .plans__label {
+        background-color: $blue-dark;
+        color: $white;
+      }
+
+      .button {
+        color: $white;
+        background-color: $blue-dark;
+      }
+    }
+
+    .button {
+      position: absolute;
+      left: 50%;
+      bottom: -23px;
+      transform: translateX(-50%);
+      padding: 11px 50px 11px 30px;
+      transition: all linear 0.3s;
+      z-index: 3;
+
+      &:after {
+        width: 36px;
+        height: 36px;
+      }
+
+      &:before {
+        width: 15px;
+        height: 11px;
+        right: 15px;
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 100px;
+    height: 34px;
+    box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
+    border-radius: 0 17px 17px 0;
+    background-color: $white;
+    font-family: "RedHatDisplay";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 34px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    height: 110px;
+    text-align: center;
+  }
+
+  &__price {
+    color: $black;
+    font-family: "RedHatDisplay";
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 5px;
+
+    sup {
+      font-size: 24px;
+      margin-left: -15px;
+      vertical-align: text-top;
+    }
+  }
+
+  &__package {
+    color: $gray;
+    font-size: $default;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+
+  &__points {
+    position: relative;
+    padding-top: 32px;
+    box-sizing: border-box;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #e6e6e6;
+    }
+  }
+
+  &__point {
+    font-size: $default;
+    color: $black-light;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

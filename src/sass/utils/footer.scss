@@ -1,0 +1,32 @@
+@import '../utils/vars.scss';
+
+.footer {
+    background-color: #0160e7;
+    background-image: linear-gradient(to left, #04b6f1 0%, #002cae 62%, #002cae 100%);  
+    padding-top: 110px;
+    padding-bottom: 170px;
+
+    &__title {
+        margin-bottom: 40px;
+        color: $white;
+        font-family: "RedHatDisplay";
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        color: $blue-light;
+        font-family: "RedHatDisplay";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    .form__subscribe {
+        margin-top: 30px;
+    }
+}

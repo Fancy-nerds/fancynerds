@@ -1,0 +1,113 @@
+@import '../utils/vars.scss';
+
+.services {
+  position: relative;
+  padding-bottom: 200px;
+
+  .heading {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 45px;
+    transition: all linear 0.3s;
+    cursor: pointer;
+    text-align: center;
+    z-index: 11;
+
+    &:hover {
+      box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+      border-radius: 15px;
+      background-color: $white;
+
+      &:before,
+      &:after {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .button {
+        opacity: 1;
+        visibility: visible;
+        bottom: -23px;
+      }
+    }
+
+    &:before, 
+    &:after {
+      position: absolute;
+      content: '';
+      opacity: 0;
+      visibility: hidden;
+      transition: all linear 0.3s;
+      z-index: 1;
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      width: 105px;
+      height: 41px;
+      background-image: url(../../assets/images/services-item-before.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-left-radius: 15px;
+    }
+
+    &:after {
+      bottom: 0;
+      right: 0;
+      width: 157px;
+      height: 68px;
+      background-image: url(../../assets/images/services-item-after.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-bottom-right-radius: 15px;
+    }
+
+    .button {
+      position: absolute;
+      left: 50%;
+      bottom: -43px;
+      transform: translateX(-50%);
+      padding: 11px 50px 11px 30px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all linear 0.3s;
+      z-index: 3;
+
+      &:after {
+        width: 36px;
+        height: 36px;
+      }
+
+      &:before {
+        width: 15px;
+        height: 11px;
+        right: 15px;
+      }
+    }
+  }
+
+  &__image {
+    margin-bottom: 30px;
+    height: 156px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    color: $black;
+    font-family: "RedHatDisplay";
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 175px;
+    left: -94px;
+    z-index: 0;
+  }
+}

@@ -1,0 +1,23 @@
+@import '../utils/vars.scss';
+
+.article-label {
+    position: relative;
+    display: inline-block;
+    color: $white;
+    font-family: "RedHatDisplay";
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 6px 9px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background-color: $orange;
+    text-align: center;
+    margin-right: 15px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

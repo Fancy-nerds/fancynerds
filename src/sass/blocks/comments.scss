@@ -1,0 +1,96 @@
+@import '../utils/vars.scss';
+
+.comments {
+    &__count {
+        color: #a5b7d2;
+        font-size: 30px;
+    }
+
+    &__form {
+        position: relative;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background-color: #f0f6ff;
+        padding: 50px;
+
+    }
+}
+
+.comment {
+    display: flex;
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    &:not(&:first-child) {
+        margin-top: 30px;
+    }
+
+    &:last-child {
+        border: none;
+    }
+
+    &__reply {
+        padding-left: 110px;
+    }
+
+    &__link {
+        position: absolute;
+        content: '';
+        top: 5px;
+        right: 0;
+        color: #a5b7d2;
+        font-family: "RedHatDisplay";
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: all linear 0.4s;
+
+        &:hover {
+            color: $orange;
+        }
+    }
+
+    &__image {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        margin-right: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+
+        }
+    }
+
+    &__content {
+
+    }
+
+    &__name  {
+        color: #1a1b1e;
+        font-family: "RedHatDisplay";
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    &__date {
+        color: #a5b7d2;
+        font-family: "RedHatDisplay";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        color: #606060;
+        font-size: $default;
+        font-weight: 400;
+        line-height: 30px;
+    }
+}

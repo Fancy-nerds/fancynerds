@@ -1,0 +1,68 @@
+@import '../utils/vars.scss';
+
+.testimonials {
+    position: relative;
+    margin-bottom: 35px;
+    
+    &__bg {
+        transform: rotate(178.6deg) scale(-1, 1);
+        position: absolute;
+        top: -117px;
+        left: -237px;
+        width: 1285px;
+        height: 769px;
+        z-index: 0;
+    }
+    
+    &__ellipse {
+        border-radius: 50%;
+        background-color: #c5d9ff;
+        position: absolute;
+        z-index: 0;
+    
+        &--big {
+            width: 132px;
+            height: 132px;
+            top: 183px;
+            left: 48px;
+        }
+    
+        &--small {
+            width: 43px;
+            height: 43px;
+            top: 417px;
+            left: 161px;
+        }
+    }
+    
+    &__content {
+        position: relative;
+        z-index: 1;
+        padding-left: 360px;
+        padding-top: 90px;
+        width: 95%;
+        box-sizing: border-box;
+
+        .subtitle {
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 42px;
+            line-height: 54px;
+        }
+    
+        .description {
+            margin-bottom: 18px;
+        }
+    
+        .blockquote {
+           width: 95%;
+        }
+    }
+    
+    &__image {
+        padding-left: 116px;
+        padding-top: 11px;
+    }
+}

@@ -1,0 +1,130 @@
+@import '../utils/vars.scss';
+
+.jumbotron {
+    padding: 114px 133px 20px 93px;
+    margin-bottom: 120px;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        padding: 40px 0;
+        margin-bottom: 60px;
+    }
+    
+    .col:first-child {
+        @media screen and (max-width: 768px) {
+            order: 2;
+        }
+    }
+
+    &_typographic {
+        position: relative;
+
+        @media screen and (max-width: 768px) {
+            margin-top: 100px;
+        }
+    }
+
+    &_image {
+        position: relative;
+        z-index: 3;
+        
+        &--way {
+            position: absolute;
+            right: 28px;
+            top: -26px;
+            width: 299px;
+            height: 421px;
+            transform: rotate(55deg);
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &--arrow {
+            position: absolute;
+            right: 137px;
+            top: -49px;
+            width: 41px;
+            height: 46px;
+            z-index: 1;
+            transform: rotate(-29deg);
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &_content {
+        padding-top: 140px;
+        padding-left: 50px;
+        width: 80%;
+        z-index: 12;
+        position: relative;
+
+        .subtitle {
+            font-size: $default;
+            letter-spacing: normal;
+
+            @media screen and (max-width: 768px) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    &__bg--gray-big {
+        position: absolute;
+        content: '';
+        width: 1524px;
+        height: 1064px;
+        right: -1117px;
+        top: -374px;
+        transform: rotate(196deg);
+        // background-image: url(../../assets/images/bg_jumbotron_right_big_gray.svg);
+        // background-repeat: no-repeat;
+        // background-size: cover;
+
+        @media screen and (max-width: 768px) {
+            right: -1235px;
+            top: -504px;
+        }
+    }
+
+    &__bg--blue-small {
+        position: absolute;
+        content: '';
+        width: 913px;
+        // height: 671px;
+        // right: -800px;
+        // top: -374px;
+        right: 0;
+        top: 0;
+        z-index: 9999;
+
+        svg {
+            width: 873px;
+        }
+        // box-shadow: 8px 6px 30px rgba(2, 156, 236, 0.3);
+
+        // svg {
+        //     filter: url(#dropShadow);
+        // }
+
+        // svg #dropShadow{
+        //     box-shadow: 8px 6px 30px rgba(2, 156, 236, 0.3);
+        // }
+    }
+}

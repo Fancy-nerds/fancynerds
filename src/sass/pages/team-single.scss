@@ -1,0 +1,77 @@
+.team-single {
+    .main__content {
+        padding: 130px 0;
+    }
+    
+    &__photo {
+        position: relative; 
+        min-height: 748px;
+        padding-left: 150px;
+    
+        img {
+            z-index: 3; 
+            position: relative;
+            width: 673px;
+            height: 638px;
+        }
+    
+        &_bg {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 708px;
+            height: 748px;
+            background-image: url('../../assets/images/team-single-photo-bg.png');
+            z-index: 1;
+        }
+    }
+    
+    &__information {
+        padding-top: 80px;
+        border-bottom: 1px solid rgba(0,0,0, 0.1);
+    }
+    
+    &__about {
+        padding-right: 100px;
+    }
+    
+    &__work {
+        color: #fe4c1c;
+        font-family: "RedHatDisplay";
+        font-size: 14px;
+        font-weight: 700; 
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 0.7px;
+    } 
+    
+    &__description {
+        color: #606060;
+        line-height: 30px;
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        padding-right: 60px;
+    }
+    
+    &__experience {
+        margin-top: 30px;
+    
+        &_item {
+            margin-bottom: 30px;
+        }
+    
+        &_name {
+            color: #1a1b1e;
+            font-family: "RedHatDisplay";
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+    
+        &_work {
+            color: #606060;
+            line-height: 22px;
+        }
+    }
+}

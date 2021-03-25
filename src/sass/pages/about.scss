@@ -1,0 +1,27 @@
+@import '../utils/vars.scss';
+@import '../components/animations.scss';
+
+.about {
+    .main__content {
+        padding: 125px 0;
+    }
+
+    .why-choose {
+        background: #f0f6ff;
+        padding-top: 230px !important;
+        padding-bottom: 230px !important;
+    }
+
+    .progress-bars {
+        margin-top: 40px;
+        padding-right: 100px;
+    }
+
+    .main__content {
+        padding-bottom: 230px !important;
+    }
+
+    .team-slider {
+        padding-top: 230px !important;
+    }
+}

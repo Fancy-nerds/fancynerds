@@ -1,0 +1,321 @@
+@import '../utils/vars.scss';
+
+.button {
+    color: $white;
+    border-radius: 25px;
+    font-family: "RedHatDisplay", Arial, sans-serif;
+    font-size: $default;
+    line-height: 1.5em;
+    font-weight: 700;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+
+    &--small {
+        padding: 13px 25px;
+        font-size: 0.75em;
+    }
+
+    &--image {
+        padding: 16px 65px 16px 40px;
+        border-radius: 28px;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            content: '';
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: $white;
+            top: 5px;
+            right: 5px;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 18px;
+            height: 13px;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-image: url('../../assets/images/arrow-pointing.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+    }
+
+    &--blue {
+        background-color: $blue;
+    }
+
+    &--orange {
+        background-color: $orange;
+        box-shadow: 10px 7px 20px rgba(254, 76, 28, 0.3);
+    }
+
+    &--blue-dark {
+        background-color: $blue-dark;
+        box-shadow: 10px 7px 20px rgba(1, 96, 231, 0.3);
+    }
+
+    &--rounded {
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        background-color: $orange;
+    }
+
+    &--circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
+        background-color: #00c3ff;
+
+        &:hover {
+
+        }
+    }
+
+    &--play {
+        &:before {
+            position: absolute;
+            content: '';
+            left: 54%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 19px;
+            background-image: url('../images/play.png');
+        }
+
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #00c3ff;
+            z-index: 0;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+
+        .circle-1 {
+            animation: circle-fade-before 2s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            animation: circle-fade-after 2s infinite ease-in-out;
+        }
+    }
+}
+
+.heading {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title {
+    color: $black;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    font-family: "RedHatDisplay", Arial, sans-serif;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+h1.title {
+    font-size: 56px;
+    line-height: 72px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 46px;
+        line-height: 54px;
+    }
+}
+
+.subtitle {
+    color: $gray;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    line-height: 18px;
+    margin-bottom: 10px;
+    font-family: "RedHatDisplay", Arial, sans-serif;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+
+    &__dot-before {
+        padding-left: 20px;
+
+        &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 5px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: $gray;
+        }
+    }
+
+    &__dot-after {
+        padding-right: 20px;
+
+        &:after {
+            position: absolute;
+            content: '';
+            right: 0;
+            top: 5px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: $gray;
+        }
+    }
+}
+
+.description {
+    font-size: 22px;
+    line-height: 36px;
+    font-weight: 400;
+    color: $black;
+
+    @media screen and (max-width: 768px) {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+.paragraph {
+    color: #606060;
+    line-height: 30px;
+    transition: all linear .3s;
+    z-index: 1;
+    font-size: $default;
+
+    .link {
+        color: #00c3ff;
+        transition: all linear .3s;
+        border-bottom: 1px solid #00c3ff;
+
+        &:hover {
+            color: #00c3ff;
+            border-color: transparent;
+        }
+    }
+}
+
+.link {
+    color: $blue-light;
+    font-family: "RedHatDisplay";
+    font-size: 16px;
+    font-weight: 400;
+    transition: all linear .3s;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+        color: $white;
+        border-color: $white;
+    }
+}
+
+.site { 
+    background-color: $white;
+}
+
+.blockquote {
+    &__text {
+        color: $black;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 36px;
+        margin-bottom: 30px;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        margin-right: 30px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__author {
+        font-family: "RedHatDisplay";
+        color: $black;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    &__work {
+        font-family: "RedHatDisplay";
+        color: #606060;
+        font-size: $default;
+        line-height: 26px;
+    }
+}
+
+.blockquote {
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 30px;
+    margin: 40px 0;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: ""; 
+        width: 3px;
+        height: 100%;
+        border-radius: 2px;
+        background-color: $orange;
+    }
+
+    &__text {
+        color: $black;
+        font-family: "RedHatDisplay";
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+
+    &__author {
+        color: #a5b7d2;
+        font-family: "RedHatDisplay";
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        position: relative;
+        padding-left: 10px;
+
+        &:before {
+            position: absolute;
+            content: '-';
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import '../utils/vars.scss';
+
+.article-state {
+    margin-bottom: 15px;
+
+    &__item {
+        color: $gray;
+        font-family: "RedHatDisplay";
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-block;
+        margin-right: 4px;
+
+        i {
+            margin-right: 4px;
+
+            &:before {
+                font-size: 12px;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

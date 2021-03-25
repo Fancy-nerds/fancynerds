@@ -1,0 +1,74 @@
+@import '../utils/vars.scss';
+
+.case {
+    &__content {
+        padding: 90px 0;
+    
+        .title {
+            font-size: 36px; 
+            line-height: 48px;
+            margin-bottom: 50px;
+        }
+    } 
+    
+    &__about {
+        margin-bottom: 50px;
+    
+        &_title {
+            font-family: "RedHatDisplay";
+            color: #636363;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+    
+        &_value {
+            color: #1a1b1e;
+            font-family: "RedHatDisplay";
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 30px;
+        }
+    }
+    
+    &__image {
+        margin: 50px 0;
+    
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+    }
+    
+    &__section {
+        &_title {
+            color: #1a1b1e;
+            font-size: 30px;
+            line-height: 48px;
+            font-family: "RedHatDisplay";
+            margin-bottom: 20px;
+    
+            span {
+                font-weight: 900;
+            }
+        }
+    }
+    
+    &__screens {
+        margin: 50px 0;
+    
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+    }
+    
+    .comments {
+        margin-top: 100px; 
+    }
+    
+    .comments__form {
+        margin-top: 80px;
+    }
+}

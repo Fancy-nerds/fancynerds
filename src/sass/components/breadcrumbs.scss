@@ -1,0 +1,16 @@
+@import '../utils/vars.scss';
+
+.breadcrumbs {
+    color: $gray;
+
+    &__item {
+        color: $black-light;
+        font-size: $default;
+        font-weight: 500;
+        line-height: 24px;
+
+        &.active {
+            color: $gray;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import '../utils/vars.scss';
+
+.who-we-are {
+    align-items: center;
+
+    &__image {
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    &__advisors {
+        width: 271px;
+        height: 263px;
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        background-image: url('../images/about_advisors.png');
+        background-repeat: no-repeat;
+        color: $white;
+        text-align: center;
+
+        &_content {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding-left: 35px;
+            padding-top: 60px;
+        }
+
+        &_count {
+            font-family: "RedHatDisplay";
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        &_text {
+            font-family: "RedHatDisplay";
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 22px;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+    }
+
+    &__content {
+        padding-left: 100px;
+
+        .description {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__video {
+        color: #1a1b1e;
+        font-family: "RedHatDisplay";
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        letter-spacing: 0.7px;
+
+        .button {
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+    }
+}

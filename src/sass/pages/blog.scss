@@ -1,0 +1,19 @@
+@import '../utils/vars.scss';
+@import '../components/card.scss';
+
+.blog {
+    &__content {
+        background-color: $white;
+        padding: 90px 0;
+    
+        .card {
+            margin-bottom: 30px;
+        }
+    }
+    
+    &__buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+}

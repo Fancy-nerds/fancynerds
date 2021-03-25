@@ -1,0 +1,14 @@
+@import '../utils/vars.scss';
+@import '../components/slick.scss';
+@import '../components/slider.scss';
+
+.team-slider {
+    padding: 50px 0;
+    position: relative;
+
+    .slider {
+        display: flex !important;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}

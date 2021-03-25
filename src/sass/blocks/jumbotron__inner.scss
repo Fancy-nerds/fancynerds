@@ -1,0 +1,18 @@
+@import '../utils/vars.scss';
+@import '../components/breadcrumbs.scss';
+
+.jumbotron__inner {
+    height: 300px;
+    background-image: url('../../assets/images/bg-page-header.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1.title {
+        font-size: 42px;
+        line-height: 54px;
+    }
+}
