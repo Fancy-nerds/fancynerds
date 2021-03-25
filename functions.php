@@ -149,7 +149,7 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
 	#all styles
-	wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
+	// wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
 
 
 
