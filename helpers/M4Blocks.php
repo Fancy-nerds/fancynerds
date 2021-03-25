@@ -25,6 +25,8 @@ class M4Blocks
 				'icon'=>'money-alt'],
 			['name'=>'action',
 			'icon'=>'money-alt'],
+			['name'=>'blog',
+			'icon'=>'money-alt'],
 		];
 	}
 
