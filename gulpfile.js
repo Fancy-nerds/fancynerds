@@ -15,7 +15,7 @@ const rename = require('gulp-rename');
 function browserSync(done) {
     browsersync.init({
       server: {
-        baseDir: "src/templates/pages",
+        baseDir: "assets/templates",
         index: "index.html"
       },
       port: 3000
@@ -83,11 +83,11 @@ function stylesPages() {
         .pipe(gulp.dest('assets/styles/pages/'))
 }
 
-// function template() {
-//     return gulp.src('src/templates/pages/*.html')
-//         .pipe(rigger())
-//         .pipe(gulp.dest('build/'))
-// }
+function template() {
+    return gulp.src('src/templates/pages/*.html')
+        .pipe(rigger())
+        .pipe(gulp.dest('assets/templates'))
+}
 
 // Watch files
 function watchFiles() {
@@ -123,5 +123,5 @@ function fonts() {
         .pipe(gulp.dest('assets/fonts/'))
 }
 
-module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, images, scripts, fonts);
+module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, images, scripts, fonts);
 module.exports.watch = gulp.parallel(watchFiles, browserSync);
