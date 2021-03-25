@@ -165,6 +165,7 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
+	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 	wp_enqueue_style( 'fancynerds-admin-css', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
 }
 
