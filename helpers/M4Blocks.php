@@ -23,6 +23,8 @@ class M4Blocks
 				'icon'=>'saved'],
 			['name'=>'plans',
 				'icon'=>'money-alt'],
+			['name'=>'action',
+			'icon'=>'money-alt'],
 		];
 	}
 
