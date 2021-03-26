@@ -19,6 +19,38 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .button {
+            margin-left: 20px;
+        }
+    }
+
+    &__flags {
+        display: flex;
+        align-items: center;
+
+        .current-lang {
+            display: none;
+        }
+
+        .lang-item {
+            margin-right: 15px;
+            transition: all linear .4s;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+    }
 }
 
 .menu {

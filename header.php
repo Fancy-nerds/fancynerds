@@ -30,13 +30,9 @@
 			<div class="header__links">
 
 			</div>
-			<div class="header__actions">
-				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
-
-			</div>
 		</div>
 		<div class="header__main">
-			<div class="header-logo">
+			<div class="header__logo">
 				<a href="<?=home_url();  ?>">
 					<img src="<?php bloginfo('template_directory');?>/assets/images/logo.png">
 				</a>
@@ -51,7 +47,8 @@
 				<a href="#" class="menu-item">Contacts</a>
 			</nav>
 
-			<div class="header-actions">
+			<div class="header__actions">
+				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
 				<a href="#" class="button button--small button--blue-dark">Contact Us</a>
 			</div>
 		</div>
