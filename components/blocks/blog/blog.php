@@ -15,7 +15,7 @@
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/1837.png">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/1837.png" width="370" height="280">
 					</div>
 					<div class="card__content">
 						<div class="article-state">
@@ -37,7 +37,7 @@
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/14717.png">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/14717.png" width="370" height="280">
 					</div>
 					<div class="card__content">
 						<div class="article-state">
@@ -59,7 +59,7 @@
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/2447945.png">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/2447945.png" width="370" height="280">
 					</div>
 					<div class="card__content">
 						<div class="article-state">
