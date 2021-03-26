@@ -41,7 +41,7 @@ $bg_image = get_field('bg_image') ?: null; ?>
 		<div class="row">
 			<div class="col col-50">
 				<div class="about__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1471" height="883">
 				</div>
 				<div class="about__ellipse about__ellipse--big"></div>
 				<div class="about__ellipse about__ellipse--small"></div>

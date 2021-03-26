@@ -37,13 +37,13 @@ $button = get_field('button') ?: 'Button Text';?>
 			<div class="col col-54">
 				<div class="jumbotron_typographic">
 					<div class="jumbotron_image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg" width="876" height="660">
 					</div>
 					<div class="jumbotron_image--way">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg" width="299" height="421">
 					</div>
 					<div class="jumbotron_image--arrow">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg" width="41" height="46">
 					</div>
 				</div>
 			</div>
@@ -58,6 +58,6 @@ $button = get_field('button') ?: 'Button Text';?>
 		</div>
 	</div>
 	<div class="jumbotron__bg--gray-big">
-		<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg">
+		<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1524" height="915">
 	</div>
 </section>
