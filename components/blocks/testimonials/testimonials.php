@@ -42,7 +42,7 @@ $image = get_field('image');
 		<div class="row">
 			<div class="col col-50">
 				<div class="testimonials__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1285" height="772">
 				</div>
 				<div class="testimonials__ellipse testimonials__ellipse--big"></div>
 				<div class="testimonials__ellipse testimonials__ellipse--small"></div>

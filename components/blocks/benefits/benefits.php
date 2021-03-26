@@ -44,7 +44,7 @@ $benefits = get_field('benefits');
 			</div>
 			<div class="col col-50">
 				<div class="benefits__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1374" height="825">
 				</div>
 				<div class="benefits__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
