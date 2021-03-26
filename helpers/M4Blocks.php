@@ -47,11 +47,9 @@ class M4Blocks
 						$file_path = TEMPLATEPATH."/components/blocks/".$block['title']."/".$block['title'];
 
 						if (file_exists($file_path.".css")) {
-							print_r($block);
 							wp_enqueue_style( "fancynerds-".$block['title'], get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".css", array(), rand( 1, 999999 ),"all" );
 						}
 						if (file_exists($file_path.".js")) {
-							print_r($block['dep']);
 							wp_enqueue_script( "fancynerds-".$block['title'], get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".js", [$block['dep']], rand( 1, 999999 ),"all" );
 						}
 					},
