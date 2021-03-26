@@ -29,7 +29,7 @@
 		<div class="header__main">
 			<div class="header__logo">
 				<a href="<?=home_url();  ?>">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/logo.png">
+					<img width="122" height="49" src="<?php bloginfo('template_directory');?>/assets/images/logo.png">
 				</a>
 			</div>
 
