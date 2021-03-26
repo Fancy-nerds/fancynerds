@@ -26,11 +26,6 @@
 <div id="page" class="site home">
 
 	<header class="header">
-		<div class="header__top">
-			<div class="header__links">
-
-			</div>
-		</div>
 		<div class="header__main">
 			<div class="header__logo">
 				<a href="<?=home_url();  ?>">
