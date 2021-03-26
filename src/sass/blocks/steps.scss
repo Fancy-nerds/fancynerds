@@ -30,6 +30,10 @@
 
         &:hover {
             transform: translateY(-20px);
+
+            @media screen and (max-width: 768px) {
+                transform: none;
+            }
             
             .steps__overlay {
                 opacity: 1;
@@ -85,6 +89,7 @@
             left: 50%;
             display: inline-block;
             transition: all linear .3s;
+            font-size: 25px;
         }
 
         &_overlay {

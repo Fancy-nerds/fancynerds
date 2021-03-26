@@ -17,6 +17,11 @@
     @media screen and (max-width: 768px) {
       top: -270px;
     }
+
+    @media screen and (max-width: 568px) {
+      top: -20
+      0px;
+    }
   }
 
   &__ellipse {

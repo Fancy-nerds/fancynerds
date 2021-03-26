@@ -151,7 +151,7 @@ function fancynerds_scripts() {
 	#all styles
 	// wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
 
-
+	wp_register_script( 'slick', get_template_directory_uri().'/assets/scripts/slick.min.js', array(), rand( 1, 999999 ), true );
 
 	// wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

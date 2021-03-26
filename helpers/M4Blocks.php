@@ -8,7 +8,7 @@ class M4Blocks
 		add_action('acf/init', array($this,'init_blocks'));
 		$this->blocks = [
 			['name'=>'testimonials',
-			 'icon'=>'admin-comments'],
+			 	'icon'=>'admin-comments'],
 			['name'=>'jumbotron',
 				'icon'=>'welcome-view-site'],
 			['name'=>'steps',
@@ -16,7 +16,8 @@ class M4Blocks
 			['name'=>'about',
 				'icon'=>'format-status'],
 			['name'=>'partners',
-				'icon'=>'editor-ul'],
+				'icon'=>'editor-ul',
+				'dep'=>'slick'],
 			['name'=>'services',
 				'icon'=>'admin-site-alt3'],
 			['name'=>'benefits',
@@ -24,9 +25,9 @@ class M4Blocks
 			['name'=>'plans',
 				'icon'=>'money-alt'],
 			['name'=>'action',
-			'icon'=>'money-alt'],
+				'icon'=>'money-alt'],
 			['name'=>'blog',
-			'icon'=>'money-alt'],
+				'icon'=>'money-alt'],
 		];
 	}
 
@@ -43,7 +44,16 @@ class M4Blocks
 					'icon'              => $block['icon'],
 					'keywords'          => array( $block['name'] ),
 					'enqueue_assets'	=> function($block){
-						wp_enqueue_style( "fancynerds-".$block['title']."-css", get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".css", array(), rand( 1, 999999 ),"all" );
+						$file_path = TEMPLATEPATH."/components/blocks/".$block['title']."/".$block['title'];
+
+						if (file_exists($file_path.".css")) {
+							print_r($block);
+							wp_enqueue_style( "fancynerds-".$block['title'], get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".css", array(), rand( 1, 999999 ),"all" );
+						}
+						if (file_exists($file_path.".js")) {
+							print_r($block['dep']);
+							wp_enqueue_script( "fancynerds-".$block['title'], get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".js", [$block['dep']], rand( 1, 999999 ),"all" );
+						}
 					},
 				));
 			endforeach;
