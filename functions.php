@@ -153,7 +153,7 @@ function fancynerds_scripts() {
 
 
 
-	wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -163,11 +163,19 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 
 
 
+#styles used in admin panel
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 	wp_enqueue_style( 'fancynerds-admin-css', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
 }
+
+
+#Remove not used scripts
+function fancynerds_deregister_scripts(){
+ wp_dequeue_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'fancynerds_deregister_scripts' );
 
 
 /**
