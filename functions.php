@@ -149,13 +149,12 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
 	#all styles
-	// wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
 
 	# LIBS
 	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/assets/scripts/libs/slick.min.js', array(), null, true );
 	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/assets/styles/libs/slick.css', array(), null, true );
 
-	// wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
