@@ -27,11 +27,9 @@
 
 	<header class="header">
 		<div class="header__main">
-			<div class="header__logo">
-				<a href="<?=home_url();  ?>">
-					<img width="122" height="49" src="<?php bloginfo('template_directory');?>/assets/images/logo.png">
-				</a>
-			</div>
+			<a href="<?= home_url(); ?>" class="header__logo">
+				<img width="89" height="80" src="<?php bloginfo('template_directory');?>/assets/images/logo-fancy-nerds.svg">
+			</a>
 
 			<nav class="menu">
 				<a href="#" class="menu-item">Home</a>

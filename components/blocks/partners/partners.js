@@ -13,13 +13,13 @@ jQuery(function($) {
         
             responsive: [
                 {
-                    breakpoint: 569,
+                    breakpoint: 568,
                     settings: {
                         slidesToShow: 2
                     }
                 },
                 {
-                    breakpoint: 360,
+                    breakpoint: 400,
                     settings: {
                         slidesToShow: 1
                     }

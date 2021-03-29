@@ -11,6 +11,10 @@
     width: 1374px;
     height: 822px;
     z-index: 0;
+    
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__content {
@@ -20,18 +24,29 @@
     padding-left: 20px;
     padding-top: 116px;
     box-sizing: border-box;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 60px;
+      padding: 0;
+    }
   }
 
   &__items {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   &__item {
     width: 50%;
     margin-bottom: 30px;
-    padding-right: 40px;
+    padding: 0 20px;
     box-sizing: border-box;
+
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
   }
 
   &__count {
@@ -55,5 +70,9 @@
   &__image {
     padding-top: 35px;
     padding-left: 20px;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
   }
 }

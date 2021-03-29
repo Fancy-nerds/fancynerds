@@ -146,12 +146,13 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fancynerds-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
 	#all styles
 	// wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
 
-	wp_register_script( 'slick', get_template_directory_uri().'/assets/scripts/slick.min.js', array(), rand( 1, 999999 ), true );
+	wp_enqueue_script( 'jquery', get_template_directory_uri().'/assets/scripts/jquery.min.js', array(), rand( 1, 999999 ), true );
+	wp_enqueue_script( 'slick', get_template_directory_uri().'/assets/scripts/slick.min.js', array(), rand( 1, 999999 ), true );
 
 	// wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -166,8 +167,8 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 #styles used in admin panel
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
-	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-	wp_enqueue_style( 'fancynerds-admin-css', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
 }
 
 
