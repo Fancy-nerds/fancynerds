@@ -146,14 +146,25 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fancynerds-style', 'rtl', 'replace' );
 
+	# Common styles that appears on all pages
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
-	#all styles
 
 	# LIBS
 	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array(), null, true );
 	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/libs/slick/slick.css', array(), null, true );
 
+	#Template Parts
+	wp_register_style( 'fancynerds-part-jumbo-css', get_template_directory_uri().'/components/blocks/jumbotron__inner/jumbotron__inner.css', [], rand( 1, 999999 ), 'all' );
+
+	#Templates
+	#Team
+	wp_register_style( 'fancynerds-tpl-team-css', get_template_directory_uri().'/assets/styles/pages/team.css', [], rand( 1, 999999 ), 'all' );
+	if( is_page_template('tpl-team.php') ){
+		wp_enqueue_style( 'fancynerds-tpl-team-css' );
+	}
+
+	#END Templates
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
