@@ -17,7 +17,8 @@ class M4Blocks
 				'icon'=>'format-status'],
 			['name'=>'partners',
 				'icon'=>'editor-ul',
-				'dep_js'=>['fancynerds-libs-slick-js']],
+				'dep_js'=>['fancynerds-libs-slick-js'],
+				'dep_css'=>['fancynerds-libs-slick-css']],
 			['name'=>'services',
 				'icon'=>'admin-site-alt3'],
 			['name'=>'benefits',
@@ -55,9 +56,13 @@ class M4Blocks
 						// print_r($clos->this);
 						// echo '</pre>';
 						$dep_js=[];
+						$dep_css=[];
 						foreach ($this->blocks as $block) {
 							if(isset($block['dep_js']) && $block['name'] === $asset['title']){
 								$dep_js = $block['dep_js'];
+							}
+							if(isset($block['dep_css']) && $block['name'] === $asset['title']){
+								$dep_css = $block['dep_css'];
 							}
 						}
 
@@ -69,7 +74,7 @@ class M4Blocks
 
 
 						if (file_exists($file_path.".css")) {
-							wp_enqueue_style( "fancynerds-".$asset['title'], get_template_directory_uri()."/components/blocks/".$asset['title']."/".$asset['title'].".css", array(), rand( 1, 999999 ),"all" );
+							wp_enqueue_style( "fancynerds-".$asset['title'], get_template_directory_uri()."/components/blocks/".$asset['title']."/".$asset['title'].".css", $dep_css, rand( 1, 999999 ),"all" );
 						}
 						if (file_exists($file_path.".js")) {
 							wp_enqueue_script( "fancynerds-".$asset['title'], get_template_directory_uri()."/components/blocks/".$asset['title']."/".$asset['title'].".js", $dep_js, rand( 1, 999999 ),"all" );
