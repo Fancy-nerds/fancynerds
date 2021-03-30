@@ -40,30 +40,8 @@ if(is_page_template('tpl-about.php'))
 			</a>
 			<?php wp_nav_menu( array(
 				'theme_location'  => 'menu-1',
-				// 'menu'            => 'menu-1',
-				// 'container'       => 'div',
-				// 'container_class' => 'menu-{menu-slug}-container',
-				// 'container_id'    => '',
 				'menu_class'      => 'menu',
-				'menu_id'         => '',
-				'echo'            => true,
-				'fallback_cb'     => 'wp_page_menu',
-				'before'          => '',
-				'after'           => '',
-				'link_before'     => '',
-				'link_after'      => '',
-				// 'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
-				'depth'           => 0,
-				'walker'          => '',
 			) ); ?>
-			<!-- <nav class="menu">
-				<a href="#" class="menu-item">Home</a>
-				<a href="#" class="menu-item">Services</a>
-				<a href="#" class="menu-item">Team8</a>
-				<a href="#" class="menu-item">Blog</a>
-				<a href="#" class="menu-item">Portfolio</a>
-				<a href="#" class="menu-item">Contacts</a>
-			</nav> -->
 
 			<div class="header__actions">
 				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
