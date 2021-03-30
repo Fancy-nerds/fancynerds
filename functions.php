@@ -179,11 +179,14 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 
 
 
-#styles used in admin panel
+#styles used in admin panel so block components look the same
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
-	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-	wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	$current_page = get_current_screen()->base;
+  if($current_page == 'post' || $current_page == 'page') {
+		wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+		wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	}
 }
 
 
