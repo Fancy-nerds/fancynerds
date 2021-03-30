@@ -46,7 +46,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<?php 
 							$all_meta = get_user_meta( $value['user'] );
 							if($all_meta['user_photo'][0]):
-								echo M4Helpers::getImgHtml([ 'img_id'=>$all_meta['user_photo'][0], 'size'=>'team']);
+								echo M4Helpers::getImgHtml([ 'img_id'=>$all_meta['user_photo'][0], 'size'=>'team', 'class'=>'image--rounded']);
 							endif;?>
 							<div class="team__card_info">
 								<div class="team__name">

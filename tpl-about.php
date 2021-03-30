@@ -197,7 +197,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         <div class="team__slider slider row">
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/091224867853_huge.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/091224867853_huge.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">Gina Bruno</div>
                         <div class="team__work">WEB Designer</div>
@@ -209,7 +209,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/09220761288_xl-2015.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/09220761288_xl-2015.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">David Ferry</div>
                         <div class="team__work">CTO of Company</div>
@@ -221,7 +221,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/09233064538_xl-2015.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/09233064538_xl-2015.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">Christina Tores</div>
                         <div class="team__work">CEO of Company</div>
@@ -233,7 +233,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/09284358002_xl-2015.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/09284358002_xl-2015.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">Regina Blackly </div>
                         <div class="team__work">WEB Developer</div>
@@ -245,7 +245,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/091396486544_huge.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/091396486544_huge.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">Olivia Chee</div>
                         <div class="team__work">General Manager</div>
@@ -257,7 +257,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <div class="col col-33">
                 <div class="team__card">
-                    <img src="<?php bloginfo('template_directory');?>/assets/images/091414526951_huge.png" alt="">
+                    <img class="image--rounded" src="<?php bloginfo('template_directory');?>/assets/images/091414526951_huge.png" alt="">
                     <div class="team__card_info">
                         <div class="team__name">Robert Cooper</div>
                         <div class="team__work">WEB Developer</div>
