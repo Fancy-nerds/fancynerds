@@ -1,0 +1,43 @@
+@import '../utils/vars.scss';
+    
+.team__photo {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+        
+}
+
+.team__heading {
+    position: absolute;
+    bottom: -75px;
+    right: -75px;
+    width: 375px;
+    height: 375px;
+    padding: 60px 50px;
+    box-shadow: 25px 17px 65px rgba(2, 156, 236, 0.3);
+    border-radius: 15px;
+    background-color: #04dbf1;
+    background-image: linear-gradient(-55deg, #04dbf1 0%, #0039e4 100%);
+    text-align: left;
+    box-sizing: border-box;
+
+    .title,
+    .description {color: $white;}
+
+    .description {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .subtitle {
+        margin-bottom: 10px;
+        color: #00c3ff;
+
+        &:before,
+        &:after {
+            background-color: #00c3ff;
+        }
+    }
+}
