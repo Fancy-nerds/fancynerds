@@ -189,6 +189,14 @@ function fancynerds_deregister_scripts(){
 add_action( 'wp_footer', 'fancynerds_deregister_scripts' );
 
 
+#Custom image sizes
+add_action( 'after_setup_theme', 'fancynerds_theme_setup' );
+function fancynerds_theme_setup() {
+  // add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
+  add_image_size( 'team', 370, 370, true ); // (cropped)
+}
+
+
 /**
  * Implement the Custom Header feature.
  */
