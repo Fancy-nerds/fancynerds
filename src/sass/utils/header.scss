@@ -51,6 +51,10 @@
             }
         }
     }
+
+    &__menu {
+        height: 100%;
+    }
 }
 
 .menu {
@@ -67,6 +71,7 @@
         height: 100%;
         display: flex;
         align-items: center;
+        transition: all 0.3s linear;
 
         &:last-child {
             margin-right: 0;
@@ -99,6 +104,10 @@
         }
 
         &:hover {
+            a {
+                color: $black;
+            }
+
             &:before {
                 left: 50%;
                 width: 50%;
@@ -108,6 +117,12 @@
                 left: auto;
                 right: 50%;
                 width: 50%;
+            }
+        }
+
+        a {
+            &:hover {
+                color: $black;
             }
         }
     }
