@@ -149,12 +149,10 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
 	#all styles
-	// wp_enqueue_style( 'fancynerds-styles-css', get_template_directory_uri().'/assets/styles/styles.css', array(), rand( 1, 999999 ) );
 
-	wp_enqueue_script( 'jquery', get_template_directory_uri().'/assets/scripts/jquery.min.js', array(), rand( 1, 999999 ), true );
-	wp_enqueue_script( 'slick', get_template_directory_uri().'/assets/scripts/slick.min.js', array(), rand( 1, 999999 ), true );
-
-	// wp_enqueue_script( 'fancynerds-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	# LIBS
+	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery'), null, true );
+	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/libs/slick/slick.css', array(), null, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
