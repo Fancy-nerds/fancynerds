@@ -25,7 +25,6 @@
           margin: 0 auto;
         }
       }
-
     }
 
     .slick-current {
@@ -38,12 +37,6 @@
         &:after {
           opacity: 1;
           visibility: visible;
-        }
-
-        .button {
-          opacity: 1;
-          visibility: visible;
-          bottom: -23px;
         }
       }
     }
@@ -70,9 +63,11 @@
       }
 
       .services__action {
-        opacity: 1;
-        visibility: visible;
-        bottom: -23px;
+        @media screen and (min-width: 768px) {
+          opacity: 1;
+          visibility: visible;
+          bottom: -23px;
+        }
       }
     }
 
@@ -111,14 +106,18 @@
 
   &__action {
     position: absolute;
-    bottom: -43px;
+    bottom: -25px;
     left: 0;
-    opacity: 0;
-    visibility: hidden;
     z-index: 3;
     transition: all linear .3s;   
     text-align: center;
     width: 100%;
+
+    @media screen and (min-width: 768px) {
+      opacity: 0;
+      visibility: hidden;
+      bottom: -43px;
+    }
   }
 
   &__image {

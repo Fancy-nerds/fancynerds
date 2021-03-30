@@ -154,6 +154,10 @@ function fancynerds_scripts() {
 	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery'), null, true );
 	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/libs/slick/slick.css', array(), null, 'all' );
 
+	
+	wp_register_script( 'fancynerds-libs-swiper-js', get_template_directory_uri().'/libs/swiper/swiper.min.js', array(), null, true );
+	wp_register_style( 'fancynerds-libs-swiper-css', get_template_directory_uri().'/libs/swiper/swiper.min.css', array(), null, 'all' );
+
 	#Template Parts
 	wp_register_style( 'fancynerds-part-jumbo-css', get_template_directory_uri().'/components/blocks/jumbotron__inner/jumbotron__inner.css', [], rand( 1, 999999 ), 'all' );
 

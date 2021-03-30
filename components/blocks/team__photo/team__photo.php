@@ -32,7 +32,7 @@ $description = get_field('description') ?: 'Your description here...';
 <div id="<?php echo esc_attr($id); ?>" class="team__photo  <?php echo esc_attr($className); ?>">
 	<?php
 	if($image):
-		echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'large']);
+		echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'large', 'class'=>'image--rounded']); 
 	endif;?>
 	<div class="team__heading">
 		<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>

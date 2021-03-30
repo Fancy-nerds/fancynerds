@@ -47,6 +47,14 @@ textarea {
     resize: vertical;
 }
 
+picture {
+    display: block;
+}
+
+.image--rounded {
+    border-radius: 15px;
+}
+
 .container {
     max-width: 1170px;
     margin: 0 auto;
