@@ -151,7 +151,7 @@ function fancynerds_scripts() {
 
 
 	# LIBS
-	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery'), null, true );
+	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery-core'), null, true );
 	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/libs/slick/slick.css', array(), null, 'all' );
 
 	
@@ -168,6 +168,11 @@ function fancynerds_scripts() {
 		wp_enqueue_style( 'fancynerds-tpl-team-css' );
 	}
 
+	wp_register_style( 'fancynerds-tpl-about-css', get_template_directory_uri().'/assets/styles/pages/about.css', [], rand( 1, 999999 ), 'all' );
+	if( is_page_template('tpl-about.php') ){
+		wp_enqueue_style( 'fancynerds-tpl-about-css' );
+	}
+
 	#END Templates
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -178,11 +183,14 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 
 
 
-#styles used in admin panel
+#styles used in admin panel so block components look the same
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
-	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-	wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	$current_page = get_current_screen()->base;
+  if($current_page == 'post' || $current_page == 'page') {
+		wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+		wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	}
 }
 
 
