@@ -40,7 +40,7 @@ $background = get_field('background');
 				<h2 class="title"><?= $title; ?></h2>
 			</div>
 		</div>
-		<div class="row">
+		<div class="services__slider slider row">
 			<?php
 			if (is_array($services) && count($services)>0):
 				foreach ($services as $service):?>

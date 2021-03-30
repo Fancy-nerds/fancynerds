@@ -151,7 +151,7 @@ function fancynerds_scripts() {
 
 
 	# LIBS
-	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array(), null, true );
+	wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery'), null, true );
 	wp_register_style( 'fancynerds-libs-slick-css', get_template_directory_uri().'/libs/slick/slick.css', array(), null, true );
 
 	#Template Parts
@@ -177,8 +177,8 @@ add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
 #styles used in admin panel
 add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
 function fancynerds_admin_styles() {
-	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-	wp_enqueue_style( 'fancynerds-admin-css', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
 }
 
 

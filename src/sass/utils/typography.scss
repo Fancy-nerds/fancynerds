@@ -21,7 +21,7 @@
         border-radius: 28px;
         position: relative;
 
-        &:after {
+        span {
             position: absolute;
             content: '';
             width: 46px;
@@ -30,21 +30,24 @@
             background-color: $white;
             top: 5px;
             right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:before {
-            position: absolute;
-            content: '';
-            width: 18px;
-            height: 13px;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-image: url('../../assets/images/arrow-pointing.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: 1;
-        }
+        // &:before {
+        //     position: absolute;
+        //     content: '';
+        //     width: 18px;
+        //     height: 13px;
+        //     right: 18px;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     background-image: url('../../assets/images/arrow-pointing.png');
+        //     background-repeat: no-repeat;
+        //     background-size: cover;
+        //     z-index: 1;
+        // }
     }
 
     &--blue {

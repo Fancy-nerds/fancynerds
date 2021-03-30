@@ -1,11 +1,52 @@
 @import '../utils/vars.scss';
+// @import '../components/slick.scss';
+// @import '../components/slider.scss';
 
 .services {
   position: relative;
   padding-bottom: 200px;
 
+  @media screen and (max-width: 768px) {
+    padding-bottom: 60px;
+  }
+
   .heading {
     margin-bottom: 20px;
+  }
+
+  &__slider {
+    .slick-slide {
+      @media screen and (max-width: 768px) {
+        padding: 20px 50px 50px;
+      }
+    
+      img {
+        @media screen and (max-width: 768px) {
+          margin: 0 auto;
+        }
+      }
+
+    }
+
+    .slick-current {
+      .services__item {
+        box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+        border-radius: 15px;
+        background-color: $white;
+
+        &:before,
+        &:after {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .button {
+          opacity: 1;
+          visibility: visible;
+          bottom: -23px;
+        }
+      }
+    }
   }
 
   &__item {
@@ -94,6 +135,7 @@
   &__image {
     margin-bottom: 30px;
     height: 156px;
+    text-align: center;
   }
 
   &__title {
@@ -109,5 +151,9 @@
     top: 175px;
     left: -94px;
     z-index: 0;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 }

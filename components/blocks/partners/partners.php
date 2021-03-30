@@ -36,7 +36,7 @@ $partners = get_field('partners');
 
 <section id="<?php echo esc_attr($id); ?>" class="section partners <?php echo esc_attr($className); ?>">
 	<div class="container container--fluid">
-		<div class="row">
+		<div class="slider row">
 			<?php 
 			if(is_array($partners) && count($partners)>0): 
 				foreach ($partners as $partner): ?>
