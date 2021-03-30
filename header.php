@@ -21,9 +21,15 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php wp_body_open(); 
+$add_clss = 'home';
+if(is_page_template('tpl-team.php'))
+	$add_clss = 'team';
+?>
 
-<div id="page" class="site home">
+
+
+<div id="page" class="site <?= $add_clss;?>">
 
 	<header class="header">
 		<div class="header__main">

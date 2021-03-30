@@ -26,9 +26,11 @@ class M4Blocks
 			['name'=>'plans',
 				'icon'=>'money-alt'],
 			['name'=>'action',
-				'icon'=>'money-alt'],
+				'icon'=>'awards'],
 			['name'=>'blog',
-				'icon'=>'money-alt'],
+				'icon'=>'welcome-write-blog'],
+			['name'=>'team__photo',
+				'icon'=>'welcome-learn-more'],
 		];
 	}
 
