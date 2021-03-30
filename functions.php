@@ -164,6 +164,11 @@ function fancynerds_scripts() {
 		wp_enqueue_style( 'fancynerds-tpl-team-css' );
 	}
 
+	wp_register_style( 'fancynerds-tpl-about-css', get_template_directory_uri().'/assets/styles/pages/about.css', [], rand( 1, 999999 ), 'all' );
+	if( is_page_template('tpl-about.php') ){
+		wp_enqueue_style( 'fancynerds-tpl-about-css' );
+	}
+
 	#END Templates
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
