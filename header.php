@@ -40,7 +40,7 @@ if(is_page_template('tpl-team.php'))
 			<nav class="menu">
 				<a href="#" class="menu-item">Home</a>
 				<a href="#" class="menu-item">Services</a>
-				<a href="#" class="menu-item">Team7</a>
+				<a href="#" class="menu-item">Team8</a>
 				<a href="#" class="menu-item">Blog</a>
 				<a href="#" class="menu-item">Portfolio</a>
 				<a href="#" class="menu-item">Contacts</a>
