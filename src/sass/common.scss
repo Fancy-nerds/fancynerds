@@ -19,6 +19,14 @@ a {
     color: $black;
 }
 
+a:hover, a:active {
+    outline: 0;
+}
+
+a:hover, a:focus, a:active {
+    color: $white;
+}
+
 h1, h2, h3, h4, h5, h6, p, ul, ol, li {
     margin: 0;
     padding: 0;

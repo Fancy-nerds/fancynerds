@@ -52,7 +52,11 @@ $button = get_field('button') ?: 'Button Text';?>
 					<h4 class="subtitle"><?= $subtitle;?></h4>
 					<h1 class="title"><?= $title;?></h1>
 					<p class="description"><?= $description;?></p>
-					<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button;?></a>
+					<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button;?>
+						<span>
+							<i class="flaticon-right-arrow-1"></i>
+						</span>
+					</a>
 				</div>
 			</div>
 		</div>

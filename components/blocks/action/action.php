@@ -39,7 +39,7 @@ transform: translateX(-50%);
 top: 87px;
 ">
 			<div class="action__title"><?= $title;?></div>
-			<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button;?></a>
+			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?></a>
 		</div>
 	</div>
 </section>

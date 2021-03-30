@@ -35,6 +35,12 @@ $classes=[
 	'plans__item plans__item--executive'
 ];
 
+$buttonClasses=[
+	'button--blue',
+	'button--orange-revert',
+	'button--blue-dark'
+];
+
 ?>
 
 
@@ -84,11 +90,14 @@ $classes=[
 									endforeach;
 								endif;?>
 							</div>
-							<a href="<?=$benefit['url'];?>" class="button button--orange button--image"><?= $benefit['button'];?>
-								<span>
-									<i class="flaticon-right-arrow-1"></i>
-								</span>
-							</a>
+							<div class="plans__action">
+								<a href="<?=$benefit['url'];?>" class="button button--image <?= $buttonClasses[$i]; ?>"><?= $benefit['button'];?>
+									<span>
+										<i class="flaticon-right-arrow-1"></i>
+									</span>
+								</a>
+							</div>
+							
 						</div>
 					</div>
 				<?php

@@ -5,27 +5,57 @@
     border-radius: 25px;
     font-family: "RedHatDisplay", Arial, sans-serif;
     font-size: $default;
-    line-height: 1.5em;
     font-weight: 700;
     display: inline-block;
     box-sizing: border-box;
     position: relative;
+    padding: 15px 30px;
 
     &--small {
-        padding: 13px 25px;
-        font-size: 0.75em;
+        padding: 14px 25px;
+        font-size: 0.875em;
+        border-radius: 23px;
+    }
+
+    &--big {
+        padding: 18px 40px;
+        border-radius: 28px;
     }
 
     &--image {
-        padding: 16px 65px 16px 40px;
-        border-radius: 28px;
-        position: relative;
+        padding-left: 28px;
+        padding-right: 58px;
+        overflow: hidden;
+
+        &.button--small {
+            padding-left: 30px;
+            padding-right: 50px;
+
+            span {
+                width: 36px;
+                height: 36px;
+
+                [class^="flaticon-"]:before, 
+                [class^="flaticon-"]:after {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        &.button--big {
+            padding-right: 65px;
+
+            span {
+                width: 46px;
+                height: 46px;
+            }
+        }
 
         span {
             position: absolute;
             content: '';
-            width: 46px;
-            height: 46px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: $white;
             top: 5px;
@@ -33,35 +63,86 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            [class^="flaticon-"]:before, 
+            [class^="flaticon-"]:after {
+                font-size: 18px;
+            }
         }
 
-        // &:before {
-        //     position: absolute;
-        //     content: '';
-        //     width: 18px;
-        //     height: 13px;
-        //     right: 18px;
-        //     top: 50%;
-        //     transform: translateY(-50%);
-        //     background-image: url('../../assets/images/arrow-pointing.png');
-        //     background-repeat: no-repeat;
-        //     background-size: cover;
-        //     z-index: 1;
-        // }
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            transition: all 0.5s;
+            opacity: 1;
+            transform: translate(-105%,0);
+            background-color: rgba(255,255,255,.8);
+        }
+
+        &:hover {
+            &:before {
+                opacity: 0;
+                transform: translate(0,0);
+            }
+        }
     }
 
     &--blue {
         background-color: $blue;
-    }
+        box-shadow: 7px 5px 18px rgba(0, 195, 255, 0.3);
 
-    &--orange {
-        background-color: $orange;
-        box-shadow: 10px 7px 20px rgba(254, 76, 28, 0.3);
+        &.button--image {
+            span i {
+                color: $blue;
+            }
+        }
     }
 
     &--blue-dark {
         background-color: $blue-dark;
         box-shadow: 10px 7px 20px rgba(1, 96, 231, 0.3);
+
+        &.button--image {
+            span i {
+                color: $blue-dark;
+            }
+        }
+    }
+
+    &--orange {
+        background-color: $orange;
+        box-shadow: 10px 7px 20px rgba(254, 76, 28, 0.3);       
+        
+        &.button--image {
+            span i {
+                color: $orange;
+            }
+        }
+    }
+
+    &--orange-revert {
+        background-color: $white;
+        color: $orange;
+        box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
+
+        &.button--image {
+            span {
+                background-color: $orange;
+
+                i {
+                    color: $white;
+                }
+            }
+        }
+
+        &:hover {
+            color: $orange;
+        }
     }
 
     &--rounded {

@@ -48,7 +48,7 @@ if(is_page_template('tpl-team.php'))
 
 			<div class="header__actions">
 				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
-				<a href="#" class="button button--small button--blue-dark">Contact Us</a>
+				<a href="#" class="button button--blue-dark">Contact Us</a>
 			</div>
 		</div>
 	</header>

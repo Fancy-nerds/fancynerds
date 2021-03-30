@@ -1,6 +1,4 @@
 @import '../utils/vars.scss';
-// @import '../components/slick.scss';
-// @import '../components/slider.scss';
 
 .plans {
   margin-bottom: 200px;
@@ -97,15 +95,6 @@
         color: $white;
         background-color: $blue;
       }
-
-      .button {
-        color: $white;
-        background-color: $blue;
-
-        i {
-          color: $blue;
-        }
-      }
     }
 
     &--economy {
@@ -127,7 +116,6 @@
         left: 0;
         background-image: url(../../../assets/images/economy_after.png) no-repeat 0 0/cover;
         z-index: -1;
-        // left: 55%;
       }
 
       .plans__label {
@@ -136,19 +124,6 @@
         @media screen and (max-width: 768px) {
           color: $white;
           background-color: $orange;
-        }
-      }
-
-      .button {
-        color: $orange;
-        background-color: $white;
-
-        span {
-          background-color: $orange;
-        }
-
-        i {
-          color: $white;
         }
       }
     }
@@ -164,37 +139,17 @@
         background-color: $blue-dark;
         color: $white;
       }
-
-      .button {
-        color: $white;
-        background-color: $blue-dark;
-
-        i {
-          color: $blue-dark;
-        }
-      }
     }
+  }
 
-    .button {
-      position: absolute;
-      left: 50%;
-      bottom: -23px;
-      transform: translateX(-50%);
-      padding: 11px 50px 11px 30px;
-      transition: all linear 0.3s;
-      z-index: 3;
-
-      span {
-        width: 36px;
-        height: 36px;
-      }
-
-      // &:before {
-      //   width: 15px;
-      //   height: 11px;
-      //   right: 15px;
-      // }
-    }
+  &__action {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    z-index: 3;
+    transition: all linear .3s;   
+    text-align: center;
+    width: 100%;
   }
 
   &__before {
@@ -256,7 +211,6 @@
     sup {
       font-size: 24px;
       margin-left: -15px;
-      // vertical-align: text-top;
     }
   }
 

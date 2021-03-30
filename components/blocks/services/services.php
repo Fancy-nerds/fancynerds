@@ -51,7 +51,13 @@ $background = get_field('background');
 							</div>
 							<div class="services__title"><?= $service['title']; ?></div>
 							<p class="paragraph"><?= $service['paragraph']; ?></p>
-							<a href="<?= get_permalink( $service['url'] ); ?>" class="button button--orange button--image"><?= $service['more']; ?></a>
+							<div class="services__action">
+								<a href="<?= get_permalink( $service['url'] ); ?>" class="button button--small button--orange button--image"><?= $service['more']; ?>
+									<span>
+										<i class="flaticon-right-arrow-1"></i>
+									</span>
+								</a>
+							</div>
 						</div>
 					</div>
 				<?php
