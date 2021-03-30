@@ -95,7 +95,7 @@ function watchFiles() {
     gulp.watch("src/sass/pages/*.scss", gulp.series(stylesPages, browserSyncReload));
     gulp.watch("src/sass/*.scss", gulp.series(stylesCommon, browserSyncReload));
     gulp.watch("src/templates/pages/*.html", gulp.series(template, browserSyncReload));
-    gulp.watch("src/assets/images/**/*", gulp.series(images, browserSyncReload));
+    // gulp.watch("src/assets/images/**/*", gulp.series(images, browserSyncReload));
     gulp.watch("src/scripts/**/*.js", gulp.series(scripts, browserSyncReload));
 }
 
@@ -123,5 +123,5 @@ function fonts() {
         .pipe(gulp.dest('assets/fonts/'))
 }
 
-module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, images, scripts, fonts);
+module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, scripts, fonts);
 module.exports.watch = gulp.parallel(watchFiles, browserSync);
