@@ -27,7 +27,7 @@ if(is_page_template('tpl-team.php'))
 	$add_clss = 'team';
 ?>
 
-
+ 
 
 <div id="page" class="site <?= $add_clss;?>">
 
