@@ -9,11 +9,6 @@ $title = get_field('title',$pid);
 $paragraph = get_field('paragraph',$pid);
 $teams = get_field('teams',$pid);
 
-// echo '<pre>';
-// print_r($teams);
-// echo '</pre>';
-
-
 if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 	
 	get_template_part( 'template-parts/jumbotron__inner', null, [
@@ -50,14 +45,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 						<div class="team__card">
 							<?php 
 							$all_meta = get_user_meta( $value['user'] );
- 	 						// echo '<pre>';
- 	 						// print_r( $all_meta ); 
- 	 						// echo '</pre>';
 							if($all_meta['user_photo'][0]):
-								echo M4Helpers::getImgHtml([ 'img_id'=>$all_meta['user_photo'][0], 'size'=>'medium']);
+								echo M4Helpers::getImgHtml([ 'img_id'=>$all_meta['user_photo'][0], 'size'=>'team']);
 							endif;?>
-							<!-- <img src="<?php bloginfo('template_directory');?>/assets/images/091224867853_huge.png" alt=""> -->
-
 							<div class="team__card_info">
 								<div class="team__name">
 									<?= $all_meta['first_name'][0] . ' ' . $all_meta['last_name'][0]; ?>
