@@ -41,6 +41,7 @@ if(is_page_template('tpl-about.php'))
 			<?php wp_nav_menu( array(
 				'theme_location'  => 'menu-1',
 				'menu_class'      => 'menu',
+				'container_class' => 'header__menu',
 			) ); ?>
 
 			<div class="header__actions">
