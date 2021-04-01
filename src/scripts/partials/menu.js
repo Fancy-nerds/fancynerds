@@ -7,7 +7,7 @@ jQuery(function($) {
         console.log(e.target);
         console.log(e.currentTarget);
 
-        if (!e.target.className.contains('sub-menu') && !e.currentTarget.className.contains('menu-item-has-children')) {
+        if (!e.target.classList.contains('sub-menu') && !e.currentTarget.classList.contains('menu-item-has-children')) {
             $(this).find('.sub-menu').removeClass('active'); 
         }
     });
