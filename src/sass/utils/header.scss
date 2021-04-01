@@ -55,16 +55,60 @@
     &__menu {
         height: 100%;
 
+        &_container {
+            height: 100%;
+        }
+
         @media screen and (max-width: 768px) {
             height: 100vh;
             position: absolute;
-            z-index: 22;
             top: 0;
             width: 310px;
             right: 0;
             background-color: $white;
             padding: 35px;
+            z-index: 9999;
+            transform: translateX(100%);
+            transition: all 0.3s linear;
         }
+
+        &--open {
+            transform: translateX(0);
+        }
+    }
+
+    &__mobile-menu {
+        background: #f0f6ff;
+        width: 50px;
+        height: 50px;
+        line-height: 60px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
+        display: none;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+        }
+
+        svg, img {
+            width: 20px;
+            fill: #1a1b1e;
+        }
+    }
+
+    &__overlay {
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+        background: rgba(0,0,0,.7);
+        visibility: visible;
+        opacity: 1;
+        z-index: 9998;
     }
 }
 
@@ -77,6 +121,7 @@
         flex-direction: column;
         height: auto;
         align-items: flex-start;
+        z-index: 9999;
     }
 
     &-item {

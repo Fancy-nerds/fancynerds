@@ -38,11 +38,17 @@ if(is_page_template('tpl-about.php'))
 			<a href="<?= home_url(); ?>" class="header__logo">
 				<img width="89" height="80" src="<?php bloginfo('template_directory');?>/assets/images/logo-fancy-nerds.svg">
 			</a>
-			<?php wp_nav_menu( array(
-				'theme_location'  => 'menu-1',
-				'menu_class'      => 'menu',
-				'container_class' => 'header__menu',
-			) ); ?>
+
+			<div class="header__menu">
+				<a href="#" class="header__close">
+					<i class="flaticon-close"></i>
+				</a>
+				<?php wp_nav_menu( array(
+					'theme_location'  => 'menu-1',
+					'menu_class'      => 'menu',
+					'container_class' => 'header__menu_container',
+				) ); ?>
+			</div>
 
 			<div class="header__actions">
 				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
