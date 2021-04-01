@@ -18,43 +18,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	the_content();
 	?>
 
-	<div class="main__content">
-			<div class="container">
-		<div class="row who-we-are">
-			<div class="col col-50">
-				<div class="who-we-are__image">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/1227081424_huge.png">
-					<div class="who-we-are__advisors">
-						<div class="who-we-are__advisors_content">
-							<span class="who-we-are__advisors_count">25+</span>
-							<span class="who-we-are__advisors_text">professional advisors</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col col-50">
-				<div class="who-we-are__content">
-					<h4 class="subtitle subtitle__dot-before">Who we are</h4>
-					<h2 class="title">We're on a Mission to Change Your View of SEO</h2>
-					<p class="description">Onum is a values-driven SEO agency dedicated to empowering our customers.</p>
-					<p class="paragraph">
-						Over the years, we have worked with Fortune 500s and brand-new startups. 
-						We help ambitious businesses like yours generate more profits by building awareness, 
-						driving web traffic, connecting with customers, and growing overall sales. Give us a call.
-					</p>
-					<div class="who-we-are__video">
-						<a href="#" class="button button--play button--circle">
-							<span class="circle circle-1"></span>
-							<span class="circle circle-2"></span>
-						</a>
-						video showcase
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="why-choose">
 	<div class="principles">
 		<div class="container">
