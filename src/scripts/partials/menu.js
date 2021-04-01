@@ -10,16 +10,13 @@ jQuery(function($) {
         console.log(e.currentTarget);
         console.log(e.currentTarget.classList.contains('menu-item-has-children'));
 
-        if (!e.target.classList.contains('sub-menu') && !e.currentTarget.classList.contains('menu-item-has-children')) {
+        if (!e.target.classList.contains('menu-item-has-children') && !e.currentTarget.classList.contains('menu-item-has-children')) {
             $(this).find('.sub-menu').removeClass('active'); 
         }
     });
 
     $('.sub-menu').on('mouseleave', function(e) {
         $(this).removeClass('active'); 
-
-        
-        
     })
 
     

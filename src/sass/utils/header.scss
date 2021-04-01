@@ -159,12 +159,6 @@
                     width: 50%;
                 }
             }
-
-            .sub-menu {
-                visibility: visible;
-                opacity: 1; 
-                transform: translateY(20px);
-            }
         }
 
         a {
@@ -193,6 +187,12 @@
 
             .menu-item {
                 margin-right: 0;
+            }
+
+            &.active {
+                visibility: visible;
+                opacity: 1; 
+                transform: translateY(20px);
             }
         }
     }
