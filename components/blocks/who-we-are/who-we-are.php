@@ -24,10 +24,17 @@ if( !empty($block['align']) ) {
 	$className .= ' align' . $block['align'];
 }
 
-// $image = get_field('image');
-// $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
-// $title = get_field('title') ?: 'Your title here...';
-// $benefits = get_field('benefits');
+$image = get_field('image');
+$advisors_count = get_field('advisors_count') ?: 'Your Advisors count here...';
+$advisors_text = get_field('advisors_text') ?: 'Your Advisors text here...';
+$subtitle = get_field('subtitle') ?: 'Your subtitle here...';
+$title = get_field('title') ?: 'Your title here...';
+$description = get_field('description') ?: 'Your description here...';
+$paragraph = get_field('paragraph') ?: 'Your paragraph here...';
+$url = get_field('url') ?: 'Your url here...';
+$videoshowcase = get_field('videoshowcase') ?: 'Your videoshowcase here...';
+
+
 ?>
 
 
@@ -36,31 +43,30 @@ if( !empty($block['align']) ) {
 		<div class="row who-we-are">
 			<div class="col col-50">
 				<div class="who-we-are__image">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/1227081424_huge.png">
+					<?php
+					if($image):
+						echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'medium_large']);
+					endif;?>
 					<div class="who-we-are__advisors">
 						<div class="who-we-are__advisors_content">
-							<span class="who-we-are__advisors_count">25+</span>
-							<span class="who-we-are__advisors_text">professional advisors</span>
+							<span class="who-we-are__advisors_count"><?= $advisors_count; ?></span>
+							<span class="who-we-are__advisors_text"><?= $advisors_text; ?></span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col col-50">
 				<div class="who-we-are__content">
-					<h4 class="subtitle subtitle__dot-before">Who we are</h4>
-					<h2 class="title">We're on a Mission to Change Your View of SEO</h2>
-					<p class="description">Onum is a values-driven SEO agency dedicated to empowering our customers.</p>
-					<p class="paragraph">
-						Over the years, we have worked with Fortune 500s and brand-new startups. 
-						We help ambitious businesses like yours generate more profits by building awareness, 
-						driving web traffic, connecting with customers, and growing overall sales. Give us a call.
-					</p>
+					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
+					<h2 class="title"><?= $title; ?></h2>
+					<p class="description"><?= $description; ?></p>
+					<p class="paragraph"><?= $paragraph; ?></p>
 					<div class="who-we-are__video">
-						<a href="#" class="button button--play button--circle">
+						<a href="<?= $url; ?>" class="button button--play button--circle">
 							<span class="circle circle-1"></span>
 							<span class="circle circle-2"></span>
 						</a>
-						video showcase
+						<?= $videoshowcase; ?>
 					</div>
 				</div>
 			</div>
