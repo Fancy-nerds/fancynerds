@@ -159,6 +159,12 @@
                     width: 50%;
                 }
             }
+
+            .sub-menu {
+                visibility: visible;
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
 
         a {
@@ -185,14 +191,17 @@
             visibility: hidden;
             opacity: 0;
 
-            .menu-item {
-                margin-right: 0;
+            &:before {
+                content: "";
+                position: absolute;
+                height: 10px;
+                width: 100%;
+                top: -8px;
+                left: 0;
             }
 
-            &.active {
-                visibility: visible;
-                opacity: 1; 
-                transform: translateY(20px);
+            .menu-item {
+                margin-right: 0;
             }
         }
     }
