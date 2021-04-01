@@ -178,7 +178,7 @@
         }
 
         &.menu-item-has-children {
-            a {
+            & > a {
                 padding-right: 17px;
 
                 &:after {
@@ -187,7 +187,7 @@
                     height: 6px;
                     right: 0;
                     top: 50%;
-                    margin-top: -6px;
+                    margin-top: -5px;
                     font-family: "Flaticon";
                     content: "";
                     font-size: 11px;
