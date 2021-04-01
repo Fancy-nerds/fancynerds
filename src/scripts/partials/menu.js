@@ -5,7 +5,10 @@ jQuery(function($) {
 
     $('.menu-item-has-children').on('mouseout', function(e) {
         console.log(e.target);
+        console.log(e.target.classList.contains('sub-menu'));
+        console.log('------------------------------------------------');
         console.log(e.currentTarget);
+        console.log(e.currentTarget.classList.contains('menu-item-has-children'));
 
         if (!e.target.classList.contains('sub-menu') && !e.currentTarget.classList.contains('menu-item-has-children')) {
             $(this).find('.sub-menu').removeClass('active'); 
