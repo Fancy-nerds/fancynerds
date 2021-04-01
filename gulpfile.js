@@ -107,7 +107,7 @@ function images() {
 
 //Scripts
 function scripts() {
-    return gulp.src('src/scripts/*.js')
+    return gulp.src('src/scripts/blocks/*.js')
         .pipe(rigger())
 
         .pipe(rename( function(file) {
@@ -117,11 +117,19 @@ function scripts() {
         .pipe(gulp.dest('components/blocks'))
 }
 
+
+
+function scriptsCommon() {
+    return gulp.src('src/scripts/*.js')
+        .pipe(rigger())
+        .pipe(gulp.dest('assets/scripts/'))
+}
+
 //Fonts
 function fonts() {
     return gulp.src('src/fonts/**/*')
         .pipe(gulp.dest('assets/fonts/'))
 }
 
-module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, scripts, fonts);
+module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, scripts, scriptsCommon, fonts);
 module.exports.watch = gulp.parallel(watchFiles, browserSync);
