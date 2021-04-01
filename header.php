@@ -40,9 +40,11 @@ if(is_page_template('tpl-about.php'))
 			</a>
 
 			<div class="header__menu">
-				<a href="#" class="header__close">
-					<i class="flaticon-close"></i>
-				</a>
+				<div class="header__close">
+					<a href="#" class="header__close_action">
+						<i class="flaticon-close"></i>
+					</a>
+				</div>
 				<?php wp_nav_menu( array(
 					'theme_location'  => 'menu-1',
 					'menu_class'      => 'menu',

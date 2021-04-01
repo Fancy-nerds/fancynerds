@@ -110,6 +110,12 @@
         opacity: 1;
         z-index: 9998;
     }
+
+    &__close {
+        width: 100%;
+        text-align: right;
+        display: block;
+    }
 }
 
 .menu {
