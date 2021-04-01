@@ -148,6 +148,9 @@ function fancynerds_scripts() {
 
 	# Common styles that appears on all pages
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+	
+	# Common scripts that appears on all pages
+	wp_enqueue_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array('jquery-core'), null, true );
 
 
 	# LIBS
