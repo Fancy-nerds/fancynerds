@@ -177,6 +177,27 @@
             }
         }
 
+        &.menu-item-has-children {
+            a {
+                padding-right: 17px;
+
+                &:after {
+                    position: absolute;
+                    width: 11px;
+                    height: 6px;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -6px;
+                    font-family: "Flaticon";
+                    content: "";
+                    font-size: 11px;
+                    line-height: 1;
+                    color: rgba(85,105,135,.5);
+                    font-weight: 500;
+                }
+            }
+        }
+
         .sub-menu {
             margin: 0;
             padding: 25px 0;
@@ -191,6 +212,7 @@
             z-index: 10;
             visibility: hidden;
             opacity: 0;
+            min-width: 290px;
 
             &:before {
                 content: "";
@@ -206,6 +228,11 @@
                 display: block;
                 position: relative;
                 padding: 0 40px;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
 
                 a {
                     line-height: 30px;
