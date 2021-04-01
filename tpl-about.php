@@ -105,6 +105,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	</div>
 </div>
 
+
+
+
 <div class="team-slider">
 	<div class="counters">
 		<div class="container">

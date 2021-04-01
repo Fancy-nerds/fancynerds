@@ -33,6 +33,9 @@ class M4Blocks
 				'icon'=>'welcome-learn-more'],
 			['name'=>'who-we-are',
 				'icon'=>'groups'],
+			['name'=>'why-choose',
+				'icon'=>'products'],
+				
 		];
 	}
 
