@@ -23,7 +23,7 @@
 					<div class="col col-25">
 						<div class="footer__column">
 							<h6 class="footer__title">Services</h6>
-		
+
 							<ul class="footer__menu">
 								<li class="footer__item">
 									<a href="#" class="link">SEO for Small Business</a>
@@ -46,7 +46,7 @@
 					<div class="col col-25">
 						<div class="footer__column">
 							<h6 class="footer__title">Learn</h6>
-		
+
 							<ul class="footer__menu">
 								<li class="footer__item">
 									<a href="#" class="link">Why SEO Matters</a>
@@ -69,7 +69,7 @@
 					<div class="col col-25">
 						<div class="footer__column">
 							<h6 class="footer__title">Company</h6>
-		
+
 							<ul class="footer__menu">
 								<li class="footer__item">
 									<a href="#" class="link">About Company</a>
@@ -92,9 +92,9 @@
 					<div class="col col-25 subscribe-col">
 						<div class="footer__column">
 							<h6 class="footer__title">Subscribe</h6>
-		
+
 							<p class="footer__text">Follow our newsletter to stay updated about agency.</p>
-		
+
 							<form class="form form__subscribe">
 								<div class="form__group">
 									<input placeholder="Your mail" class="form__control">
