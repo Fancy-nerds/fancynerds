@@ -179,8 +179,9 @@
 
         .sub-menu {
             margin: 0;
-            padding: 20px;
-            background: $blue;
+            padding: 25px 0;
+            background: $white;
+            box-shadow: 7px 5px 30px rgba(42, 67, 113, .15);
             border-radius: 15px;
             position: absolute;
             top: calc(100% + 10px);
@@ -196,12 +197,52 @@
                 position: absolute;
                 height: 10px;
                 width: 100%;
-                top: -8px;
+                top: -10px;
                 left: 0;
             }
 
             .menu-item {
                 margin-right: 0;
+                display: block;
+                position: relative;
+                padding: 0 40px;
+
+                a {
+                    line-height: 30px;
+                    display: block;
+                    padding: 5px 0;
+                    position: relative;
+                    text-decoration: none;
+                    outline: none;
+                    text-transform: none;
+                    transition: all 0.2s linear;
+
+                    &:hover {
+                        color: $blue;
+                        padding-left: 15px;
+
+                        &:before {
+                            left: 0;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        top: 50%;
+                        left: -15px;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background-color: $blue;
+                        transform: translateY(-50%);
+                        transition: all 0.2s linear;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
             }
         }
     }
