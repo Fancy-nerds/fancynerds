@@ -31,6 +31,8 @@ class M4Blocks
 				'icon'=>'welcome-write-blog'],
 			['name'=>'team__photo',
 				'icon'=>'welcome-learn-more'],
+			['name'=>'who-we-are',
+				'icon'=>'groups'],
 		];
 	}
 
