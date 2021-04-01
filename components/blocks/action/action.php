@@ -39,7 +39,11 @@ transform: translateX(-50%);
 top: 87px;
 ">
 			<div class="action__title"><?= $title;?></div>
-			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?></a>
+			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?>
+				<span>
+					<i class="flaticon-right-arrow-1"></i>
+				</span>
+			</a>
 		</div>
 	</div>
 </section>

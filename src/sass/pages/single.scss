@@ -51,7 +51,6 @@
     }
 
     .article-label {
-    
         margin-bottom: 30px;
     }
 
@@ -99,7 +98,54 @@
     }
 
     .blockquote {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 30px;
+        margin: 40px 0;
         width: 82%;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: ""; 
+            width: 3px;
+            height: 100%;
+            border-radius: 2px;
+            background-color: $orange;
+        }
+    
+        &__text {
+            color: $black;
+            font-family: "RedHatDisplay";
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 42px;
+            margin-bottom: 20px;
+        }
+    
+        &__author {
+            color: #a5b7d2;
+            font-family: "RedHatDisplay";
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            position: relative;
+            padding-left: 10px;
+    
+            &:before {
+                position: absolute;
+                content: '-';
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
     }
 
     .gallery {

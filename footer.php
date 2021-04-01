@@ -89,7 +89,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col col-25">
+					<div class="col col-25 subscribe-col">
 						<div class="footer__column">
 							<h6 class="footer__title">Subscribe</h6>
 		
