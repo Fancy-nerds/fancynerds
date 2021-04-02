@@ -74,6 +74,8 @@
 
         &.active {
             transform: translateX(0);
+            position: fixed;
+            padding-top: 50px;
         }
     }
 
@@ -245,6 +247,12 @@
             & > a {
                 padding-right: 17px;
 
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                    display: block;
+                    position: relative;
+                }
+
                 &:after {
                     position: absolute;
                     width: 11px;
@@ -259,6 +267,11 @@
                     color: rgba(85,105,135,.5);
                     font-weight: 500;
                 }
+            }
+
+            @media screen and (max-width: 768px) {
+                display: flex;
+                flex-direction: column;
             }
         }
 
@@ -309,30 +322,40 @@
                     transition: all 0.2s linear;
 
                     &:hover {
-                        color: $blue;
-                        padding-left: 15px;
+                        @media screen and (min-width: 768px) {
+                            color: $blue;
+                            padding-left: 15px;
+                        }
 
                         &:before {
-                            left: 0;
-                            visibility: visible;
-                            opacity: 1;
+                            @media screen and (min-width: 768px) {
+                                left: 0;
+                                visibility: visible;
+                                opacity: 1;
+                            }
                         }
                     }
 
                     &:before {
-                        position: absolute;
-                        content: "";
-                        top: 50%;
-                        left: -15px;
-                        width: 6px;
-                        height: 6px;
-                        border-radius: 50%;
-                        background-color: $blue;
-                        transform: translateY(-50%);
-                        transition: all 0.2s linear;
-                        visibility: hidden;
-                        opacity: 0;
+                        @media screen and (min-width: 768px) {
+                            position: absolute;
+                            content: "";
+                            top: 50%;
+                            left: -15px;
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 50%;
+                            background-color: $blue;
+                            transform: translateY(-50%);
+                            transition: all 0.2s linear;
+                            visibility: hidden;
+                            opacity: 0;
+                        }
                     }
+                }
+
+                @media screen and (max-width: 768px) {
+                    padding: 0 15px;
                 }
             }
         }

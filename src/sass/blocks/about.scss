@@ -8,8 +8,8 @@
   &__bg {
     transform: rotate(178.6deg) scale(-1, 1);
     position: absolute;
-    top: -178px;
-    left: -456px;
+    top: -26%;
+    left: -24%;
     width: 1471px;
     height: 879px;
     z-index: 0;
@@ -19,8 +19,7 @@
     }
 
     @media screen and (max-width: 568px) {
-      top: -20
-      0px;
+      top: -200px;
     }
   }
 
