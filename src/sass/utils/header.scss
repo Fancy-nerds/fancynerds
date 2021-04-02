@@ -72,7 +72,7 @@
             transition: all 0.3s linear;
         }
 
-        &--open {
+        &.active {
             transform: translateX(0);
         }
     }
@@ -106,9 +106,15 @@
         right: 0;
         position: fixed;
         background: rgba(0,0,0,.7);
-        visibility: visible;
-        opacity: 1;
-        z-index: 9998;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s linear;
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            z-index: 9998;
+        }
     }
 
     &__close {
@@ -195,7 +201,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &.current-menu-item {
             a {
                 color: $black;
             }
@@ -214,7 +221,9 @@
                     width: 50%;
                 }
             }
+        }
 
+        &:hover {
             .sub-menu {
                 visibility: visible;
                 opacity: 1; 

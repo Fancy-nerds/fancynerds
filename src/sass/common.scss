@@ -55,6 +55,10 @@ picture {
     border-radius: 15px;
 }
 
+.fixed {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1170px;
     margin: 0 auto;
