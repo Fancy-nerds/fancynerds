@@ -212,7 +212,7 @@
         &:hover,
         &.current-menu-item {
             a {
-                color: $black;
+                color: $blue;
             }
 
             &:before {
@@ -259,7 +259,7 @@
                     width: 100%;
                     display: block;
                     position: relative;
-                    color: $blue;
+                    color: $black;
                 }
 
                 &:after {
