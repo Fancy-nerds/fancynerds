@@ -12,12 +12,30 @@
     }
   }
 
-  &__slider {
-    .slick-slide {
-      @media screen and (max-width: 768px) {
-        padding: 20px 50px 50px;
-      }
+  // &__slider {
+  //   .slick-slide {
+  //     @media screen and (max-width: 768px) {
+  //       padding: 20px 50px 50px;
+  //     }
 
+  //   }
+  // }
+
+  .slider {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      overflow-x: scroll;
+      flex-wrap: nowrap;
+      padding: 20px 10px 40px 20px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+
+    .col {
+      @media screen and (max-width: 768px) {
+        width: 80%;
+        flex: none;
+      }
     }
   }
 
