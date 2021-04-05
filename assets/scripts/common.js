@@ -27,60 +27,55 @@ jQuery(function($) {
 
     function findElements(object, element) {
         const instance = object;
-        // element - это "вопрос", по которому происходит нажатие
         instance.element = element;
-        // target - это "ответ", который должен "раскрываться"
         instance.target = element.querySelector('.sub-menu');
-        console.log(instance.target);
     }
 
     function measureHeight(object) {
         const instance = object;
         // вычисляем высоту ответа
         // instance.height = object.target.firstElementChild.clientHeight;
-
-        console.log(object.target);
-        console.log(object.target.querySelectorAll('.menu-item'));
         let items = object.target.querySelectorAll('.menu-item');
-        items.forEach(el => console.log(el.clientHeight));
+        let sumHeight = 0;
+        items.forEach(el => sumHeight += el.offsetHeight);
+        console.log(sumHeight);
+        instance.height = sumHeight;
     }
 
-    // function subscribe(instance) {
-    //     instance.element.addEventListener('click', (event) => {
-    //       // отменяем "действие по умолчанию"
-    //       event.preventDefault();
-    //       // меняем состояние аккордеона
-    //       changeElementStatus(instance);
-    //     });
-    //     // если размер окна поменяется - измерим высоту ответа заново
-    //     window.addEventListener('resize', () => measureHeight(instance));
-    // }
+    function subscribe(instance) {
+        instance.element.addEventListener('click', (event) => {
+          event.preventDefault();
+          changeElementStatus(instance);
+        });
 
-    // function changeElementStatus(instance) {
-    //     if (instance.isActive) {
-    //       hideElement(instance);
-    //     } else {
-    //       showElement(instance);
-    //     }
-    // }
+        window.addEventListener('resize', () => measureHeight(instance));
+    }
 
-    // function hideElement(object) {
-    //     const instance = object;
-    //     const { target } = instance;
-    //     // обнуляем высоту ответа
-    //     target.style.height = null;
-    //     // делаем статус неактивным
-    //     instance.isActive = false;
-    // }
+    function changeElementStatus(instance) {
+        if (instance.isActive) {
+          hideElement(instance);
+        } else {
+          showElement(instance);
+        }
+    }
 
-    // function showElement(object) {
-    //     const instance = object;
-    //     const { target, height } = instance;
-    //     // задаем ответу сохраненную в measureHeight высоту
-    //     target.style.height = `${height}px`;
-    //     // делаем статус активным
-    //     instance.isActive = true;
-    // }
+    function hideElement(object) {
+        const instance = object;
+        const { target } = instance;
+        // обнуляем высоту ответа
+        target.style.height = null;
+        // делаем статус неактивным
+        instance.isActive = false;
+    }
+
+    function showElement(object) {
+        const instance = object;
+        const { target, height } = instance;
+        // задаем ответу сохраненную в measureHeight высоту
+        target.style.height = `${height}px`;
+        // делаем статус активным
+        instance.isActive = true;
+    }
 
     function accordion(element) {
         const instance = {};
@@ -90,8 +85,8 @@ jQuery(function($) {
           findElements(instance, element);
           // измерим высоту ответа
           measureHeight(instance);
-        //   // добавим логику нажатия на кнопку
-        //   subscribe(instance);
+          // добавим логику нажатия на кнопку
+          subscribe(instance);
         }
         init();
     }
