@@ -12,11 +12,11 @@ jQuery(function($) {
     });
 
     $(document).on('click', '.menu-item-has-children', function(){
-        $(this).find('.sub-menu').toggle( { 
+        $(this).find('.sub-menu').slideToggle( { 
             duration: 800,
             easing: "linear",
             complete: function(){
-              console.log("toggle completed");
+              console.log("slideToggle completed");
             },
             queue: false // не ставим в очередь
         });
