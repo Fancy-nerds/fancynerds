@@ -83,6 +83,24 @@ function stylesPages() {
         .pipe(gulp.dest('assets/styles/pages/'))
 }
 
+function stylesShortcodes() {
+    return gulp.src('src/sass/shortcodes/*.scss')
+        .pipe(plumber())
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            includePaths: ['node_modules']
+        }))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(shorthand())
+        .pipe(sourcemaps.write())
+        .pipe(rename( function(file) {
+            file.dirname = file.basename;
+        }))
+        .pipe(gulp.dest('components/shortcodes'))
+}
+
 function template() {
     return gulp.src('src/templates/pages/*.html')
         .pipe(rigger())
@@ -93,6 +111,7 @@ function template() {
 function watchFiles() {
     gulp.watch("src/sass/blocks/*.scss", gulp.series(styles, browserSyncReload));
     gulp.watch("src/sass/pages/*.scss", gulp.series(stylesPages, browserSyncReload));
+    gulp.watch("src/sass/shortcodes/*.scss", gulp.series(stylesShortcodes, browserSyncReload));
     gulp.watch("src/sass/*.scss", gulp.series(stylesCommon, browserSyncReload));
     gulp.watch("src/templates/pages/*.html", gulp.series(template, browserSyncReload));
     // gulp.watch("src/assets/images/**/*", gulp.series(images, browserSyncReload));
@@ -131,5 +150,5 @@ function fonts() {
         .pipe(gulp.dest('assets/fonts/'))
 }
 
-module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, template, scripts, scriptsCommon, fonts);
+module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, stylesShortcodes, template, scripts, scriptsCommon, fonts);
 module.exports.watch = gulp.parallel(watchFiles, browserSync);

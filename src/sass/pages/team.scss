@@ -1,4 +1,5 @@
 @import '../utils/vars.scss';
+@import '../shortcodes/team.scss';
 
 .team {
     .main__content {
@@ -14,83 +15,5 @@
         padding: 0 70px;
         text-align: center; 
     }
-    
-    &__list {
-        padding: 120px 0 90px;
-        background-color: #f0f6ff;
-    
-        .heading {
-            width: 50%;
-            margin: 0 auto 60px;
-        }
-    }
-    
-    &__card {
-        position: relative;
-        margin-bottom: 100px;
-        border-radius: 15px;
-        display: block;
-    
-        img {
-            width: 100%;
-        }
-    
-        &_info {
-            position: absolute;
-            padding: 30px;
-            box-sizing: border-box;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            margin: 0 25px;
-            height: 120px;
-            box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-            border-radius: 15px;
-            background-color: #ffffff;
-            text-align: center;
-        }
-    }
-    
-    &__name {
-        font-family: "RedHatDisplay";
-        font-size: 24px;
-        font-weight: 700; 
-        margin-bottom: 8px;
-    }
-    
-    &__work {
-        color: #606060;
-        font-size: 16px;
-    }
-    
-    &__social {
-        display: flex;
-        justify-content: flex-end;
-        position: absolute;
-        right: 60px;
-        bottom: -17px;
-    
-        &_item {
-            width: 35px;
-            height: 35px;
-            position: relative;
-        }
-    
-        &_add {
-            box-shadow: 7px 5px 18px rgba(21, 183, 236, 0.3);
-            background-color: #15b7ec;
-            border-radius: 50%;
-    
-            &:after {
-                position: absolute;
-                content: '';
-                width: 14px;
-                height: 14px;
-                background-image: url('../../images/add.png.webp');
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-    }
+
 }
