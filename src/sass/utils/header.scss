@@ -302,10 +302,13 @@
                 position: relative;
                 left: 0;
                 padding: 0;
-                display: none;
                 visibility: visible;
                 opacity: 1;
                 transform: none;
+
+                overflow: hidden;
+                height: 0;
+                transition: height 0.5s;
             }
 
             &:before {
