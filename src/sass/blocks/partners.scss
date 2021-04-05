@@ -10,7 +10,7 @@
 
   @media screen and (max-width: 768px) {
     padding: 0;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   &__item {
@@ -26,6 +26,11 @@
       opacity: 1;
       filter: none;
     }
+
+    @media screen and (max-width: 768px) {
+      opacity: 1;
+      filter: none;
+    }
   }
 
   .slider {
@@ -33,13 +38,18 @@
       display: flex;
       overflow-x: scroll;
       flex-wrap: nowrap;
+      padding-bottom: 20px;
     }
 
     .col {
       @media screen and (max-width: 768px) {
-          width: 80%;
+          width: 40%;
           flex: none;
       }  
+
+      @media screen and (max-width: 400px) {
+        width: 65%;
+      }
     }
   }
 }
