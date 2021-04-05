@@ -19,47 +19,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	?>
 
 
-<div class="counters">
-	<div class="container">
-		<div class="counters__bg"></div>
-		<div class="row">
-			<div class="col col-25">
-				<div class="counters__item">
-					<div class="subtitle subtitle__dot-before">Active clients</div>
-					<div class="counters__count">
-						<span data-counter="330">0</span>+
-					</div>
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="counters__item">
-					<div class="subtitle subtitle__dot-before">Projects Done</div>
-					<div class="counters__count">
-						<span data-counter="850">0</span>+
-					</div>
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="counters__item">
-					<div class="subtitle subtitle__dot-before">team advisors</div>
-					<div class="counters__count">
-						<span data-counter="25">0</span>+
-					</div>
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="counters__item">
-					<div class="subtitle subtitle__dot-before">Glorious Years</div>
-					<div class="counters__count">
-						<span data-counter="10">0</span>+
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
 
 <div class="team-slider">
 	
