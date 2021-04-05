@@ -36,6 +36,18 @@
         width: 80%;
         flex: none;
       }
+
+      &:first-child {
+        @media screen and (max-width: 768px) {
+          padding-left: 20px;
+        }
+      }
+
+      &:last-child {
+        @media screen and (max-width: 768px) {
+          padding-right: 20px;
+        }
+      }
     }
   }
 
