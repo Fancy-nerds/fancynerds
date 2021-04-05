@@ -36,7 +36,9 @@ class M4Blocks
 			['name'=>'why-choose',
 				'icon'=>'products'],
 			['name'=>'principles',
-				'icon'=>'products']
+				'icon'=>'products'],
+			['name'=>'counters',
+			'icon'=>'products']
 		];
 	}
 

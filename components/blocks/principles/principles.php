@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Services Block Template.
  *
@@ -29,7 +28,7 @@ $principles = get_field('principles');?>
 
 <?php
 if (is_array($principles) && count($principles)>0):?>
-	<div class="principles">
+	<div class="principles" style="top: 80px;">
 		<div class="container">
 			<div class="row">
 				<?php
@@ -55,4 +54,4 @@ if (is_array($principles) && count($principles)>0):?>
 		</div>
 	</div>
 <?php
-endif;?>
+endif;
