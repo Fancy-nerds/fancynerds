@@ -13,7 +13,9 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 require_once 'helpers/M4Helpers.php';
+require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
+
 
 if ( ! function_exists( 'fancynerds_setup' ) ) :
 	/**
