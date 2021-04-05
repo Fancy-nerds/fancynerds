@@ -37,7 +37,7 @@ jQuery(function($) {
         let items = object.target.querySelectorAll('.menu-item');
         let sumHeight = 0;
 
-        items.forEach(el, function() {
+        items.forEach((el) => {
             let style = window.getComputedStyle(el, null);
             let height = el.offsetHeight;
             let margin = parseFloat(style.marginBottom);
