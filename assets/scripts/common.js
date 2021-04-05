@@ -27,6 +27,7 @@ jQuery(function($) {
 
     function findElements(object, element) {
         const instance = object;
+        
         instance.element = element;
         instance.target = element.querySelector('.sub-menu');
     }
@@ -43,7 +44,6 @@ jQuery(function($) {
             let margin = parseFloat(style.marginBottom);
             sumHeight += height + margin;
         });
-        console.log(sumHeight);
         instance.height = sumHeight;
     }
 
@@ -67,18 +67,16 @@ jQuery(function($) {
     function hideElement(object) {
         const instance = object;
         const { target } = instance;
-        // обнуляем высоту ответа
+
         target.style.height = null;
-        // делаем статус неактивным
         instance.isActive = false;
     }
 
     function showElement(object) {
         const instance = object;
         const { target, height } = instance;
-        // задаем ответу сохраненную в measureHeight высоту
+
         target.style.height = `${height}px`;
-        // делаем статус активным
         instance.isActive = true;
     }
 
@@ -86,11 +84,8 @@ jQuery(function($) {
         const instance = {};
               
         function init() {
-          // найдем вопрос и ответ
           findElements(instance, element);
-          // измерим высоту ответа
           measureHeight(instance);
-          // добавим логику нажатия на кнопку
           subscribe(instance);
         }
         init();
