@@ -291,6 +291,20 @@
             opacity: 0;
             min-width: 290px;
 
+            @media screen and (max-width: 768px) {
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                min-width: initial;
+                top: auto;
+                position: relative;
+                left: 0;
+                padding: 0;
+                display: none;
+                visibility: visible;
+                opacity: 1;
+            }
+
             &:before {
                 content: "";
                 position: absolute;

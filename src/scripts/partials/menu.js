@@ -10,4 +10,15 @@ jQuery(function($) {
         $(document).find('.header__overlay').removeClass('active');
         $(document).find('.header__menu').removeClass('active');
     });
+
+    $(document).on('click', '.menu-item-has-children', function(){
+        $(this).find('.sub-menu').toggle( { 
+            duration: 800,
+            easing: "linear",
+            complete: function(){
+              console.log("toggle completed");
+            },
+            queue: false // не ставим в очередь
+        });
+    });
 })
