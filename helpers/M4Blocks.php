@@ -38,6 +38,8 @@ class M4Blocks
 			['name'=>'principles',
 				'icon'=>'products'],
 			['name'=>'counters',
+			'icon'=>'products'],
+			['name'=>'team-slider',
 			'icon'=>'products']
 		];
 	}
