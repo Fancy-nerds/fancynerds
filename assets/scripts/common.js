@@ -33,11 +33,16 @@ jQuery(function($) {
 
     function measureHeight(object) {
         const instance = object;
-        // вычисляем высоту ответа
-        // instance.height = object.target.firstElementChild.clientHeight;
+
         let items = object.target.querySelectorAll('.menu-item');
         let sumHeight = 0;
-        items.forEach(el => sumHeight += el.offsetHeight);
+
+        items.forEach(el, function() {
+            let style = window.getComputedStyle(el, null);
+            let height = el.offsetHeight;
+            let margin = parseFloat(style.marginBottom);
+            sumHeight += height + margin;
+        });
         console.log(sumHeight);
         instance.height = sumHeight;
     }
