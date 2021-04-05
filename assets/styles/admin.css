@@ -1,3 +1,8 @@
 .wp-block {
   max-width: 1920px;
 }
+
+.principles,
+.counters{
+	position: static !important;
+}
