@@ -30,7 +30,7 @@ jQuery(function($) {
         // element - это "вопрос", по которому происходит нажатие
         instance.element = element;
         // target - это "ответ", который должен "раскрываться"
-        instance.target = element.querySelector('sub-menu');
+        instance.target = element.querySelector('.sub-menu');
         console.log(instance.target);
     }
 
