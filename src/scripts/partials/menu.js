@@ -93,7 +93,7 @@ jQuery(function($) {
         //   // добавим логику нажатия на кнопку
         //   subscribe(instance);
         }
-        // init();
+        init();
     }
 
 
