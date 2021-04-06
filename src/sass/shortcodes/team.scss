@@ -7,13 +7,14 @@
     
         .heading {
             width: 50%;
-            margin: 0 auto 60px;
+            margin: 0 auto 20px;
         }
     }
 
     &__card {
         position: relative;
-        margin-bottom: 100px;
+        margin-top: 40px;
+        margin-bottom: 60px;
         border-radius: 15px;
         display: block;
         z-index: 11;
@@ -26,7 +27,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0,0,0,0.1);
             z-index: 12;
             border-radius: 15px
         }
