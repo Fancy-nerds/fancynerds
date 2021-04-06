@@ -51,7 +51,8 @@ picture {
     display: block;
 }
 
-.image--rounded img {
+.image--rounded img,
+img.image--rounded {
     border-radius: 15px;
 }
 
