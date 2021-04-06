@@ -19,8 +19,7 @@
 
 	<?php
 		if (pll_current_language() == 'ru') { ?>
-			<link rel="preconnect" href="https://fonts.gstatic.com">
-			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+			<link rel="stylesheet" id="fontMonserrat-css" href="<?php get_template_directory_uri().'/assets/styles/fontMonserrat.css'?>" media="all">
 		<?php } 
 	?>
 
