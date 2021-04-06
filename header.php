@@ -19,7 +19,7 @@
 
 	<?php
 		if (pll_current_language() == 'ru') { ?>
-			<link rel="stylesheet" id="fontMonserrat-css" href="<?php get_template_directory_uri().'/assets/styles/fontMonserrat.css'?>" media="all">
+			<link rel="stylesheet" id="fontMonserrat-css" href="<?= get_template_directory_uri().'/assets/styles/fontMonserrat.css'?>" media="all">
 		<?php } 
 	?>
 
