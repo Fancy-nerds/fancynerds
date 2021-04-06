@@ -3,7 +3,7 @@
 .button {
     color: $white;
     border-radius: 25px;
-    font-family: "RedHatDisplay", Arial, sans-serif;
+    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
     font-size: $default;
     font-weight: 700;
     display: inline-block;
@@ -208,7 +208,7 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 48px;
-    font-family: "RedHatDisplay", Arial, sans-serif;
+    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
     margin-bottom: 20px;
     font-weight: 900;
 }
@@ -230,7 +230,7 @@ h1.title {
     text-transform: uppercase;
     line-height: 18px;
     margin-bottom: 10px;
-    font-family: "RedHatDisplay", Arial, sans-serif;
+    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
     font-weight: 700;
     position: relative;
     display: inline-block;
@@ -299,7 +299,7 @@ h1.title {
 
 .link {
     color: $blue-light;
-    font-family: "RedHatDisplay";
+    font-family: "RedHatDisplay", "Montserrat";
     font-size: 16px;
     font-weight: 400;
     transition: all linear .3s;

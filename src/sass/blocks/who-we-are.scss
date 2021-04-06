@@ -30,14 +30,14 @@
         }
 
         &_count {
-            font-family: "RedHatDisplay";
+            font-family: "RedHatDisplay", "Montserrat";
             font-size: 48px;
             font-weight: 900;
             margin-bottom: 10px;
         }
 
         &_text {
-            font-family: "RedHatDisplay";
+            font-family: "RedHatDisplay", "Montserrat";
             font-size: 14px;
             font-weight: 900;
             line-height: 22px;
@@ -56,7 +56,7 @@
 
     &__video {
         color: #1a1b1e;
-        font-family: "RedHatDisplay";
+        font-family: "RedHatDisplay", "Montserrat";
         font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;

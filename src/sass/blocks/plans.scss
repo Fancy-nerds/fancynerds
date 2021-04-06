@@ -214,7 +214,7 @@
     box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
     border-radius: 0 17px 17px 0;
     background-color: $white;
-    font-family: "RedHatDisplay";
+    font-family: "RedHatDisplay", "Montserrat";
     font-size: 13px;
     font-weight: 700;
     line-height: 34px;
@@ -236,7 +236,7 @@
 
   &__price {
     color: $black;
-    font-family: "RedHatDisplay";
+    font-family: "RedHatDisplay", "Montserrat";
     font-size: 42px;
     font-weight: 700;
     line-height: 50px;

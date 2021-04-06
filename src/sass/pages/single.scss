@@ -92,7 +92,7 @@
     h2 {
         margin-bottom: 30px;
         color: $black;
-        font-family: "RedHatDisplay";
+        font-family: "RedHatDisplay", "Montserrat";
         font-size: 30px;
         font-weight: 900;
     }
@@ -121,7 +121,7 @@
     
         &__text {
             color: $black;
-            font-family: "RedHatDisplay";
+            font-family: "RedHatDisplay", "Montserrat";
             font-size: 24px;
             font-weight: 500;
             line-height: 42px;
@@ -130,7 +130,7 @@
     
         &__author {
             color: #a5b7d2;
-            font-family: "RedHatDisplay";
+            font-family: "RedHatDisplay", "Montserrat";
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
