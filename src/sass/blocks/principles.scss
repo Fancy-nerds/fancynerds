@@ -7,6 +7,12 @@
     z-index: 33;
     position: relative;
 
+    @media screen and (max-width: 768px) {
+        top: 0 !important;
+        height: auto;
+        margin-bottom: 60px;
+    }
+
     &__item {
         box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
         border-radius: 15px;
@@ -17,11 +23,16 @@
         position: relative;
         cursor: pointer;
 
+        @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+        }
+
         &:before,
         &:after {
             position: absolute;
             content: '';
             background-repeat: no-repeat;
+            background-size: cover;
         }
 
         &:before {
