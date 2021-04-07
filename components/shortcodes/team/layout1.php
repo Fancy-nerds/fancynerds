@@ -2,10 +2,6 @@
 if (!defined( 'ABSPATH' ))
 exit('Direct access not allowed!');
 
-$user_ids = explode(',',$atts['user_id']);
-$lang = pll_current_language();
-$description = ($lang !== 'en') ? 'description'.'_'.$lang : 'description';
-
 if( is_array($user_ids) && count($user_ids)>0 ):?>
 	<div class="team__slider slider row">
 		<?php
