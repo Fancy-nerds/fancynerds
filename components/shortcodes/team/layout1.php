@@ -2,12 +2,6 @@
 if (!defined( 'ABSPATH' ))
 exit('Direct access not allowed!');
 
-$user_ids = explode(',',$atts['user_id']);
-
-// echo '<pre>';
-// print_r(get_defined_vars());
-// echo '</pre>';
-
 if( is_array($user_ids) && count($user_ids)>0 ):?>
 	<div class="team__slider slider row">
 		<?php
@@ -23,7 +17,7 @@ if( is_array($user_ids) && count($user_ids)>0 ):?>
 					endif; ?>
 					<div class="team__card_info">
 						<div class="team__name"><?= $all_meta['first_name'][0] . ' ' . $all_meta['last_name'][0]; ?></div>
-						<div class="team__work"><?= $all_meta['description'][0]; ?></div>
+						<div class="team__work"><?= $all_meta[$description][0]; ?></div>
 						<div class="team__social">
 							<a href="#" class="team__social_item team__social_add"></a>
 						</div>
