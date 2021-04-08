@@ -33,6 +33,8 @@ if(is_page_template('tpl-team.php'))
 	$add_clss = 'team';
 if(is_page_template('tpl-about.php'))
 	$add_clss = 'about';
+if(is_page_template('tpl-service.php'))
+	$add_clss = 'service';
 ?>
 
   

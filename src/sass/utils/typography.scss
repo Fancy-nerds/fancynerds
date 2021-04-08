@@ -10,6 +10,8 @@
     box-sizing: border-box;
     position: relative;
     padding: 15px 30px;
+    transition: all linear .3s;
+    cursor: pointer;
 
     &--small {
         padding: 14px 25px;

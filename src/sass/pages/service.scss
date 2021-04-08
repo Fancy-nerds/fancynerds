@@ -1,0 +1,28 @@
+@import '../utils/vars.scss';
+
+.service {
+    .main__content {
+        padding: 25px 0;
+    }
+
+    .switcher {
+        margin-bottom: 30px;
+    }
+
+    .why-choose {
+        background: #f0f6ff;
+        padding: 120px 0;
+
+        @media screen and (max-width: 768px) {
+            padding-top: 50px !important;
+        }
+
+        .progress-bars {
+            margin-top: 30px;
+        }
+    }
+
+    .plans {
+        padding: 100px 0;
+    }
+}

@@ -1,0 +1,35 @@
+@import '../utils/vars.scss';
+
+.what-is {
+    padding: 100px 0;
+
+    ul {
+        li {
+            position: relative;
+            list-style-type: none;
+            padding-left: 40px;
+            margin-bottom: 20px;
+            color: $black-light;
+            font-size: 16px;
+            line-height: 30px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:before {
+                font-family: 'Flaticon';
+                font-size: 22px;
+                font-style: normal;
+                margin-left: 0; 
+                line-height: 1;
+                content: "\f109";
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: $orange;
+                line-height: 30px;
+            }
+        }
+    }
+}

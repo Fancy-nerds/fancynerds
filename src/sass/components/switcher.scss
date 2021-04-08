@@ -1,0 +1,34 @@
+@import '../utils/vars.scss';
+
+.switcher {
+    border-radius: 28px;
+    border: 1px solid rgba($gray, 0.5);
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+
+    .button:not(.active) {
+        color: $gray;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    &__tabs {
+        display: flex;
+        overflow: hidden;
+    }
+
+    &__tab {
+        width: 100%;
+        flex: none;
+        transition: all linear 0.3s;
+
+        & > * {
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
