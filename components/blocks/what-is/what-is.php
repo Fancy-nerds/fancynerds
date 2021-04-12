@@ -49,7 +49,7 @@ $image = get_field('image');
 						<?php
 						$i=0;
 						foreach ($switcher as $k => $v): ?>
-							<button data-target="<?= $v['target']; ?>" class="button button--blue <?php echo ($i==0) ? 'active' : ''; ?>"><?= $v['target']; ?></button>
+							<button data-target="<?= str_replace(' ', '_', $v['target']) ; ?>" class="button <?php echo ($i==0) ? 'button--blue active' : ''; ?>"><?= ucfirst($v['target']); ?></button>
 						<?php
 						$i++;
 						endforeach ?>
@@ -67,7 +67,7 @@ $image = get_field('image');
 						<?php
 						$i=0;
 						foreach ($switcher as $k => $v): ?>
-							<div class="switcher__tab <?php echo ($i==0) ? 'active' : ''; ?>" data-name="<?= $v['target']; ?>">
+							<div class="switcher__tab <?php echo ($i==0) ? 'active' : ''; ?>" data-name="<?= str_replace(' ', '_', $v['target']) ; ?>">
 								<p class="paragraph"><?= $v['paragraph'];?></p>
 								<?= $v['list'];?>
 							</div>
