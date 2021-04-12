@@ -40,7 +40,10 @@ class M4Blocks
 			['name'=>'counters',
 			'icon'=>'products'],
 			['name'=>'team-slider',
-			'icon'=>'products']
+			'icon'=>'products'],
+			['name'=>'what-is',
+			'icon'=>'products'],
+			
 		];
 	}
 
@@ -56,6 +59,11 @@ class M4Blocks
 					'category'          => 'formatting',
 					'icon'              => $block['icon'],
 					'keywords'          => array( $block['name'] ),
+					'example'  => array(
+			        'attributes' => array(
+			            'mode' => 'preview'
+			        )
+			    ),
 					'enqueue_assets'	=> function($asset){
 
 
