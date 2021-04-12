@@ -49,7 +49,7 @@ $image = get_field('image');
 						<?php
 						$i=0;
 						foreach ($switcher as $k => $v): ?>
-							<button data-target="<?= strtolower(str_replace(' ', '_', $v['target'])) ; ?>" class="button <?php echo ($i==0) ? 'button--blue active' : ''; ?>"><?= ucfirst($v['target']); ?></button>
+							<button data-target="<?= strtolower(str_replace(' ', '_', $v['target'])) ; ?>" class="button button--blue<?php echo ($i==0) ? ' active' : ''; ?>"><?= ucfirst($v['target']); ?></button>
 						<?php
 						$i++;
 						endforeach ?>
@@ -57,10 +57,6 @@ $image = get_field('image');
 				<?php
 				endif; ?>
 
-				<!-- <div class="switcher">
-					<button data-target="integration" class="button button--blue active">Integration</button>
-					<button data-target="development" class="button">Development</button>
-				</div> -->
 				<?php
 				if(is_array($switcher) && count($switcher)>0): ?>
 					<div class="switcher__tabs">
