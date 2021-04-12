@@ -26,13 +26,7 @@ if( !empty($block['align']) ) {
 $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
 $switcher = get_field('switcher');
-$image = get_field('image');
-
-// echo '<pre>';
-// print_r($switcher);
-// echo '</pre>';
-
-?>
+$image = get_field('image');?>
 
 
 
@@ -42,7 +36,6 @@ $image = get_field('image');
 			<div class="col col-50">
 				<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 				<h2 class="title"><?= $title; ?></h2>
-
 				<?php
 				if(is_array($switcher) && count($switcher)>0): ?>
 					<div class="switcher">
@@ -55,9 +48,7 @@ $image = get_field('image');
 						endforeach ?>
 					</div>
 				<?php
-				endif; ?>
-
-				<?php
+				endif;
 				if(is_array($switcher) && count($switcher)>0): ?>
 					<div class="switcher__tabs">
 						<?php
@@ -73,7 +64,6 @@ $image = get_field('image');
 					</div>
 				<?php
 				endif; ?>
-
 			</div>
 			<div class="col col-50">
 				<div class="what-is__image">
