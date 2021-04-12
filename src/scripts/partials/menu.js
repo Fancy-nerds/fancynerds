@@ -50,7 +50,7 @@ jQuery(function($) {
     function subscribe(instance) {
         instance.element.addEventListener('click', (event) => {
           event.preventDefault();
-          changeElementStatus(instance);
+          // changeElementStatus(instance);
         });
 
         window.addEventListener('resize', () => measureHeight(instance));
