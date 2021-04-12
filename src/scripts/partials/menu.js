@@ -49,7 +49,7 @@ jQuery(function($) {
 
     function subscribe(instance) {
         instance.element.addEventListener('click', (event) => {
-          event.preventDefault();
+          // event.preventDefault();
           // changeElementStatus(instance);
         });
 
