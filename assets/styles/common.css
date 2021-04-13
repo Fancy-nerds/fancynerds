@@ -1651,6 +1651,11 @@ h1.title {
   flex: none;
   -webkit-transition: all linear 0.3s;
   transition: all linear 0.3s;
+  display: none;
+}
+
+.switcher__tab.active {
+  display: block;
 }
 
 .switcher__tab > * {
