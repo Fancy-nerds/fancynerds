@@ -12,6 +12,10 @@
     "type": "git",
     "url": ""
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "gulp-autoprefixer": "^7.0.1",

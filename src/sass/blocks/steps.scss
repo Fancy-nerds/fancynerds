@@ -23,6 +23,7 @@
         cursor: pointer;
         z-index: 11;
         transition: all linear .3s;
+        margin-bottom: 30px;
 
         @media screen and (max-width: 768px) {
             margin-bottom: 20px;
@@ -55,7 +56,8 @@
                 background: none;
 
                 [class^="flaticon-"]:before,
-                [class^="flaticon-"]:after{ 
+                [class^="flaticon-"]:after,
+                span { 
                     color: #00c3ff;
                 }
 
@@ -79,7 +81,8 @@
         position: relative;
 
         [class^="flaticon-"]:before,
-        [class^="flaticon-"]:after{
+        [class^="flaticon-"]:after,
+        span {
             color: #fff;
             transform: translate(-50%, -50%);
             position: relative;
