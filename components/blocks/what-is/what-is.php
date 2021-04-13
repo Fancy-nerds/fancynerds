@@ -8,6 +8,14 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
+// echo '<pre>';
+// print_r($block);
+// print_r($content);
+// var_dump($is_preview);
+// print_r($post_id);
+// echo '</pre>';
+
+
 // Create id attribute allowing for custom "anchor" value.
 $id = 'what-is-' . $block['id'];
 if( !empty($block['anchor']) ) {
@@ -42,7 +50,7 @@ $image = get_field('image');?>
 						<?php
 						$i=0;
 						foreach ($switcher as $k => $v): ?>
-							<button data-target="<?= strtolower(str_replace(' ', '_', $v['target'])) ; ?>" class="button button--blue<?php echo ($i==0) ? ' active' : ''; ?>"><?= ucfirst($v['target']); ?></button>
+							<button data-target="<?= $block['id'].'_tab'.$i; ?>" class="button button--blue<?php echo ($i==0) ? ' active' : ''; ?>"><?= ucfirst($v['target']); ?></button>
 						<?php
 						$i++;
 						endforeach ?>
@@ -54,7 +62,7 @@ $image = get_field('image');?>
 						<?php
 						$i=0;
 						foreach ($switcher as $k => $v): ?>
-							<div class="switcher__tab <?php echo ($i==0) ? 'active' : ''; ?>" data-name="<?= strtolower(str_replace(' ', '_', $v['target'])); ?>">
+							<div class="switcher__tab <?php echo ($i==0) ? 'active' : ''; ?>" data-name="<?= $block['id'].'_tab'.$i; ?>">
 								<p class="paragraph"><?= $v['paragraph'];?></p>
 								<?= $v['list'];?>
 							</div>
