@@ -43,7 +43,10 @@ class M4Blocks
 			'icon'=>'products'],
 			['name'=>'what-is',
 			'icon'=>'products'],
-			
+			['name'=>'testimonials-slider',
+			'icon'=>'products',
+			'dep_js'=>['fancynerds-libs-swiper-js'],
+			'dep_css'=>['fancynerds-libs-swiper-css']]
 		];
 	}
 
@@ -89,7 +92,8 @@ class M4Blocks
 						$file_path = TEMPLATEPATH."/components/blocks/".$asset['title']."/".$asset['title'];
 
 						// echo '<pre>';
-						// print_r($deps);
+						// print_r($dep_js);
+						// print_r($dep_css);
 						// echo '</pre>';
 
 
