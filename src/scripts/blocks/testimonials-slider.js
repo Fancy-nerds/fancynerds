@@ -1,5 +1,6 @@
 jQuery(function($) {
     var swiper = new Swiper('.swiper-container', {
+    		autoHeight: true, //enable auto height
         spaceBetween: 30,
         loop: true,
         navigation: {
