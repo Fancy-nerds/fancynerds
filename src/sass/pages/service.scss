@@ -25,4 +25,19 @@
     .plans {
         padding: 100px 0;
     }
+
+    .steps {
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+        &__item {
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .advantages {
+        margin-bottom: 100px;
+    }
 }

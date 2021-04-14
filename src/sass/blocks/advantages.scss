@@ -1,0 +1,32 @@
+@import '../utils/vars.scss';
+
+.advantages {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 100px;
+    }
+
+    &__counters {
+        margin-top: 40px;
+
+        &_item {
+
+        }
+        &_count {
+            color: $blue-dark;
+            font-family: "RedHatDisplay", "Montserrat";
+            font-size: 36px;
+            font-weight: 900; 
+            margin-bottom: 5px;
+        }
+        &_text {
+            color: $black;
+            font-family: "RedHatDisplay", "Montserrat";
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+        }
+    }
+}
