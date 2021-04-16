@@ -24,6 +24,92 @@
 	?>
 
 	<?php wp_head(); ?>
+
+	<style>
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 9999; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  position: relative;
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 0;
+		  border: 1px solid #888;
+		  width: 100%;
+		  max-width: 500px;
+		  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+		  -webkit-animation-name: animatetop;
+		  -webkit-animation-duration: 0.4s;
+		  animation-name: animatetop;
+		  animation-duration: 0.4s;
+		  border-radius: 5px;
+		}
+
+		/* Add Animation */
+		@-webkit-keyframes animatetop {
+		  from {top:-300px; opacity:0} 
+		  to {top:0; opacity:1}
+		}
+
+		@keyframes animatetop {
+		  from {top:-300px; opacity:0}
+		  to {top:0; opacity:1}
+		}
+
+		.modal-header{
+			position: relative;
+		}
+		.modal-header__title{
+			font-size: 30px;
+			text-align: center;
+			margin-bottom: 10px;
+			padding-top: 15px;
+		}
+		/* The Close Button */
+		.close {
+			position: absolute;
+			right: 15px;
+			top: 5px;
+		  color: red;
+		  /* float: right; */
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+
+		.modal-body {padding: 25px;}
+		.modal-body__btn{
+			display: block;
+			margin-left: auto;
+			margin-top: 15px;
+		}
+		.modal input,
+		.modal textarea{
+			width: 100%;
+			resize: none;
+		}
+	</style>
+
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -62,7 +148,7 @@ if(is_page_template('tpl-service.php'))
 
 			<div class="header__actions">
 				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
-				<a href="#" class="button button--blue-dark">Contact Us</a>
+				<button class="button button--blue-dark" id="myBtn">Contact Us</button>
 				<a href="#" class="header__mobile-menu">
 					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24.75 24.75" style="enable-background:new 0 0 24.75 24.75;" xml:space="preserve">
 						<g>

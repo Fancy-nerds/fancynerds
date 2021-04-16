@@ -12,9 +12,11 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+require_once 'helpers/M4Funcs.php';
 require_once 'helpers/M4Helpers.php';
 require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
+require_once 'helpers/M4Ajax.php';
 
 
 if ( ! function_exists( 'fancynerds_setup' ) ) :
@@ -150,10 +152,13 @@ function fancynerds_scripts() {
 
 	# Common styles that appears on all pages
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-	
-	# Common scripts that appears on all pages
-	wp_enqueue_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array('jquery-core'), rand( 1, 999999 ), true );
 
+	# Common scripts that appears on all pages
+	wp_register_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array('jquery-core'), rand( 1, 999999 ), true );
+	wp_localize_script( 'fancynerds-common-js', 'k8All', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	));
+	wp_enqueue_script('fancynerds-common-js');
 
 	# LIBS
 	// wp_register_script( 'fancynerds-libs-slick-js', get_template_directory_uri().'/libs/slick/slick.min.js', array('jquery-core'), null, true );

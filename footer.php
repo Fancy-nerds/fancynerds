@@ -110,5 +110,81 @@
 		</footer>
 
 	</div><!-- #page -->
+
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <div class="modal-header clearfix">
+	    	<p class="modal-header__title">Contact our team!</p>
+	      <span class="close">&times;</span>
+	    </div>
+	    <div class="modal-body">
+	    	<form class="container form-ajx">
+	    		<div class="row">
+	    			<!-- <div class="col-50 col">
+	    				<label>Title*</label>
+			    		<input name="TITLE" value="" class="form__control" required/>
+	    			</div> -->
+			    	<input name="TITLE" value="Lead from website fancy-nerds.com" type="hidden"/>
+	    			
+	    			<div class="col-50 col">
+	    				<label>Company Name*</label>
+			    		<input name="COMPANY_TITLE" value="" class="form__control" required/>
+	    			</div>
+
+	    			<div class="col-50 col">
+	    				<label>Email*</label>
+			    		<input name="EMAIL" value="" class="form__control" required/>
+	    			</div>
+
+	    			<div class="col-50 col">
+	    				<label>First Name*</label>
+			    		<input name="NAME" value="" class="form__control" required/>
+	    			</div>
+	    			<div class="col-50 col">
+	    				<label>Last Name*</label>
+			    		<input name="LAST_NAME" value="" class="form__control" required/>
+	    			</div>
+
+	    			<div class="col col-100">
+	    				Comments: <textarea name="COMMENTS" class="form__control"></textarea><br />
+	    				<button class="button button--small button--orange modal-body__btn" >Send</button>
+	    				<p class="form-ajx__result"></p>
+	    			</div>
+	    		</div>
+	    	</form>
+
+	    </div>
+	  </div>
+	</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 </body>
 </html>
