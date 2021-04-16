@@ -26,6 +26,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 100px;
     }
 
     &__circle {
@@ -33,5 +34,121 @@
         height: 500px;
         z-index: 2;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__logo {
+        position: absolute;
+    }
+
+    &__counts {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 34;
+    }
+
+    &__count {
+        width: 90px;
+        height: 90px;
+        box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
+        background-color: $white;
+        color: $blue;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 30px;
+        font-family: "RedHatDisplay", "Montserrat";
+        flex-shrink: 0;
+    }
+
+    &__item {
+        position: absolute;
+        display: flex;
+        width: 400px;
+
+        .description {
+            font-weight: 700;
+        }
+
+        &_inner {
+            position: relative;
+
+            &:before {
+                position: absolute;
+                top: -40px;
+                right: 0;
+                content: '';
+                width: 20px;
+                height: 20px;
+                box-shadow: 7px 5px 18px rgba(21, 183, 236, 0.4);
+                background-color: $blue;
+                border-radius: 50%;
+            }
+        }
+
+        &:nth-child(1) {
+            top: 80px;
+            left: -293px;
+
+            .results__count {
+                color: $blue;
+                margin-left: 70px;
+                order: 2;
+            }
+
+            .results__item_inner {
+                text-align: right;
+            }
+        }
+
+        &:nth-child(2) {
+            left: 60px;
+            bottom: -215px;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            text-align: center;
+
+            .results__count {
+                color: $blue-dark;
+                margin-bottom: 70px;
+            }
+
+            .results__item_inner {
+                &:before {
+                    right: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: $blue-dark;
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            top: 135px;
+            right: -320px;
+
+            .results__count {
+                color: $orange;
+                margin-right: 50px;
+            }
+
+            .results__item_inner {
+                &:before {
+                    right: auto;
+                    left: 0;
+                    background-color: $orange;
+                    box-shadow: 7px 5px 18px rgba(254, 76, 28, 0.4);
+                }
+            }
+        }
     }
 }
