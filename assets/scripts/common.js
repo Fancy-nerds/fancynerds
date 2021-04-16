@@ -93,9 +93,7 @@ jQuery(function($) {
 
 
 })
-//
-
-
+	
 jQuery(function($) {
 	// Submiting lead form to bitrix 24 crm
 	$('body').on('submit', '.form-ajx', function(e) {
