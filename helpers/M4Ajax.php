@@ -1,5 +1,5 @@
 <?php
-require_once ( get_template_directory() . '/_libs/crest/crest.php' );
+require_once ( get_template_directory() . '/libs/crest/crest.php' );
 
 class M4Ajax
 {
