@@ -24,7 +24,7 @@ class M4Ajax
 	public function lead(){
 
 		$arrr = array();
-		$fields=[];
+		$fields=['ASSIGNED_BY_ID'=>C_REST_ASSIGNED_BY_ID];
 		extract( $_POST );
 
 		foreach ($dataSubm as $k=>$v) {

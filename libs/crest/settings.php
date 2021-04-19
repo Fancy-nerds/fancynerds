@@ -8,6 +8,7 @@ define('C_REST_AFF_ID','UF_CRM_1618697414');//Affiliate ID
 define('C_REST_AFF_EMAIL','UF_CRM_1618700015');//Affiliate Email
 define('C_REST_AFF_NAME','UF_CRM_1618821073');//Affiliate Name
 
+define('C_REST_ASSIGNED_BY_ID',17);//Affiliate Name
 
 
 
