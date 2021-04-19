@@ -43,8 +43,8 @@ class M4Blocks
 			'icon'=>'products'],
 			['name'=>'testimonials-slider',
 			'icon'=>'products',
-			'dep_js'=>['fancynerds-libs-swiper-js'],
-			'dep_css'=>['fancynerds-libs-swiper-css']]
+			'dep_js'=>['fancynerds-vendor-swiper-js'],
+			'dep_css'=>['fancynerds-vendor-swiper-css']]
 		];
 	}
 
