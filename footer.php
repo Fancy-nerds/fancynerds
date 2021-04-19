@@ -121,15 +121,15 @@
 	    <div class="modal-body">
 	    	<form class="container form-ajx">
 	    		<div class="row">
-	    			<!-- <div class="col-50 col">
-	    				<label>Title*</label>
-			    		<input name="TITLE" value="" class="form__control" required/>
-	    			</div> -->
 			    	<input name="TITLE" value="Lead from website fancy-nerds.com" type="hidden"/>
-	    			
+			    	<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='UF_CRM_1618697414' value='".$_COOKIE['wp_affiliates']."' type='hidden'/>" : ""); ?>
 	    			<div class="col-50 col">
-	    				<label>Company Name*</label>
-			    		<input name="COMPANY_TITLE" value="" class="form__control" required/>
+	    				<label>First Name*</label>
+			    		<input name="NAME" value="" class="form__control" required/>
+	    			</div>
+	    			<div class="col-50 col">
+	    				<label>Last Name*</label>
+			    		<input name="LAST_NAME" value="" class="form__control" required/>
 	    			</div>
 
 	    			<div class="col-50 col">
@@ -138,12 +138,8 @@
 	    			</div>
 
 	    			<div class="col-50 col">
-	    				<label>First Name*</label>
-			    		<input name="NAME" value="" class="form__control" required/>
-	    			</div>
-	    			<div class="col-50 col">
-	    				<label>Last Name*</label>
-			    		<input name="LAST_NAME" value="" class="form__control" required/>
+	    				<label>Phone</label>
+			    		<input name="PHONE" value="" class="form__control"/>
 	    			</div>
 
 	    			<div class="col col-100">
