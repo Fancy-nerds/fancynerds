@@ -27,13 +27,13 @@ class M4Ajax
 		$fields=['ASSIGNED_BY_ID'=>C_REST_ASSIGNED_BY_ID];
 		extract( $_POST );
 
-		foreach ($dataSubm as $k=>$v) {
+		foreach ($dataSubm as $k=>$v) :
 			if( $v['name']=='EMAIL'||$v['name']=='PHONE' ){
 				$fields[$v['name']]=[["VALUE"=>$v['value'],"VALUE_TYPE" => "WORK"]];
 				continue;
 			}
 			$fields[$v['name']]=$v['value'];
-		}
+		endforeach;
 
 		#get First name / Last name / EMAIL / of affiliate
 		if( isset($fields[C_REST_AFF_ID]) && $fields[C_REST_AFF_ID] !== '' ){
@@ -45,16 +45,12 @@ class M4Ajax
 				$fields[C_REST_AFF_EMAIL] = $aff_user[0]['email'];
 			}
 		}
-
 		CRest::call(
 			'crm.lead.add',
 			[
 		    'fields' =>$fields
 			]
 		);
-
-		// write_log(get_defined_vars());
-		
 		$arrr['success'] = true;
  		echo json_encode( $arrr );
 		exit();
