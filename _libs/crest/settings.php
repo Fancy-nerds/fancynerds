@@ -5,9 +5,10 @@
 define('C_REST_WEB_HOOK_URL','https://fancynerds.bitrix24.de/rest/15/5c1y76cb3vzv72mz/');//url on creat Webhook
 
 define('C_REST_AFF_ID','UF_CRM_1618697414');//Affiliate ID
-define('C_REST_AFF_F_N','UF_CRM_1618699754');//Affiliate First Name
-define('C_REST_AFF_L_N','UF_CRM_1618699930');//Affiliate Last Name
-define('C_REST_AFF_EMAIL','UF_CRM_1618700015');//Affiliate Last Name
+define('C_REST_AFF_EMAIL','UF_CRM_1618700015');//Affiliate Email
+define('C_REST_AFF_NAME','UF_CRM_1618821073');//Affiliate Name
+
+
 
 
 

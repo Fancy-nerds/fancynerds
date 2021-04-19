@@ -121,8 +121,8 @@
 	    <div class="modal-body">
 	    	<form class="container form-ajx">
 	    		<div class="row">
-			    	<input name="TITLE" value="Lead from website fancy-nerds.com" type="hidden"/>
-			    	<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='UF_CRM_1618697414' value='".$_COOKIE['wp_affiliates']."' type='hidden'/>" : ""); ?>
+			    	<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden"/>
+			    	<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='".C_REST_AFF_ID."' value='".$_COOKIE['wp_affiliates']."' type='hidden'/>" : ""); ?>
 	    			<div class="col-50 col">
 	    				<label>First Name*</label>
 			    		<input name="NAME" value="" class="form__control" required/>
