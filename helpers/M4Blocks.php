@@ -34,17 +34,19 @@ class M4Blocks
 			['name'=>'why-choose',
 				'icon'=>'products'],
 			['name'=>'principles',
-				'icon'=>'products'],
+				'icon'=>'album'],
 			['name'=>'counters',
-			'icon'=>'products'],
+			'icon'=>'admin-site-alt2'],
 			['name'=>'team-slider',
-			'icon'=>'products'],
+			'icon'=>'food'],
 			['name'=>'what-is',
-			'icon'=>'products'],
+			'icon'=>'list-view'],
 			['name'=>'testimonials-slider',
-			'icon'=>'products',
+			'icon'=>'post-status',
 			'dep_js'=>['fancynerds-vendor-swiper-js'],
-			'dep_css'=>['fancynerds-vendor-swiper-css']]
+			'dep_css'=>['fancynerds-vendor-swiper-css']],
+			['name'=>'skills',
+			'icon'=>'list-view'],
 		];
 	}
 

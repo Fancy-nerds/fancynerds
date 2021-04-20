@@ -8,27 +8,17 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'counters-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
+extract(M4Helpers::prepBlock($block,[
+	'top'=>'-130px',
+]));
 
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'counters';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
-
-$counters = get_field('counters');?>
-
+$counters = get_field('counters');
+// $style.= " top:-130px;";
+?>
 
 <?php
 if (is_array($counters) && count($counters)>0):?>
-	<div class="<?= $className; ?>" style="top: -130px;">
+	<div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style;?>>
 		<div class="container">
 			<div class="counters__bg"></div>
 			<div class="row">

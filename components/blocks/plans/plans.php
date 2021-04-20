@@ -10,19 +10,8 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'plans-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
+extract(M4Helpers::prepBlock($block));
 
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'plans';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
 
 $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
@@ -44,7 +33,7 @@ $buttonClasses=[
 ?>
 
 
-<section id="<?php echo esc_attr($id); ?>" class="section plans <?php echo esc_attr($className); ?>">
+<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="heading">

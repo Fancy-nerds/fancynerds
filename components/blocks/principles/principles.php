@@ -8,27 +8,15 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'principles-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
+extract(M4Helpers::prepBlock($block));
 
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'principles';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
 
 $principles = get_field('principles');?>
 
 
 <?php
 if (is_array($principles) && count($principles)>0):?>
-	<div class="principles" style="top: 80px;">
+	<div class="<?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
 		<div class="container">
 			<div class="row">
 				<?php
