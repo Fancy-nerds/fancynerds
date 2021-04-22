@@ -9,20 +9,7 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'team-slider-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'team-slider';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
+extract(M4Helpers::prepBlock($block));
 
 $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
@@ -37,7 +24,7 @@ $shortcode = get_field('shortcode');
 // $image = get_field('image');
 
 ?>
-<div class="<?= $className;?>" id="<?= $id;?>">
+<div class="<?= $className;?>" id="<?= $id;?>" <?= $style;?>>
 	<div class="container">
 		<div class="row">
 			<div class="col col-50">

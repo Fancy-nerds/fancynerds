@@ -9,19 +9,7 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 // Create id attribute allowing for custom "anchor" value.
-$id = 'jumbotron-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'jumbotron';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
+extract(M4Helpers::prepBlock($block));
 
 $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
@@ -31,7 +19,7 @@ $button = get_field('button') ?: 'Button Text';?>
 
 
 
-<section id="<?php echo esc_attr($id); ?>" class="section jumbotron <?php echo esc_attr($className); ?>">
+<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
 	<div class="container container--fluid">
 		<div class="row">
 			<div class="col col-54">

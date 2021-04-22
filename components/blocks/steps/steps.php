@@ -10,21 +10,7 @@
  */
 
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'steps-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
-
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'steps';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
+extract(M4Helpers::prepBlock($block));
 
 $steps = get_field('steps');
 
@@ -35,7 +21,7 @@ $icons = [
 'flaticon-pie-chart'
 ];?>
 
-<section id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
+<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
 	<div class="container container--fluid">
 		<div class="row">
 			<?php

@@ -9,20 +9,7 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'services-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'services';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
+extract(M4Helpers::prepBlock($block));
 
 $services = get_field('services');
 
@@ -32,7 +19,7 @@ $background = get_field('background');
 ?>
 
 
-<section id="<?php echo esc_attr($id); ?>" class="section services <?php echo esc_attr($className); ?>">
+<section id="<?php echo esc_attr($id); ?>" <?= $style;?> class="section <?php echo esc_attr($className); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="heading">

@@ -9,20 +9,7 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'who-we-are-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'who-we-are';
-if( !empty($block['className']) ) {
-	$className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-	$className .= ' align' . $block['align'];
-}
+extract(M4Helpers::prepBlock($block));
 
 $image = get_field('image');
 $advisors_count = get_field('advisors_count') ?: 'Your Advisors count here...';
@@ -38,7 +25,7 @@ $videoshowcase = get_field('videoshowcase') ?: 'Your videoshowcase here...';
 ?>
 
 
-<div id="<?php echo esc_attr($id); ?>" class="main__content <?php echo esc_attr($className); ?>">
+<div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="main__content <?php echo esc_attr($className); ?>">
 	<div class="container">
 		<div class="row who-we-are">
 			<div class="col col-50">
