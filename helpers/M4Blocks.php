@@ -66,7 +66,8 @@ class M4Blocks
 					'keywords'          => array( $block['name'] ),
 					'example'  => array(
 			        'attributes' => array(
-			            'mode' => 'preview'
+			            'mode' => 'preview',
+			            'data' => ['is_example' => true],
 			        )
 			    ),
 					'enqueue_assets'	=> function($asset){

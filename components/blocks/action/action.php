@@ -15,22 +15,28 @@ $title = get_field('title') ?: 'title here...';
 $button = get_field('button') ?: 'button name...';
 $url = get_field('url') ?: 'url here...';
 
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else :
 ?>
 
-<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container">
-		<div class="action__content" style="
-position: absolute;
-left: 50%;
-transform: translateX(-50%);
-top: 87px;
-">
-			<div class="action__title"><?= $title;?></div>
-			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?>
-				<span>
-					<i class="flaticon-right-arrow-1"></i>
-				</span>
-			</a>
+	<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
+		<div class="container">
+			<div class="action__content" style="
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 87px;
+	">
+				<div class="action__title"><?= $title;?></div>
+				<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?>
+					<span>
+						<i class="flaticon-right-arrow-1"></i>
+					</span>
+				</a>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<?php
+endif;

@@ -11,7 +11,12 @@
 
 extract(M4Helpers::prepBlock($block));
 
-$skills = get_field('skills'); ?>
+$skills = get_field('skills'); 
+
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else : ?>
 
 <div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<?php
@@ -47,3 +52,6 @@ $skills = get_field('skills'); ?>
 	<?php
 	endif;?>
 </div>
+
+<?php
+endif;

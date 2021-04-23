@@ -22,7 +22,10 @@ $shortcode = get_field('shortcode');
 
 // $bars = get_field('bars');
 // $image = get_field('image');
-
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else : 
 ?>
 <div class="<?= $className;?>" id="<?= $id;?>" <?= $style;?>>
 	<div class="container">
@@ -43,3 +46,5 @@ $shortcode = get_field('shortcode');
 		
 	</div>
 </div>
+<?php
+endif;

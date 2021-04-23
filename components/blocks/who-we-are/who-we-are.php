@@ -21,42 +21,44 @@ $paragraph = get_field('paragraph') ?: 'Your paragraph here...';
 $url = get_field('url') ?: 'Your url here...';
 $videoshowcase = get_field('videoshowcase') ?: 'Your videoshowcase here...';
 
-
-?>
-
-
-<div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="main__content <?php echo esc_attr($className); ?>">
-	<div class="container">
-		<div class="row who-we-are">
-			<div class="col col-50">
-				<div class="who-we-are__image">
-					<?php
-					if($image):
-						echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'medium_large']);
-					endif;?>
-					<div class="who-we-are__advisors">
-						<div class="who-we-are__advisors_content">
-							<span class="who-we-are__advisors_count"><?= $advisors_count; ?></span>
-							<span class="who-we-are__advisors_text"><?= $advisors_text; ?></span>
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else : ?>
+	<div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="main__content <?php echo esc_attr($className); ?>">
+		<div class="container">
+			<div class="row who-we-are">
+				<div class="col col-50">
+					<div class="who-we-are__image">
+						<?php
+						if($image):
+							echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'medium_large']);
+						endif;?>
+						<div class="who-we-are__advisors">
+							<div class="who-we-are__advisors_content">
+								<span class="who-we-are__advisors_count"><?= $advisors_count; ?></span>
+								<span class="who-we-are__advisors_text"><?= $advisors_text; ?></span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col col-50">
-				<div class="who-we-are__content">
-					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
-					<h2 class="title"><?= $title; ?></h2>
-					<p class="description"><?= $description; ?></p>
-					<p class="paragraph"><?= $paragraph; ?></p>
-					<div class="who-we-are__video">
-						<a href="<?= $url; ?>" class="button button--play button--circle">
-							<span class="circle circle-1"></span>
-							<span class="circle circle-2"></span>
-						</a>
-						<?= $videoshowcase; ?>
+				<div class="col col-50">
+					<div class="who-we-are__content">
+						<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
+						<h2 class="title"><?= $title; ?></h2>
+						<p class="description"><?= $description; ?></p>
+						<p class="paragraph"><?= $paragraph; ?></p>
+						<div class="who-we-are__video">
+							<a href="<?= $url; ?>" class="button button--play button--circle">
+								<span class="circle circle-1"></span>
+								<span class="circle circle-2"></span>
+							</a>
+							<?= $videoshowcase; ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php
+endif;

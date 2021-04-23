@@ -15,41 +15,46 @@ $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
 $description = get_field('description') ?: 'Your description here...';
 $url = get_field('url') ?: '#';
-$button = get_field('button') ?: 'Button Text';?>
+$button = get_field('button') ?: 'Button Text';
 
-
-
-<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container container--fluid">
-		<div class="row">
-			<div class="col col-54">
-				<div class="jumbotron_typographic">
-					<div class="jumbotron_image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg" width="876" height="660">
-					</div>
-					<div class="jumbotron_image--way">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg" width="299" height="421">
-					</div>
-					<div class="jumbotron_image--arrow">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg" width="41" height="46">
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else :
+?>
+	<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
+		<div class="container container--fluid">
+			<div class="row">
+				<div class="col col-54">
+					<div class="jumbotron_typographic">
+						<div class="jumbotron_image">
+							<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg" width="876" height="660">
+						</div>
+						<div class="jumbotron_image--way">
+							<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg" width="299" height="421">
+						</div>
+						<div class="jumbotron_image--arrow">
+							<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg" width="41" height="46">
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col col-46">
-				<div class="jumbotron_content">
-					<h4 class="subtitle"><?= $subtitle;?></h4>
-					<h1 class="title"><?= $title;?></h1>
-					<p class="description"><?= $description;?></p>
-					<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button;?>
-						<span>
-							<i class="flaticon-right-arrow-1"></i>
-						</span>
-					</a>
+				<div class="col col-46">
+					<div class="jumbotron_content">
+						<h4 class="subtitle"><?= $subtitle;?></h4>
+						<h1 class="title"><?= $title;?></h1>
+						<p class="description"><?= $description;?></p>
+						<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button;?>
+							<span>
+								<i class="flaticon-right-arrow-1"></i>
+							</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="jumbotron__bg--gray-big">
-		<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1524" height="915">
-	</div>
-</section>
+		<div class="jumbotron__bg--gray-big">
+			<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1524" height="915">
+		</div>
+	</section>
+<?php
+endif;

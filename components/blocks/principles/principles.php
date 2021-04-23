@@ -15,6 +15,11 @@ $principles = get_field('principles');?>
 
 
 <?php
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+else :
+
 if (is_array($principles) && count($principles)>0):?>
 	<div class="<?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
 		<div class="container">
@@ -42,4 +47,6 @@ if (is_array($principles) && count($principles)>0):?>
 		</div>
 	</div>
 <?php
+endif;
+
 endif;
