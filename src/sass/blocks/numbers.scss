@@ -1,0 +1,115 @@
+@import '../utils/vars.scss';
+@import 'counters.scss';
+
+.numbers {
+    padding: 120px 0;
+    background-color: #f0f6ff;
+
+    .heading {
+        width: 50%;
+        margin: 0 auto 40px;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    .toggle__wrapper {
+        margin-bottom: 50px;
+    }
+
+    .col {
+        &:nth-child(1) {
+            .numbers__item {
+                &:after {
+                    height: 134px;
+                    background: url('../../../assets/images/numbers-item-1.png') no-repeat 0 0/cover;
+                }
+            }
+            .numbers__count {
+                color: $blue;
+            }
+        }
+
+        &:nth-child(2) {
+            .numbers__item {
+                &:after {
+                    height: 119px;
+                    background: url('../../../assets/images/numbers-item-2.png') no-repeat 0 0/cover;
+                }
+            }
+            .numbers__count {
+                color: $blue-dark;
+            }
+        }
+
+        &:nth-child(3) {
+            .numbers__item {
+                &:after {
+                    height: 87px;
+                    background: url('../../../assets/images/numbers-item-3.png') no-repeat 0 0/cover;
+                }
+            }
+            .numbers__count {
+                color: $orange;
+            }
+        }
+    }
+
+    &__item {
+        box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.1);
+        border-radius: 15px;
+        background-color: $white;
+        position: relative;
+        min-height: 310px;
+        padding: 60px 30px 120px;
+        text-align: center;
+
+        &:after {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    &__count {
+        margin-bottom: 10px;
+        font-family: "RedHatDisplay", "Montserrat";
+        font-size: 36px;
+        font-weight: 900;
+    }
+
+    &__text {
+        color: $black;
+        font-family: "RedHatDisplay", "Montserrat";
+        font-weight: 700;
+    }
+
+    .counters {
+        height: auto;
+        margin-top: 100px;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__count {
+            color: $black;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            order: 2;
+            color: $orange;
+
+            &:before,
+            &:after {
+                background-color: $orange;
+            }
+        }
+    }
+}

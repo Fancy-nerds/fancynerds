@@ -14,6 +14,7 @@
         margin-bottom: 30px;
         transition: all linear 0.4s;
         position: relative;
+        display: block;
     
         img {
             width: 100%;
@@ -29,7 +30,7 @@
             position: absolute;
             right: 0;
             bottom: 20px;
-            width: 73%;
+            width: 270px;
             height: 100px;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;

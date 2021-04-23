@@ -1,0 +1,23 @@
+@import '../utils/vars.scss';
+@import '../pages/portfolio.scss';
+
+.cases-slider {
+    padding: 120px 0;
+
+    .heading {
+        text-align: left;
+        margin-bottom: 40px;        
+    }
+
+    &__slider {
+        padding: 0 50px;
+    }
+
+    .portfolio__item {
+        height: 400px;
+
+        picture, img {
+            height: 100%;
+        }
+    }
+}

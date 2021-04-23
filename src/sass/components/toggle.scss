@@ -1,0 +1,65 @@
+@import '../utils/vars.scss';
+
+.toggle {
+    width: 66px;
+    height: 34px;
+    box-shadow: 7px 5px 18px rgba(0, 195, 255, 0.3);
+    border-radius: 17px;
+    background-color: $blue;
+    box-sizing: border-box;
+    position: relative;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    &__text {
+        text-transform: uppercase;
+        color: $gray;
+        font-family: "RedHatDisplay", "Montserrat";
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        transition: color .3s ease;
+        will-change: color;
+
+        &--active {
+            color: $blue;
+        }
+
+        &--before {
+            padding-right: 15px;
+        }
+
+        &--after {
+            padding-left: 15px;
+        }
+    }
+
+    input {
+        width: 1px;
+        height: 1px;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__slider {
+       width: 24px;
+       height: 24px;
+       background-color: $white;
+       border-radius: 50%; 
+       display: block;
+       left: 5px;
+       top: 5px;
+       position: absolute;
+       transition: transform .3s ease;
+       will-change: transform;
+    }
+
+    input:checked + .toggle__slider {
+        transform: translateX(32px);
+    }
+}
