@@ -15,7 +15,8 @@ $counts = get_field('counts');
 /* Render screenshot for preview */
 if (get_field('is_example',$block['id'])) :
 	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
-else : 
+	return;
+endif;
 ?>
 	<div class=" <?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
 		<div class="container">
@@ -61,5 +62,3 @@ else :
 			</div>
 		</div>
 	</div>
-<?php
-endif;

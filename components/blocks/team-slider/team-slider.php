@@ -25,7 +25,8 @@ $shortcode = get_field('shortcode');
 /* Render screenshot for preview */
 if (get_field('is_example',$block['id'])) :
 	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
-else : 
+	return;
+endif;
 ?>
 <div class="<?= $className;?>" id="<?= $id;?>" <?= $style;?>>
 	<div class="container">
@@ -46,5 +47,3 @@ else :
 		
 	</div>
 </div>
-<?php
-endif;

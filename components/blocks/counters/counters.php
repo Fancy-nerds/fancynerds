@@ -17,29 +17,28 @@ $counters = get_field('counters');
 /* Render screenshot for preview */
 if (get_field('is_example',$block['id'])) :
 	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
-else :
+	return;
+endif;
 
-	if (is_array($counters) && count($counters)>0):?>
-		<div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style;?>>
-			<div class="container">
-				<div class="counters__bg"></div>
-				<div class="row">
-					<?php
-					foreach ($counters as $counter): ?>
-						<div class="col col-25">
-							<div class="counters__item">
-								<div class="subtitle subtitle__dot-before"><?= $counter['subtitle'];?></div>
-								<div class="counters__count">
-									<span data-counter="<?= $counter['to'];?>">0</span>+
-								</div>
+if (is_array($counters) && count($counters)>0):?>
+	<div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style;?>>
+		<div class="container">
+			<div class="counters__bg"></div>
+			<div class="row">
+				<?php
+				foreach ($counters as $counter): ?>
+					<div class="col col-25">
+						<div class="counters__item">
+							<div class="subtitle subtitle__dot-before"><?= $counter['subtitle'];?></div>
+							<div class="counters__count">
+								<span data-counter="<?= $counter['to'];?>">0</span>+
 							</div>
 						</div>
-					<?php
-					endforeach; ?>
-				</div>
+					</div>
+				<?php
+				endforeach; ?>
 			</div>
 		</div>
-	<?php
-	endif;
-
+	</div>
+<?php
 endif;
