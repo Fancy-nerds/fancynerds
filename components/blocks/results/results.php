@@ -12,7 +12,7 @@ $subtitle = get_field('subtitle') ?: 'Your subtitle here...';
 $title = get_field('title') ?: 'Your title here...';
 $counts = get_field('counts');
 ?>
-<div class="results">
+<div class=" <?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
 	<div class="container">
 		<div class="heading">
 			<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
