@@ -47,6 +47,8 @@ class M4Blocks
 			'dep_css'=>['fancynerds-vendor-swiper-css']],
 			['name'=>'skills',
 			'icon'=>'list-view'],
+			['name'=>'results',
+			'icon'=>'list-view']
 		];
 	}
 
