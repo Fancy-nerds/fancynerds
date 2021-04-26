@@ -48,6 +48,8 @@ class M4Blocks
 			['name'=>'skills',
 			'icon'=>'list-view'],
 			['name'=>'results',
+			'icon'=>'list-view'],
+			['name'=>'services-list',
 			'icon'=>'list-view']
 		];
 	}

@@ -48,7 +48,7 @@
                         </clipPath>
                     </svg>
 
-                    <div style="background-position: 60% 20%;" class="services-list__clipped-image"></div>
+                    <img class="services-list__clipped-image" src="<?= get_template_directory_uri(). '/assets/images/services-list__photo.jpg';?>">
 
                     <div class="services-list__bg">
                         <img src="<?= get_template_directory_uri().'/assets/images/services-list-bg-gray.svg'?>">
