@@ -13,6 +13,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 require_once 'helpers/M4Funcs.php';
+require_once 'helpers/M4Hooks.php';
 require_once 'helpers/M4Helpers.php';
 require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
@@ -250,3 +251,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Gutenberg custom stylesheet
 add_theme_support('editor-styles');
 add_editor_style( 'editor-style.css' ); // make sure path reflects where the file is located
+
