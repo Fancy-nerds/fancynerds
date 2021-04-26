@@ -4,7 +4,7 @@
     margin-bottom: 20px;
 
     &__title {
-        color: #1a1b1e;
+        color: $black;
         font-size: 14px;
         font-weight: 500;
     }
@@ -12,7 +12,7 @@
     &__value {
         width: 20%;
         flex-shrink: 0;
-        color: #1a1b1e;
+        color: $black;
         font-size: 14px;
         font-weight: 500;
         text-align: right;
@@ -41,7 +41,8 @@
         position: absolute;
         height: 10px;
         z-index: 5;
-        transition: all 0.6s ease-in;
+        transition: width 0.6s ease-in;
+        will-change: width;
         width: 0%;
     }
 }

@@ -5,10 +5,12 @@
     .heading {
         text-align: left;
     }
+
     &__content {
         padding-left: 170px;
         position: relative;
     }
+
     &__slider {
         position: relative;
         margin: 50px 0;
@@ -35,11 +37,13 @@
         height: calc(100% + 100px);
         transform: translateY(-50px);
     }
+
     &__buttons {
         display: flex;
         position: relative;
         margin-top: 10px;
     }
+
     &__button {
         color: $blue;
         width: 46px;
@@ -48,11 +52,13 @@
         background-color: $white;
         border-radius: 50%;
         margin-right: 15px;
-        transition: all .3s;
+        transition: background-color, color, box-shadow, -webkit-box-shadow .3s, .3s, .3s, .3s;
+        will-change: background-color, color, box-shadow, -webkit-box-shadow;
         display: flex;
         align-items: center;
         justify-content: center;
         outline: none;
+        cursor: pointer;
 
         &:before {
             font-size: 18px;
@@ -68,10 +74,12 @@
             box-shadow: 7px 5px 18px rgba(0, 195, 255, 0.3);
         }
     }
+
     .swiper-container {
         // margin-left: 200px;
         z-index: 24;
     }
+
     .swiper-slide {
         // padding: 80px 60px;
         // border-radius: 15px;
@@ -80,9 +88,5 @@
         text-align: center;
         z-index: 25;
         // box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-    }
-
-    .testimonial {
-
     }
 }

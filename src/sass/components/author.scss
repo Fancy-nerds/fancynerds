@@ -52,7 +52,8 @@
             justify-content: center;
 
             svg path {
-                transition: all linear 0.4s;
+                transition: fill  0.3s;
+                will-change: fill;
             }
 
             &:last-child {

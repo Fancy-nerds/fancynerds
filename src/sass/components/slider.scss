@@ -15,7 +15,8 @@
     .slick-dots li {
         width: 6px;
         height: 6px;
-        transition: all .3s linear;
+        transition: background-color .3s;
+        will-change: background-color;
         background-color: #a5b7d2;
         border-radius: 50%;
 

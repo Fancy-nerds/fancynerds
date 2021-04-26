@@ -16,7 +16,8 @@
   &__item {
     filter: contrast(0);
     opacity: 0.7;
-    transition: all linear 0.3s;
+    transition: filter, -webkit-filter, opacity 0.5s, 0.5s, 0.5s;
+    will-change: filter, -webkit-filter, opacity;
     display: flex;
     align-items: center;
     justify-content: center;

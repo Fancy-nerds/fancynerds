@@ -62,10 +62,12 @@
     position: relative;
     box-sizing: border-box;
     padding: 50px 45px;
-    transition: all linear 0.3s;
+    transition: box-shadow, -webkit-box-shadow, background-color 0.3s, 0.3s, 0.3s;
+    will-change: box-shadow, -webkit-box-shadow, background-color;
     cursor: pointer;
     text-align: center;
     z-index: 11;
+    border-radius: 15px;
 
     @media screen and (max-width: 768px) {
       box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
@@ -81,7 +83,6 @@
 
     &:hover {
       box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-      border-radius: 15px;
       background-color: $white;
 
       &:before,
@@ -105,7 +106,8 @@
       content: '';
       opacity: 0;
       visibility: hidden;
-      transition: all linear 0.3s;
+      transition: opacity 0.3s;
+      will-change: opacity;
       z-index: 1;
     }
 
@@ -137,7 +139,8 @@
     bottom: -25px;
     left: 0;
     z-index: 3;
-    transition: all linear .3s;   
+    transition: bottom, visibility, opacity .3s,.3s,.3s;
+    will-change: bottom, visibility, opacity;
     text-align: center;
     width: 100%;
 

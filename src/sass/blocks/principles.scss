@@ -2,7 +2,6 @@
 
 .principles {
     width: 100%;
-    // margin-bottom: -80px;
     z-index: 33;
     position: relative;
     transform: translateY(50%);
@@ -19,7 +18,8 @@
         background-color: $white;
         padding: 30px;
         display: flex;
-        transition: all linear .3s;
+        transition: transform .3s;
+        will-change: transform;
         position: relative;
         cursor: pointer;
         height: 100%;

@@ -5,7 +5,8 @@
     box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
     border-radius: 10px;
     background-color: $white;
-    transition: all linear .3s;
+    transition: transform .3s;
+    will-change: transform;
     display: inline-flex;
     min-width: 190px;
     box-sizing: border-box;

@@ -10,7 +10,6 @@
     box-sizing: border-box;
     position: relative;
     padding: 15px 30px;
-    transition: all linear .3s;
     cursor: pointer;
 
     &--small {
@@ -80,7 +79,8 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            transition: all 0.5s;
+            transition: opacity, transform 0.5s;
+            will-change: opacity, transform;
             opacity: 1;
             transform: translate(-105%,0);
             background-color: rgba(255,255,255,.8);
@@ -159,11 +159,7 @@
         height: 60px;
         border-radius: 50%;
         box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
-        background-color: #00c3ff;
-
-        &:hover {
-
-        }
+        background-color: $blue;
     }
 
     &--play {
@@ -283,17 +279,17 @@ h1.title {
 .paragraph {
     color: #606060;
     line-height: 30px;
-    transition: all linear .3s;
     z-index: 1;
     font-size: $default;
 
     .link {
-        color: #00c3ff;
-        transition: all linear .3s;
-        border-bottom: 1px solid #00c3ff;
+        color: $blue;
+        transition: color, border-color .3s, .3s;
+        will-change: color, border-color;
+        border-bottom: 1px solid $blue;
 
         &:hover {
-            color: #00c3ff;
+            color: $blue;
             border-color: transparent;
         }
     }
@@ -304,7 +300,8 @@ h1.title {
     font-family: "RedHatDisplay", "Montserrat";
     font-size: 16px;
     font-weight: 400;
-    transition: all linear .3s;
+    transition: color, border-color .3s, .3s;
+    will-change: color, border-color;
     border-bottom: 1px solid transparent;
 
     &:hover {

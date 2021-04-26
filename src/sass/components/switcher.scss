@@ -21,11 +21,12 @@
     &__tab {
         width: 100%;
         flex: none;
-        transition: all linear 0.3s;
         display: none;
+
         &.active{
             display: block;
         }
+
         & > * {
             margin-bottom: 30px;
 

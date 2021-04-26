@@ -42,7 +42,8 @@
 
     .donut {
         circle {
-            transition: all linear 0.6s;
+            transition: stroke-dasharray 0.6s;
+            will-change: stroke-dasharray;
         }
     }
 

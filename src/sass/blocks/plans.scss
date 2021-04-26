@@ -55,7 +55,8 @@
     position: relative;
     box-sizing: border-box;
     padding: 50px 45px 75px;
-    transition: all linear 0.3s;
+    transition: transform 0.3s;
+    will-change: transform;
     cursor: pointer;
     text-align: center;
     z-index: 11;
@@ -180,8 +181,7 @@
     position: absolute;
     bottom: -25px;
     left: 0;
-    z-index: 3;
-    transition: all linear .3s;   
+    z-index: 3;  
     text-align: center;
     width: 100%;
   }

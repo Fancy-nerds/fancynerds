@@ -40,7 +40,8 @@
 
         .lang-item {
             margin-right: 15px;
-            transition: all linear .4s;
+            transition: opacity .3s;
+            will-change: opacity;
 
             &:last-child {
                 margin-right: 0;
@@ -69,7 +70,8 @@
             padding: 35px;
             z-index: 9999;
             transform: translateX(100%);
-            transition: all 0.3s linear;
+            transition: transform 0.3s;
+            will-change: transform;
         }
 
         &.active {
@@ -95,7 +97,7 @@
 
         svg, img {
             width: 20px;
-            fill: #1a1b1e;
+            fill: $black;
         }
     }
 
@@ -110,7 +112,8 @@
         background: rgba(0,0,0,.7);
         visibility: hidden;
         opacity: 0;
-        transition: all 0.2s linear;
+        transition: opacity 0.3s;
+        will-change: opacity;
 
         &.active {
             visibility: visible;
@@ -151,7 +154,6 @@
         height: 100%;
         display: flex;
         align-items: center;
-        transition: all 0.3s linear;
 
         @media screen and (max-width: 768px) {
             margin-right: 0;
@@ -174,7 +176,8 @@
             left: 0;
             background: $blue;
             display: block;
-            transition: all 0.3s linear;
+            transition: width, left, right 0.3s, 0.3s, 0.3s;
+            will-change: width, left, right;
             border-top-left-radius: 5px;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -238,6 +241,9 @@
         }
 
         a {
+            transition: color 0.3s;
+            will-change: color;
+
             &:hover {
                 color: $black;
             }
@@ -290,7 +296,7 @@
             top: calc(100% + 10px);
             left: -40px;
             transform: translateY(30px);
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s;
             z-index: 10;
             visibility: hidden;
             opacity: 0;
@@ -308,10 +314,10 @@
                 visibility: visible;
                 opacity: 1;
                 transform: none;
-
                 overflow: hidden;
                 height: 0;
                 transition: height 0.5s;
+                will-change: height;
             }
 
             &:before {
@@ -342,7 +348,8 @@
                     text-decoration: none;
                     outline: none;
                     text-transform: none;
-                    transition: all 0.2s linear;
+                    transition: color, padding 0.3s, 0.3s;
+                    will-change: color, padding;
 
                     &:hover {
                         @media screen and (min-width: 768px) {
@@ -370,7 +377,8 @@
                             border-radius: 50%;
                             background-color: $blue;
                             transform: translateY(-50%);
-                            transition: all 0.2s linear;
+                            transition: left, opacity 0.3s, 0.3s;
+                            will-change: left, opacity;
                             visibility: hidden;
                             opacity: 0;
                         }

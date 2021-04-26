@@ -12,7 +12,8 @@
     
     &__item {
         margin-bottom: 30px;
-        transition: all linear 0.4s;
+        transition: opacity 0.3s;
+        will-change: opacity;
         position: relative;
         display: block;
     
