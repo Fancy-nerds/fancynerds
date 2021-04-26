@@ -7,6 +7,23 @@
     box-sizing: border-box;
     display: inline-block;
 
+    @media screen and (max-width: 568px) {
+        width: 100%;
+    }
+
+    .button {
+        @media screen and (max-width: 568px) {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        &:last-child {
+            @media screen and (max-width: 568px) {
+                margin-bottom: 0;
+            } 
+        }
+    }
+
     .button:not(.active) {
         color: $gray;
         background-color: transparent;

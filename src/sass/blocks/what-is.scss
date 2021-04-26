@@ -3,6 +3,23 @@
 .what-is {
     padding: 100px 0;
 
+    &__image {
+        @media screen and (max-width: 1024px) {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        img {
+            @media screen and (max-width: 768px) {
+                padding: 0 50px;
+            }
+
+            @media screen and (max-width: 568px) {
+                padding: 0;
+            }
+        }
+    }
+
     ul {
         li {
             position: relative;

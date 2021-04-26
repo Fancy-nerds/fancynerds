@@ -29,6 +29,11 @@
 .col-80 {width: 80%;}
 .col-100 {width: 100%;}
 
+@media screen and (max-width: 1024px) {
+  .col-tablet-33 {width: 33%;}
+  .col-tablet-50 {width: 50%;}
+}
+
 .centered-y {
   align-items: center;
   display: flex;
@@ -39,8 +44,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .col {width: 100%;}
+}
+
+@media screen and (max-width: 768px) {
     .row {margin-left: -10px; margin-right: -10px;}
-    .col {width: 100%; padding: 0 10px;}
+    .col {padding: 0 10px;}
     .col-mobile-40 {width: 40%;}
     .col-mobile-50 {width: 50%;}
     .col-mobile-60 {width: 60%;} 

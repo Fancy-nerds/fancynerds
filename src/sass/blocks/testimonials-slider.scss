@@ -2,13 +2,26 @@
 @import '../components/testimonial.scss';
 
 .testimonials-slider {
+    background-color: #f0f6ff;
+    padding: 100px 0;
+
     .heading {
         text-align: left;
+        padding-top: 100px;
+
+        @media screen and (max-width: 1024px) {
+            padding: 0;
+            margin-bottom: 40px;
+        }
     }
 
     &__content {
-        padding-left: 170px;
+        padding-left: 70px;
         position: relative;
+
+        @media screen and (max-width: 568px) {
+            padding-left: 0;
+        }
     }
 
     &__slider {
@@ -22,11 +35,19 @@
         text-align: center;
         box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
         z-index: 22;
+        
+        @media screen and (max-width: 768px) {
+            padding: 60px 40px;
+        }
+        
+        @media screen and (max-width: 568px) {
+            padding: 40px 25px;
+        }
     }
 
     &__bg {
         position: absolute;
-        left: 100px;
+        left: 0;
         top: 0;
         box-shadow: 25px 17px 65px rgba(2, 156, 236, 0.3);
         border-radius: 15px;
@@ -36,6 +57,10 @@
         z-index: 1;
         height: calc(100% + 100px);
         transform: translateY(-50px);
+
+        @media screen and (max-width: 568px) {
+            display: none;
+        }
     }
 
     &__buttons {

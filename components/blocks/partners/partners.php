@@ -25,7 +25,7 @@ endif;
 			<?php 
 			if(is_array($partners) && count($partners)>0): 
 				foreach ($partners as $partner): ?>
-					<div class="col col-16">
+					<div class="col col-16 col-tablet-33">
 						<div class="partners__item">
 							<?= M4Helpers::getImgHtml([ 'img_id'=>$partner['logo'], 'size'=>'medium']); ?>
 						</div>

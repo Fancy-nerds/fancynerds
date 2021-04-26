@@ -73,10 +73,19 @@ img.image--rounded {
             margin: 0;
         }
     }
-
-    @media screen and (max-width: 768px) {
+    
+    @media screen and (max-width: 1200px) {
+        max-width: 970px;
+    }
+    
+    @media screen and (max-width: 1024px) {
         padding: 0 15px;
         box-sizing: border-box;
+        max-width: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        
     }
 }
 

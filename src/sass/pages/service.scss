@@ -24,6 +24,11 @@
 
     .plans {
         padding: 100px 0;
+        margin-bottom: 100px;
+
+        @media screen and (max-width: 1024px) {
+            margin-bottom: 0;
+        }
     }
 
     .steps {

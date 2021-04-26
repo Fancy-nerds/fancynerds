@@ -57,10 +57,12 @@ endif; ?>
 
 			</div>
 			<div class="col col-50">
-				<?php
-				if($image):
-					echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'full']);
-				endif;?>
+				<div class="why-choose__image">
+					<?php
+					if($image):
+						echo M4Helpers::getImgHtml([ 'img_id'=>$image, 'size'=>'full']);
+					endif;?>
+				</div>
 			</div>
 		</div>
 	</div>

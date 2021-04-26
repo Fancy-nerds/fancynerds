@@ -22,7 +22,7 @@ endif; ?>
 <div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<div class="container">
 		<div class="row">
-			<div class="col col-25 centered-y">
+			<div class="col col-33 col-tablet-50">
 				<div class="heading">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 					<h2 class="title"><?= $title; ?></h2>
@@ -36,7 +36,7 @@ endif; ?>
 					</div>
 				</div>
 			</div>
-			<div class="col col-75">
+			<div class="col col-66">
 				<div class="testimonials-slider__content">
 					<div class="testimonials-slider__bg"></div>
 					<?php
