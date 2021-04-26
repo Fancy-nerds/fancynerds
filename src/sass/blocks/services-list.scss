@@ -21,10 +21,14 @@
     &__clipped-image {
         width: 100%;
         height: 370px;
-        background-image: url("../../../assets/images/services-list__photo.jpg");
         clip-path: url(#services-list-clip-path);
         position: relative;
         z-index: 3;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
     }
 
     &__column {
