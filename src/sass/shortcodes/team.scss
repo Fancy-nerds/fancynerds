@@ -22,8 +22,6 @@
     &__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        //margin-top: 40px;
-        //margin-bottom: 60px;
         column-gap: 30px;
         row-gap: 60px;
         @include media-breakpoint-down(lg) {
@@ -43,18 +41,6 @@
         display: block;
         z-index: 11;
         font-size: 0;
-
-        /*&:after {
-            position: absolute;
-            content: '';
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.1);
-            z-index: 12;
-            border-radius: 15px
-        }*/
     
         img {
             width: 100%;
@@ -65,11 +51,9 @@
             position: relative;
             padding: 30px 15px;
             box-sizing: border-box;
-            //bottom: -40px;
             left: 0;
             right: 0;
             margin: -80px 25px 0;
-            //height: 120px;
             box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
             border-radius: 15px;
             background-color: #ffffff;
