@@ -30,20 +30,22 @@ endif;
 ?>
 <div class="<?= $className;?>" id="<?= $id;?>" <?= $style;?>>
 	<div class="container">
-		<div class="row">
-			<div class="col col-50">
+		<div class="team-slider__intro">
+			<div class="team-slider__header">
 				<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 				<h2 class="title"><?= $title; ?></h2>
 				<p class="paragraph">
 					<?= $paragraph; ?>
 				</p>
 			</div>
-			<div class="col col-50 col-right">
+			<div class="team-slider__nav team-slider__nav--top">
 				<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button; ?></a>
 			</div>
 		</div>
 
 		<?= $shortcode; ?>
-		
+		<div class="team-slider__nav team-slider__nav--bottom">
+			<a href="<?= $url; ?>" class="button button--orange button--image"><?= $button; ?></a>
+		</div>
 	</div>
 </div>

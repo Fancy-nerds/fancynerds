@@ -1,25 +1,42 @@
-// @import '../utils/vars.scss';
+@import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
-// .team-slider {
-//     padding: 50px 0;
-//     position: relative;
-
-//     .slider {
-//         display: flex !important;
-//         margin-top: 50px;
-//         margin-bottom: 50px;
-
-//         @media screen and (max-width: 768px) {
-//             display: flex;
-//             overflow-x: scroll;
-//             flex-wrap: nowrap;
-//         }
-
-//         .col {
-//             @media screen and (max-width: 768px) {
-//                 width: 80%;
-//                 flex: none;
-//             }  
-//         }
-//     }
-// }
+.team-slider {
+    padding: 130px 0 100px;;
+    @include media-breakpoint-down(lg) {
+        padding: 100px 0 100px;
+    }
+    @include media-breakpoint-down(md) {
+        padding: 100px 0 90px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 100px 0 70px;
+    }
+    &__intro {
+        display: flex;
+    }
+    &__header {
+        margin-bottom: 40px;
+        width: 50%;
+        @include media-breakpoint-down(sm) {
+            width: 100%
+        }
+    }
+    &__nav {
+        &--top {
+            text-align: end;
+            width: 50%;
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+        }
+        &--bottom {
+            text-align: center;
+            margin-top: 50px;
+            @include media-breakpoint-up(md) {
+                display: none;
+            }
+        }
+        
+    }
+}
