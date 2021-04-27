@@ -29,6 +29,10 @@
 .col-80 {width: 80%;}
 .col-100 {width: 100%;}
 
+@media screen and (max-width: 1300px) {
+  .col-xl-50 {width: 50%;}
+}
+
 @media screen and (max-width: 1024px) {
   .col-tablet-33 {width: 33%;}
   .col-tablet-50 {width: 50%;}

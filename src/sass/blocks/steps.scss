@@ -25,6 +25,7 @@
         transition: transform .3s;
         will-change: transform;
         margin-bottom: 30px;
+        width: 100%;
 
         @media screen and (max-width: 768px) {
             margin-bottom: 20px;
@@ -86,19 +87,17 @@
             align-items: center;
             justify-content: center;
             height: 100%;
+            font-weight: 700;
+            color: $white;
         }
 
         [class^="flaticon-"]:before,
         [class^="flaticon-"]:after  {
-            color: #fff;
+            color: $white;
             display: inline-block;
             transition: color .3s;
             will-change: color;
             font-size: 25px;
-        }
-
-        span {
-            font-weight: 700;
         }
 
         &_overlay {

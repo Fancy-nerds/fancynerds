@@ -34,7 +34,7 @@ endif;
 			if (is_array($steps) && count($steps)>0):
 				$i=0;
 				foreach ( $steps as $step ):?>
-					<div class="col col-25">
+					<div class="col col-25 col-xl-50 col-tablet-50">
 						<a href="<?= $step['url']; ?>" class="steps__item">
 							<div class="steps__overlay"></div>
 							<div class="steps__icon">
