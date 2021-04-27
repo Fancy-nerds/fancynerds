@@ -1,4 +1,5 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 // @import '../components/slick.scss';
 // @import '../components/slider.scss';
 
@@ -6,10 +7,12 @@
   position: relative;
   padding-bottom: 200px;
 
-  @media screen and (max-width: 768px) {
+  @include media-breakpoint-down(md) {
     padding-bottom: 60px;
   }
-
+  @include media-breakpoint-down(xs) {
+    padding-bottom: 70px;
+  }
   .heading {
     margin-bottom: 20px;
   }
@@ -28,7 +31,7 @@
   //   }
   // }
 
-  .slider {
+  /*.slider {
     @media screen and (max-width: 768px) {
       display: flex;
       overflow-x: scroll;
@@ -56,9 +59,33 @@
         }
       }
     }
-  }
+  }*/
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: 0;
+      margin: -24px -15px;
+    }
 
+  }
+  &__col {
+    display: flex;
+
+    @include media-breakpoint-down(md) {
+      padding: 24px 15px;
+      width: 50%;
+    }
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+  }
   &__item {
+    width: 100%;
     position: relative;
     box-sizing: border-box;
     padding: 50px 45px;
@@ -69,18 +96,19 @@
     z-index: 11;
     border-radius: 15px;
 
-    @media screen and (max-width: 768px) {
+    @include media-breakpoint-down(lg) {
       box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
       border-radius: 15px;
       background-color: $white;
-
       &:before,
       &:after {
         opacity: 1;
         visibility: visible;
       }
     }
-
+    @include media-breakpoint-down(md) {
+      padding: 30px 30px 40px;
+    }
     &:hover {
       box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
       background-color: $white;
@@ -91,8 +119,8 @@
         visibility: visible;
       }
 
-      .services__action {
-        @media screen and (min-width: 768px) {
+      %services__action {
+        @include media-breakpoint-up(xl) {
           opacity: 1;
           visibility: visible;
           bottom: -23px;
@@ -143,18 +171,21 @@
     will-change: bottom, visibility, opacity;
     text-align: center;
     width: 100%;
-
-    @media screen and (min-width: 768px) {
+    @include media-breakpoint-up(xl) {
       opacity: 0;
       visibility: hidden;
       bottom: -43px;
     }
+    @extend %services__action;
   }
 
   &__image {
     margin-bottom: 30px;
     height: 156px;
     text-align: center;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 25px;
+    }
   }
 
   &__title {
@@ -171,7 +202,7 @@
     left: -94px;
     z-index: 0;
 
-    @media screen and (max-width: 768px) {
+    @include media-breakpoint-down(lg) {
       display: none;
     }
   }
