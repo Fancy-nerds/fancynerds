@@ -95,6 +95,8 @@ img.image--rounded {
 @import 'utils/header.scss';
 @import 'utils/footer.scss';
 
+@import 'mixins/_breakpoints.scss';
+
 @import 'components/form.scss';
 @import 'components/slider.scss';
 @import 'components/switcher.scss';
