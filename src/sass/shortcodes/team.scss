@@ -1,26 +1,50 @@
 @import '../utils/vars.scss';
-    
+@import '../mixins/breakpoints';
 .team {
     &__list {
-        padding: 120px 0 90px;
+        padding: 120px 0;
         background-color: #f0f6ff;
-    
+        @include media-breakpoint-down(lg) {
+            padding: 100px 0 120px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 85px 0 100px;
+        }
         .heading {
-            width: 50%;
-            margin: 0 auto 20px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto 60px;
+            @include media-breakpoint-down(lg) {
+                margin: 0 auto 50px;
+            }
         }
     }
-
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        //margin-top: 40px;
+        //margin-bottom: 60px;
+        column-gap: 30px;
+        row-gap: 60px;
+        @include media-breakpoint-down(lg) {
+            row-gap: 50px;
+        }
+        @include media-breakpoint-down(md) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include media-breakpoint-down(xs) {
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
     &__card {
         position: relative;
-        margin-top: 40px;
-        margin-bottom: 60px;
         border-radius: 15px;
         display: block;
         z-index: 11;
         font-size: 0;
 
-        &:after {
+        /*&:after {
             position: absolute;
             content: '';
             top: 0;
@@ -30,21 +54,22 @@
             background-color: rgba(0,0,0,0.1);
             z-index: 12;
             border-radius: 15px
-        }
+        }*/
     
         img {
             width: 100%;
+            background-color: rgba(0,0,0,0.1);
         }
     
         &_info {
-            position: absolute;
+            position: relative;
             padding: 30px 15px;
             box-sizing: border-box;
-            bottom: -40px;
+            //bottom: -40px;
             left: 0;
             right: 0;
-            margin: 0 25px;
-            height: 120px;
+            margin: -80px 25px 0;
+            //height: 120px;
             box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
             border-radius: 15px;
             background-color: #ffffff;
@@ -71,11 +96,18 @@
         position: absolute;
         right: 60px;
         bottom: -17px;
-    
+        @include media-breakpoint-down(sm) {
+            right: 50px;
+            bottom: -15px;
+        }
         &_item {
             width: 35px;
             height: 35px;
             position: relative;
+            @include media-breakpoint-down(sm) {
+                width: 28px;
+                height: 28px;
+            }
         }
     
         &_add {
