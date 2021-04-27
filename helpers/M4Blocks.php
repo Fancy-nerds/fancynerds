@@ -46,11 +46,13 @@ class M4Blocks
 			'dep_js'=>['fancynerds-vendor-swiper-js'],
 			'dep_css'=>['fancynerds-vendor-swiper-css']],
 			['name'=>'skills',
-			'icon'=>'list-view'],
+			'icon'=>'buddicons-friends'],
 			['name'=>'results',
-			'icon'=>'list-view'],
+			'icon'=>'tide'],
 			['name'=>'services-list',
-			'icon'=>'list-view']
+			'icon'=>'nametag'],
+			['name'=>'numbers',
+			'icon'=>'heart']
 		];
 	}
 
