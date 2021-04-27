@@ -2,9 +2,17 @@
 
 .skills {
     padding: 120px 0;
+
+    @media screen and (max-width: 1024px) {
+        padding: 60px 0;
+    }
     
     &__item {
         position: relative;
+
+        @media screen and (max-width: 1024px) {
+            margin-bottom: 30px;
+        }
     }
 
     &__round {
@@ -29,7 +37,9 @@
 
     .col {
         &:nth-child(even) {
-            margin-top: 50px;
+            @media screen and (min-width: 1024px) {
+                margin-top: 50px;
+            }
         }
     }
 

@@ -26,7 +26,7 @@ endif;?>
 			<div class="row">
 			<?php
 			foreach ($skills as $skill): ?>
-				<div class="col col-25">
+				<div class="col col-25 col-tablet-50">
 					<div class="skills__item" data-percent="<?= $skill['percent']; ?>">
 						<div class="skills__content">
 							<div class="skills__round">
