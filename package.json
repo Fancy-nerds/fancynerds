@@ -4,6 +4,10 @@
   "description": "fancynerds",
   "author": "Fancynerds Team",
   "license": "ISC",
+  "scripts": {
+    "dev": "npx gulp dev",
+    "watch": "npx gulp watch"
+  },
   "keywords": [
     "fancynerds"
   ],
