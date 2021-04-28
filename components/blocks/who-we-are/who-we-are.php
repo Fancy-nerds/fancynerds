@@ -28,8 +28,8 @@ if (get_field('is_example',$block['id'])) :
 endif; ?>
 <div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="main__content <?php echo esc_attr($className); ?>">
 	<div class="container">
-		<div class="row who-we-are">
-			<div class="col col-50">
+		<div class="who-we-are__grid">
+			<div class="who-we-are__col">
 				<div class="who-we-are__image">
 					<?php
 					if($image):
@@ -43,7 +43,7 @@ endif; ?>
 					</div>
 				</div>
 			</div>
-			<div class="col col-50">
+			<div class="who-we-are__col">
 				<div class="who-we-are__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 					<h2 class="title"><?= $title; ?></h2>
