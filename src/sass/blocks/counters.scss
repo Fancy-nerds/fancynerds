@@ -2,15 +2,16 @@
 @import '../mixins/breakpoints';
 
 .counters {
+    position: relative;
+    transform: translateY(-50%);
+    height: 0;
+    padding: 65px 0;
     width: 100%;
-    margin-top: -130px;
     z-index: 33;
-    padding-bottom: 130px;
-    @include media-breakpoint-down(xl) {
-        padding-bottom: 90px;
-    }
-    @include media-breakpoint-down(sm) {
-        padding-bottom: 60px;
+    @include media-breakpoint-down(md) {
+        transform: none;
+        padding: 40px 0;
+        height: auto;
     }
     .container {
         height: 100%;
