@@ -1,4 +1,5 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
 .services-list {
     padding: 100px 0;
@@ -12,6 +13,10 @@
         top: -60px;
         left: 0;
         z-index: 1;
+
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
     }
     .clip-path {
         position: absolute;
@@ -29,6 +34,14 @@
             object-fit: cover;
             height: 100%;
         }
+
+        @media screen and (max-width: 1024px) {
+            height: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            height: 300px;
+        }
     }
 
     &__column {
@@ -43,17 +56,41 @@
         padding-right: 0;
 
         .services-list__icon {
-            order: 2;
-            margin-right: 0;
-            margin-left: 25px;
+            @media screen and (min-width: 1024px) {
+                order: 2;
+                margin-right: 0;
+                margin-left: 25px;
+            }
         }
 
         .services-list__item {
-            text-align: right;
-
             &:nth-child(even) {
-                padding-right: 50px;
+                @media screen and (min-width: 1024px) {
+                    padding-right: 50px;
+                }
             }
+
+            @media screen and (min-width: 1024px) {
+                text-align: right;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            order: 2;
+            padding-right: 15px;
+        }
+    }
+
+    &__center {
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+            padding: 0 100px;
+            order: 1;
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 0 15px;
         }
     }
 
@@ -62,8 +99,16 @@
 
         .services-list__item {
             &:nth-child(even) {
-                padding-left: 50px;
+                @media screen and (min-width: 1024px) {
+                    padding-left: 50px;
+                }
+                
             }
+        }
+        
+        @media screen and (max-width: 1024px) {
+            order: 3;
+            padding-left: 15px;
         }
     }
 
@@ -88,6 +133,16 @@
                     opacity: 1;
                     z-index: 1;
                 }
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            margin-bottom: 30px;
+        }
+
+        &:last-of-type {
+            @media screen and (max-width: 768px) {
+                margin-bottom: 0;
             }
         }
     }
