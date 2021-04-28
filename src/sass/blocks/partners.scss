@@ -1,14 +1,16 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
 .partners {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 110px;
-  padding: 0 100px;
+  padding: 0 100px 110px;
 
-  @media screen and (max-width: 768px) {
-    padding: 0;
-    margin-bottom: 100px;
+  @include media-breakpoint-down(md) {
+    padding: 0 0 110px;
+  }
+  @include media-breakpoint-down(xs) {
+    padding: 0 0 70px;
   }
 
   &__item {
@@ -26,45 +28,39 @@
       filter: none;
     }
 
-    @media screen and (max-width: 1024px) {
+    @include media-breakpoint-down(lg) {
       margin-bottom: 20px;
       opacity: 1;
       filter: none;
     }
 
-    @media screen and (max-width: 768px) {
+    @include media-breakpoint-down(md) {
       margin-bottom: 0;
     }
   }
 
   .slider {
-    @media screen and (max-width: 768px) {
-      display: flex;
-      overflow-x: scroll;
-      flex-wrap: nowrap;
-      padding: 20px 0 40px 0;
-      margin-left: -20px;
-      margin-right: -20px;
+    @include media-breakpoint-down(md) {
+      justify-content: center;
     }
-
     .col {
-      @media screen and (max-width: 768px) {
-        width: 40%;
-        flex: none;
+      @include media-breakpoint-down(md) {
+        width: 33.33%;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
-
-      @media screen and (max-width: 400px) {
-        width: 65%;
+      @include media-breakpoint-down(xs) {
+        width: 50%;
       }
 
       &:first-child {
-        @media screen and (max-width: 768px) {
+        @include media-breakpoint-down(md) {
           padding-left: 20px;
         }
       }
 
       &:last-child {
-        @media screen and (max-width: 768px) {
+        @include media-breakpoint-down(md) {
           padding-right: 20px;
         }
       }
