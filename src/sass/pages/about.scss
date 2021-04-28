@@ -1,22 +1,14 @@
 @import '../utils/vars.scss';
 @import '../components/animations.scss';
+@import '../mixins/breakpoints';
 
 .about {
-    .main__content {
-        padding: 125px 0;
-
-        @media screen and (max-width: 768px) {
-            padding: 60px 0;
-        }
-    }
-
     .why-choose {
         background: #f0f6ff;
-        padding-top: 230px !important;
-        padding-bottom: 230px !important;
-
-        @media screen and (max-width: 768px) {
-            padding-top: 50px !important;
+       
+        @include media-breakpoint-up(lg) {
+            padding-top: 230px;
+            padding-bottom: 230px;
         }
     }
 
