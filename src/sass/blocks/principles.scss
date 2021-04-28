@@ -7,7 +7,7 @@
     position: relative;
     transform: translateY(50%);
     height: 0;
-    padding: 85px 0;
+    padding: 67px 0;
     display: flex;
     align-items: center;
     @include media-breakpoint-down(md) {
@@ -15,7 +15,7 @@
         transform: none;
         padding: 60px 0;
     }
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         padding: 40px 0;
     }
     &__grid {
