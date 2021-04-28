@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Services Block Template.
  *
@@ -11,23 +12,23 @@
 extract(M4Helpers::prepBlock($block));
 
 
-$principles = get_field('principles');?>
+$principles = get_field('principles'); ?>
 
 
 <?php
 /* Render screenshot for preview */
-if (get_field('is_example',$block['id'])) :
-	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+if (get_field('is_example', $block['id'])) :
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
 	return;
 endif;
 
-if (is_array($principles) && count($principles)>0):?>
-	<div class="<?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
+if (is_array($principles) && count($principles) > 0) : ?>
+	<div class="<?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
 		<div class="container">
-			<div class="row">
+			<div class="principles__grid">
 				<?php
-				foreach ($principles as $principle): ?>
-					<div class="col col-33">
+				foreach ($principles as $principle) : ?>
+					<div class="principles__col">
 						<div class="principles__item">
 							<div class="principles__count">
 								<?= $principle['count']; ?>
@@ -40,6 +41,7 @@ if (is_array($principles) && count($principles)>0):?>
 									<?= $principle['paragraph']; ?>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				<?php
