@@ -11,6 +11,9 @@
     @include media-breakpoint-down(md) {
         padding: 90px 0;
     }
+    @include media-breakpoint-down(sm) {
+        padding: 70px 0;
+    }
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
