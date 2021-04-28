@@ -1,24 +1,28 @@
 @import '../utils/vars.scss';
 @import '../components/progress-bars.scss';
+@import '../mixins/breakpoints';
 
 .why-choose {
-    padding: 50px 0;
+    padding: 120px 0;
     position: relative;
-
-    &__image {
-        @media screen and (max-width: 1024px) {
-            margin-bottom: 60px;
-            text-align: center;
+    @include media-breakpoint-down(lg) {
+        padding: 100px 0;
+    }
+    @include media-breakpoint-down(md) {
+        padding: 90px 0;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+        row-gap: 60px;
+        @include media-breakpoint-down('lg') {
+            grid-template-columns: 1fr;
         }
-
-        img {
-            @media screen and (max-width: 768px) {
-                padding: 0 50px;
-            }
-
-            @media screen and (max-width: 568px) {
-                padding: 0;
-            }
+    }
+    &__image {
+        @include media-breakpoint-down('lg') {
+            text-align: center;
         }
     }
 }

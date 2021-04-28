@@ -24,8 +24,8 @@ if (get_field('is_example',$block['id'])) :
 endif; ?>
 <div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<div class="container">
-		<div class="row">
-			<div class="col col-50">
+		<div class="why-choose__grid">
+			<div class="why-choose__col">
 				<h4 class="subtitle subtitle__dot-before">
 					<?=$subtitle;?>
 				</h4>
@@ -56,7 +56,7 @@ endif; ?>
 				endif;?>
 
 			</div>
-			<div class="col col-50">
+			<div class="why-choose__col">
 				<div class="why-choose__image">
 					<?php
 					if($image):
