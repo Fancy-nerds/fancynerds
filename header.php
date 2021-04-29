@@ -165,11 +165,6 @@
 				</a>
 
 				<div class="header__menu">
-					<div class="header__close">
-						<a href="#" class="header__close_action">
-							<i class="flaticon-close"></i>
-						</a>
-					</div>
 					<?php wp_nav_menu(array(
 						'theme_location'  => 'menu-1',
 						'menu_class'      => 'menu',
@@ -184,7 +179,7 @@
 						<img src="<?php bloginfo('template_directory'); ?>/assets/images/telephone.svg" width="25" height="25">
 
 					</button>
-					<a href="#" class="header__mobile-menu">
+					<a href="#" class="header__burger">
 						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24.75 24.75" style="enable-background:new 0 0 24.75 24.75;" xml:space="preserve">
 							<g>
 								<path d="M0,3.875c0-1.104,0.896-2,2-2h20.75c1.104,0,2,0.896,2,2s-0.896,2-2,2H2C0.896,5.875,0,4.979,0,3.875z M22.75,10.375H2
@@ -198,5 +193,17 @@
 				</div>
 			</div>
 		</header>
+		<div class="header-mobile__menu">
+			<div class="header__close">
+				<a href="#" class="header__close_action">
+					<i class="flaticon-close"></i>
+				</a>
+			</div>
+			<?php wp_nav_menu(array(
+				'theme_location'  => 'menu-1',
+				'menu_class'      => 'menu',
+				'container_class' => 'header__menu_container',
+			)); ?>
+		</div>
 		<div class="page-overflow">
 			<main class="main">

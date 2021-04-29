@@ -1,28 +1,17 @@
 jQuery(function ($) {
-  $(document).on("click", ".header__mobile-menu", function (e) {
+  $(document).on("click", ".header__burger", function (e) {
     e.preventDefault();
     $(this).find(".header__overlay").addClass("active");
-    $(document).find(".header__menu").addClass("active");
+    $(document).find(".header-mobile__menu").addClass("active");
   });
 
   $(document).on("click", ".header__close", function (e) {
     e.preventDefault();
     $(document).find(".header__overlay").removeClass("active");
-    $(document).find(".header__menu").removeClass("active");
+    $(document).find(".header-mobile__menu").removeClass("active");
   });
 
-  // $(document).on('click', '.menu-item-has-children', function(){
-  //     $(this).find('.sub-menu').stop(true, true).slideToggle( {
-  //         duration: 800,
-  //         easing: "linear",
-  //         complete: function(){
-  //           console.log("slideToggle completed");
-  //         },
-  //         queue: false // не ставим в очередь
-  //     });
-  // });
-
-  const elements = [...document.querySelectorAll(".menu-item-has-children")];
+  const elements = [...document.querySelectorAll(".header-mobile__menu .menu-item-has-children")];
   elements.forEach(accordion);
 
   function findElements(object, element) {
