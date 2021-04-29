@@ -127,12 +127,6 @@
 			padding: 25px;
 		}
 
-		.modal-body__btn {
-			display: block;
-			margin-left: auto;
-			margin-top: 15px;
-		}
-
 		.modal input,
 		.modal textarea {
 			width: 100%;

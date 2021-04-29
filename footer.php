@@ -119,35 +119,38 @@
 			<p class="modal-header__title">Contact our team!</p>
 			<span class="close">&times;</span>
 		</div>
-		<div class="modal-body">
+		<div class="modal-body ">
 			<form class="container form-ajx">
 				<div class="row">
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
-					<div class="col-50 col">
-						<label>First Name*</label>
-						<input name="NAME" value="" class="form__control" required />
+					<div class="col-50 col form__control-box">
+						<label class="form__label">First Name*</label>
+						<input name="NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
-					<div class="col-50 col">
-						<label>Last Name*</label>
-						<input name="LAST_NAME" value="" class="form__control" required />
-					</div>
-
-					<div class="col-50 col">
-						<label>Email*</label>
-						<input name="EMAIL" value="" class="form__control" required />
+					<div class="col-50 col form__control-box">
+						<label class="form__label">Last Name*</label>
+						<input name="LAST_NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
-					<div class="col-50 col">
-						<label>Phone</label>
-						<input name="PHONE" value="" class="form__control" />
+					<div class="col-50 col form__control-box">
+						<label class="form__label">Email*</label>
+						<input name="EMAIL" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
-					<div class="col col-100">
-						Comments: <textarea name="COMMENTS" class="form__control"></textarea><br />
-						<button class="button button--small button--orange modal-body__btn">Send</button>
-						<p class="form-ajx__result"></p>
+					<div class="col-50 col form__control-box">
+						<label class="form__label">Phone</label>
+						<input name="PHONE" value="" class="form__control form__control--outlined form__control--small" />
 					</div>
+
+					<div class="col col-100 form__control-box">
+						<label class="form__label">Comments</label>
+						<textarea name="COMMENTS" class="form__control form__control--outlined form__control--small" rows="5"></textarea><br />
+					</div>
+					<div class="col col-100 form__submit-box form__submit-box--centered">
+						<button class="button button--small button--orange modal-body__btn form__submit">Send</button>
+					</div>
+					<p class="form-ajx__result"></p>
 				</div>
 			</form>
 
