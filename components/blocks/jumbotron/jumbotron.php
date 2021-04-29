@@ -25,21 +25,21 @@ endif;
 ?>
 <section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
 	<div class="container container--fluid">
-		<div class="row">
-			<div class="col col-54">
+		<div class="jumbotron__grid">
+			<div class="jumbotron__col">
 				<div class="jumbotron_typographic">
 					<div class="jumbotron_image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg" width="876" height="660">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.png" width="903" height="707">
 					</div>
-					<div class="jumbotron_image--way">
+					<!--<div class="jumbotron_image--way">
 						<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg" width="299" height="421">
 					</div>
 					<div class="jumbotron_image--arrow">
 						<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg" width="41" height="46">
-					</div>
+					</div>-->
 				</div>
 			</div>
-			<div class="col col-46">
+			<div class="jumbotron__col">
 				<div class="jumbotron_content">
 					<h4 class="subtitle"><?= $subtitle;?></h4>
 					<h1 class="title"><?= $title;?></h1>

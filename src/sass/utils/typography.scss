@@ -1,4 +1,5 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
 .button {
     color: $white;
@@ -215,11 +216,11 @@
 h1.title {
     font-size: 56px;
     line-height: 72px;
-
-    @media screen and (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         font-size: 46px;
         line-height: 54px;
     }
+
 }
 
 .subtitle {
