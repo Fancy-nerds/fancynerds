@@ -52,7 +52,9 @@ class M4Blocks
 			['name'=>'services-list',
 			'icon'=>'nametag'],
 			['name'=>'numbers',
-			'icon'=>'heart']
+			'icon'=>'heart'],
+			['name'=>'cases-slider',
+			'icon'=>'nametag'],
 		];
 	}
 

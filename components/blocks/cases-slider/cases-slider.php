@@ -1,54 +1,78 @@
-<div class="cases-slider">
-    <div class="container">
-        <div class="row">
-            <div class="col col-50">
-                <div class="heading">
-                    <h4 class="subtitle subtitle__dot-before">Recent projects</h4>
-                    <h2 class="title">Our Latest Case Studies</h2>
-                    <p class="paragraph">
-                        If we had a 'secret sauce' it would be our awesome people. <br> We have only professional team!
-                    </p>
-                </div>
-            </div>
-            <div class="col col-50 col-right">
-                <a href="#" class="button button--orange button--image">All Works
-                    <span>
-                        <i class="flaticon-right-arrow-1"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
+<?php
+/**
+ * Cases-slider Block Template.
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
 
-    <div class="container container--fluid">
-        <div class="cases-slider__slider slider row">
-            <div class="col col-33">
-                <a href="#" class="portfolio__item">
-                    <img src="<?= get_template_directory_uri().'/assets/images/1824.png' ?>">
-                    <div class="portfolio__item_information">
-                        <div class="portfolio__item_name">Cereal Project</div>
-                        <div class="portfolio__item_category">Development/Media</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col col-33">
-                <a href="#" class="portfolio__item">
-                    <img src="<?= get_template_directory_uri().'/assets/images/1816.png' ?>">
-                    <div class="portfolio__item_information">
-                        <div class="portfolio__item_name">Cereal Project</div>
-                        <div class="portfolio__item_category">Development/Media</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col col-33">
-                <a href="#" class="portfolio__item">
-                    <img src="<?= get_template_directory_uri().'/assets/images/1975.png' ?>">
-                    <div class="portfolio__item_information">
-                        <div class="portfolio__item_name">Cereal Project</div>
-                        <div class="portfolio__item_category">Development/Media</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+extract(M4Helpers::prepBlock($block));
+
+$subtitle = get_field('subtitle') ?: 'Your subtitle here...';
+$title = get_field('title') ?: 'Your title here...';
+$paragraph = get_field('paragraph') ?: 'Your paragraph here...';
+$button = get_field('button') ?: 'Button...';
+$url = get_field('url');
+
+$items = get_field('items');
+
+/* Render screenshot for preview */
+if (get_field('is_example',$block['id'])) :
+	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+	return;
+endif;
+?>
+<div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+	<div class="container">
+		<div class="row">
+			<div class="col col-50">
+				<div class="heading">
+					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
+					<h2 class="title"><?= $title; ?></h2>
+					<p class="paragraph">
+						<?= $paragraph; ?>
+					</p>
+				</div>
+			</div>
+			<div class="col col-50 col-right">
+				<?php
+				if ($button): ?>
+					<a href="<?= get_permalink( $url ); ?>" class="button button--orange button--image">
+						<?= $button; ?>
+						<span>
+							<i class="flaticon-right-arrow-1"></i>
+						</span>
+					</a>
+				<?php
+				endif ?>
+			</div>
+		</div>
+	</div>
+
+	<?php
+	if (is_array($items) && count($items)>0): ?>
+	<div class="container container--fluid">
+		<div class="cases-slider__slider slider row">
+			<?php
+			foreach ($items as $item): ?>
+			<div class="col col-33">
+				<a href="<?= get_permalink($item['url']); ?>" class="portfolio__item">
+					<?php
+					if( $item['thumb'] ):
+						echo M4Helpers::getImgHtml([ 'img_id'=>$item['thumb'], 'size'=>'large']);
+					endif;?>
+					<div class="portfolio__item_information">
+						<div class="portfolio__item_name"><?= $item['name']; ?></div>
+						<div class="portfolio__item_category"><?= $item['category']; ?></div>
+					</div>
+				</a>
+			</div>
+			<?php
+			endforeach;?>
+		</div>
+	</div>
+	<?php
+	endif;?>
 </div>
