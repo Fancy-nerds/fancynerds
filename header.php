@@ -148,7 +148,11 @@ if(is_page_template('tpl-service.php'))
 
 			<div class="header__actions">
 				<ul class="header__flags"><?php pll_the_languages(['show_flags' => 1,'show_names' => 0]);?></ul>
-				<button class="button button--blue-dark" id="myBtn">Contact Us</button>
+				<button class="button button--blue-dark header__contact-us" id="myBtn">
+					<span>Contact Us</span>
+					<img src="<?php bloginfo('template_directory');?>/assets/images/telephone.svg" width="25" height="25">
+
+				</button>
 				<a href="#" class="header__mobile-menu">
 					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24.75 24.75" style="enable-background:new 0 0 24.75 24.75;" xml:space="preserve">
 						<g>

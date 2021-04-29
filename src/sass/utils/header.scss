@@ -1,4 +1,5 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
 .header {
     background-color: $white;
@@ -6,7 +7,29 @@
     padding: 0 40px;
     z-index: 111;
     position: relative;
-
+    @include media-breakpoint-down(md) {
+        top: 0;
+        left: 0;
+        padding: 0 30px;
+        position: sticky;
+    }
+    @include media-breakpoint-down(sm) {
+        padding: 0 20px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 0 15px;
+    }
+    &__logo {
+        img {
+            @include media-breakpoint-down(md) {
+                width: 70px;
+            }
+            @include media-breakpoint-down(sm) {
+                width: 65px;
+            }
+        }
+        
+    }
     &__top {
         height: 50px;
         border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -18,6 +41,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include media-breakpoint-down(md) {
+            height: 90px;
+        }
+        @include media-breakpoint-down(sm) {
+            height: 75px;
+        }
     }
 
     &__actions {
@@ -53,6 +82,24 @@
         }
     }
 
+    &__contact-us {
+        @include media-breakpoint-up(lg) {
+            img {
+                display: none;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            padding: 10px 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                display: none;
+            }
+        }
+    }
+
     &__menu {
         height: 100%;
 
@@ -60,9 +107,9 @@
             height: 100%;
         }
 
-        @media screen and (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             height: 100vh;
-            position: absolute;
+            position: fixed;
             top: 0;
             width: 310px;
             right: 0;
@@ -72,12 +119,11 @@
             transform: translateX(100%);
             transition: transform 0.3s;
             will-change: transform;
+            padding-top: 50px;
         }
 
         &.active {
             transform: translateX(0);
-            position: fixed;
-            padding-top: 50px;
         }
     }
 
@@ -90,8 +136,8 @@
         padding: 0;
         border-radius: 50%;
         display: none;
-
-        @media screen and (max-width: 768px) {
+        margin-left: 15px;
+        @include media-breakpoint-down(md) {
             display: block;
         }
 
@@ -126,8 +172,12 @@
         width: 100%;
         text-align: right;
         display: none;
-
-        @media screen and (max-width: 768px) {
+        &_action {
+            &:hover, &:focus {
+                color: $black;
+            }
+        }
+        @include media-breakpoint-down(md) {
             display: block;
         }
     }
@@ -138,7 +188,7 @@
     align-items: center;
     height: 100%;
 
-    @media screen and (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         flex-direction: column;
         height: auto;
         align-items: flex-start;
@@ -154,8 +204,7 @@
         height: 100%;
         display: flex;
         align-items: center;
-
-        @media screen and (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             margin-right: 0;
             margin-bottom: 10px;
             width: 100%;
@@ -192,13 +241,13 @@
             border-bottom-right-radius: 5px;
             border-bottom-left-radius: 0;
 
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 display: none;
             }
         }
 
         &:after {
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 border-radius: 3px;
                 height: 1px;
                 background-color: #e5e5e5;
@@ -209,20 +258,23 @@
         }
 
         &:hover,
-        &.current-menu-item {
-            a {
-                color: $blue;
+        &.current-menu-item,
+        &.current-menu-parent {
+            & > a {
+                &, &:hover {
+                    color: $blue;
+                }
             }
 
             &:before {
-                @media screen and (min-width: 768px) {
+                @include media-breakpoint-up(lg) {
                     left: 50%;
                     width: 50%;
                 }
             }
 
             &:after {
-                @media screen and (min-width: 768px) {
+                @include media-breakpoint-up(lg) {
                     left: auto;
                     right: 50%;
                     width: 50%;
@@ -232,7 +284,7 @@
 
         &:hover {
             .sub-menu {
-                @media screen and (min-width: 768px) {
+                @include media-breakpoint-up(lg) {
                     visibility: visible;
                     opacity: 1; 
                     transform: translateY(0);
@@ -241,12 +293,12 @@
         }
 
         a {
+            cursor: pointer;
             transition: color 0.3s;
             &:hover, &:focus {
                 color: $black;
             }
-
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 padding: 10px 0;
             }
         }
@@ -254,8 +306,7 @@
         &.menu-item-has-children {
             & > a {
                 padding-right: 17px;
-
-                @media screen and (max-width: 768px) {
+                @include media-breakpoint-down(md) {
                     width: 100%;
                     display: block;
                     position: relative;
@@ -278,7 +329,7 @@
                 }
             }
 
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 display: flex;
                 flex-direction: column;
             }
@@ -299,8 +350,7 @@
             visibility: hidden;
             opacity: 0;
             min-width: 290px;
-
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 box-shadow: none;
                 border-radius: 0;
                 width: 100%;
@@ -337,7 +387,24 @@
                 &:after {
                     display: none;
                 }
-
+                &:not(.current-menu-item) {
+                    a {
+                        &:hover {
+                            @include media-breakpoint-up(lg) {
+                                color: $blue;
+                                padding-left: 15px;
+                            }
+    
+                            &:before {
+                                @include media-breakpoint-up(lg) {
+                                    left: 0;
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
                 a {
                     line-height: 30px;
                     display: block;
@@ -347,25 +414,8 @@
                     outline: none;
                     text-transform: none;
                     transition: color, padding 0.3s, 0.3s;
-                    will-change: color, padding;
-
-                    &:hover {
-                        @media screen and (min-width: 768px) {
-                            color: $blue;
-                            padding-left: 15px;
-                        }
-
-                        &:before {
-                            @media screen and (min-width: 768px) {
-                                left: 0;
-                                visibility: visible;
-                                opacity: 1;
-                            }
-                        }
-                    }
-
                     &:before {
-                        @media screen and (min-width: 768px) {
+                        @include media-breakpoint-up(lg) {
                             position: absolute;
                             content: "";
                             top: 50%;
@@ -383,7 +433,7 @@
                     }
                 }
 
-                @media screen and (max-width: 768px) {
+                @include media-breakpoint-down(md) {
                     padding: 0 15px;
                     height: auto;
                     margin-bottom: 0;
