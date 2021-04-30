@@ -2,19 +2,19 @@
 @import '../mixins/breakpoints';
 
 .jumbotron {
-    padding: 114px 133px 140px 93px;
+    padding: 114px 133px 80px 93px;
     position: relative;
     @include media-breakpoint-down(xl) {
-        padding: 100px 80px 100px 80px;
+        padding: 100px 80px 60px 80px;
     }
     @include media-breakpoint-down(lg) {
-        padding: 100px 0;
+        padding: 100px 0 60px;
     }
     @include media-breakpoint-down(md) {
-        padding: 90px 0;
+        padding: 90px 0 50px;
     }
     @include media-breakpoint-down(xs) {
-        padding: 80px 0;
+        padding: 80px 0 50px;
     }
     &_typographic {
         position: relative;
@@ -22,6 +22,7 @@
 
     &_image {
         position: relative;
+        display: flex;
         z-index: 3;
         @include media-breakpoint-down(md) {
             max-width: 650px;
