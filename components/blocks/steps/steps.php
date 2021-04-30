@@ -29,12 +29,12 @@ endif;
 
 <section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
 	<div class="container container--fluid">
-		<div class="row">
+		<div class="steps__grid">
 			<?php
 			if (is_array($steps) && count($steps)>0):
 				$i=0;
 				foreach ( $steps as $step ):?>
-					<div class="col col-25 col-xl-50 col-tablet-50">
+					<div class="steps__col">
 						<a href="<?= $step['url']; ?>" class="steps__item">
 							<div class="steps__overlay"></div>
 							<div class="steps__icon">

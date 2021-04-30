@@ -1,18 +1,37 @@
 @import '../utils/vars.scss';
+@import '../mixins/breakpoints';
 
 .steps {
-    padding: 0 15px;
-    margin-bottom: 100px;
-
-    @media screen and (max-width: 768px) {
-        padding: 0;
-        margin-bottom: 60px;
+    padding: 60px 30px;
+    @include media-breakpoint-down(lg) {
+        padding: 40px 20px;
+    }
+    @include media-breakpoint-down(md) {
+        padding: 30px 0;
+    }
+    .container {
+        max-width: 1860px;
     }
 
-    .col {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 30px;
+        column-gap: 30px;
+        @include media-breakpoint-down(xl) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include media-breakpoint-down(lg) {
+            row-gap: 20px;
+            column-gap: 20px;
+        }
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__col {
         display: flex;
     }
-
     &__item {
         box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
         border-radius: 15px;
@@ -23,21 +42,19 @@
         cursor: pointer;
         z-index: 11;
         transition: transform .3s;
-        will-change: transform;
-        margin-bottom: 30px;
         width: 100%;
-
-        @media screen and (max-width: 768px) {
-            margin-bottom: 20px;
+        @include media-breakpoint-down(mdpi) {
+            padding: 30px 25px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 25px 25px;
         }
 
         &:hover {
             transform: translateY(-20px);
-
-            @media screen and (max-width: 768px) {
+            @include media-breakpoint-down(lg) {
                 transform: none;
             }
-            
             .steps__overlay {
                 opacity: 1;
             }
