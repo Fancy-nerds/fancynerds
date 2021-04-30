@@ -28,14 +28,12 @@ if (get_field('is_example',$block['id'])) :
 endif;
 ?>
 <section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container container--fluid">
-		<div class="row">
-			<div class="col col-50">
+	<div class="about__container">
+		<div class="about__grid">
+			<div class="about__col">
 				<div class="about__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1471" height="883">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.png" width="1009" height="879">
 				</div>
-				<div class="about__ellipse about__ellipse--big"></div>
-				<div class="about__ellipse about__ellipse--small"></div>
 				<div class="about__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 					<h2 class="title"><?= $title ?></h2>
@@ -67,7 +65,7 @@ endif;
 					</a>
 				</div>
 			</div>
-			<div class="col col-50">
+			<div class="about__col">
 				<?php
 				if ($bg_image):?>
 					<div class="about__image">
