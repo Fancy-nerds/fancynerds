@@ -54,7 +54,7 @@
     transform: translateY(-50%);
     z-index: 0;
     @include media-breakpoint-down(mdpi) {
-      height: 155%;
+      height: 130%;
       top: calc(50% - 15px);
       max-width: calc(50% + 80px);
     }
