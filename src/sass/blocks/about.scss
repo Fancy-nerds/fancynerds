@@ -24,7 +24,7 @@
   &__col {
     &:first-child {
       justify-self: flex-end;
-      padding: 0 35px 0 50px;
+      padding: 0 45px 0 50px;
       @include media-breakpoint-down(lg) {
         padding: 0 30px;
         justify-self: flex-start;
@@ -55,6 +55,7 @@
     transform: translateY(-50%);
     z-index: 0;
     @include media-breakpoint-down(mdpi) {
+      height: 130%;
       top: 50%;
       max-width: calc(50% + 80px);
     }
@@ -67,7 +68,8 @@
     }
     img {
       width: 100%;
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(mdpi) {
+        object-position: 100% 50%;
         height: 100%;
         object-fit: cover;
       }
@@ -78,7 +80,7 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
-    max-width: 510px;
+    max-width: 500px;
     width: 100%;
     @include media-breakpoint-down(lg) {
       max-width: none;
