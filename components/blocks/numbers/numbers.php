@@ -45,10 +45,10 @@ endif;
 		</div>
 		<?php
 		if (is_array($numbers) && count($numbers)>0):?>
-		<div class="row">
+		<div class="numbers__grid">
 			<?php
 			foreach ($numbers as $number): ?>
-				<div class="col col-33">
+				<div class="numbers__col">
 					<div class="numbers__item">
 						<div class="numbers__count" data-before="<?=$number['before'];?>" data-after="<?=$number['after'];?>">
 							<?=$number['before'];?>

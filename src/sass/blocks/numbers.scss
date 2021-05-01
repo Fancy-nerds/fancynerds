@@ -1,15 +1,86 @@
 @import '../utils/vars.scss';
 @import 'counters.scss';
+@import '../mixins/breakpoints';
 
 .numbers {
     padding: 120px 0;
     background-color: #f0f6ff;
+    @include media-breakpoint-down(lg) {
+        padding: 100px 0;
+    }
+    @include media-breakpoint-down(md) {
+        padding: 90px 0;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 80px 0;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+        @include media-breakpoint-down(md) {
+            display: flex;
+            column-gap: 0;
+            margin: -15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        @include media-breakpoint-down(xs) {
+            margin: -10px;
+        }
+    }
+    &__col {
+        display: flex;
+        @include media-breakpoint-down(md) {
+            padding: 15px;
+            width: 50%;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 10px;
+            width: 100%;
+        }
+        &:nth-child(1) {
+            %numbers__item {
+                &:after {
+                    height: 134px;
+                    background: url('../../../assets/images/numbers-item-1.png') no-repeat 0 0/cover;
+                }
+            }
+            %numbers__count {
+                color: $blue;
+            }
+        }
 
+        &:nth-child(2) {
+            %numbers__item {
+                &:after {
+                    height: 119px;
+                    background: url('../../../assets/images/numbers-item-2.png') no-repeat 0 0/cover;
+                }
+            }
+            %numbers__count {
+                color: $blue-dark;
+            }
+        }
+
+        &:nth-child(3) {
+            %numbers__item {
+                &:after {
+                    height: 87px;
+                    background: url('../../../assets/images/numbers-item-3.png') no-repeat 0 0/cover;
+                }
+            }
+            %numbers__count {
+                color: $orange;
+            }
+        }
+    }
     .heading {
         width: 50%;
         margin: 0 auto 40px;
 
-        @media screen and (max-width: 768px) {
+        @include media-breakpoint-down(sm) {
+            margin: 0 auto 20px;
             width: 100%;
         }
     }
@@ -17,46 +88,8 @@
     .toggle__wrapper {
         margin-bottom: 50px;
     }
-
-    .col {
-        &:nth-child(1) {
-            .numbers__item {
-                &:after {
-                    height: 134px;
-                    background: url('../../../assets/images/numbers-item-1.png') no-repeat 0 0/cover;
-                }
-            }
-            .numbers__count {
-                color: $blue;
-            }
-        }
-
-        &:nth-child(2) {
-            .numbers__item {
-                &:after {
-                    height: 119px;
-                    background: url('../../../assets/images/numbers-item-2.png') no-repeat 0 0/cover;
-                }
-            }
-            .numbers__count {
-                color: $blue-dark;
-            }
-        }
-
-        &:nth-child(3) {
-            .numbers__item {
-                &:after {
-                    height: 87px;
-                    background: url('../../../assets/images/numbers-item-3.png') no-repeat 0 0/cover;
-                }
-            }
-            .numbers__count {
-                color: $orange;
-            }
-        }
-    }
-
     &__item {
+        width: 100%;
         box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.1);
         border-radius: 15px;
         background-color: $white;
@@ -64,6 +97,11 @@
         min-height: 310px;
         padding: 60px 30px 120px;
         text-align: center;
+        @include media-breakpoint-down(md) {
+            min-height: 240px;
+            padding: 30px 30px 125px;
+            text-align: center;
+        }
 
         &:after {
             position: absolute;
@@ -72,6 +110,7 @@
             left: 0;
             width: 100%;
         }
+        @extend %numbers__item;
     }
 
     &__count {
@@ -79,6 +118,7 @@
         font-family: "RedHatDisplay", "Montserrat";
         font-size: 36px;
         font-weight: 900;
+        @extend %numbers__count;
     }
 
     &__text {
