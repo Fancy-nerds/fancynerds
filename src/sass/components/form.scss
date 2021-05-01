@@ -13,9 +13,14 @@
             justify-content: center;
             top: 5px;
             right: 5px;
+            width: 45px;
+            height: 45px;
 
             i {
                 color: $white;
+                position: relative;
+                top: -2px;
+                left: -1px;
             }
         }
     }
