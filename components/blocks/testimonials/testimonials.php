@@ -25,14 +25,12 @@ if (get_field('is_example',$block['id'])) :
 	return;
 endif; ?>
 <section id="<?php echo esc_attr($id); ?>" <?= $style;?> class="section <?php echo esc_attr($className); ?>">
-	<div class="container container--fluid">
-		<div class="row">
-			<div class="col col-50">
+	<div class="testimonials__container">
+		<div class="testimonials__grid">
+			<div class="testimonials__col">
 				<div class="testimonials__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1285" height="772">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_left_big_gray.jpg" width="1009" height="879">
 				</div>
-				<div class="testimonials__ellipse testimonials__ellipse--big"></div>
-				<div class="testimonials__ellipse testimonials__ellipse--small"></div>
 				<div class="testimonials__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 					<h2 class="title"><?= $title; ?></h2>
@@ -53,7 +51,7 @@ endif; ?>
 					</div>
 				</div>
 			</div>
-			<div class="col col-50">
+			<div class="testimonials__col">
 				<div class="testimonials__image">
 					<?php
 					if($image):
