@@ -4,13 +4,13 @@
 .partners {
   display: flex;
   justify-content: space-between;
-  padding: 0 100px 110px;
+  padding: 90px 100px;
 
   @include media-breakpoint-down(md) {
-    padding: 0 0 110px;
+    padding: 60px 0;
   }
   @include media-breakpoint-down(xs) {
-    padding: 0 0 70px;
+    padding: 40px 0;
   }
 
   &__item {
@@ -29,7 +29,6 @@
     }
 
     @include media-breakpoint-down(lg) {
-      margin-bottom: 20px;
       opacity: 1;
       filter: none;
     }
