@@ -26,6 +26,7 @@
     &_image {
         position: relative;
         display: flex;
+        align-items: center;
         z-index: 3;
         @include media-breakpoint-down(md) {
             max-width: 650px;
