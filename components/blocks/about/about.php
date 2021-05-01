@@ -32,7 +32,7 @@ endif;
 		<div class="about__grid">
 			<div class="about__col">
 				<div class="about__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.png" width="1009" height="879">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_left_big_gray.jpg" width="1009" height="879">
 				</div>
 				<div class="about__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
