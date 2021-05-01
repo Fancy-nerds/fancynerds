@@ -29,14 +29,8 @@ endif;
 			<div class="jumbotron__col">
 				<div class="jumbotron_typographic">
 					<div class="jumbotron_image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.png" width="903" height="707">
+						<img src="<?php bloginfo('template_directory');?>/assets/images/jumbotron-image.svg" width="903" height="708">
 					</div>
-					<!--<div class="jumbotron_image--way">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/way.svg" width="299" height="421">
-					</div>
-					<div class="jumbotron_image--arrow">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/arrow.svg" width="41" height="46">
-					</div>-->
 				</div>
 			</div>
 			<div class="jumbotron__col">
