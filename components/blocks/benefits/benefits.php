@@ -23,9 +23,9 @@ if (get_field('is_example',$block['id'])) :
 endif;
 ?>
 <section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container container--fluid">
-		<div class="row">
-			<div class="col col-50">
+	<div class="benefits__container">
+		<div class="benefits__grid">
+			<div class="benefits__col">
 				<div class="benefits__image">
 					<?php
 					if($image):
@@ -33,9 +33,9 @@ endif;
 					endif;?>
 				</div>
 			</div>
-			<div class="col col-50">
+			<div class="benefits__col">
 				<div class="benefits__bg">
-					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1374" height="825">
+					<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.jpg" width="1374" height="825">
 				</div>
 				<div class="benefits__content">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
