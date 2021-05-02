@@ -24,6 +24,9 @@ if (get_field('is_example', $block['id'])) :
 endif;
 ?>
 <section id="<?php echo esc_attr($id); ?>" <?= $style; ?> class="section <?php echo esc_attr($className); ?>">
+	<div class="services__circles">
+		<img src="<?php bloginfo('template_directory'); ?>/assets/images/services-bg.png" width="1742" height="814">
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="heading">
@@ -56,7 +59,7 @@ endif;
 				endforeach;
 			endif ?>
 		</div>
-		<div class="services__bg">
+		<div class="services__arrow">
 			<?php
 			if ($background) :
 				echo M4Helpers::getImgHtml(['img_id' => $background, 'size' => 'full']);
