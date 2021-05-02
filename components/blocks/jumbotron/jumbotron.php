@@ -47,7 +47,8 @@ endif;
 			</div>
 		</div>
 	</div>
-	<div class="jumbotron__bg--gray-big">
-		<img src="<?php bloginfo('template_directory');?>/assets/images/bg_jumbotron_right_big_gray.svg" width="1524" height="915">
+	<div class="jumbotron__bg">
+		<img src="<?php bloginfo('template_directory');?>/assets/images/jumbo-bg-left.png" width="414" height="784">
+		<img src="<?php bloginfo('template_directory');?>/assets/images/jumbo-bg-right.png" width="485" height="874">
 	</div>
 </section>
