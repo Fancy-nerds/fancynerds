@@ -1,5 +1,5 @@
-@import '../utils/vars.scss';
-@import '../mixins/breakpoints';
+@import "../utils/vars.scss";
+@import "../mixins/breakpoints";
 
 .benefits {
   padding: 130px 0 100px;
@@ -25,9 +25,8 @@
       transform: none;
       max-width: 100%;
       height: 100%;
-      
     }
-    img {
+    &-bkp {
       width: 100%;
       @include media-breakpoint-down(mdpi) {
         object-position: 0 50%;
@@ -36,6 +35,18 @@
       }
       @include media-breakpoint-down(lg) {
         object-position: 50% 50%;
+      }
+    }
+    &-tri {
+      position: absolute;
+      top: -15px;
+      right: 0;
+      @include media-breakpoint-down(mdpi) {
+        max-width: 100px;
+      }
+      @include media-breakpoint-down(lg) {
+        max-width: 60px;
+        top: 35px;
       }
     }
   }
