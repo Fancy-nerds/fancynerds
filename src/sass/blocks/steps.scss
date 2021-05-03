@@ -17,7 +17,7 @@
     grid-template-columns: repeat(4, 1fr);
     row-gap: 30px;
     column-gap: 30px;
-    @include media-breakpoint-down(xl) {
+    @include media-breakpoint-down(mdpi) {
       grid-template-columns: repeat(2, 1fr);
     }
     @include media-breakpoint-down(lg) {
