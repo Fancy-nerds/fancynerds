@@ -16,21 +16,21 @@ $button = get_field('button') ?: 'button name...';
 $url = get_field('url') ?: 'url here...';
 
 /* Render screenshot for preview */
-if (get_field('is_example',$block['id'])) :
-	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+if (get_field('is_example', $block['id'])) :
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
 	return;
 endif;
 ?>
-<section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container">
-		<div class="action__content" style="
-position: absolute;
-left: 50%;
-transform: translateX(-50%);
-top: 87px;
-">
-			<div class="action__title"><?= $title;?></div>
-			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button;?>
+<section <?= $style; ?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
+	<div class="action__line action__line--fl"></div>
+	<div class="action__container">
+		<div class="action__content">
+			<div class="action__bg">
+				<img class="action__bg-image action__bg-image--mobile" src="<?php bloginfo('template_directory'); ?>/assets/images/economy_after.png">
+				<img class="action__bg-image action__bg-image--desk" src="<?php bloginfo('template_directory'); ?>/assets/images/action_bg.png">
+			</div>
+			<div class="action__title"><?= $title; ?></div>
+			<a href="<?= $url; ?>" class="button button--orange-revert button--big button--image"><?= $button; ?>
 				<span>
 					<i class="flaticon-right-arrow-1"></i>
 				</span>
