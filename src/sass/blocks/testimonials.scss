@@ -64,6 +64,12 @@
       max-width: 100%;
       height: 100%;
     }
+    @include media-breakpoint-down(sm) {
+      top: -100px;
+    }
+    @include media-breakpoint-down(xs) {
+      top: -90px;
+    }
     img {
       width: 100%;
       @include media-breakpoint-down(mdpi) {
@@ -72,8 +78,7 @@
         object-fit: cover;
       }
       @include media-breakpoint-down(lg) {
-        height: 100%;
-        object-fit: cover;
+        object-position: 0% 50%;
       }
     }
   }
