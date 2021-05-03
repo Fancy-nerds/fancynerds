@@ -1,6 +1,22 @@
-<section class="section blog">
-	<div class="container">
-		<div class="row">
+<?php
+
+/**
+ * Blog Block Template.
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
+extract(M4Helpers::prepBlock($block));
+?>
+
+<section id="<?php echo esc_attr($id); ?>" <?= $style; ?> class="section <?php echo esc_attr($className); ?>">
+	<div class="blog__circles">
+		<img src="<?php bloginfo('template_directory');?>/assets/images/blog-cicles.png" width="1742" height="601">
+	</div>
+	<div class="blog__container">
+		<div class="blog__header">
 			<div class="heading">
 				<h4 class="subtitle subtitle__dot-before subtitle__dot-after">Our blog</h4>
 				<h2 class="title">Our Latest Media</h2>
@@ -10,8 +26,8 @@
 				</p>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col col-33">
+		<div class="blog__list">
+			<div class="blog__col">
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
@@ -33,7 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-33">
+			<div class="blog__col">
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
@@ -55,7 +71,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-33">
+			<div class="blog__col">
 				<div class="card">
 					<div class="article-label">Marketing</div>
 					<div class="card__image">
