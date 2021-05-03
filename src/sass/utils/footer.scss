@@ -1,12 +1,4 @@
-@import '../utils/vars.scss';
-
-.home .footer {
-    padding-top: 170px;
-
-    @media screen and (max-width: 768px) {
-        padding-top: 100px;
-    }
-}
+@import '../mixins/all';
 
 .footer {
     background-color: #0160e7;
