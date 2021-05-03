@@ -28,7 +28,7 @@ endif;
 ?>
 
 <section <?= $style;?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-	<div class="container container--fluid">
+	<div class="steps__container">
 		<div class="steps__grid">
 			<?php
 			if (is_array($steps) && count($steps)>0):
