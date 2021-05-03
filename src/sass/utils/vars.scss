@@ -9,3 +9,19 @@ $blue-light: #9ee8ff;
 $blue-dark: #0160e7;
 
 $default: 16px;
+
+$container-content-width: 1170px;
+
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  mdpi: 1300px,
+  hidpi: 1500px,
+  hpdpi: 1620px,
+);

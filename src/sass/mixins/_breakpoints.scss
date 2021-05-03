@@ -1,16 +1,4 @@
-$grid-columns: 12;
-$grid-gutter-width: 30px;
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  mdpi: 1300px,
-  hidpi: 1500px,
-  hpdpi: 1620px,
-);
+@import '../utils/vars.scss';
 
 // Breakpoint viewport sizes and media queries.
 //
