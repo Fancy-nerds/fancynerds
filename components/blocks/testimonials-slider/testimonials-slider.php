@@ -1,4 +1,6 @@
-<?php /**
+<?php
+
+/**
  * testimonials-slider Block Template.
  *
  * @param   array $block The block settings and attributes.
@@ -15,47 +17,50 @@ $title = get_field('title') ?: 'Your title here...';
 $testimonials = get_field('testimonials');
 
 /* Render screenshot for preview */
-if (get_field('is_example',$block['id'])) :
-	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+if (get_field('is_example', $block['id'])) :
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
 	return;
 endif; ?>
-<div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+<div <?= $style; ?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+	<div class="testimonials-slider__meteors">
+		<img src="<?php bloginfo('template_directory'); ?>/assets/images/testimonials-slider-meteors.png" width="1039" height="753">
+	</div>
 	<div class="container">
-		<div class="row">
-			<div class="col col-33 col-tablet-50">
+		<div class="testimonials-slider__grid">
+			<div class="testimonials-slider__col">
 				<div class="heading">
 					<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 					<h2 class="title"><?= $title; ?></h2>
-					<div class="testimonials-slider__buttons">
-						<div class="testimonials-slider__button testimonials-slider__button-prev">
-							<i class="flaticon-arrow-pointing-to-left"></i>
-						</div>
-						<div class="testimonials-slider__button testimonials-slider__button-next">
-							<i class="flaticon-arrow-pointing-to-right"></i>
-						</div>
+				</div>
+				<div class="testimonials-slider__buttons">
+					<div class="testimonials-slider__button testimonials-slider__button-prev">
+						<i class="flaticon-arrow-pointing-to-left"></i>
+					</div>
+					<div class="testimonials-slider__button testimonials-slider__button-next">
+						<i class="flaticon-arrow-pointing-to-right"></i>
 					</div>
 				</div>
 			</div>
-			<div class="col col-66">
+			<div class="testimonials-slider__col">
 				<div class="testimonials-slider__content">
 					<div class="testimonials-slider__bg"></div>
 					<?php
-					if (is_array($testimonials) && count($testimonials)>0):?>
-							<div class="testimonials-slider__slider">
-								<div class="swiper-container">
-									<div class="swiper-wrapper">
+					if (is_array($testimonials) && count($testimonials) > 0) : ?>
+						<div class="testimonials-slider__slider">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
 									<?php
-									foreach ($testimonials as $value):  ?>
+									foreach ($testimonials as $value) :  ?>
 										<div class="swiper-slide">
 											<div class="testimonial">
 												<?php
 												$thumb_id =	get_post_thumbnail_id($value['tesimonial']);
-												if($thumb_id):?>
-												<div class="testimonial__photo">
-													<?php echo M4Helpers::getImgHtml([ 'img_id'=>$thumb_id, 'size'=>'thumbnail']); ?>
-												</div>
+												if ($thumb_id) : ?>
+													<div class="testimonial__photo">
+														<?php echo M4Helpers::getImgHtml(['img_id' => $thumb_id, 'size' => 'thumbnail']); ?>
+													</div>
 												<?php
-												endif;?>
+												endif; ?>
 												<div class="testimonial__text">
 													<?= get_post_field('post_content', $value['tesimonial']); ?>
 												</div>
@@ -66,12 +71,12 @@ endif; ?>
 											</div>
 										</div>
 									<?php
-									endforeach;?>
-									</div>
+									endforeach; ?>
 								</div>
 							</div>
+						</div>
 					<?php
-					endif;?>
+					endif; ?>
 				</div>
 			</div>
 		</div>
