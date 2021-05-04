@@ -20,6 +20,9 @@ if (get_field('is_example', $block['id'])) :
 endif;
 ?>
 <div class=" <?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
+	<div class="results__map">
+		<img src="<?php bloginfo('template_directory'); ?>/assets/images/map.png" width="1409" height="714">
+	</div>
 	<div class="results__circles">
 		<img src="<?php bloginfo('template_directory'); ?>/assets/images/results-circles.png" width="1534" height="845">
 	</div>
@@ -32,12 +35,9 @@ endif;
 		</div>
 	</div>
 	<div class="results__inner">
-		<div class="results__map">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/images/map.png" width="1409" height="714">
-		</div>
+
 		<div class="container">
 			<div class="results__content">
-
 				<div class="results__center">
 					<div class="results__logo">
 						<img width="167" height="150" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-fancy-nerds.svg">
