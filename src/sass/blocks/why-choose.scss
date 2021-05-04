@@ -1,31 +1,38 @@
-@import '../utils/vars.scss';
-@import '../components/progress-bars.scss';
-@import '../mixins/breakpoints';
+@import "../mixins/all";
+@import "../components/progress-bars.scss";
 
 .why-choose {
-    padding: 120px 0;
-    position: relative;
-    @include media-breakpoint-down(lg) {
-        padding: 100px 0;
+  padding: 120px 0;
+  position: relative;
+  @include media-breakpoint-down(lg) {
+    padding: 100px 0;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 90px 0;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 70px 0;
+  }
+  .progress-bars {
+    margin-top: 40px;
+    padding-right: 100px;
+
+    @media screen and (max-width: 1024px) {
+      padding-right: 0;
     }
-    @include media-breakpoint-down(md) {
-        padding: 90px 0;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 60px;
+    @include media-breakpoint-down("lg") {
+      grid-template-columns: 1fr;
     }
-    @include media-breakpoint-down(sm) {
-        padding: 70px 0;
+  }
+  &__image {
+    @include media-breakpoint-down("lg") {
+      text-align: center;
     }
-    &__grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 30px;
-        row-gap: 60px;
-        @include media-breakpoint-down('lg') {
-            grid-template-columns: 1fr;
-        }
-    }
-    &__image {
-        @include media-breakpoint-down('lg') {
-            text-align: center;
-        }
-    }
+  }
 }
