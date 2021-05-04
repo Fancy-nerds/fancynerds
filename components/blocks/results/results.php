@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Services Block Template.
  *
@@ -13,24 +14,33 @@ $title = get_field('title') ?: 'Your title here...';
 $counts = get_field('counts');
 
 /* Render screenshot for preview */
-if (get_field('is_example',$block['id'])) :
-	echo "<img src='".get_template_directory_uri()."/components/blocks/".$block['title']."/".$block['title'].".png'/>";
+if (get_field('is_example', $block['id'])) :
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
 	return;
 endif;
 ?>
-	<div class=" <?php echo esc_attr($className); ?>" <?= $style;?> id="<?php echo esc_attr($id); ?>">
+<div class=" <?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
+	<div class="results__circles">
+		<img src="<?php bloginfo('template_directory'); ?>/assets/images/results-circles.png" width="1534" height="845">
+	</div>
+	<div class="container">
+		<div class="heading">
+			<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
+			<h2 class="title">
+				<?= $title; ?>
+			</h2>
+		</div>
+	</div>
+	<div class="results__inner">
+		<div class="results__map">
+			<img src="<?php bloginfo('template_directory'); ?>/assets/images/map.png" width="1409" height="714">
+		</div>
 		<div class="container">
-			<div class="heading">
-				<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
-				<h2 class="title">
-					<?= $title; ?>
-				</h2>
-			</div>
 			<div class="results__content">
-				<div class="results__bg"></div>
+
 				<div class="results__center">
 					<div class="results__logo">
-						<img width="167" height="150" src="<?php bloginfo('template_directory');?>/assets/images/logo-fancy-nerds.svg">
+						<img width="167" height="150" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-fancy-nerds.svg">
 					</div>
 					<svg class="results__circle ot-cprocess-circle-chart" height="500" width="500" viewBox="0 0 500 500">
 						<circle cx="250" cy="250" r="225" stroke="url(#gradient)" stroke-width="50" fill="none"></circle>
@@ -40,16 +50,16 @@ endif;
 						</linearGradient>
 					</svg>
 					<?php
-					if (is_array($counts) && count($counts)>0):?>
+					if (is_array($counts) && count($counts) > 0) : ?>
 						<div class="results__counts">
 							<?php
-							foreach ($counts as $count): ?>
+							foreach ($counts as $count) : ?>
 								<div class="results__item">
-									<div class="results__count"><?= $count['count'];?></div>
+									<div class="results__count"><?= $count['count']; ?></div>
 									<div class="results__item_inner">
-										<div class="description"><?= $count['description'];?></div>
+										<div class="description"><?= $count['description']; ?></div>
 										<p class="paragraph">
-											<?= $count['paragraph'];?>
+											<?= $count['paragraph']; ?>
 										</p>
 									</div>
 								</div>
@@ -62,3 +72,6 @@ endif;
 			</div>
 		</div>
 	</div>
+
+</div>
+</div>
