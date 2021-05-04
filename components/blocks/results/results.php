@@ -28,11 +28,11 @@ endif;
 			</div>
 			<div class="results__content">
 				<div class="results__bg"></div>
-				<div class="results__circle">
+				<div class="results__center">
 					<div class="results__logo">
 						<img width="167" height="150" src="<?php bloginfo('template_directory');?>/assets/images/logo-fancy-nerds.svg">
 					</div>
-					<svg class="ot-cprocess-circle-chart" height="500" width="500">
+					<svg class="results__circle ot-cprocess-circle-chart" height="500" width="500" viewBox="0 0 500 500">
 						<circle cx="250" cy="250" r="225" stroke="url(#gradient)" stroke-width="50" fill="none"></circle>
 						<linearGradient id="gradient" gradientTransform="rotate(45)">
 							<stop offset="0%" stop-color="#015be6"></stop>
