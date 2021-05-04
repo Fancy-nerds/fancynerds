@@ -23,8 +23,8 @@ endif; ?>
 
 <div <?= $style;?> id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<div class="container">
-		<div class="row">
-			<div class="col col-50">
+		<div class="what-is__grid">
+			<div class="what-is__col">
 				<h4 class="subtitle subtitle__dot-before"><?= $subtitle; ?></h4>
 				<h2 class="title"><?= $title; ?></h2>
 				<?php
@@ -56,7 +56,7 @@ endif; ?>
 				<?php
 				endif; ?>
 			</div>
-			<div class="col col-50">
+			<div class="what-is__col">
 				<div class="what-is__image">
 					<?php
 					if($image):
