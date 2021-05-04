@@ -1,323 +1,325 @@
-@import '../utils/vars.scss';
-@import '../mixins/breakpoints';
+@import "../utils/vars.scss";
+@import "../mixins/breakpoints";
 
 .button {
-    color: $white;
-    border-radius: 25px;
-    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
-    font-size: $default;
-    font-weight: 700;
-    display: inline-block;
-    box-sizing: border-box;
-    position: relative;
-    padding: 15px 30px;
-    cursor: pointer;
+  color: $white;
+  border-radius: 25px;
+  font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
+  font-size: $default;
+  font-weight: 700;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 15px 30px;
+  cursor: pointer;
 
-    &--small {
-        padding: 14px 25px;
-        font-size: 0.875em;
-        border-radius: 23px;
-    }
+  &--small {
+    padding: 14px 25px;
+    font-size: 0.875em;
+    border-radius: 23px;
+  }
 
-    &--big {
-        padding: 18px 40px;
-        border-radius: 28px;
-    }
+  &--big {
+    padding: 18px 40px;
+    border-radius: 28px;
+  }
 
-    &--image {
-        padding-left: 28px;
-        padding-right: 58px;
-        overflow: hidden;
+  &--image {
+    padding-left: 28px;
+    padding-right: 58px;
+    overflow: hidden;
 
-        &.button--small {
-            padding-left: 30px;
-            padding-right: 50px;
+    &.button--small {
+      padding-left: 30px;
+      padding-right: 50px;
 
-            span {
-                width: 36px;
-                height: 36px;
-
-                [class^="flaticon-"]:before, 
-                [class^="flaticon-"]:after {
-                    font-size: 15px;
-                }
-            }
-        }
-
-        &.button--big {
-            padding-right: 65px;
-
-            span {
-                width: 46px;
-                height: 46px;
-            }
-        }
-
-        span {
-            position: absolute;
-            content: '';
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: $white;
-            top: 5px;
-            right: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            [class^="flaticon-"]:before, 
-            [class^="flaticon-"]:after {
-                font-size: 18px;
-            }
-        }
-
-        &:before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            transition: opacity, transform 0.5s;
-            will-change: opacity, transform;
-            opacity: 1;
-            transform: translate(-105%,0);
-            background-color: rgba(255,255,255,.8);
-        }
-
-        &:hover {
-            &:before {
-                opacity: 0;
-                transform: translate(0,0);
-            }
-        }
-    }
-
-    &--blue {
-        background-color: $blue;
-        box-shadow: 7px 5px 18px rgba(0, 195, 255, 0.3);
-
-        &.button--image {
-            span i {
-                color: $blue;
-            }
-        }
-    }
-
-    &--blue-dark {
-        background-color: $blue-dark;
-        box-shadow: 10px 7px 20px rgba(1, 96, 231, 0.3);
-
-        &.button--image {
-            span i {
-                color: $blue-dark;
-            }
-        }
-    }
-
-    &--orange {
-        background-color: $orange;
-        box-shadow: 10px 7px 20px rgba(254, 76, 28, 0.3);       
-        
-        &.button--image {
-            span i {
-                color: $orange;
-            }
-        }
-    }
-
-    &--orange-revert {
-        background-color: $white;
-        color: $orange;
-        box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
-
-        &.button--image {
-            span {
-                background-color: $orange;
-
-                i {
-                    color: $white;
-                }
-            }
-        }
-
-        &:hover {
-            color: $orange;
-        }
-    }
-
-    &--rounded {
-        border-radius: 50%;
+      span {
         width: 36px;
         height: 36px;
+
+        [class^="flaticon-"]:before,
+        [class^="flaticon-"]:after {
+          font-size: 15px;
+        }
+      }
+    }
+
+    &.button--big {
+      padding-right: 65px;
+
+      span {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    span {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $white;
+      top: 5px;
+      right: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      [class^="flaticon-"]:before,
+      [class^="flaticon-"]:after {
+        font-size: 18px;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transition: none;
+      will-change: opacity, transform;
+      opacity: 1;
+      transform: translate(-105%, 0);
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 25px;
+    }
+
+    &:hover {
+      &:before {
+        transition: opacity 0.5s ease, transform 0.5s ease, border-radius 0.5s ease;
+        transform: translate(0, 0);
+        border-radius: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  &--blue {
+    background-color: $blue;
+    box-shadow: 7px 5px 18px rgba(0, 195, 255, 0.3);
+
+    &.button--image {
+      span i {
+        color: $blue;
+      }
+    }
+  }
+
+  &--blue-dark {
+    background-color: $blue-dark;
+    box-shadow: 10px 7px 20px rgba(1, 96, 231, 0.3);
+
+    &.button--image {
+      span i {
+        color: $blue-dark;
+      }
+    }
+  }
+
+  &--orange {
+    background-color: $orange;
+    box-shadow: 10px 7px 20px rgba(254, 76, 28, 0.3);
+
+    &.button--image {
+      span i {
+        color: $orange;
+      }
+    }
+  }
+
+  &--orange-revert {
+    background-color: $white;
+    color: $orange;
+    box-shadow: 5px 3px 13px rgba(42, 67, 113, 0.15);
+
+    &.button--image {
+      span {
         background-color: $orange;
+
+        i {
+          color: $white;
+        }
+      }
     }
 
-    &--circle {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
-        background-color: $blue;
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &--rounded {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: $orange;
+  }
+
+  &--circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
+    background-color: $blue;
+  }
+
+  &--play {
+    &:before {
+      position: absolute;
+      content: "";
+      left: 54%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 15px;
+      height: 19px;
+      background-image: url("../images/play.png.webp");
     }
 
-    &--play {
-        &:before {
-            position: absolute;
-            content: '';
-            left: 54%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 15px;
-            height: 19px;
-            background-image: url('../images/play.png.webp');
-        }
-
-        .circle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 1px solid #00c3ff;
-            z-index: 0;
-            border-radius: 50%;
-            box-sizing: border-box;
-        }
-
-        .circle-1 {
-            animation: circle-fade-before 2s infinite ease-in-out;
-        }
-
-        .circle-2 {
-            animation: circle-fade-after 2s infinite ease-in-out;
-        }
+    .circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #00c3ff;
+      z-index: 0;
+      border-radius: 50%;
+      box-sizing: border-box;
     }
+
+    .circle-1 {
+      animation: circle-fade-before 2s infinite ease-in-out;
+    }
+
+    .circle-2 {
+      animation: circle-fade-after 2s infinite ease-in-out;
+    }
+  }
 }
 
 .heading {
-    text-align: center;
-    margin: 0 auto;
-    padding: 0 15px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .title {
-    color: $black;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 48px;
-    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
-    margin-bottom: 20px;
-    font-weight: 900;
-    @include media-breakpoint-down(xs) {
-        font-size: 32px;
-        line-height: 42px;
-    }
+  color: $black;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
+  margin-bottom: 20px;
+  font-weight: 900;
+  @include media-breakpoint-down(xs) {
+    font-size: 32px;
+    line-height: 42px;
+  }
 }
 
 h1.title {
-    font-size: 56px;
-    line-height: 72px;
-    @include media-breakpoint-down(md) {
-        font-size: 46px;
-        line-height: 54px;
-    }
-
+  font-size: 56px;
+  line-height: 72px;
+  @include media-breakpoint-down(md) {
+    font-size: 46px;
+    line-height: 54px;
+  }
 }
 
 .subtitle {
-    color: $gray;
-    font-size: 14px;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    line-height: 18px;
-    margin-bottom: 10px;
-    font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
+  color: $gray;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  line-height: 18px;
+  margin-bottom: 10px;
+  font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 
-    &__dot-before {
-        padding-left: 20px;
+  &__dot-before {
+    padding-left: 20px;
 
-        &:before {
-            position: absolute;
-            content: '';
-            left: 0;
-            top: 5px;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: $gray;
-        }
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: $gray;
     }
+  }
 
-    &__dot-after {
-        padding-right: 20px;
+  &__dot-after {
+    padding-right: 20px;
 
-        &:after {
-            position: absolute;
-            content: '';
-            right: 0;
-            top: 5px;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: $gray;
-        }
+    &:after {
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: $gray;
     }
+  }
 }
 
 .description {
-    font-size: 22px;
-    line-height: 36px;
-    font-weight: 400;
-    color: $black;
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: 400;
+  color: $black;
 
-    @media screen and (max-width: 768px) {
-        font-size: 18px;
-        line-height: 27px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+    line-height: 27px;
+  }
 }
 
 .paragraph {
-    color: #606060;
-    line-height: 30px;
-    z-index: 1;
-    font-size: $default;
+  color: #606060;
+  line-height: 30px;
+  z-index: 1;
+  font-size: $default;
 
-    .link {
-        color: $blue;
-        transition: color, border-color .3s, .3s;
-        will-change: color, border-color;
-        border-bottom: 1px solid $blue;
+  .link {
+    color: $blue;
+    transition: color, border-color 0.3s, 0.3s;
+    will-change: color, border-color;
+    border-bottom: 1px solid $blue;
 
-        &:hover {
-            color: $blue;
-            border-color: transparent;
-        }
+    &:hover {
+      color: $blue;
+      border-color: transparent;
     }
+  }
 }
 
 .link {
-    color: $blue-light;
-    font-family: "RedHatDisplay", "Montserrat";
-    font-size: 16px;
-    font-weight: 400;
-    transition: color, border-color .3s, .3s;
-    will-change: color, border-color;
-    border-bottom: 1px solid transparent;
+  color: $blue-light;
+  font-family: "RedHatDisplay", "Montserrat";
+  font-size: 16px;
+  font-weight: 400;
+  transition: color, border-color 0.3s, 0.3s;
+  will-change: color, border-color;
+  border-bottom: 1px solid transparent;
 
-    &:hover {
-        color: $white;
-        border-color: $white;
-    }
+  &:hover {
+    color: $white;
+    border-color: $white;
+  }
 }
 
-.site { 
-    background-color: $white;
+.site {
+  background-color: $white;
 }
 
-@import '../components/blockquote.scss';
+@import "../components/blockquote.scss";
