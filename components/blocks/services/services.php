@@ -28,11 +28,9 @@ endif;
 		<img src="<?php bloginfo('template_directory'); ?>/assets/images/services-bg.png" width="1742" height="814">
 	</div>
 	<div class="container">
-		<div class="row">
-			<div class="heading">
-				<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
-				<h2 class="title"><?= $title; ?></h2>
-			</div>
+		<div class="heading">
+			<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
+			<h2 class="title"><?= $title; ?></h2>
 		</div>
 		<div class="services__grid">
 			<?php
