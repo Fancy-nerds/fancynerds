@@ -9,15 +9,6 @@
         background: #f0f6ff;
     }
 
-    .plans {
-        padding: 100px 0;
-        margin-bottom: 100px;
-
-        @media screen and (max-width: 1024px) {
-            margin-bottom: 0;
-        }
-    }
-
     .steps {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -35,10 +26,6 @@
 
     .services-list {
         padding-bottom: 0;
-    }
-
-    .seo-form {
-        transform: translateY(50%); 
     }
 
     .numbers {
