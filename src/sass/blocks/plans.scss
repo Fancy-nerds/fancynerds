@@ -1,55 +1,39 @@
-@import '../utils/vars.scss';
+@import "../mixins/all";
 
 .plans {
-  margin-bottom: 200px;
-
+  padding: 120px 0 140px;
+  @include media-breakpoint-down(lg) {
+    padding: 90px 0 110px;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 80px 0 90px;
+  }
+  @include media-breakpoint-down(xs) {
+    padding: 70px 0 80px;
+  }
   .heading {
-    width: 50%;
+    max-width: 560px;
+    width: 100%;
     margin: 0 auto 40px;
+  }
 
-    @media screen and (max-width: 1024px) {
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -25px -15px;
+  }
+  &__col {
+    padding: 25px 15px;
+    width: 33.33%;
+
+    @include media-breakpoint-down(lg) {
+      width: 50%;
+    }
+    @include media-breakpoint-down(sm) {
       width: 100%;
     }
   }
-
-  .slider {
-    @media screen and (max-width: 1024px) {
-      display: flex;
-      overflow-x: scroll;
-      flex-wrap: nowrap;
-      padding: 20px 0 40px 0;
-      margin-left: -20px;
-      margin-right: -20px;
-    }
-
-    .col {
-      @media screen and (max-width: 1024px) {
-        width: 45%;
-        flex: none;
-      }
-
-      @media screen and (max-width: 768px) {
-        width: 80%;
-      }
-
-      @media screen and (max-width: 450px) {
-        width: 88%;
-      }
-
-      &:first-child {
-        @media screen and (max-width: 1024px) {
-          padding-left: 20px;
-        }
-      }
-
-      &:last-child {
-        @media screen and (max-width: 1024px) {
-          padding-right: 20px;
-        }
-      }
-    }
-  }
-
   &__item {
     position: relative;
     box-sizing: border-box;
@@ -65,7 +49,7 @@
 
     &:before {
       position: absolute;
-      content: '';
+      content: "";
       top: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -82,7 +66,7 @@
 
     &--filled {
       @media screen and (min-width: 1024px) {
-        background-color: #FF4B38;
+        background-color: #ff4b38;
         background-image: linear-gradient(90deg, #ff403e 0%, #ff811b 160%);
       }
 
@@ -94,10 +78,9 @@
         }
       }
 
-
       .plans__before {
         &_bg {
-          fill: rgba(255,255,255,.1);
+          fill: rgba(255, 255, 255, 0.1);
         }
       }
     }
@@ -112,15 +95,15 @@
         }
       }
 
-
       &:after {
         position: absolute;
-        content: '';
+        content: "";
         width: 130px;
         height: 109px;
         bottom: 0;
         left: 0;
-        background-image: url(../../../assets/images/standard_after.png.webp) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/standard_after.png.webp)
+          no-repeat 0 0 / cover;
         border-bottom-left-radius: 15px;
         z-index: -1;
       }
@@ -143,12 +126,13 @@
 
       &:after {
         position: absolute;
-        content: '';
+        content: "";
         width: 100%;
         height: 199px;
         bottom: 0;
         left: 0;
-        background-image: url(../../../assets/images/economy_after.png.webp) no-repeat 0 0/cover;
+        background-image: url(../../../assets/images/economy_after.png.webp)
+          no-repeat 0 0 / cover;
         z-index: -1;
       }
 
@@ -180,7 +164,7 @@
     position: absolute;
     bottom: -25px;
     left: 0;
-    z-index: 3;  
+    z-index: 3;
     text-align: center;
     width: 100%;
   }
@@ -261,7 +245,7 @@
 
     &:before {
       position: absolute;
-      content: '';
+      content: "";
       top: 0;
       left: 0;
       height: 1px;
