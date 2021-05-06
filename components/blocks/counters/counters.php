@@ -21,13 +21,14 @@ endif;
 
 if (is_array($counters) && count($counters) > 0) : ?>
 	<div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style; ?>>
+		<div class="counters__line"></div>
 		<div class="container">
 			<div class="counters__inner">
 				<div class="counters__bg"></div>
-				<div class="row">
+				<div class="counters__grid">
 					<?php
 					foreach ($counters as $counter) : ?>
-						<div class="col col-25">
+						<div class="counters__col">
 							<div class="counters__item">
 								<div class="subtitle subtitle__dot-before"><?= $counter['subtitle']; ?></div>
 								<div class="counters__count">
