@@ -1,82 +1,95 @@
-@import './mixins/all';
+@import "./mixins/all";
 
-html, body {
-    background-color: $white;
-    margin: 0 !important;
-    padding: 0;
-    font-family: "RedHatText", "Montserrat", Arial, sans-serif;
-    font-size: $default;
+html,
+body {
+  background-color: $white;
+  margin: 0 !important;
+  padding: 0;
+  font-family: "RedHatText", "Montserrat", Arial, sans-serif;
+  font-size: $default;
 }
 
 html {
-    min-height: 100vh;
-    height: 100%;
+  min-height: 100vh;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
-    color: $black;
+  text-decoration: none;
+  color: $black;
 }
 
-a:hover, a:active {
-    outline: 0;
+a:hover,
+a:active {
+  outline: 0;
 }
 
-a:hover, a:focus, a:active {
-    color: $white;
+a:hover,
+a:focus,
+a:active {
+  color: $white;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, li {
-    margin: 0;
-    padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 input,
 button,
 textarea {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 picture {
-    display: block;
+  display: block;
 }
 
 .image--rounded img,
 img.image--rounded {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .fixed {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .page-overflow {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .container {
-    max-width: 1170px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    @include make-container-max-width();
-    &--fluid {
-        max-width: none;
-        .row {
-            margin: 0;
-        }
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  @include make-container-max-width();
+  &--fluid {
+    max-width: none;
+    .row {
+      margin: 0;
     }
-    
-    /*@media screen and (max-width: 1200px) {
+  }
+
+  /*@media screen and (max-width: 1200px) {
         max-width: 970px;
     }
     
@@ -91,15 +104,15 @@ img.image--rounded {
     }*/
 }
 
-@import 'utils/fonts.scss';
-@import 'utils/grid.scss';
-@import 'utils/typography.scss';
-@import 'utils/header.scss';
-@import 'utils/footer.scss';
+@import "utils/fonts.scss";
+@import "utils/grid.scss";
+@import "utils/typography.scss";
+@import "utils/header.scss";
+@import "utils/footer.scss";
 
-@import 'mixins/_breakpoints.scss';
+@import "mixins/_breakpoints.scss";
 
-@import 'components/form.scss';
-@import 'components/slider.scss';
-@import 'components/switcher.scss';
-@import 'components/toggle.scss';
+@import "components/form.scss";
+@import "components/slider.scss";
+@import "components/switcher.scss";
+@import "components/toggle.scss";
