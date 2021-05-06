@@ -24,6 +24,7 @@ endif;
 
 if (is_array($principles) && count($principles) > 0) : ?>
 	<div class="<?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
+		<div class="principles__line"></div>
 		<div class="container">
 			<div class="principles__grid">
 				<?php

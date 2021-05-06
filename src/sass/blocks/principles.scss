@@ -1,158 +1,165 @@
-@import '../utils/vars.scss';
-@import '../mixins/breakpoints';
+@import "../utils/vars.scss";
+@import "../mixins/breakpoints";
 
 .principles {
+  width: 100%;
+  z-index: 33;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  @include media-breakpoint-down(md) {
+    padding: 60px 0;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    z-index: 33;
-    position: relative;
-    transform: translateY(50%);
-    height: 0;
-    padding: 67px 0;
-    display: flex;
-    align-items: center;
+    height: 50%;
+    background: #f0f6ff;
     @include media-breakpoint-down(md) {
-        height: auto;
-        transform: none;
-        padding: 60px 0;
+      display: none;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    @include media-breakpoint-down(md) {
+      column-gap: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: -15px;
     }
     @include media-breakpoint-down(sm) {
-        padding: 40px 0;
+      margin: -10px;
     }
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 30px;
-        @include media-breakpoint-down(md) {
-            column-gap: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: -15px;
-        }
-        @include media-breakpoint-down(sm) {
-            margin: -10px;
-        }
+  }
+  &__col {
+    @include media-breakpoint-down(md) {
+      padding: 15px;
+      width: 50%;
     }
-    &__col {
-        @include media-breakpoint-down(md) {
-            padding: 15px;
-            width: 50%;
-        }
-        @include media-breakpoint-down(sm) {
-            padding: 10px;
-            width: 100%;
-        }
-        &:nth-child(1) {
-            %principles__item {
-                &:before {
-                    width: 117px;
-                    height: 62px;
-                    background-image: url('../../../assets/images/principles_1.png.webp');
-                }
-            }
-    
-            %principles__count {
-                background-color: #e5f9ff;
-                color: #00c3ff;
-            }
-        }
-    
-        &:nth-child(2) {
-            %principles__item {
-                &:after {
-                    width: 127px;
-                    height: 31px;
-                    background-image: url('../../../assets/images/principles_2.png.webp');
-                }
-            }
-    
-            %principles__count {
-                background-color: #eaf3ff;
-                color: #0160e7;
-            }
-        }
-    
-        &:nth-child(3) {
-            %principles__item {
-                &:before {
-                    width: 110px;
-                    height: 102px;
-                    background-image: url('../../../assets/images/principles_3.png.webp');
-                }
-            }
-    
-            %principles__count {
-                background-color: #ffebe6;
-                color: #fe4c1c;
-            }
-        }
+    @include media-breakpoint-down(sm) {
+      padding: 10px;
+      width: 100%;
     }
-    &__item {
-        box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-        border-radius: 15px;
-        background-color: $white;
-        padding: 30px;
-        display: flex;
-        transition: transform .3s;
-        will-change: transform;
-        position: relative;
-        cursor: pointer;
-        height: 100%;
-        @include media-breakpoint-down(sm) {
-            padding: 30px 25px;
-        }
-        &:before,
-        &:after {
-            position: absolute;
-            content: '';
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
+    &:nth-child(1) {
+      %principles__item {
         &:before {
-            top: 0;
-            right: 0;
+          width: 117px;
+          height: 62px;
+          background-image: url("../../../assets/images/principles_1.png.webp");
         }
+      }
 
+      %principles__count {
+        background-color: #e5f9ff;
+        color: #00c3ff;
+      }
+    }
+
+    &:nth-child(2) {
+      %principles__item {
         &:after {
-            bottom: 0;
-            right: 0;
+          width: 127px;
+          height: 31px;
+          background-image: url("../../../assets/images/principles_2.png.webp");
         }
+      }
 
-        &:hover {
-            @include media-breakpoint-up(xl) {
-                transform: translateY(-20px);
-            }
+      %principles__count {
+        background-color: #eaf3ff;
+        color: #0160e7;
+      }
+    }
+
+    &:nth-child(3) {
+      %principles__item {
+        &:before {
+          width: 110px;
+          height: 102px;
+          background-image: url("../../../assets/images/principles_3.png.webp");
         }
-        @extend %principles__item;
+      }
+
+      %principles__count {
+        background-color: #ffebe6;
+        color: #fe4c1c;
+      }
+    }
+  }
+  &__item {
+    box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+    border-radius: 15px;
+    background-color: $white;
+    padding: 30px;
+    display: flex;
+    transition: transform 0.3s;
+    will-change: transform;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    @include media-breakpoint-down(sm) {
+      padding: 30px 25px;
+    }
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
-    &__count {
-        flex-shrink: 0;
-        margin-right: 20px;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        background-color: #00c3ff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #a5b7d2;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 20px;
-        font-weight: 700;
-        @extend %principles__count;
+    &:before {
+      top: 0;
+      right: 0;
     }
 
-    &__content {
+    &:after {
+      bottom: 0;
+      right: 0;
     }
 
-    &__title {
-        color: #1a1b1e;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 30px;
-        margin-bottom: 10px;
+    &:hover {
+      @include media-breakpoint-up(xl) {
+        transform: translateY(-20px);
+      }
     }
+    @extend %principles__item;
+  }
+
+  &__count {
+    flex-shrink: 0;
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #00c3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a5b7d2;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 20px;
+    font-weight: 700;
+    @extend %principles__count;
+  }
+
+  &__content {
+  }
+
+  &__title {
+    color: #1a1b1e;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
 }
