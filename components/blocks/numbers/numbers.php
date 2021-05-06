@@ -32,7 +32,7 @@ endif;
 			<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $subtitle; ?></h4>
 			<h2 class="title"><?= $title; ?></h2>
 		</div>
-		<div class="row">
+		<div class="numbers__toggle-wrapper">
 			<div class="toggle__wrapper">
 				<div class="toggle__text toggle__text--active toggle__text--before"><?= $before; ?></div>
 				<label class="toggle">
@@ -62,23 +62,21 @@ endif;
 		endif;
 
 		if (is_array($counters) && count($counters) > 0) : ?>
-			<div class="row">
+			<div>
 				<div class="counters">
-					<div class="container">
-						<div class="row">
-							<?php
-							foreach ($counters as $counter) : ?>
-								<div class="col col-25">
-									<div class="counters__item">
-										<div class="subtitle subtitle__dot-before"><?= $counter['subtitle']; ?></div>
-										<div class="counters__count">
-											<span data-counter="<?= $counter['counter']; ?>">0</span>+
-										</div>
+					<div class="counters__grid">
+						<?php
+						foreach ($counters as $counter) : ?>
+							<div class="counters__col">
+								<div class="counters__item">
+									<div class="subtitle subtitle__dot-before"><?= $counter['subtitle']; ?></div>
+									<div class="counters__count">
+										<span data-counter="<?= $counter['counter']; ?>">0</span>+
 									</div>
 								</div>
-							<?php
-							endforeach; ?>
-						</div>
+							</div>
+						<?php
+						endforeach; ?>
 					</div>
 				</div>
 			</div>

@@ -1,55 +1,55 @@
-@import '../utils/vars.scss';
+@import "../mixins/all";
 
 .switcher {
-    border-radius: 28px;
-    border: 1px solid rgba($gray, 0.5);
-    padding: 5px;
-    box-sizing: border-box;
-    display: inline-block;
+  border-radius: 28px;
+  border: 1px solid rgba($gray, 0.5);
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 30px;
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
 
-    @media screen and (max-width: 568px) {
-        width: 100%;
+  .button {
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      margin-bottom: 5px;
     }
 
-    .button {
-        @media screen and (max-width: 568px) {
-            width: 100%;
-            margin-bottom: 5px;
-        }
+    &:last-child {
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 0;
+      }
+    }
+  }
 
-        &:last-child {
-            @media screen and (max-width: 568px) {
-                margin-bottom: 0;
-            } 
-        }
+  .button:not(.active) {
+    color: $gray;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &__tabs {
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__tab {
+    width: 100%;
+    flex: none;
+    display: none;
+
+    &.active {
+      display: block;
     }
 
-    .button:not(.active) {
-        color: $gray;
-        background-color: transparent;
-        box-shadow: none;
+    & > * {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-
-    &__tabs {
-        display: flex;
-        overflow: hidden;
-    }
-
-    &__tab {
-        width: 100%;
-        flex: none;
-        display: none;
-
-        &.active{
-            display: block;
-        }
-
-        & > * {
-            margin-bottom: 30px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
+  }
 }
