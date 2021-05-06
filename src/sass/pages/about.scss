@@ -4,10 +4,5 @@
 .about {
   .why-choose {
     background: #f0f6ff;
-
-    @include media-breakpoint-up(lg) {
-      padding-top: 230px;
-      padding-bottom: 230px;
-    }
   }
 }
