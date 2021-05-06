@@ -1,23 +1,74 @@
-@import '../utils/vars.scss';
-@import '../pages/portfolio.scss';
+@import "../mixins/all";
+@import "../pages/portfolio";
 
 .cases-slider {
-    padding: 120px 0;
+  padding: 120px 0;
+  @include media-breakpoint-down(lg) {
+    padding: 100px 0;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 80px 0;
+  }
+  @include media-breakpoint-down(xs) {
+    padding: 70px 0;
+  }
+  .heading {
+    text-align: left;
+  }
 
-    .heading {
-        text-align: left;
-        margin-bottom: 40px;        
+  &__slider {
+    padding: 0 50px;
+  }
+  &__intro {
+    display: flex;
+  }
+  &__header {
+    margin-bottom: 40px;
+    width: 50%;
+    @include media-breakpoint-down(sm) {
+      width: 100%;
     }
-
-    &__slider {
-        padding: 0 50px;
+  }
+  &__nav {
+    &--top {
+      text-align: end;
+      width: 50%;
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
     }
-
-    .portfolio__item {
-        height: 400px;
-
-        picture, img {
-            height: 100%;
-        }
+    &--bottom {
+      text-align: center;
+      margin-top: 50px;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
     }
+  }
+  &__swiper {
+    &-container {
+      @include make-container-max-width(1780px);
+    }
+    .swiper-pagination {
+      position: static;
+      margin-top: 60px;
+      @include media-breakpoint-down(lg) {
+        margin-top: 50px;
+      }
+      @include media-breakpoint-down(xs) {
+        margin-top: 30px;
+      }
+    }
+  }
+  .portfolio__item {
+    height: 400px;
+    margin: 0;
+    @include media-breakpoint-down(md) {
+      height: 350px;
+    }
+    picture,
+    img {
+      height: 100%;
+    }
+  }
 }
