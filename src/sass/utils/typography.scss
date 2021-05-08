@@ -206,6 +206,10 @@
 .heading {
   text-align: center;
   margin: 0 auto;
+  &--left {
+    text-align: left;
+    margin-left: 0;
+  }
 }
 
 .title {

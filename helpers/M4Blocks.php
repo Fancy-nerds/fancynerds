@@ -55,7 +55,9 @@ class M4Blocks
 			'icon'=>'heart'],
 			['name'=>'cases-slider',
 			'icon'=>'nametag'],
-			['name'=>'seo-form',
+			['name'=>'seo form',
+			'icon'=>'nametag'],
+			['name'=>'faq-list',
 			'icon'=>'nametag'],
 		];
 	}
