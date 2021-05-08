@@ -38,8 +38,9 @@ jQuery(function ($) {
 
   function subscribe(instance) {
     instance.element.addEventListener("click", (event) => {
-      event.preventDefault();
+      if (event.target.href) return;
       changeElementStatus(instance);
+      return false;
     });
 
     window.addEventListener("resize", () => measureHeight(instance));
