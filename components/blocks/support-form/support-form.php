@@ -36,7 +36,7 @@ extract(M4Helpers::prepBlock($block));
                     <span>
                         <i class="flaticon-right-arrow-1"></i>
                     </span>
-                    </a>
+                </button>
             </div>
         </form>
     </div>
