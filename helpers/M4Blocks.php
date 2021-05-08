@@ -61,6 +61,8 @@ class M4Blocks
 			'icon'=>'nametag'],
 			['name'=>'advantages',
 			'icon'=>'nametag'],
+			['name'=>'support-form',
+			'icon'=>'nametag'],
 		];
 	}
 

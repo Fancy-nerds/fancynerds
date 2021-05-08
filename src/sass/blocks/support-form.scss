@@ -1,0 +1,73 @@
+@import "../mixins/all";
+
+.support-form {
+  @include media-breakpoint-down(xs) {
+    background: linear-gradient(-55deg, #04dbf1 0%, #0039e4 100%) #0039e4;
+  }
+  position: relative;
+  &__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #f0f6ff;
+  }
+  &__form {
+    box-shadow: 25px 17px 65px rgba(2, 156, 236, 0.3);
+    border-radius: 15px;
+    background-color: #0039e4;
+    background-image: linear-gradient(-55deg, #04dbf1 0%, #0039e4 100%);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 80px 100px;
+    @include media-breakpoint-down(lg) {
+      padding: 80px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 70px 60px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 60px 30px;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 60px 0;
+      box-shadow: none;
+      background-image: none;
+      background-color: transparent;
+    }
+    .heading {
+      text-align: center;
+    }
+    .subtitle {
+      margin-bottom: 5px;
+      color: #00c3ff;
+
+      &:before,
+      &:after {
+        background-color: #00c3ff;
+      }
+    }
+
+    .title {
+      color: $white;
+      margin-bottom: 30px;
+    }
+  }
+  &__split {
+    display: flex;
+    @include media-breakpoint-down(xs) {
+      flex-wrap: wrap;
+    }
+    input {
+      &:not(:last-child) {
+        margin-right: 20px;
+        @include media-breakpoint-down(xs) {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
