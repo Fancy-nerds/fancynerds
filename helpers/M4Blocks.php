@@ -59,6 +59,8 @@ class M4Blocks
 			'icon'=>'nametag'],
 			['name'=>'faq-list',
 			'icon'=>'nametag'],
+			['name'=>'advantages',
+			'icon'=>'nametag'],
 		];
 	}
 

@@ -1,56 +1,87 @@
-@import '../utils/vars.scss';
+@import "../mixins/all";
 
 .advantages {
-    &__image {
-        @media screen and (max-width: 1024px) {
-            margin-bottom: 60px;
-            text-align: center;
-        }
+  padding: 110px 0;
+  @include media-breakpoint-down(lg) {
+    padding: 80px 0;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 70px 0;
+  }
+  &__col {
+    &:first-child {
+      @include media-breakpoint-down(md) {
+        order: 1;
+      }
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 30px;
+    @include media-breakpoint-down(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__image {
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-        img {
-            @media screen and (max-width: 768px) {
-                padding: 0 50px;
-            }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    @include media-breakpoint-down(md) {
+      padding-left: 0;
+    }
+  }
 
-            @media screen and (max-width: 568px) {
-                padding: 0;
-            }
-        }
+  &__counters {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    @include media-breakpoint-down(md) {
+      max-width: 560px;
+      width: 100%;
+      margin: 40px auto 0;
+    }
+    @include media-breakpoint-down(xs) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 0;
+      column-gap: 0;
+      margin: 15px -15px -15px;
+    }
+    &_item {
+      @include media-breakpoint-down(md) {
+        text-align: center;
+      }
+      @include media-breakpoint-down(xs) {
+        padding: 15px;
+      }
     }
 
-    &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        @media screen and (min-width: 1024px) {
-            padding-left: 100px;
-        }
+    &_count {
+      color: $blue-dark;
+      font-family: "RedHatDisplay", "Montserrat";
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 5px;
     }
-
-    &__counters {
-        margin-top: 40px;
-
-        &_item {
-            @media screen and (max-width: 768px) {
-                width: 33.33%;
-                text-align: center;
-            }
-        }
-        
-        &_count {
-            color: $blue-dark;
-            font-family: "RedHatDisplay", "Montserrat";
-            font-size: 36px;
-            font-weight: 900; 
-            margin-bottom: 5px;
-        }
-        &_text {
-            color: $black;
-            font-family: "RedHatDisplay", "Montserrat";
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.7px;
-        }
+    &_text {
+      color: $black;
+      font-family: "RedHatDisplay", "Montserrat";
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
     }
+  }
 }
