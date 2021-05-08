@@ -1,229 +1,273 @@
-@import '../utils/vars.scss';
+@import "../mixins/all";
 
 .support {
-    background-color: #f0f6ff;
+  padding: 130px 0;
+  background-color: #f0f6ff;
+  position: relative;
+  box-sizing: border-box;
+  @include media-breakpoint-down(lg) {
+    padding: 100px 0;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 70px 0 80px;
+  }
+  .heading {
+    .title {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: none;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 50px;
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include media-breakpoint-down(xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__col {
+    @include media-breakpoint-down(lg) {
+      display: flex;
+    }
+    %support__card {
+      &:before,
+      &:after {
+        position: absolute;
+        content: "";
+        z-index: 1;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &:nth-child(even) {
+      %support__card {
+        @include media-breakpoint-up(xl) {
+          margin-top: 50px;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      %support__card {
+        &:before {
+          right: 0;
+          top: 0;
+          width: 117px;
+          height: 69px;
+          background-image: url(../../../assets/images/support_card_1-1.png.webp);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      %support__card {
+        &:before {
+          top: 0;
+          left: 0;
+          width: 105px;
+          height: 41px;
+          background-image: url(../../../assets/images/support_card_2-1.png.webp);
+        }
+
+        &:after {
+          bottom: 0;
+          right: 0;
+          width: 157px;
+          height: 67px;
+          background-image: url(../../../assets/images/support_card_2-2.png.webp);
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      %support__card {
+        &:before {
+          top: 0;
+          right: 0;
+          width: 130px;
+          height: 52px;
+          background-image: url(../../../assets/images/support_card_3-1.png.webp);
+        }
+
+        &:after {
+          bottom: 0;
+          left: 0;
+          width: 93px;
+          height: 28px;
+          background-image: url(../../../assets/images/support_card_3-2.png.webp);
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      %support__card {
+        &:before {
+          left: 0;
+          top: 0;
+          width: 116px;
+          height: 36px;
+          background-image: url(../../../assets/images/support_card_4-1.png.webp);
+        }
+      }
+    }
+  }
+
+  &__card {
+    width: 100%;
+    box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+    border-radius: 15px;
+    background-color: $white;
     position: relative;
     box-sizing: border-box;
+    padding: 50px 25px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 11;
 
-    .heading {
-        .title {
-            margin-bottom: 30px;
+    .button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      @include media-breakpoint-up(xl) {
+        transition: bottom, visibility, opacity 0.3s, 0.3s, 0.3s;
+        color: $orange;
+        background: #fff;
+        box-shadow: 10px 7px 20px rgba(156, 156, 156, 0.3);
+        bottom: -43px;
+        opacity: 0;
+        visibility: hidden;
+        &:before {
+          background-color: rgba(254, 77, 28, 0.8);
         }
-    }
-
-    &__bg {
-        position: absolute;
-        top: 342px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .col {
-        .support__card {
-            &:before,
-            &:after {
-                position: absolute;
-                content: '';
-                z-index: 1;
-                background-repeat: no-repeat;
-            }
+      }
+      @include media-breakpoint-down(lg) {
+        bottom: -23px;
+      }
+      span {
+        @include media-breakpoint-up(xl) {
+          background: $orange;
+          i {
+            color: #fff;
+          }
         }
+      }
     }
-
-    .col:nth-child(even) {
-        .support__card {
-            top: 50px;
+    @include media-breakpoint-up(xl) {
+      &:hover {
+        .support__overlay {
+          opacity: 1;
         }
-    }
-
-    .col:nth-child(1) {
-        .support__card {
-            &:before {
-                right: 0;
-                top: 0;
-                width: 117px;
-                height: 69px;
-                background-image: url(../images/support_card_1-1.png.webp);
-            }
+        %support__image {
+          box-shadow: 8px 6px 24px rgba(67, 67, 67, 0.3);
         }
-    }
-
-    .col:nth-child(2) {
-        .support__card {
-            &:before {
-                top: 0;
-                left: 0;
-                width: 105px;
-                height: 41px;
-                background-image: url(../images/support_card_2-1.png.webp);
-            }
-
-            &:after {
-                bottom: 0;
-                right: 0;
-                width: 157px;
-                height: 67px;
-                background-image: url(../images/support_card_2-2.png.webp);
-            }
+        .support__title,
+        .paragraph {
+          color: $white;
         }
-    }
 
-    .col:nth-child(3) {
-        .support__card {
-            &:before {
-                top: 0;
-                right: 0;
-                width: 130px;
-                height: 52px;
-                background-image: url(../images/support_card_3-1.png.webp);
-            }
+        .support__image {
+          background-color: $white;
 
-            &:after {
-                bottom: 0;
-                left: 0;
-                width: 93px;
-                height: 28px;
-                background-image: url(../images/support_card_3-2.png.webp);
-            }
+          [class^="flaticon-"]:before,
+          [class^="flaticon-"]:after {
+            color: $blue;
+          }
         }
-    }
-
-    .col:nth-child(4) {
-        .support__card {
-            &:before {
-                left: 0;
-                top: 0;
-                width: 116px;
-                height: 36px;
-                background-image: url(../images/support_card_4-1.png.webp);
-            }
-        }
-    }
-
-    &__card {
-        box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-        border-radius: 15px;
-        background-color: $white;
-        position: relative;
-        box-sizing: border-box;
-        padding: 50px 25px;
-        cursor: pointer;
-        text-align: center;
-        z-index: 11;
 
         .button {
-            position: absolute;
-            left: 50%;
-            bottom: -43px;
-            transform: translateX(-50%);
-            padding: 11px 50px 11px 30px;
-            opacity: 0;
-            visibility: hidden;
-            transition: bottom, visibility, opacity .3s,.3s,.3s;
-            will-change: bottom, visibility, opacity;
-            z-index: 3;
-            width: 65%;
-      
-            &:after {
-                width: 36px;
-                height: 36px;
-            }
-      
-            &:before {
-                width: 15px;
-                height: 11px;
-                right: 15px;
-            }
+          opacity: 1;
+          visibility: visible;
+          bottom: -23px;
         }
-    
-        &:hover {
-            .support__overlay {
-                opacity: 1;
-            }
-    
-            &:before,
-            &:after {
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .support__title,
-            .paragraph {
-                color: $white;
-            }
-
-            .support__image {
-                background-color: $white;
-
-                [class^="flaticon-"]:before,
-                [class^="flaticon-"]:after {
-                    color: $blue;
-                }
-            }
-        
-            .button {
-                opacity: 1;
-                visibility: visible;
-                bottom: -23px;
-            }
-        }
+      }
     }
+    @extend %support__card;
+  }
 
-    &__image {
-        box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
-        background-color: $blue;
-        width: 85px;
-        height: 85px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        margin: 0 auto;
-        transition: background-color .3s;
-        will-change: background-color;
-        position: relative;
-        margin-bottom: 30px;
+  &__image {
+    box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
+    background-color: $blue;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+    will-change: background-color;
+    position: relative;
+    margin-bottom: 30px;
+    z-index: 2;
 
-        [class^="flaticon-"]:before,
-        [class^="flaticon-"]:after{
-            color: #fff;
-            transform: translate(-50%, -50%);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            display: inline-block;
-            transition: color .3s;
-            will-change: color;
-            font-size: 30px;
-        }
+    [class^="flaticon-"]:before,
+    [class^="flaticon-"]:after {
+      color: #fff;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      transition: color 0.3s;
+      will-change: color;
+      font-size: 30px;
     }
+    @extend %support__image;
+  }
 
-    &__title {
-        color: $black;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 24px;
-        margin-bottom: 20px;
-        transition: color .3s;
-        will-change: color;
-    }
+  &__title {
+    position: relative;
+    color: $black;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+    will-change: color;
+    z-index: 5;
+  }
 
-    .paragraph {
-        transition: color .3s;
-        will-change: color;
-    }
+  .paragraph {
+    position: relative;
+    transition: color 0.3s;
+    will-change: color;
+    z-index: 5;
+  }
 
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: $blue;
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        transition: opacity .3s;
-        will-change: opacity;
-        border-radius: 15px;
-        background-image: linear-gradient(-55deg, #04dbf1 0%, #0039e4 100%);
-    }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $blue;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s;
+    border-radius: 15px;
+    background: linear-gradient(-55deg, #04dbf1 0%, #0039e4 100%) #0039e4;
+    z-index: 2;
+  }
 }
