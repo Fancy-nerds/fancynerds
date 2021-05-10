@@ -1,6 +1,5 @@
-@import "../utils/vars.scss";
+@import "../mixins/all";
 @import "counters.scss";
-@import "../mixins/breakpoints";
 
 .numbers {
   padding: 120px 0;

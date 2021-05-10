@@ -1,70 +1,70 @@
-@import '../utils/vars.scss';
+@import "../mixins/all";
 
 .author {
-    box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-    border-radius: 15px;
-    background-color: $white;
+  box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+  border-radius: 15px;
+  background-color: $white;
+  display: flex;
+
+  &__image {
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    padding: 50px 50px 20px;
+    box-sizing: border-box;
+  }
+
+  &__work {
+    color: $orange;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: $default;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    color: $black;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    color: #606060;
+    font-size: $default;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+  &__social {
     display: flex;
 
-    &__image {
-        width: 250px;
-        flex-shrink: 0;
-    }
+    &--icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    &__content {
-        padding: 50px 50px 20px;
-        box-sizing: border-box;
-    }
+      svg path {
+        transition: fill 0.3s;
+        will-change: fill;
+      }
 
-    &__work {
-        color: $orange;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: $default;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
+      &:last-child {
+        margin-right: 0;
+      }
 
-    &__name {
-        color: $black;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    &__text {
-        color: #606060;
-        font-size: $default;
-        font-weight: 400;
-        line-height: 30px;
-        margin-bottom: 10px;
-    }
-
-    &__social {
-        display: flex;
-
-        &--icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            svg path {
-                transition: fill  0.3s;
-                will-change: fill;
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
-
-            &:hover {
-                svg path {
-                    fill: $orange;
-                }
-            }
+      &:hover {
+        svg path {
+          fill: $orange;
         }
+      }
     }
+  }
 }

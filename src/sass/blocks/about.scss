@@ -1,6 +1,6 @@
-@import '../utils/vars.scss';
+@import '../mixins/all';
 @import '../components/snippet.scss';
-@import '../mixins/breakpoints';
+
 
 .about {
   position: relative;
