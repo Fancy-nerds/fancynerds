@@ -121,12 +121,19 @@
     @include media-breakpoint-down(xs) {
       display: none;
     }
-    img {
+    img,
+    picture {
       position: absolute;
       top: 0;
       max-width: 50%;
       &:last-of-type {
         right: 0;
+      }
+    }
+    picture {
+      img {
+        position: static;
+        max-width: 100%;
       }
     }
   }
