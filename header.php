@@ -199,5 +199,4 @@
 				'container_class' => 'header__menu_container',
 			)); ?>
 		</div>
-		<div class="page-overflow">
-			<main class="main">
+		<main class="main">
