@@ -28,12 +28,18 @@
     &-bkp {
       width: 100%;
       @include media-breakpoint-down(mdpi) {
-        object-position: 0 50%;
         height: 100%;
-        object-fit: cover;
       }
-      @include media-breakpoint-down(lg) {
-        object-position: 50% 50%;
+      img {
+        width: 100%;
+        @include media-breakpoint-down(mdpi) {
+          object-position: 0 50%;
+          height: 100%;
+          object-fit: cover;
+        }
+        @include media-breakpoint-down(lg) {
+          object-position: 50% 50%;
+        }
       }
     }
     &-tri {
