@@ -69,7 +69,7 @@
     @include media-breakpoint-down(xs) {
       top: -90px;
     }
-    img {
+    img, picture {
       width: 100%;
       @include media-breakpoint-down(mdpi) {
         object-position: 100% 50%;
