@@ -1,5 +1,5 @@
-@import '../mixins/all';
-@import '../components/card.scss';
+@import "../mixins/all";
+@import "../components/card.scss";
 
 .blog {
   padding: 90px 0;
@@ -24,9 +24,12 @@
     @include media-breakpoint-down(xs) {
       display: none;
     }
-    img {
+    img,
+    picture {
       width: 100%;
       height: 100%;
+    }
+    img {
       object-fit: none;
       object-position: center;
     }
@@ -40,7 +43,7 @@
     row-gap: 30px;
     column-gap: 30px;
     @include media-breakpoint-down(md) {
-      grid-template-columns: 1fr
+      grid-template-columns: 1fr;
     }
   }
   &__col {
