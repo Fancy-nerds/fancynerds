@@ -26,25 +26,19 @@
   &__col {
   }
   &__item {
-    padding: 20px;
     box-sizing: border-box;
     background-color: $white;
     box-shadow: 7px 5px 25px rgba(42, 67, 113, 0.15);
     border-radius: 28px;
     display: block;
     position: relative;
-
+    cursor: pointer;
     &.active {
       %faq-list__title {
         color: $blue;
       }
       %faq-list__text {
-        margin-top: 10px;
-        opacity: 1;
-        height: auto;
-        visibility: visible;
-        transition: height 0.3s;
-        will-change: height;
+        display: block;
       }
       %faq-list__arrow {
         img {
@@ -61,16 +55,16 @@
     transition: color 0.3s;
     will-change: color;
     width: 90%;
+    padding: 20px;
     @extend %faq-list__title;
   }
 
   &__text {
     color: #606060;
     line-height: 30px;
-    height: 0;
-    visibility: hidden;
-    opacity: 0;
+    display: none;
     transition: none;
+    padding: 0 20px 20px;
     @extend %faq-list__text;
   }
 
