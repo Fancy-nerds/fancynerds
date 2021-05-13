@@ -1,49 +1,47 @@
-@import '../mixins/all';
+@import "../mixins/all";
 
 .bar {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    &__title {
-        color: $black;
-        font-size: 14px;
-        font-weight: 500;
-    }
+  &__title {
+    color: $black;
+    font-size: 14px;
+    font-weight: 500;
+  }
 
-    &__value {
-        width: 20%;
-        flex-shrink: 0;
-        color: $black;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: right;
-    }
+  &__value {
+    width: 20%;
+    flex-shrink: 0;
+    color: $black;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+  }
 
-    &__status {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 10px;
-    }
+  &__status {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+  }
 
-    &__scale {
-        height: 10px;
-        border-radius: 5px;
-        background-color: $white;
-        width: 100%;
-        position: relative;
-        z-index: 3;
+  &__scale {
+    height: 10px;
+    border-radius: 5px;
+    background-color: $white;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+  }
 
-    }
-
-    &__progress {
-        box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
-        border-radius: 5px;
-        background-color: #00c3ff;
-        position: absolute;
-        height: 10px;
-        z-index: 5;
-        transition: width 0.6s ease-in;
-        will-change: width;
-        width: 0%;
-    }
+  &__progress {
+    box-shadow: 8px 6px 24px rgba(0, 195, 255, 0.3);
+    border-radius: 5px;
+    background-color: #00c3ff;
+    position: absolute;
+    height: 10px;
+    z-index: 5;
+    transition: width 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+    width: 0%;
+  }
 }
