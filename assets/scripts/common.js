@@ -1,6 +1,7 @@
 (function () {
   const burger = document.querySelector(".header__burger");
   const closeBtn = document.querySelector(".header__close");
+  const overlay = document.querySelector(".header__overlay");
 
   burger &&
     burger.addEventListener("click", (e) => {
@@ -11,6 +12,14 @@
   closeBtn &&
     closeBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      document.querySelector(".header__overlay").classList.remove("active");
+      document.querySelector(".header-mobile__menu").classList.remove("active");
+    });
+
+  overlay &&
+    overlay.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       document.querySelector(".header__overlay").classList.remove("active");
       document.querySelector(".header-mobile__menu").classList.remove("active");
     });
