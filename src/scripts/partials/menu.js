@@ -1,17 +1,25 @@
-jQuery(function ($) {
-  $(document).on("click", ".header__burger", function (e) {
-    e.preventDefault();
-    $(this).find(".header__overlay").addClass("active");
-    $(document).find(".header-mobile__menu").addClass("active");
-  });
+(function () {
+  const burger = document.querySelector(".header__burger");
+  const closeBtn = document.querySelector(".header__close");
 
-  $(document).on("click", ".header__close", function (e) {
-    e.preventDefault();
-    $(document).find(".header__overlay").removeClass("active");
-    $(document).find(".header-mobile__menu").removeClass("active");
-  });
+  burger &&
+    burger.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(".header__overlay").classList.add("active");
+      document.querySelector(".header-mobile__menu").classList.add("active");
+    });
+  closeBtn &&
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(".header__overlay").classList.remove("active");
+      document.querySelector(".header-mobile__menu").classList.remove("active");
+    });
 
-  const elements = [...document.querySelectorAll(".header-mobile__menu .menu-item-has-children")];
+  const elements = [
+    ...document.querySelectorAll(
+      ".header-mobile__menu .menu-item-has-children"
+    ),
+  ];
   elements.forEach(accordion);
 
   function findElements(object, element) {
@@ -80,4 +88,4 @@ jQuery(function ($) {
     }
     init();
   }
-});
+})();
