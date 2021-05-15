@@ -108,17 +108,44 @@ jQuery(function($) {
 	});
 });
 
-jQuery(function($) {
-    $(document).on('click', '.switcher .button', function(e) {
+/*jQuery(function ($) {
+  $(document).on("click", ".switcher .button", function (e) {
+    e.preventDefault();
+    let $curr = $(this);
+    if ($curr.hasClass("active")) {
+      return false;
+    }
+    let target = $curr.attr("data-target");
+    $(".switcher .button.active").removeClass("active");
+    $curr.addClass("active");
+    $(".switcher__tab.active").removeClass("active");
+    $('.switcher__tab[data-name="' + target + '"]').addClass("active");
+  });
+});*/
+
+(function () {
+  document.querySelectorAll(".switcher").forEach((switcherEl) => {
+    if (switcherEl.classList.contains("switcher--initiated")) return;
+    switcherEl.classList.add("switcher--initiated");
+    const btns = switcherEl.querySelectorAll("button");
+    btns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
-        let $curr= $(this);
-        if( $curr.hasClass('active') ){
-            return false;
+        let curr = e.target;
+        if (curr.classList.contains("active")) {
+          return false;
         }
-        let target = $curr.attr('data-target');
-        $('.switcher .button.active').removeClass('active');
-        $curr.addClass('active');
-        $('.switcher__tab.active').removeClass('active');
-        $('.switcher__tab[data-name="'+target+'"]').addClass('active');
-    })
-})
+        let target = curr.dataset.target;
+        switcherEl.querySelector(".button.active").classList.remove("active");
+
+        curr.classList.add("active");
+        switcherEl.parentElement
+          .querySelector(".switcher__tab.active")
+          .classList.remove("active");
+        switcherEl.parentElement
+          .querySelector('.switcher__tab[data-name="' + target + '"]')
+          .classList.add("active");
+      });
+    });
+  });
+})();
