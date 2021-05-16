@@ -155,7 +155,7 @@ function fancynerds_scripts() {
 	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
 
 	# Common scripts that appears on all pages
-	wp_register_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array('jquery-core'), rand( 1, 999999 ), true );
+	wp_register_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array(), rand( 1, 999999 ), true );
 	wp_localize_script( 'fancynerds-common-js', 'k8All', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	));
