@@ -252,3 +252,16 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_theme_support('editor-styles');
 add_editor_style( 'editor-style.css' ); // make sure path reflects where the file is located
 
+
+//deregister jquery from frontend
+function remove_jquery() {
+    if (!is_admin() && !is_admin_bar_showing()) {
+		wp_dequeue_script( 'jquery' );
+        wp_deregister_script( 'jquery' );
+
+        // Removing WP core jQuery
+        wp_dequeue_script( 'jquery-core' );
+        wp_deregister_script( 'jquery-core' );
+    }
+}
+add_action('init', 'remove_jquery');
