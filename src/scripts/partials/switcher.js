@@ -1,4 +1,4 @@
-(function () {
+function switcherInit() {
   document.querySelectorAll(".switcher").forEach((switcherEl) => {
     if (switcherEl.classList.contains("switcher--initiated")) return;
     switcherEl.classList.add("switcher--initiated");
@@ -23,4 +23,6 @@
       });
     });
   });
-})();
+}
+
+switcherInit()
