@@ -1,65 +1,89 @@
-jQuery(function($) {
-    $(document).on('click', '.toggle', function(e) {
-        let $current = $(this);
-        let $activeClass = 'toggle__text--active';
-        $current.siblings('.toggle__text').removeClass($activeClass);
+function initNumbersBlock() {
+  document.querySelectorAll(".numbers").forEach((numbersContainer) => {
+    if (numbersContainer.classList.contains("numbers--active")) return;
+    numbersContainer.classList.add("numbers--active");
 
-        // checked = 'after'
-        if ($current.find('input').prop('checked')) {
-            $current.siblings('.toggle__text--after').addClass($activeClass);
-        }
-        else {
-            $current.siblings('.toggle__text--before').addClass($activeClass);
-        }
-        
-        let $numbers = $(document).find('.numbers__count');
-        if ($numbers) {
-            $.each($numbers, function() {
-                let $before = $(this).data('before');
-                let $after = $(this).data('after');
-
-                // checked = 'after'
-                if ($current.find('input').prop('checked')) {
-                    $(this).text($after);
-                }
-                else {
-                    $(this).text($before);
-                }
-            });
-        }
-    })
-})
-
-jQuery(function($) {
-    /*
-    jQuery animateNumber plugin v0.0.14
-    (c) 2013, Alexandr Borisov.
-    https://github.com/aishek/jquery-animateNumber
-    */
-    (function(d){var r=function(b){return b.split("").reverse().join("")},m={numberStep:function(b,a){var e=Math.floor(b);d(a.elem).text(e)}},g=function(b){var a=b.elem;a.nodeType&&a.parentNode&&(a=a._animateNumberSetter,a||(a=m.numberStep),a(b.now,b))};d.Tween&&d.Tween.propHooks?d.Tween.propHooks.number={set:g}:d.fx.step.number=g;d.animateNumber={numberStepFactories:{append:function(b){return function(a,e){var f=Math.floor(a);d(e.elem).prop("number",a).text(f+b)}},separator:function(b,a,e){b=b||" ";
-    a=a||3;e=e||"";return function(f,k){var u=0>f,c=Math.floor((u?-1:1)*f).toString(),n=d(k.elem);if(c.length>a){for(var h=c,l=a,m=h.split("").reverse(),c=[],p,s,q,t=0,g=Math.ceil(h.length/l);t<g;t++){p="";for(q=0;q<l;q++){s=t*l+q;if(s===h.length)break;p+=m[s]}c.push(p)}h=c.length-1;l=r(c[h]);c[h]=r(parseInt(l,10).toString());c=c.join(b);c=r(c)}n.prop("number",f).text((u?"-":"")+c+e)}}}};d.fn.animateNumber=function(){for(var b=arguments[0],a=d.extend({},m,b),e=d(this),f=[a],k=1,g=arguments.length;k<g;k++)f.push(arguments[k]);
-    if(b.numberStep){var c=this.each(function(){this._animateNumberSetter=b.numberStep}),n=a.complete;a.complete=function(){c.each(function(){delete this._animateNumberSetter});n&&n.apply(this,arguments)}}return e.animate.apply(e,f)}})(jQuery);
-
-    $(document).on('scroll', function() {
-
-        if ($('.counters').length > 0) {
-            var heightWindow = $(window).innerHeight();
-            var offsetNumbers = $('.counters').offset().top;
-            var scrollTop = $(document).scrollTop();
-
-            if (scrollTop > (offsetNumbers - heightWindow + 100)) {
-                $('[data-counter]').each(function(indx){
-                    var count = $(this).attr('data-counter');
-                    var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(' ');
-
-                    if ($(this).html() == 0 || $(this).html() == '0') {
-                        $(this).animateNumber({ 
-                            number: count,
-                            numberStep: comma_separator_number_step
-                        }, 2000);
-                    }
-                });
+    let switchInp = numbersContainer.querySelector(".toggle input");
+    switchInp &&
+      switchInp.addEventListener("change", (e) => {
+        numbersContainer
+          .querySelectorAll(".numbers__count")
+          .forEach((numberCountEl) => {
+            if (e.target.checked) {
+              numberCountEl.innerText = numberCountEl.dataset.after;
+            } else {
+              numberCountEl.innerText = numberCountEl.dataset.before;
             }
+          });
+      });
+  });
+}
+
+initNumbersBlock()
+
+function initToggle() {
+  document.querySelectorAll(".toggle").forEach((toggleEl) => {
+    if (toggleEl.classList.contains("toggle--active")) return;
+    toggleEl.classList.add("toggle--active");
+    toggleEl.querySelector("input").addEventListener("change", (e) => {
+      let inp = e.target;
+      let activeClass = "toggle__text--active";
+      toggleEl.parentElement
+        .querySelector("." + activeClass)
+        .classList.remove(activeClass);
+
+      if (inp.checked) {
+        toggleEl.parentElement
+          .querySelector(".toggle__text--after")
+          .classList.add(activeClass);
+      } else {
+        toggleEl.parentElement
+          .querySelector(".toggle__text--before")
+          .classList.add(activeClass);
+      }
+    });
+  });
+}
+
+initToggle();
+
+(function () {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (
+          entry.isIntersecting &&
+          !entry.target.classList.contains("counters--intersected")
+        ) {
+          entry.target.classList.add("counters--intersected");
+          entry.target.querySelectorAll("[data-counter]").forEach((el) => {
+            animateValue(el, 0, +el.dataset.counter, 2000);
+          });
         }
-    })
-})
+      });
+    },
+    {
+      root: null,
+      threshold: 0.65,
+    }
+  );
+  document.querySelectorAll(".counters").forEach((countersEl) => {
+    if (countersEl.classList.contains("counters--initiated")) return;
+    countersEl.classList.add("counters--initiated")
+    observer.observe(countersEl);
+  });
+
+  const intl = new Intl.NumberFormat("en-US", { style: "decimal" });
+  function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = intl.format(Math.floor(progress * (end - start) + start));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+})();

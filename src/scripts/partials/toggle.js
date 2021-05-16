@@ -1,31 +1,25 @@
-jQuery(function($) {
-    $(document).on('click', '.toggle', function(e) {
-        let $current = $(this);
-        let $activeClass = 'toggle__text--active';
-        $current.siblings('.toggle__text').removeClass($activeClass);
+function initToggle() {
+  document.querySelectorAll(".toggle").forEach((toggleEl) => {
+    if (toggleEl.classList.contains("toggle--active")) return;
+    toggleEl.classList.add("toggle--active");
+    toggleEl.querySelector("input").addEventListener("change", (e) => {
+      let inp = e.target;
+      let activeClass = "toggle__text--active";
+      toggleEl.parentElement
+        .querySelector("." + activeClass)
+        .classList.remove(activeClass);
 
-        // checked = 'after'
-        if ($current.find('input').prop('checked')) {
-            $current.siblings('.toggle__text--after').addClass($activeClass);
-        }
-        else {
-            $current.siblings('.toggle__text--before').addClass($activeClass);
-        }
-        
-        let $numbers = $(document).find('.numbers__count');
-        if ($numbers) {
-            $.each($numbers, function() {
-                let $before = $(this).data('before');
-                let $after = $(this).data('after');
+      if (inp.checked) {
+        toggleEl.parentElement
+          .querySelector(".toggle__text--after")
+          .classList.add(activeClass);
+      } else {
+        toggleEl.parentElement
+          .querySelector(".toggle__text--before")
+          .classList.add(activeClass);
+      }
+    });
+  });
+}
 
-                // checked = 'after'
-                if ($current.find('input').prop('checked')) {
-                    $(this).text($after);
-                }
-                else {
-                    $(this).text($before);
-                }
-            });
-        }
-    })
-})
+initToggle();
