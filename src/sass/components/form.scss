@@ -1,79 +1,92 @@
-@import '../mixins/all';
+@import "../mixins/all";
 
 .form {
-    &__subscribe {
-        .form__control {
-            padding-right: 50px;
-        }
-
-        .form__button {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 5px;
-            right: 5px;
-            width: 45px;
-            height: 45px;
-
-            i {
-                color: $white;
-                position: relative;
-                top: -2px;
-                left: -1px;
-            }
-        }
+  &-ajx {
+    &__result {
+      text-align: center;
+      margin-top: 20px;
+      width: 100%;
+      &--success {
+        color: #0160e7;
+      }
+      &--error {
+        color: #fe4c1c;
+      }
+    }
+  }
+  &__subscribe {
+    .form__control {
+      padding-right: 50px;
     }
 
-    &__group {
-        position: relative;  
-        margin-bottom: 20px;
-        
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-    &__label {
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 4px;
-        display: inline-block;
-    }
-    &__control {
-        box-shadow: 7px 5px 25px rgba(42, 67, 113, 0.15);
-        border-radius: 25px;
-        background-color: $white;
-        padding: 15px 20px;
-        width: 100%;
-        box-sizing: border-box;
-        &-box {
-            margin-bottom: 12px;
-        }
-        &--outlined {
-            box-shadow: none;
-            border: 1px solid lighten($color: $black-light, $amount: 40%);
-            transition: border-color 0.3s ease;
-            &:focus {
-                border-color: $black-light;
-            }
-        }
-        &--small {
-            padding: 10px 20px;
-            border-radius: 20px;
-        }
-    }
-    &__submit {
-        min-width: 200px;
-        &-box {
-            margin-top: 15px;
-            &--centered {
-                text-align: center;
-            }
-        }
-    }
+    .form__button {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 5px;
+      right: 5px;
+      width: 45px;
+      height: 45px;
 
-    &__buttons {
-        margin-top: 20px;
+      i {
+        color: $white;
+        position: relative;
+        top: -2px;
+        left: -1px;
+      }
+    }
+  }
+
+  &__group {
+    position: relative;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  &__control {
+    box-shadow: 7px 5px 25px rgba(42, 67, 113, 0.15);
+    border-radius: 25px;
+    background-color: $white;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    &-box {
+      margin-bottom: 12px;
+    }
+    &--outlined {
+      box-shadow: none;
+      border: 1px solid lighten($color: $black-light, $amount: 40%);
+      transition: border-color 0.3s ease;
+      &:focus {
+        border-color: $black-light;
+      }
+    }
+    &--small {
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+  }
+  &__submit {
+    min-width: 200px;
+    &-box {
+      margin-top: 15px;
+      &--centered {
         text-align: center;
+      }
     }
+  }
+
+  &__buttons {
+    margin-top: 20px;
+    text-align: center;
+  }
 }

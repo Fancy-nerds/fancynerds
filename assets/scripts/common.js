@@ -103,15 +103,17 @@ function initAjaxForm() {
   document.querySelectorAll(".form-ajx").forEach((form) => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      console.log("red");
       const ajxresEl = form.querySelector(".form-ajx__result");
-      
-      const formData = new FormData()
-      formData.append('action', 'm4ajx_lead')
+      const submitBtn = getSubmitBtn(form);
+      const formData = new FormData();
+
+      formData.append("action", "m4ajx_lead");
       serializeArray(form).forEach((el, ind) => {
-        formData.append(`dataSubm[${ind}][name]`, el.name)
-        formData.append(`dataSubm[${ind}][value]`, el.value)
-      })
+        formData.append(`dataSubm[${ind}][name]`, el.name);
+        formData.append(`dataSubm[${ind}][value]`, el.value);
+      });
+
+      submitBtn.classList.add("button--loading");
 
       try {
         let res = await fetch(k8All.ajaxurl, {
@@ -130,6 +132,8 @@ function initAjaxForm() {
           }
         }
       } catch (error) {}
+
+      submitBtn.classList.remove("button--loading");
     });
   });
 }
@@ -167,6 +171,10 @@ function serializeArray(form) {
     }
   }
   return s;
+}
+
+function getSubmitBtn(form) {
+  return [...form].find((el) => el.type === "submit");
 }
 
 function switcherInit() {
