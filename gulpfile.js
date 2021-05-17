@@ -39,7 +39,6 @@ function stylesCommon() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(shorthand())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('assets/styles/'))
 }
@@ -54,7 +53,6 @@ function styles() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(shorthand())
         .pipe(sourcemaps.write())
         .pipe(rename( function(file) {
             file.dirname = file.basename;
@@ -72,7 +70,6 @@ function stylesPages() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(shorthand())
         // .pipe(cleanCSS({
         //     debug: true,
         //     compatibility: '*'
@@ -93,7 +90,6 @@ function stylesShortcodes() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(shorthand())
         .pipe(sourcemaps.write())
         .pipe(rename( function(file) {
             file.dirname = file.basename;

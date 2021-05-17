@@ -1,61 +1,66 @@
-@import '../mixins/all';
+@import "../mixins/all";
 
 .footer {
-    background-color: #0160e7;
-    background-image: linear-gradient(to left, #04b6f1 0%, #002cae 62%, #002cae 100%);  
-    padding-top: 110px;
-    padding-bottom: 170px;
+  background-color: #0160e7;
+  background-image: linear-gradient(
+    to left,
+    #04b6f1 0%,
+    #002cae 62%,
+    #002cae 100%
+  );
+  padding-top: 110px;
+  padding-bottom: 170px;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    color: $white;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 20px;
+    font-weight: 700;
 
     @media screen and (max-width: 768px) {
-        padding-top: 60px;
-        padding-bottom: 60px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__column {
+    @media screen and (max-width: 768px) {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    color: $blue-light;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .col {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      order: 2;
     }
 
-    &__title {
-        margin-bottom: 40px;
-        color: $white;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 20px;
-        font-weight: 700;
-
-        @media screen and (max-width: 768px) {
-            margin-bottom: 20px;
-        }
+    &.subscribe-col {
+      @media screen and (max-width: 768px) {
+        order: 1;
+      }
     }
+  }
 
-    &__column {
-        @media screen and (max-width: 768px) {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-    }
-
-    &__item {
-        margin-bottom: 10px;
-    }
-
-    &__text {
-        color: $blue-light;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-    }
-
-    .col {
-        @media screen and (max-width: 768px) {
-            display: flex;
-            order: 2;
-        }
-
-        &.subscribe-col {
-            @media screen and (max-width: 768px) {
-                order: 1;
-            }
-        }
-    }
-
-    .form__subscribe {
-        margin-top: 30px;
-    }
+  .form__subscribe {
+    margin-top: 30px;
+  }
 }
