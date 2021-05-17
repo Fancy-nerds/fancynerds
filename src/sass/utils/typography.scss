@@ -1,6 +1,5 @@
 @import "../mixins/all";
 
-
 .button {
   color: $white;
   border-radius: 25px;
@@ -90,7 +89,8 @@
 
     &:hover {
       &:before {
-        transition: opacity 0.5s ease, transform 0.5s ease, border-radius 0.5s ease;
+        transition: opacity 0.5s ease, transform 0.5s ease,
+          border-radius 0.5s ease;
         transform: translate(0, 0);
         border-radius: 0;
         opacity: 0;
@@ -200,6 +200,13 @@
     .circle-2 {
       animation: circle-fade-after 2s infinite ease-in-out;
     }
+  }
+  &--loading {
+    background-image: url(../../assets/images/loading.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 90%;
+    color: transparent;
   }
 }
 
