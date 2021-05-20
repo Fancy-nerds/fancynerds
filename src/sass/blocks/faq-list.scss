@@ -52,10 +52,10 @@
     color: #1a1b1e;
     font-size: $default;
     font-weight: 500;
+    line-height: 1.15;
     transition: color 0.3s;
     will-change: color;
-    width: 90%;
-    padding: 20px;
+    padding: 20px 60px 20px 20px;
     @extend %faq-list__title;
   }
 
@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 
     img {
       transition: transform 0.3s;
