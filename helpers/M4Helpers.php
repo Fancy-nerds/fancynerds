@@ -37,6 +37,7 @@ class M4Helpers
 	 * @return [type]       [description]
 	 */
 	static function prepBlock( $block, $css=[] ){
+		$bgColor = get_field('background_color');
 		$return=[];
 		$return['style'] = 'style="';
 
@@ -53,6 +54,9 @@ class M4Helpers
 		if( !empty($block['align']) )
 			$return['className'] .= ' align' . $block['align'];
 
+		if( $bgColor )
+			$return['className'] .= ' block-bg block-bg--' . $bgColor;
+			
 		#allowing custom paddings
 		$return['ind_top'] = get_field('ind_top',$block['id']);
 		$return['ind_btm'] = get_field('ind_btm',$block['id']);
