@@ -1,4 +1,5 @@
 <?php
+
 /**
  * fancynerds functions and definitions
  *
@@ -7,9 +8,9 @@
  * @package fancynerds
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
 require_once 'helpers/M4Funcs.php';
@@ -20,7 +21,7 @@ require_once 'helpers/M4Blocks.php';
 require_once 'helpers/M4Ajax.php';
 
 
-if ( ! function_exists( 'fancynerds_setup' ) ) :
+if (!function_exists('fancynerds_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -28,17 +29,18 @@ if ( ! function_exists( 'fancynerds_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function fancynerds_setup() {
+	function fancynerds_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on fancynerds, use a find and replace
 		 * to change 'fancynerds' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'fancynerds', get_template_directory() . '/languages' );
+		load_theme_textdomain('fancynerds', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -46,19 +48,19 @@ if ( ! function_exists( 'fancynerds_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'fancynerds' ),
+				'menu-1' => esc_html__('Primary', 'fancynerds'),
 			)
 		);
 
@@ -92,7 +94,7 @@ if ( ! function_exists( 'fancynerds_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		/**
 		 * Add support for core custom logo.
@@ -110,7 +112,7 @@ if ( ! function_exists( 'fancynerds_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'fancynerds_setup' );
+add_action('after_setup_theme', 'fancynerds_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -119,22 +121,24 @@ add_action( 'after_setup_theme', 'fancynerds_setup' );
  *
  * @global int $content_width
  */
-function fancynerds_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'fancynerds_content_width', 640 );
+function fancynerds_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('fancynerds_content_width', 640);
 }
-add_action( 'after_setup_theme', 'fancynerds_content_width', 0 );
+add_action('after_setup_theme', 'fancynerds_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function fancynerds_widgets_init() {
+function fancynerds_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'fancynerds' ),
+			'name'          => esc_html__('Sidebar', 'fancynerds'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'fancynerds' ),
+			'description'   => esc_html__('Add widgets here.', 'fancynerds'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -142,82 +146,86 @@ function fancynerds_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'fancynerds_widgets_init' );
+add_action('widgets_init', 'fancynerds_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function fancynerds_scripts() {
-	wp_enqueue_style( 'fancynerds-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'fancynerds-style', 'rtl', 'replace' );
+function fancynerds_scripts()
+{
+	wp_enqueue_style('fancynerds-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('fancynerds-style', 'rtl', 'replace');
 
 	# Common styles that appears on all pages
-	wp_enqueue_style( 'fancynerds-common-css', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
+	wp_enqueue_style('fancynerds-common-css', get_template_directory_uri() . '/assets/styles/common.css', array(), rand(1, 999999));
 
 	# Common scripts that appears on all pages
-	wp_register_script( 'fancynerds-common-js', get_template_directory_uri().'/assets/scripts/common.js', array(), rand( 1, 999999 ), true );
-	wp_localize_script( 'fancynerds-common-js', 'k8All', array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	wp_register_script('fancynerds-common-js', get_template_directory_uri() . '/assets/scripts/common.js', array(), rand(1, 999999), true);
+	wp_localize_script('fancynerds-common-js', 'k8All', array(
+		'ajaxurl' => admin_url('admin-ajax.php'),
 	));
 	wp_enqueue_script('fancynerds-common-js');
 
 	# Vendor
-	wp_register_script( 'fancynerds-vendor-swiper-js', get_template_directory_uri().'/vendor/swiper/swiper.min.js', array(), null, true );
-	wp_register_style( 'fancynerds-vendor-swiper-css', get_template_directory_uri().'/vendor/swiper/swiper.min.css', array(), null, 'all' );
+	wp_register_script('fancynerds-vendor-swiper-js', get_template_directory_uri() . '/vendor/swiper/swiper.min.js', array(), null, true);
+	wp_register_style('fancynerds-vendor-swiper-css', get_template_directory_uri() . '/vendor/swiper/swiper.min.css', array(), null, 'all');
 
 	#Template Parts
-	wp_register_style( 'fancynerds-part-jumbo-css', get_template_directory_uri().'/components/blocks/jumbotron__inner/jumbotron__inner.css', [], rand( 1, 999999 ), 'all' );
+	wp_register_style('fancynerds-part-jumbo-css', get_template_directory_uri() . '/components/blocks/jumbotron__inner/jumbotron__inner.css', [], rand(1, 999999), 'all');
 
 	#Templates
 	#Team
-	wp_register_style( 'fancynerds-tpl-team-css', get_template_directory_uri().'/assets/styles/pages/team.css', [], rand( 1, 999999 ), 'all' );
-	if( is_page_template('tpl-team.php') ){
-		wp_enqueue_style( 'fancynerds-tpl-team-css' );
+	wp_register_style('fancynerds-tpl-team-css', get_template_directory_uri() . '/assets/styles/pages/team.css', [], rand(1, 999999), 'all');
+	if (is_page_template('tpl-team.php')) {
+		wp_enqueue_style('fancynerds-tpl-team-css');
 	}
 
-	wp_register_style( 'fancynerds-tpl-about-css', get_template_directory_uri().'/assets/styles/pages/about.css', [], rand( 1, 999999 ), 'all' );
-	if( is_page_template('tpl-about.php') ){
-		wp_enqueue_style( 'fancynerds-tpl-about-css' );
+	wp_register_style('fancynerds-tpl-about-css', get_template_directory_uri() . '/assets/styles/pages/about.css', [], rand(1, 999999), 'all');
+	if (is_page_template('tpl-about.php')) {
+		wp_enqueue_style('fancynerds-tpl-about-css');
 	}
 
-	wp_register_style( 'fancynerds-tpl-service-css', get_template_directory_uri().'/assets/styles/pages/service.css', [], rand( 1, 999999 ), 'all' );
-	if( is_page_template('tpl-service.php') ){
-		wp_enqueue_style( 'fancynerds-tpl-service-css' );
+	wp_register_style('fancynerds-tpl-service-css', get_template_directory_uri() . '/assets/styles/pages/service.css', [], rand(1, 999999), 'all');
+	if (is_page_template('tpl-service.php')) {
+		wp_enqueue_style('fancynerds-tpl-service-css');
 	}
 
 	#END Templates
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'fancynerds_scripts' );
+add_action('wp_enqueue_scripts', 'fancynerds_scripts');
 
 
 
 #styles used in admin panel so block components look the same
-add_action( 'admin_enqueue_scripts', 'fancynerds_admin_styles' );
-function fancynerds_admin_styles() {
+add_action('admin_enqueue_scripts', 'fancynerds_admin_styles');
+function fancynerds_admin_styles()
+{
 	$current_page = get_current_screen()->base;
-  if($current_page == 'post' || $current_page == 'page') {
-		wp_enqueue_style( 'fancynerds-common', get_template_directory_uri().'/assets/styles/common.css', array(), rand( 1, 999999 ) );
-		wp_enqueue_style( 'fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand( 1, 999999 ) );
+	if ($current_page == 'post' || $current_page == 'page') {
+		wp_enqueue_style('fancynerds-common', get_template_directory_uri() . '/assets/styles/common.css', array(), rand(1, 999999));
+		wp_enqueue_style('fancynerds-admin', get_template_directory_uri() . '/assets/styles/admin.css', array(), rand(1, 999999));
 	}
 }
 
 
 #Remove not used scripts
-function fancynerds_deregister_scripts(){
- wp_dequeue_script( 'wp-embed' );
+function fancynerds_deregister_scripts()
+{
+	wp_dequeue_script('wp-embed');
 }
-add_action( 'wp_footer', 'fancynerds_deregister_scripts' );
+add_action('wp_footer', 'fancynerds_deregister_scripts');
 
 
 #Custom image sizes
-add_action( 'after_setup_theme', 'fancynerds_theme_setup' );
-function fancynerds_theme_setup() {
-  // add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
-  add_image_size( 'team', 370, 370, true ); // (cropped)
+add_action('after_setup_theme', 'fancynerds_theme_setup');
+function fancynerds_theme_setup()
+{
+	// add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
+	add_image_size('team', 370, 370, true); // (cropped)
 }
 
 
@@ -244,24 +252,60 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
+if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
 // Gutenberg custom stylesheet
 add_theme_support('editor-styles');
-add_editor_style( 'editor-style.css' ); // make sure path reflects where the file is located
+add_editor_style('editor-style.css'); // make sure path reflects where the file is located
 
 
 //deregister jquery from frontend
-function remove_jquery() {
-    if (!is_admin() && !is_admin_bar_showing()) {
-		wp_dequeue_script( 'jquery' );
-        wp_deregister_script( 'jquery' );
+function remove_jquery()
+{
+	if (!is_admin() && !is_admin_bar_showing()) {
+		wp_dequeue_script('jquery');
+		wp_deregister_script('jquery');
 
-        // Removing WP core jQuery
-        wp_dequeue_script( 'jquery-core' );
-        wp_deregister_script( 'jquery-core' );
-    }
+		// Removing WP core jQuery
+		wp_dequeue_script('jquery-core');
+		wp_deregister_script('jquery-core');
+	}
 }
 add_action('init', 'remove_jquery');
+
+
+//restrict palette
+function fancy_setup_theme_supported_features()
+{
+	add_theme_support('editor-color-palette', array(
+		array(
+			'name' => esc_attr__('black', 'fancynerds'),
+			'slug' => 'black',
+			'color' => '#1a1b1e',
+		),
+		array(
+			'name' => esc_attr__('white', 'fancynerds'),
+			'slug' => 'white',
+			'color' => '#ffffff',
+		),
+		array(
+			'name' => esc_attr__('light blue', 'fancynerds'),
+			'slug' => 'light-blue',
+			'color' => '#f0f6ff',
+		),
+		array(
+			'name' => esc_attr__('orange', 'fancynerds'),
+			'slug' => 'orange',
+			'color' => '#fe4c1c',
+		),
+		array(
+			'name' => esc_attr__('transparent', 'fancynerds'),
+			'slug' => 'transparent',
+			'color' => '#ffffff00',
+		),
+	));
+}
+
+add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
