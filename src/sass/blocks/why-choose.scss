@@ -4,6 +4,7 @@
 .why-choose {
   padding: 120px 0;
   position: relative;
+  background-color: $blue-light-2;
   @include media-breakpoint-down(lg) {
     padding: 100px 0;
   }
