@@ -11,7 +11,7 @@
 extract(M4Helpers::prepBlock($block));
 ?>
 <section <?= $style; ?> id="<?php echo esc_attr($id); ?>" class="section <?php echo esc_attr($className); ?>">
-    <div class="support-form__line"></div>
+    <?= $blockInnerStart ?>
     <div class="container">
         <form class="form support-form__form">
             <div class="heading">
