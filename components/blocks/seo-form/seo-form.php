@@ -17,8 +17,8 @@ if (get_field('is_example', $block['id'])) :
 endif;
 ?>
 
-<div class="seo-form">
-    <div class="seo-form__line"></div>
+<div class="<?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
+    <?= $blockInnerBefore ?>
     <div class="container">
         <div class="seo-form__wrapper">
             <div class="seo-form__bg">
