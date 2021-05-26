@@ -21,7 +21,7 @@ endif;
 
 if (is_array($counters) && count($counters) > 0) : ?>
 	<div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style; ?>>
-		<div class="counters__line"></div>
+		<?= $blockInnerStart ?>
 		<div class="container">
 			<div class="counters__inner">
 				<div class="counters__bg"></div>

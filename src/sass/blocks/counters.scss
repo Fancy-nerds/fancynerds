@@ -32,17 +32,6 @@
       grid-template-columns: 1fr;
     }
   }
-  &__line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: #f0f6ff;
-    /*@include media-breakpoint-down(md) {
-      display: none;
-    }*/
-  }
   &__inner {
     position: relative;
     padding: 83px 0;
