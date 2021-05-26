@@ -300,12 +300,21 @@ function fancy_setup_theme_supported_features()
 			'slug' => 'orange',
 			'color' => '#fe4c1c',
 		),
+		
 		array(
 			'name' => esc_attr__('transparent', 'fancynerds'),
 			'slug' => 'transparent',
 			'color' => '#ffffff00',
 		),
 	));
+	
+	add_theme_support('editor-gradient-presets', array(
+        array(
+			'name' => esc_attr__('dark blue to blue gradient', 'fancynerds'),
+			'slug' => 'dark-blue-to-blue',
+			'gradient' => 'linear-gradient(to left, #04b6f1 0%, #002cae 62%, #002cae 100%)',
+		),
+    ));
 }
 
 add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
