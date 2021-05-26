@@ -35,17 +35,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
+    @include media-breakpoint-down(lg) {
+      row-gap: 48px;
+    }
     @include media-breakpoint-down(md) {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       column-gap: 0;
+      row-gap: 0;
       margin: -24px -15px;
     }
   }
   &__col {
     display: flex;
-
     @include media-breakpoint-down(md) {
       padding: 24px 15px;
       width: 50%;
