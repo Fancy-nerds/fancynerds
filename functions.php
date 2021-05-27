@@ -296,6 +296,11 @@ function fancy_setup_theme_supported_features()
 			'color' => '#f0f6ff',
 		),
 		array(
+			'name' => esc_attr__('blue', 'fancynerds'),
+			'slug' => 'blue',
+			'color' => '#00c3ff',
+		),
+		array(
 			'name' => esc_attr__('orange', 'fancynerds'),
 			'slug' => 'orange',
 			'color' => '#fe4c1c',
