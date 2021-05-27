@@ -13,6 +13,11 @@
   cursor: pointer;
   white-space: nowrap;
   line-height: 1.5;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
   &--small {
     padding: 14px 25px;
     font-size: 0.875em;

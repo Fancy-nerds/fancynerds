@@ -15,19 +15,27 @@ html {
 }
 
 a {
-  text-decoration: none;
-  color: $black;
+  color: $blue;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: $blue-hover;
+  }
 }
 
-a:hover,
-a:active {
-  outline: 0;
+:where(body.wp-admin) {
+  a {
+    color: #2271b1;
+  }
 }
 
-a:hover,
-a:focus,
-a:active {
-  color: $white;
+:where(.acf-block-preview) a {
+  color: $blue;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: $blue-hover;
+  }
 }
 
 h1,

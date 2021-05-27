@@ -1,70 +1,75 @@
-@import '../mixins/all';
+@import "../mixins/all";
 
 .snippet {
-    padding: 20px;
-    box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
-    border-radius: 10px;
-    background-color: $white;
-    transition: transform .3s;
-    will-change: transform;
-    display: inline-flex;
-    min-width: 190px;
-    box-sizing: border-box;
-    align-items: center;
+  padding: 20px;
+  box-shadow: 7px 5px 30px rgba(42, 67, 113, 0.15);
+  border-radius: 10px;
+  background-color: $white;
+  transition: transform 0.3s;
+  will-change: transform;
+  display: inline-flex;
+  min-width: 190px;
+  box-sizing: border-box;
+  align-items: center;
+  text-decoration: none;
+  display: inline-block;
+  &:hover {
+    transform: translateY(-20px);
+    text-decoration: none;
+  }
 
+  &__image {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: $black;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
+
+  &__result {
+    display: flex;
+  }
+
+  &__stars {
+    display: flex;
+    margin-top: 2.5px;
+  }
+
+  &__star {
+    width: 11px;
+    height: 11px;
+    background-image: url("../../../assets/images/star.png.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 2px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__rating {
+    color: $orange;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 5px;
+    text-decoration: none;
     &:hover {
-        transform: translateY(-20px);
+      text-decoration: none;
     }
-
-    &__image {
-        width: 35px;
-        height: 35px;
-        flex-shrink: 0;
-        margin-right: 15px;
-    }
-    
-    &__content {
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    &__title {
-        color: $black;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 18px;
-        margin-bottom: 5px;
-    }
-
-    &__result {
-        display: flex;
-    }
-
-    &__stars {
-        display: flex;
-        margin-top: 2.5px;
-    }
-
-    &__star {
-        width: 11px;
-        height: 11px;
-        background-image: url('../../../assets/images/star.png.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin-right: 2px;
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-
-    &__rating {
-        color: $orange;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 14px;
-        font-weight: 900;
-        margin-right: 5px;
-    }
+  }
 }
