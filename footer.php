@@ -120,7 +120,7 @@
 			<span class="close">&times;</span>
 		</div>
 		<div class="modal-body ">
-			<form class="container form-ajx">
+			<form id="global-contact-form" class="container form-ajx" novalidate>
 				<div class="row">
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
