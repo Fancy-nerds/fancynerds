@@ -119,38 +119,40 @@
 			<p class="modal-header__title">Contact our team!</p>
 			<span class="close">&times;</span>
 		</div>
-		<div class="modal-body ">
+		<div class="modal-body">
 			<form id="global-contact-form" class="container form-ajx" novalidate>
-				<div class="row">
+				<div class="contact-modal__grid">
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
-					<div class="col-50 col form__control-box">
+					<div class="contact-modal__col form__control-box">
 						<label class="form__label">First Name*</label>
 						<input name="NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
-					<div class="col-50 col form__control-box">
+					<div class="contact-modal__col form__control-box">
 						<label class="form__label">Last Name*</label>
 						<input name="LAST_NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
-					<div class="col-50 col form__control-box">
+					<div class="contact-modal__col form__control-box">
 						<label class="form__label">Email*</label>
 						<input name="EMAIL" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
-					<div class="col-50 col form__control-box">
+					<div class="contact-modal__col form__control-box">
 						<label class="form__label">Phone</label>
 						<input name="PHONE" value="" class="form__control form__control--outlined form__control--small" />
 					</div>
 
-					<div class="col col-100 form__control-box">
+					<div class="contact-modal__col contact-modal__col--fluid form__control-box">
 						<label class="form__label">Comments</label>
 						<textarea name="COMMENTS" class="form__control form__control--outlined form__control--small" rows="5"></textarea><br />
 					</div>
-					<div class="col col-100 form__submit-box form__submit-box--centered">
+					<div class="contact-modal__col contact-modal__col--fluid contact-modal__recaptcha">
+					</div>
+					<div class="contact-modal__col contact-modal__col--fluid form__submit-box form__submit-box--centered">
 						<button class="button button--small button--orange modal-body__btn form__submit">Send</button>
 					</div>
-					<p class="form-ajx__result"></p>
+					<p class="form-ajx__result contact-modal__col contact-modal__col--fluid"></p>
 				</div>
 			</form>
 

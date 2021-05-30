@@ -22,11 +22,11 @@ class M4Ajax
 
 	#Load
 	public function lead(){
-
 		$arrr = array();
 		$fields=['ASSIGNED_BY_ID'=>C_REST_ASSIGNED_BY_ID];
+		
 		extract( $_POST );
-
+		
 		foreach ($dataSubm as $k=>$v) :
 			if( $v['name']=='EMAIL'||$v['name']=='PHONE' ){
 				$fields[$v['name']]=[["VALUE"=>$v['value'],"VALUE_TYPE" => "WORK"]];
@@ -34,6 +34,15 @@ class M4Ajax
 			}
 			$fields[$v['name']]=$v['value'];
 		endforeach;
+
+		$result = M4Helpers::checkRecaptchaFilter($fields['g-recaptcha-response']);
+
+		if (!$result['success']) {
+			wp_send_json_error( array(
+				'message' => 'Invalid CAPTCHA token. Please try again.'
+			));
+			return;
+		}
 
 		#get First name / Last name / EMAIL / of affiliate
 		if( isset($fields[C_REST_AFF_ID]) && $fields[C_REST_AFF_ID] !== '' ){
@@ -52,8 +61,9 @@ class M4Ajax
 			]
 		);
 		$arrr['success'] = true;
- 		echo json_encode( $arrr );
-		exit();
+ 		wp_send_json_success(array(
+			 'message' => 'We received your message, and we will contact you soon!'
+		 ));
 	}
 }
 new M4Ajax;

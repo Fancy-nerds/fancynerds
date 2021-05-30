@@ -1,0 +1,18 @@
+.contact {
+  &-modal {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+    }
+    &__col {
+      &--fluid {
+        grid-column: 1 / -1;
+      }
+    }
+    &__recaptcha {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

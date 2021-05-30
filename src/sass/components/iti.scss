@@ -1,0 +1,13 @@
+.iti {
+  border-radius: 20px;
+  &__flag {
+    background-image: url("../../assets/images/flags.png");
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url("../../assets/images/flags@2x.png");
+    }
+  }
+  &__selected-flag {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}

@@ -1,5 +1,3 @@
-//= partials/lib.js
-
 //= partials/formUtils.js
 
 //= partials/validateForm.js

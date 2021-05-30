@@ -2,7 +2,47 @@ function initContactForm() {
   const form = document.querySelector("#global-contact-form");
 
   if (!form) return;
-  
+
+  const iti = intlTelInput(form["PHONE"], {
+    initialCountry: "auto",
+    nationalMode: false,
+    formatOnDisplay: true,
+    async geoIpLookup(success, failure) {
+      try {
+        if (sessionStorage.getItem("locale"))
+          return success(sessionStorage.getItem("locale"));
+        const res = await fetch("https://ipinfo.io?token=e6e9834a6240d1");
+        const data = await res.json();
+        const countryCode = data && data.country ? data.country : "de";
+        sessionStorage.setItem("locale", countryCode);
+        success(countryCode);
+      } catch (error) {
+        failure(error);
+      }
+    },
+    //separateDialCode: true,
+    utilsScript: templateUrl + "/vendor/intl-tel-input/utils.js",
+  });
+
+  form["PHONE"].addEventListener("keyup", formatIntlTelInput);
+  form["PHONE"].addEventListener("change", formatIntlTelInput);
+
+  function formatIntlTelInput() {
+    if (typeof intlTelInputUtils !== "undefined") {
+      var currentText = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+      if (typeof currentText === "string") {
+        iti.setNumber(currentText);
+      }
+    }
+  }
+
+  const gwidget = grecaptcha.render(
+    form.querySelector(".contact-modal__recaptcha"),
+    {
+      sitekey: "6Lcgqf8aAAAAAM5Y4qG1EtZqkLksQCLMM5HCxI8S",
+    }
+  );
+
   const validate = new ValidateForm(form, {
     NAME: {
       validators: ["required"],
@@ -13,12 +53,17 @@ function initContactForm() {
     EMAIL: {
       validators: ["email"],
     },
+    PHONE: {
+      validators: ["phone"],
+    },
   });
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const validateRes = await validate.trigger();
     if (validateRes.length) return;
-    const ajxresEl = form.querySelector(".form-ajx__result");
+
+    hideFormMsg(form);
+
     const submitBtn = getSubmitBtn(form);
     const formData = new FormData();
 
@@ -35,19 +80,16 @@ function initContactForm() {
         method: "post",
         body: formData,
       });
-      let data = await res.json();
-      if (data.success) {
-        form.reset();
-        if (ajxresEl) {
-          ajxresEl.innerHTML =
-            "We received your message, and we will contact you soon!";
-          setTimeout(() => {
-            ajxresEl.innerHTML = "";
-          }, 6000);
-        }
-      }
-    } catch (error) {}
+      let rawData = await res.json();
 
+      if (rawData.success) {
+        form.reset();
+        showFormSuccess(rawData.data.message, form);
+      } else throw new Error(rawData.data.message);
+    } catch (error) {
+      showFormError(error.message, form);
+    }
+    grecaptcha.reset(gwidget);
     submitBtn.classList.remove("button--loading");
   });
 }

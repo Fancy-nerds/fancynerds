@@ -213,6 +213,9 @@
     background-position: center;
     background-size: auto 90%;
     color: transparent;
+    &:hover {
+      color: transparent;
+    }
   }
 }
 

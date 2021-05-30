@@ -16,14 +16,11 @@ class ValidateForm {
     this.result = [];
     [...this.form].forEach((inp) => {
       if (!this.scheme[inp.name]) return;
-      const res = Iodine.is(
-        inp.value,
-        this.scheme[inp.name].validators
-      );
-      if (res !== true) this.handleError(inp, res)
-      else this.handleValid(inp)
+      const res = Iodine.is(inp.value, this.scheme[inp.name].validators);
+      if (res !== true) this.handleError(inp, res);
+      else this.handleValid(inp);
     });
-    return this.result
+    return this.result;
   }
   bind() {
     [...this.form].forEach((inp) => {
@@ -32,20 +29,26 @@ class ValidateForm {
       inp.addEventListener("change", this.handleChange);
     });
   }
-  handleChange = (function () {
+  handleChange = function () {
     this.trigger(false);
-  }).bind(this)
+  }.bind(this);
   handleError(inp, errorType) {
-    this.result.push(Iodine.getErrorMessage(errorType))
-    this.showError(inp)
+    this.result.push(Iodine.getErrorMessage(errorType));
+    this.showError(inp);
   }
   showError(inp) {
-    inp.classList.add('form__control--error')
+    inp.classList.add("form__control--error");
   }
   handleValid(inp) {
-    this.hideError(inp)
+    this.hideError(inp);
   }
   hideError(inp) {
-    inp.classList.remove('form__control--error')
+    inp.classList.remove("form__control--error");
   }
 }
+
+///
+Iodine.addRule("phone", (val) => {
+  return val ? intlTelInputUtils.isValidNumber(val) : true;
+});
+Iodine.setErrorMessages({ phone: `Isn't valid phone number` });

@@ -29,12 +29,18 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8K04121YRN"></script>
+	<script type="text/javascript">
+		const templateUrl = '<?= get_bloginfo("template_url"); ?>';
+	</script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
 
-	  gtag('config', 'G-8K04121YRN');
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-8K04121YRN');
 	</script>
 
 	<style>

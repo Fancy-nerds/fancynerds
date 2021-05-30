@@ -35,3 +35,21 @@ function serializeArray(form) {
 function getSubmitBtn(form) {
   return [...form].find((el) => el.type === "submit");
 }
+
+function showFormSuccess(msg, form) {
+  const resEl = form.querySelector(".form-ajx__result");
+  resEl.innerHTML = msg;
+}
+
+function showFormError(msg, form) {
+  const resEl = form.querySelector(".form-ajx__result");
+  resEl.classList.add("form-ajx__result--error");
+  resEl.innerHTML = msg;
+}
+
+function hideFormMsg(form) {
+  const resEl = form.querySelector(".form-ajx__result");
+  resEl.classList.remove("form-ajx__result--error");
+  resEl.classList.remove("form-ajx__result--success");
+  resEl.innerHTML = "";
+}

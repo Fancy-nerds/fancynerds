@@ -112,6 +112,10 @@ img.image--rounded {
     }*/
 }
 
+.grecaptcha-badge { 
+  visibility: hidden;
+}
+
 @import "utils/fonts.scss";
 @import "utils/grid.scss";
 @import "utils/block.scss";
@@ -121,7 +125,9 @@ img.image--rounded {
 
 @import "mixins/_breakpoints.scss";
 
+@import "components/iti.scss";
 @import "components/form.scss";
 @import "components/slider.scss";
 @import "components/switcher.scss";
 @import "components/toggle.scss";
+@import "components/contact-us.scss";
