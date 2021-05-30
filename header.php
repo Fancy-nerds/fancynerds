@@ -31,6 +31,7 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8K04121YRN"></script>
 	<script type="text/javascript">
 		const templateUrl = '<?= get_bloginfo("template_url"); ?>';
+		const grePublicKey = '<?= get_field('gre_site_key', 'option') ?>';
 	</script>
 	<script>
 		window.dataLayer = window.dataLayer || [];

@@ -39,7 +39,7 @@ function initContactForm() {
   const gwidget = grecaptcha.render(
     form.querySelector(".contact-modal__recaptcha"),
     {
-      sitekey: "6Lcgqf8aAAAAAM5Y4qG1EtZqkLksQCLMM5HCxI8S",
+      sitekey: grePublicKey,
     }
   );
 
