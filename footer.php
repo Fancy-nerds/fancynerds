@@ -112,7 +112,7 @@
 
 </div><!-- #page -->
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal contact-modal">
 	<!-- Modal content -->
 	<div class="modal-content">
 		<div class="modal-header clearfix">
@@ -120,7 +120,7 @@
 			<span class="close">&times;</span>
 		</div>
 		<div class="modal-body">
-			<form id="global-contact-form" class="container form-ajx" novalidate>
+			<form id="global-contact-form" class="form-ajx contact-modal__form" novalidate>
 				<div class="contact-modal__grid">
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
