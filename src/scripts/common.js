@@ -2,6 +2,8 @@
 
 //= partials/validateForm.js
 
+//= partials/initCaptcha.js
+
 //= partials/menu.js
 	
 //= partials/contactForm.js

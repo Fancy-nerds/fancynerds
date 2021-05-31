@@ -109,6 +109,44 @@ Iodine.addRule("phone", (val) => {
 });
 Iodine.setErrorMessages({ phone: `Isn't valid phone number` });
 
+const initCaptcha = (function () {
+  let captchaIsLoading = false;
+
+  async function init(container, options) {
+    if (container.classList.contains("captcha--initiated")) return;
+    container.classList.add("captcha--initiated");
+    if (typeof grecaptcha === "undefined") await loadCaptcha();
+
+    return grecaptcha.render(container, options);
+  }
+
+  function loadCaptcha() {
+    if (!captchaIsLoading) {
+      captchaIsLoading = true;
+      const script = document.createElement("script");
+      script.src =
+        "https://www.google.com/recaptcha/api.js?onload=onCaptchaInit&render=explicit";
+      script.defer = true;
+      document.head.append(script);
+    }
+
+    return new Promise((res) => {
+      document.body.addEventListener("captchainit", res, {
+        once: true,
+      });
+    });
+  }
+  return init;
+})();
+
+function onCaptchaInit() {
+  document.body.dispatchEvent(
+    new CustomEvent("captchainit", {
+      detail: grecaptcha,
+    })
+  );
+}
+
 (function () {
   const burger = document.querySelector(".header__burger");
   const closeBtn = document.querySelector(".header__close");
@@ -214,6 +252,7 @@ function initContactForm() {
   const form = document.querySelector("#global-contact-form");
 
   if (!form) return;
+  let gwidget;
 
   const iti = intlTelInput(form["PHONE"], {
     initialCountry: "auto",
@@ -247,14 +286,6 @@ function initContactForm() {
       }
     }
   }
-
-  const gwidget = grecaptcha.render(
-    form.querySelector(".contact-modal__recaptcha"),
-    {
-      sitekey: grePublicKey,
-      size: window.innerWidth < 360 ? 'compact' : 'normal'
-    }
-  );
 
   const validate = new ValidateForm(form, {
     NAME: {
@@ -305,7 +336,34 @@ function initContactForm() {
     grecaptcha.reset(gwidget);
     submitBtn.classList.remove("button--loading");
   });
+
+  //lazy init captcha
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) onFormVisible();
+      });
+    },
+    {
+      threshold: 0,
+    }
+  );
+
+  observer.observe(form);
+
+  function onFormVisible() {
+    initGrecaptcha()
+  }
+
+  async function initGrecaptcha() {
+    if (gwidget) return;
+    gwidget = await initCaptcha(form.querySelector(".contact-modal__recaptcha"), {
+      sitekey: grePublicKey,
+      size: window.innerWidth < 360 ? "compact" : "normal",
+    });
+  }
 }
+
 window.addEventListener("load", () => initContactForm());
 
 function switcherInit() {

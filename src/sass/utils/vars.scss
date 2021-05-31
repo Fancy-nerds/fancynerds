@@ -26,3 +26,11 @@ $grid-breakpoints: (
   hidpi: 1500px,
   hpdpi: 1620px,
 );
+
+$grid-breakpoints-mb: (
+  xs: 0,
+  sm: 320px,
+  md: 360px,
+  lg: 375px,
+  xl: 414px,
+);

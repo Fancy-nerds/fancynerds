@@ -164,7 +164,6 @@ function fancynerds_scripts()
 
 
 	# Vendor
-	wp_register_script('recaptcha-js', 'https://www.google.com/recaptcha/api.js?render=explicit', array(), null, true);
 	wp_register_script('fancynerds-vendor-swiper-js', get_template_directory_uri() . '/vendor/swiper/swiper.min.js', array(), null, true);
 	wp_register_script('iodine-js', get_template_directory_uri() . '/vendor/iodine.js', array(), null, true);
 	wp_register_script('intl-tel-input-js', get_template_directory_uri() . '/vendor/intl-tel-input/intl-tel-input.js', array(), null, true);
@@ -172,7 +171,6 @@ function fancynerds_scripts()
 	wp_register_style('intl-tel-input-css', get_template_directory_uri() . '/vendor/intl-tel-input/intl-tel-input.css', array(), null, 'all');
 	
 	wp_enqueue_style('intl-tel-input-css');
-	wp_enqueue_script('recaptcha-js');
 	wp_enqueue_script('intl-tel-input-js');
 	wp_enqueue_script('iodine-js');
 

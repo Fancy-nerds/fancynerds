@@ -2,6 +2,7 @@ function initContactForm() {
   const form = document.querySelector("#global-contact-form");
 
   if (!form) return;
+  let gwidget;
 
   const iti = intlTelInput(form["PHONE"], {
     initialCountry: "auto",
@@ -35,14 +36,6 @@ function initContactForm() {
       }
     }
   }
-
-  const gwidget = grecaptcha.render(
-    form.querySelector(".contact-modal__recaptcha"),
-    {
-      sitekey: grePublicKey,
-      size: window.innerWidth < 360 ? 'compact' : 'normal'
-    }
-  );
 
   const validate = new ValidateForm(form, {
     NAME: {
@@ -93,5 +86,32 @@ function initContactForm() {
     grecaptcha.reset(gwidget);
     submitBtn.classList.remove("button--loading");
   });
+
+  //lazy init captcha
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) onFormVisible();
+      });
+    },
+    {
+      threshold: 0,
+    }
+  );
+
+  observer.observe(form);
+
+  function onFormVisible() {
+    initGrecaptcha()
+  }
+
+  async function initGrecaptcha() {
+    if (gwidget) return;
+    gwidget = await initCaptcha(form.querySelector(".contact-modal__recaptcha"), {
+      sitekey: grePublicKey,
+      size: window.innerWidth < 360 ? "compact" : "normal",
+    });
+  }
 }
+
 window.addEventListener("load", () => initContactForm());
