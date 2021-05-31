@@ -252,6 +252,7 @@ function initContactForm() {
     form.querySelector(".contact-modal__recaptcha"),
     {
       sitekey: grePublicKey,
+      size: window.innerWidth < 360 ? 'compact' : 'normal'
     }
   );
 
