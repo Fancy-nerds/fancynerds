@@ -281,7 +281,7 @@ add_editor_style('editor-style.css'); // make sure path reflects where the file 
 //deregister jquery from frontend
 function remove_jquery()
 {
-	if (!is_admin() && !is_admin_bar_showing()) {
+	if (!is_admin() && !is_admin_bar_showing() && !is_singular('jobs')) {
 		wp_dequeue_script('jquery');
 		wp_deregister_script('jquery');
 
@@ -290,7 +290,7 @@ function remove_jquery()
 		wp_deregister_script('jquery-core');
 	}
 }
-add_action('init', 'remove_jquery');
+add_action('wp_enqueue_scripts', 'remove_jquery');
 
 
 //restrict palette
