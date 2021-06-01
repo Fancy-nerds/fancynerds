@@ -1,6 +1,8 @@
 function initContactForm() {
   const form = document.querySelector("#global-contact-form");
 
+  initModal("#contactUsModal", "#triggerContactModal");
+
   if (!form) return;
   let gwidget;
 
@@ -102,15 +104,18 @@ function initContactForm() {
   observer.observe(form);
 
   function onFormVisible() {
-    initGrecaptcha()
+    initGrecaptcha();
   }
 
   async function initGrecaptcha() {
     if (gwidget) return;
-    gwidget = await initCaptcha(form.querySelector(".contact-modal__recaptcha"), {
-      sitekey: grePublicKey,
-      size: window.innerWidth < 360 ? "compact" : "normal",
-    });
+    gwidget = await initCaptcha(
+      form.querySelector(".contact-modal__recaptcha"),
+      {
+        sitekey: grePublicKey,
+        size: window.innerWidth < 360 ? "compact" : "normal",
+      }
+    );
   }
 }
 

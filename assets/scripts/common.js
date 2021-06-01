@@ -147,6 +147,39 @@ function onCaptchaInit() {
   );
 }
 
+function initModal(el, trigger, targetOpts) {
+  const opts = Object.assign(targetOpts || {}, {
+    overlayClose: false,
+  });
+  // Get the modal
+  const modal = typeof el === "string" ? document.querySelector(el) : el;
+
+  // Get the button that opens the modal
+  const btn =
+    typeof trigger === "string" ? document.querySelector(trigger) : trigger;
+
+  // Get the <span> element that closes the modal
+  const span = modal.querySelector(".close");
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  opts.overlayClose &&
+    (window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+}
+
 (function () {
   const burger = document.querySelector(".header__burger");
   const closeBtn = document.querySelector(".header__close");
@@ -251,6 +284,8 @@ function onCaptchaInit() {
 function initContactForm() {
   const form = document.querySelector("#global-contact-form");
 
+  initModal("#contactUsModal", "#triggerContactModal");
+
   if (!form) return;
   let gwidget;
 
@@ -352,15 +387,18 @@ function initContactForm() {
   observer.observe(form);
 
   function onFormVisible() {
-    initGrecaptcha()
+    initGrecaptcha();
   }
 
   async function initGrecaptcha() {
     if (gwidget) return;
-    gwidget = await initCaptcha(form.querySelector(".contact-modal__recaptcha"), {
-      sitekey: grePublicKey,
-      size: window.innerWidth < 360 ? "compact" : "normal",
-    });
+    gwidget = await initCaptcha(
+      form.querySelector(".contact-modal__recaptcha"),
+      {
+        sitekey: grePublicKey,
+        size: window.innerWidth < 360 ? "compact" : "normal",
+      }
+    );
   }
 }
 
