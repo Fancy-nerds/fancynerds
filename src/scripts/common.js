@@ -4,6 +4,8 @@
 
 //= partials/initCaptcha.js
 
+//= partials/modal.js
+
 //= partials/menu.js
 	
 //= partials/contactForm.js
