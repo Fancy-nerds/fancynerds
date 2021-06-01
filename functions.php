@@ -61,6 +61,9 @@ if (!function_exists('fancynerds_setup')) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__('Primary', 'fancynerds'),
+				'menu-footer-1' => esc_html__('Footer menu 1', 'fancynerds'),
+				'menu-footer-2' => esc_html__('Footer menu 2', 'fancynerds'),
+				'menu-footer-3' => esc_html__('Footer menu 3', 'fancynerds')
 			)
 		);
 
@@ -169,7 +172,7 @@ function fancynerds_scripts()
 	wp_register_script('intl-tel-input-js', get_template_directory_uri() . '/vendor/intl-tel-input/intl-tel-input.js', array(), null, true);
 	wp_register_style('fancynerds-vendor-swiper-css', get_template_directory_uri() . '/vendor/swiper/swiper.min.css', array(), null, 'all');
 	wp_register_style('intl-tel-input-css', get_template_directory_uri() . '/vendor/intl-tel-input/intl-tel-input.css', array(), null, 'all');
-	
+
 	wp_enqueue_style('intl-tel-input-css');
 	wp_enqueue_script('intl-tel-input-js');
 	wp_enqueue_script('iodine-js');
@@ -322,14 +325,14 @@ function fancy_setup_theme_supported_features()
 			'slug' => 'orange',
 			'color' => '#fe4c1c',
 		),
-		
+
 		array(
 			'name' => esc_attr__('transparent', 'fancynerds'),
 			'slug' => 'transparent',
 			'color' => '#ffffff00',
 		),
 	));
-	
+
 	add_theme_support('editor-gradient-presets', array(
         array(
 			'name' => esc_attr__('dark blue to blue gradient', 'fancynerds'),
