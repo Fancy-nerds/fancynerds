@@ -197,7 +197,8 @@
   }
 }
 
-.header__menu .menu {
+.header__menu .menu,
+.header-mobile__menu .menu{
   display: flex;
   align-items: center;
   height: 100%;
