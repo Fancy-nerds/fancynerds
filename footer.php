@@ -21,7 +21,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col col-25">
+			<!-- <div class="col col-25">
 				<div class="footer__column">
 					<h6 class="footer__title">Services</h6>
 
@@ -43,59 +43,13 @@
 						</li>
 					</ul>
 				</div>
-			</div>
-			<div class="col col-25">
+			</div> -->
+			
+			<div class="col col-50">
 				<div class="footer__column">
-					<h6 class="footer__title">Learn</h6>
-
-					<?php wp_nav_menu(array(
-						'theme_location'  => 'menu-footer-1',
-						'menu_class'      => 'footer__menu',
-						'container'       => '',
-						// 'container_class' => 'header__menu_container',
-					));
-
-					// wp_nav_menu( array(
-					// 	'theme_location'  => '',
-					// 	'menu'            => '',
-					// 	'container'       => 'div',
-					// 	'container_class' => 'menu-{menu-slug}-container',
-					// 	'container_id'    => '',
-					// 	'menu_class'      => 'menu',
-					// 	'menu_id'         => '',
-					// 	'echo'            => true,
-					// 	'fallback_cb'     => 'wp_page_menu',
-					// 	'before'          => '',
-					// 	'after'           => '',
-					// 	'link_before'     => '',
-					// 	'link_after'      => '',
-					// 	'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
-					// 	'depth'           => 0,
-					// 	'walker'          => '',
-					// ) );
-					 ?>
-				<!-- 	<ul class="footer__menu">
-						<li class="footer__item">
-							<a href="#" class="link">Why SEO Matters</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="link">How to Choose an Agency</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="link">Keyword Research Explained</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="link">On Page SEO Explained</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="link">Off Page SEO Explained</a>
-						</li>
-					</ul> -->
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="footer__column">
-					<h6 class="footer__title">Company</h6>
+					<h6 class="footer__title">
+						<?= pll_e( 'Imprint' ); ?>
+					</h6>
 
 					<ul class="footer__menu">
 						<li class="footer__item">
@@ -116,11 +70,29 @@
 					</ul>
 				</div>
 			</div>
+			<div class="col col-25">
+				<div class="footer__column">
+					<h6 class="footer__title">
+						<?= pll_e( 'Services' ); ?>
+					</h6>
+					<?php wp_nav_menu(array(
+						'theme_location'  => 'menu-footer-1',
+						'menu_class'      => 'footer__menu',
+						'container'       => '',
+					));?>
+				</div>
+			</div>
 			<div class="col col-25 subscribe-col">
 				<div class="footer__column">
-					<h6 class="footer__title">Subscribe</h6>
-
-					<p class="footer__text">Follow our newsletter to stay updated about agency.</p>
+					<h6 class="footer__title">
+						<?= pll_e( 'Information' ); ?>
+					</h6>
+					<?php wp_nav_menu(array(
+						'theme_location'  => 'menu-footer-2',
+						'menu_class'      => 'footer__menu',
+						'container'       => '',
+					));?>
+					<!-- <p class="footer__text">Follow our newsletter to stay updated about agency.</p>
 
 					<form class="form form__subscribe">
 						<div class="form__group">
@@ -129,7 +101,7 @@
 								<i class="flaticon-send"></i>
 							</button>
 						</div>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</div>
