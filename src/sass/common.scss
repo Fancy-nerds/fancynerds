@@ -115,7 +115,11 @@ img.image--rounded {
 .grecaptcha-badge { 
   visibility: hidden;
 }
-
+.common-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 15px;
+}
 @import "utils/fonts.scss";
 @import "utils/grid.scss";
 @import "utils/block.scss";
