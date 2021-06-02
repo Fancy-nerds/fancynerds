@@ -66,8 +66,21 @@
     margin-top: 30px;
   }
   &__menu{
-    &>li{
+    li{
       margin-bottom: 10px;
+    }
+    a{
+      color: $blue-light;
+      font-family: "RedHatDisplay", "Montserrat";
+      font-size: 16px;
+      font-weight: 400;
+      transition: color, border-color 0.3s, 0.3s;
+      will-change: color, border-color;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        color: $white;
+        border-color: $white;
+      }
     }
   }
 }
