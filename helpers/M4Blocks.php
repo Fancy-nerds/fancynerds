@@ -65,6 +65,8 @@ class M4Blocks
 			'icon'=>'nametag'],
 			['name'=>'support',
 			'icon'=>'nametag'],
+			['name'=>'job-list',
+			'icon'=>'tide'],
 		];
 	}
 
