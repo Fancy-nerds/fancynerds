@@ -48,7 +48,33 @@
 				<div class="footer__column">
 					<h6 class="footer__title">Learn</h6>
 
-					<ul class="footer__menu">
+					<?php wp_nav_menu(array(
+						'theme_location'  => 'menu-footer-1',
+						'menu_class'      => 'footer__menu',
+						'container'       => '',
+						// 'container_class' => 'header__menu_container',
+					));
+
+					// wp_nav_menu( array(
+					// 	'theme_location'  => '',
+					// 	'menu'            => '',
+					// 	'container'       => 'div',
+					// 	'container_class' => 'menu-{menu-slug}-container',
+					// 	'container_id'    => '',
+					// 	'menu_class'      => 'menu',
+					// 	'menu_id'         => '',
+					// 	'echo'            => true,
+					// 	'fallback_cb'     => 'wp_page_menu',
+					// 	'before'          => '',
+					// 	'after'           => '',
+					// 	'link_before'     => '',
+					// 	'link_after'      => '',
+					// 	'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
+					// 	'depth'           => 0,
+					// 	'walker'          => '',
+					// ) );
+					 ?>
+				<!-- 	<ul class="footer__menu">
 						<li class="footer__item">
 							<a href="#" class="link">Why SEO Matters</a>
 						</li>
@@ -64,7 +90,7 @@
 						<li class="footer__item">
 							<a href="#" class="link">Off Page SEO Explained</a>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 			<div class="col col-25">

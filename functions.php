@@ -63,7 +63,6 @@ if (!function_exists('fancynerds_setup')) :
 				'menu-1' => esc_html__('Primary', 'fancynerds'),
 				'menu-footer-1' => esc_html__('Footer menu 1', 'fancynerds'),
 				'menu-footer-2' => esc_html__('Footer menu 2', 'fancynerds'),
-				'menu-footer-3' => esc_html__('Footer menu 3', 'fancynerds')
 			)
 		);
 
@@ -343,3 +342,14 @@ function fancy_setup_theme_supported_features()
 }
 
 add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
+
+
+
+#Add 
+function atg_menu_classes($classes, $item, $args) {
+  if($args->theme_location == 'menu-footer-1') {
+    $classes[] = 'footer__item';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
