@@ -155,6 +155,14 @@ function fancynerds_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar( array(
+		'name'          => esc_html__('Footer widget 1', 'fancynerds'),
+		'id'            => 'footer_widget_1',
+		'before_widget' => '<section id="%1$s" class="widget footer_widget_1 %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action('widgets_init', 'fancynerds_widgets_init');
 

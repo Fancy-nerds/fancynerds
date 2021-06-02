@@ -50,8 +50,12 @@
 					<h6 class="footer__title">
 						<?= pll_e( 'Imprint' ); ?>
 					</h6>
-
-					<ul class="footer__menu">
+					<?php if ( is_active_sidebar( 'footer_widget_1' ) ) : ?>
+						<!-- <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary"> -->
+							<?php dynamic_sidebar( 'footer_widget_1' ); ?>
+						<!-- </div>#primary-sidebar -->
+					<?php endif; ?>
+					<!-- <ul class="footer__menu">
 						<li class="footer__item">
 							<a href="#" class="link">About Company</a>
 						</li>
@@ -67,7 +71,7 @@
 						<li class="footer__item">
 							<a href="#" class="link">Sitemap</a>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 			<div class="col col-25">

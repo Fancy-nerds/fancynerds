@@ -83,4 +83,15 @@
       }
     }
   }
+  &_widget{
+    &_1{
+      color: $blue-light;
+      li{
+        margin-bottom: 30px;
+      }
+      a{
+        cursor: $white;
+      }
+    }
+  }
 }
