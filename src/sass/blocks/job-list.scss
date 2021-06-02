@@ -1,5 +1,63 @@
+@import "../mixins/all";
+
 .job {
+  &-preview {
+    box-shadow: 4px 2px 15px rgba(42, 67, 113, 0.2);
+    transition: box-shadow 0.3s;
+    position: relative;
+    &:hover {
+      box-shadow: 0px 0px 20px 2px rgba(42, 67, 113, 0.3);
+    }
+    &#{&}#{&} {
+      border-radius: 15px;
+      margin-bottom: 15px;
+      background-color: $white;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      border-color: transparent;
+    }
+    @extend %job-preview;
+  }
+  &-cta {
+    @extend %job-cta;
+  }
+  &-content {
+    @extend %job-content;
+  }
   &-listing {
-    
+    &#{&}#{&} {
+      padding: 60px 0;
+      margin: 0;
+      & > .column {
+        @include make-container-max-width();
+      }
+      %job-preview {
+        @include media-breakpoint-down(xs) {
+          text-align: center;
+        }
+        %job-content {
+          @include media-breakpoint-down(xs) {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        }
+        %job-cta {
+          @include media-breakpoint-down(xs) {
+            padding: 20px 15px 15px 15px;
+          }
+          .apply-btn {
+            width: auto;
+            min-width: 230px;
+            display: inline-block;
+            text-transform: capitalize;
+            @include media-breakpoint-down(xs) {
+              min-width: auto;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }
