@@ -353,6 +353,8 @@ add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
 
 
 
+pll_register_string( 'contact_us', 'Contact Us', 'header' );
+
 
 pll_register_string( 'footer_title1', 'Imprint', 'footer' );
 pll_register_string( 'footer_title2', 'Services', 'footer' );
