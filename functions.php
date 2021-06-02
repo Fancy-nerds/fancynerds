@@ -346,10 +346,10 @@ add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
 
 
 #Add 
-function atg_menu_classes($classes, $item, $args) {
-  if($args->theme_location == 'menu-footer-1') {
-    $classes[] = 'footer__item';
-  }
-  return $classes;
-}
-add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
+// function atg_menu_classes($classes, $item, $args) {
+//   if($args->theme_location == 'menu-footer-1') {
+//     $classes[] = 'footer__item';
+//   }
+//   return $classes;
+// }
+// add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);

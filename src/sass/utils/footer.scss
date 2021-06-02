@@ -65,4 +65,9 @@
   .form__subscribe {
     margin-top: 30px;
   }
+  &__menu{
+    &>li{
+      margin-bottom: 10px;
+    }
+  }
 }
