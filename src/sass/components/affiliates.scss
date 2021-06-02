@@ -1,0 +1,81 @@
+@import "../mixins/all";
+
+.affiliates {
+  &-dashboard {
+    padding: 80px 0;
+    &-sections {
+      @include make-container-max-width();
+    }
+    &-section {
+      h2 {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      &-links {
+        &#{&} {
+          margin: 0 auto 40px;
+          background-color: transparent;
+          .section {
+            &-link {
+              &-item {
+                border-color: $gray-dark;
+                background-color: darken($color: $blue-light-2, $amount: 3%);
+                &.active {
+                  background-color: $blue-light-2;
+                  border-color: $gray;
+                }
+                a {
+                  color: $black;
+                  padding: 15px 20px;
+                  display: block;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .dashboard {
+      &-section {
+        & > p {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        form {
+          width: 100%;
+          max-width: 320px;
+          margin: 0 auto;
+          & > p {
+            &:not(:last-child) {
+              margin-bottom: 15px;
+            }
+          }
+        }
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+        input {
+          box-shadow: none;
+          border: 1px solid lighten($color: $black-light, $amount: 40%);
+          transition: border-color 0.3s ease;
+          padding: 10px 20px;
+          border-radius: 20px;
+          font-size: 1rem;
+          line-height: 1.5;
+          color: #404040;
+          &:focus {
+            border-color: $black-light;
+          }
+          &[type="submit"] {
+            width: 100%;
+            @extend .button;
+            @extend .button--orange;
+          }
+        }
+      }
+    }
+  }
+}
