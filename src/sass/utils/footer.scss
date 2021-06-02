@@ -85,9 +85,10 @@
   }
   &_widget{
     &_1{
-      color: $blue-light ;
+      color: $blue-light;
+      font-size: 20px;
       li{
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         line-height: 2;
       }
       a{
