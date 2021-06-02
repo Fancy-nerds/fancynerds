@@ -4,15 +4,13 @@ Template Post Type: post, page */
 
 get_header();
 
-if ( have_posts() ) : while ( have_posts() ) : the_post();
-	get_template_part( 'template-parts/jumbotron__inner', null, [
-		'title' => get_the_title(),
-	] );?>
-	<div class="common-wrap">
+if (have_posts()) : while (have_posts()) : the_post();
+		get_template_part('template-parts/jumbotron__inner', null, [
+			'title' => get_the_title(),
+		]); ?>
 		<?php
-		the_content();?>
-	</div>
+		the_content(); ?>
 <?php
-endwhile;
+	endwhile;
 endif;
 get_footer();
