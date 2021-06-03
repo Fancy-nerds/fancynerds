@@ -5,30 +5,53 @@
     padding: 80px 0;
     &-sections {
       @include make-container-max-width();
+      display: flex;
+      flex-direction: column;
     }
     &-section {
-      h2 {
+      & > h2 {
         margin-bottom: 10px;
         text-align: center;
       }
+      &.overview,
+      &.earnings {
+        & > h2 {
+          margin-bottom: 15px;
+          text-align: center;
+        }
+      }
       &-links {
         &#{&} {
+          display: inline-flex;
+          border-radius: 28px;
+          border: 1px solid rgba($gray, 0.5);
+          padding: 5px;
+          box-sizing: border-box;
           margin: 0 auto 40px;
           background-color: transparent;
           .section {
             &-link {
               &-item {
-                border-color: $gray-dark;
-                background-color: darken($color: $blue-light-2, $amount: 3%);
-                &.active {
-                  background-color: $blue-light-2;
-                  border-color: $gray;
-                }
+                min-width: 165px;
+                border-bottom: none;
+                background: transparent;
+                border-bottom: none;
                 a {
-                  color: $black;
-                  padding: 15px 20px;
-                  display: block;
-                  font-weight: 500;
+                  @extend .button;
+                  width: 100%;
+                }
+                &:not(.active) {
+                  a {
+                    color: $gray;
+                  }
+                }
+                &.active {
+                  background: transparent;
+                  border: none;
+                  a {
+                    color: $white;
+                    @extend .button--blue;
+                  }
                 }
               }
             }
@@ -75,6 +98,70 @@
             @extend .button--orange;
           }
         }
+
+        &-overview {
+          .stats-item {
+            background-color: transparent;
+          }
+          .graph {
+            background-color: transparent;
+          }
+          .legend {
+            justify-content: center;
+            background-color: transparent;
+            &-item {
+              flex-grow: 0;
+              padding: 5px 15px;
+            }
+          }
+          .legend-item.active {
+            background-color: transparent;
+          }
+        }
+        &-earnings {
+          form.filters {
+            max-width: 100%;
+            margin-bottom: 30px;
+            background: transparent;
+            border-radius: 28px;
+            border: 1px solid rgba($gray, 0.5);
+          }
+          .filters {
+            .filter-buttons {
+              justify-content: flex-end;
+            }
+            .apply-button,
+            .clear-button {
+              width: auto;
+              @extend .button--small;
+              @extend .button--blue-dark;
+              @include media-breakpoint-down(xs) {
+                flex-grow: 1;
+              }
+            }
+          }
+          .capsule-container {
+            .capsule.half.left,
+            .capsule.half.right {
+              @include media-breakpoint-down(xs) {
+                grid-column: 1 / -1;
+              }
+            }
+          }
+          .earnings-container {
+            .cell.full {
+              text-align: center;
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+    }
+    &-logout {
+      a {
+        @extend .button;
+        @extend .button--small;
+        @extend .button--orange;
       }
     }
   }
