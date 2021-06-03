@@ -117,6 +117,18 @@
           .legend-item.active {
             background-color: transparent;
           }
+          .copy-to-clipboard-trigger {
+            @extend .button--small;
+            @extend .button--blue-dark;
+            margin-bottom: 20px;
+          }
+          .affiliate-url {
+            border-radius: 28px;
+            border: 1px solid lighten($color: $black-light, $amount: 40%);
+            padding: 10px 15px;
+            margin: 15px 0;
+            resize: none;
+          }
         }
         &-earnings {
           form.filters {
