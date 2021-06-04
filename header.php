@@ -113,6 +113,8 @@
 
 		.modal-header {
 			position: relative;
+			padding: 0 15px;
+			line-height: 1.1;
 		}
 
 		.modal-header__title {
