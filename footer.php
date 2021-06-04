@@ -62,7 +62,9 @@ wp_footer(); ?>
 	<!-- Modal content -->
 	<div class="modal-content">
 		<div class="modal-header clearfix">
-			<p class="modal-header__title">Contact our team!</p>
+			<p class="modal-header__title">
+				<? _e( 'Contact our team!', 'fancynerds' ); ?>
+			</p>
 			<span class="close">&times;</span>
 		</div>
 		<div class="modal-body">
@@ -71,32 +73,34 @@ wp_footer(); ?>
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
 					<div class="contact-modal__col form__control-box">
-						<label class="form__label">First Name*</label>
+						<label class="form__label">
+							<? _e( 'First Name', 'fancynerds' ); ?>*
+						</label>
 						<input name="NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 					<div class="contact-modal__col form__control-box">
-						<label class="form__label">Last Name*</label>
+						<label class="form__label"><? _e( 'Last Name', 'fancynerds' ); ?>*</label>
 						<input name="LAST_NAME" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
 					<div class="contact-modal__col form__control-box">
-						<label class="form__label">Email*</label>
+						<label class="form__label"><? _e( 'Email', 'fancynerds' ); ?>*</label>
 						<input name="EMAIL" value="" class="form__control form__control--outlined form__control--small" required />
 					</div>
 
 					<div class="contact-modal__col form__control-box">
-						<label class="form__label">Phone</label>
+						<label class="form__label"><? _e( 'Phone', 'fancynerds' ); ?></label>
 						<input name="PHONE" value="" class="form__control form__control--outlined form__control--small" />
 					</div>
 
 					<div class="contact-modal__col contact-modal__col--fluid form__control-box">
-						<label class="form__label">Comments</label>
+						<label class="form__label"><? _e( 'Comments', 'fancynerds' ); ?></label>
 						<textarea name="COMMENTS" class="form__control form__control--outlined form__control--small" rows="5"></textarea><br />
 					</div>
 					<div class="contact-modal__col contact-modal__col--fluid contact-modal__recaptcha">
 					</div>
 					<div class="contact-modal__col contact-modal__col--fluid form__submit-box form__submit-box--centered">
-						<button class="button button--small button--orange modal-body__btn form__submit">Send</button>
+						<button class="button button--small button--orange modal-body__btn form__submit"><? _e( 'Send', 'fancynerds' ); ?></button>
 					</div>
 					<p class="form-ajx__result contact-modal__col contact-modal__col--fluid"></p>
 				</div>
