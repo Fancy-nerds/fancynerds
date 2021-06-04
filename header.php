@@ -113,15 +113,15 @@
 
 		.modal-header {
 			position: relative;
-			padding: 0 15px;
+			padding: 25px 15px 0;
 			line-height: 1.1;
 		}
 
 		.modal-header__title {
-			font-size: 30px;
-			text-align: center;
-			margin-bottom: 10px;
-			padding-top: 15px;
+			font-size: 25px;
+	    text-align: center;
+	    margin-bottom: 10px;
+	    padding-top: 15px;
 		}
 
 		/* The Close Button */
