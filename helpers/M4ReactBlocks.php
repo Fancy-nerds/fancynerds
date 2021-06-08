@@ -130,7 +130,7 @@ class M4ReactBlocks
             array(
                 array(
                     'slug'  => 'fancy-containers',
-                    'title' => 'Fancy Containers',
+                    'title' => 'Fancy Blocks',
                 ),
             )
         );
@@ -153,7 +153,7 @@ class M4ReactBlocks
                 "js" => file_exists($sys_link . '.component.js') ? $link . '.component.js' : '',
                 "style" => file_exists($sys_link . '.component.css') ? $link . '.component.css' : '',
                 "style_dep" => ['wp-edit-blocks'],
-                "js_dep" => ['wp-blocks', 'wp-element']
+                "js_dep" => ['wp-blocks', 'wp-element', 'wp-editor']
             ]
         ];
 
