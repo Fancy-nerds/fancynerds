@@ -97,7 +97,7 @@ class M4ReactBlocks
         wp_register_script(
             $this->current_block . '-editor-js',
             $block_editor_js_config['js'],
-            $block_editor_js_config['dep'],
+            array_merge(['wp-blocks', 'wp-element', 'wp-editor'], $block_editor_js_config['dep']),
             $this->get_filetime($block_editor_js_config['js'])
         );
     }
@@ -107,7 +107,7 @@ class M4ReactBlocks
         wp_register_style(
             $this->current_block . '-editor-style',
             $block_editor_style_config['style'],
-            $block_editor_style_config['dep'],
+            array_merge(['wp-edit-blocks'], $block_editor_style_config['dep']),
             $this->get_filetime($block_editor_style_config['style'])
         );
     }
@@ -152,8 +152,8 @@ class M4ReactBlocks
             "editor" => [
                 "js" => file_exists($sys_link . '.component.js') ? $link . '.component.js' : '',
                 "style" => file_exists($sys_link . '.component.css') ? $link . '.component.css' : '',
-                "style_dep" => ['wp-edit-blocks'],
-                "js_dep" => ['wp-blocks', 'wp-element', 'wp-editor']
+                "js_dep" => [],
+                "style_dep" => []
             ]
         ];
 

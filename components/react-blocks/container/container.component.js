@@ -1,7 +1,10 @@
-(function (blocks, element, components, blockEditor) {
+(function (blocks, element, components, blockEditor, i18n, data) {
   const el = element.createElement;
   const useBlockProps = blockEditor.useBlockProps;
   const InnerBlocks = blockEditor.InnerBlocks;
+  const __ = i18n._n;
+  const withColors = blockEditor.withColors;
+  const { useSelect } = data;
 
   blocks.registerBlockType("fancy-blocks/container", {
     apiVersion: 2,
@@ -13,65 +16,105 @@
         type: "integer",
         default: undefined,
       },
+      bgColor: {
+        type: "string",
+      },
     },
-    edit({ attributes, setAttributes }) {
-      const blockProps = useBlockProps({
-        style: {
-          border: "#adb2ad solid 1px",
-          padding: "15px",
-        },
-      });
-      const { maxWidth } = attributes;
+    edit: withColors("bgColor")(
+      ({ attributes, setAttributes, bgColor, setBgColor }) => {
+        const colors = useSelect((select) => {
+          return select("core/block-editor")
+            .getSettings()
+            .colors.filter(
+              (colorObj) => !["black", "transparent"].includes(colorObj.slug)
+            );
+        }, []);
 
-      return [
-        el(
-          blockEditor.InspectorControls,
-          {},
+        const colorClassName = blockEditor.getColorClassName(
+          "background-color",
+          bgColor.slug
+        );
+        const { maxWidth } = attributes;
+        const blockProps = useBlockProps({
+          className: `section section--container_block${
+            colorClassName ? " has-background " + colorClassName : ""
+          }`,
+          style: {
+            border: "#adb2ad solid 1px",
+            padding: "15px",
+            backgroundColor: bgColor.color,
+          },
+        });
+
+        return [
           el(
-            components.Card,
-            null,
+            blockEditor.InspectorControls,
+            {},
             el(
-              components.CardBody,
+              components.Card,
               null,
-              el(components.RangeControl, {
-                label: "Max. width",
-                help: "size in px",
-                value: maxWidth,
-                allowReset: true,
-                min: 320,
-                max: 1800,
-                onChange(maxWidth) {
-                  setAttributes({ maxWidth });
+              el(
+                components.CardBody,
+                null,
+                el(components.RangeControl, {
+                  label: "Max. width",
+                  help: "size in px",
+                  value: maxWidth,
+                  allowReset: true,
+                  min: 320,
+                  max: 1800,
+                  onChange(maxWidth) {
+                    setAttributes({ maxWidth });
+                  },
+                })
+              )
+            ),
+            el(blockEditor.PanelColorSettings, {
+              title: __("Color settings"),
+              disableCustomColors: true,
+              colorSettings: [
+                {
+                  colors,
+                  value: bgColor.color,
+                  onChange: setBgColor,
+                  label: __("Background color"),
                 },
-              })
-            )
-          )
-        ),
-        el(
-          "div",
-          blockProps,
+              ],
+            })
+          ),
           el(
             "div",
-            null,
+            blockProps,
             el(
               "div",
-              {
-                className: "container",
-                style: {
-                  maxWidth,
+              null,
+              el(
+                "div",
+                {
+                  className: "container",
+                  style: {
+                    maxWidth,
+                  },
                 },
-              },
-              el(InnerBlocks)
+                el(InnerBlocks)
+              )
             )
-          )
-        ),
-      ];
-    },
+          ),
+        ];
+      }
+    ),
     save({ attributes }) {
+      const { maxWidth, bgColor } = attributes;
+      const colorClassName = blockEditor.getColorClassName(
+        "background-color",
+        bgColor
+      );
       const blockProps = useBlockProps.save({
-        className: "section section--container_block",
+        className: `section section--container_block${
+          colorClassName ? " has-background " + colorClassName : ""
+        }`,
       });
-      const { maxWidth } = attributes;
+
       return el(
         "section",
         blockProps,
@@ -88,4 +131,4 @@
       );
     },
   });
-})(wp.blocks, wp.element, wp.components, wp.blockEditor);
+})(wp.blocks, wp.element, wp.components, wp.blockEditor, wp.i18n, wp.data);
