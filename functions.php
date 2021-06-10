@@ -18,6 +18,7 @@ require_once 'helpers/M4Hooks.php';
 require_once 'helpers/M4Helpers.php';
 require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
+require_once 'helpers/M4ReactBlocks.php';
 require_once 'helpers/M4Ajax.php';
 
 

@@ -1,0 +1,53 @@
+@import "../mixins/all";
+
+// Custom color
+.has {
+  &-black {
+    &-background-color {
+      background-color: $black;
+    }
+    &-color {
+      color: $black;
+    }
+  }
+  &-white {
+    &-background-color {
+      background-color: $white;
+    }
+    &-color {
+      color: $white;
+    }
+  }
+  &-light-blue {
+    &-background-color {
+      background-color: $blue-light-2;
+    }
+    &-color {
+      color: $blue-light-2;
+    }
+  }
+  &-blue {
+    &-background-color {
+      background-color: $blue;
+    }
+    &-color {
+      color: $blue;
+    }
+  }
+  &-orange {
+    &-background-color {
+      background-color: $orange;
+    }
+    &-color {
+      color: $orange;
+    }
+  }
+  &-transparent {
+    &-background-color {
+      background-color: transparent;
+    }
+    &-color {
+      color: transparent;
+    }
+  }
+}

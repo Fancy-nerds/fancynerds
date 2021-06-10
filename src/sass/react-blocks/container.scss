@@ -1,0 +1,23 @@
+@import "../mixins/all";
+
+:root {
+  --container-block-padding-top-default: 80px;
+  --container-block-padding-bottom-default: 80px;
+  --container-block-padding-top-md: 60px;
+  --container-block-padding-bottom-md: 60px;
+  --container-block-padding-top-sm: 40px;
+  --container-block-padding-bottom-sm: 40px;
+}
+
+.container-block {
+  padding: var(--container-block-padding-top-default) 0
+    var(--container-block-padding-bottom-default);
+  @include media-breakpoint-down(md) {
+    padding: var(--container-block-padding-top-md) 0
+      var(--container-block-padding-bottom-md);
+  }
+  @include media-breakpoint-down(sm) {
+    padding: var(--container-block-padding-top-sm) 0
+      var(--container-block-padding-bottom-sm);
+  }
+}

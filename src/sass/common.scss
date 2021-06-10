@@ -102,6 +102,7 @@ img.image--rounded {
   visibility: hidden;
 }
 
+@import "utils/palette.scss";
 @import "utils/fonts.scss";
 @import "utils/grid.scss";
 @import "utils/block.scss";

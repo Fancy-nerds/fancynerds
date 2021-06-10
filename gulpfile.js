@@ -43,7 +43,7 @@ function stylesCommon() {
         .pipe(gulp.dest('assets/styles/'))
 }
     
-function styles() {
+function stylesACFBlocks() {
     return gulp.src('src/sass/blocks/*.scss')
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -58,6 +58,23 @@ function styles() {
             file.dirname = file.basename;
         }))
         .pipe(gulp.dest('components/blocks'))
+}
+
+function stylesReactBlocks() {
+  return gulp.src('src/sass/react-blocks/*.scss')
+      .pipe(plumber())
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+          includePaths: ['node_modules']
+      }))
+      .pipe(autoprefixer({
+          cascade: false
+      }))
+      .pipe(sourcemaps.write())
+      .pipe(rename( function(file) {
+          file.dirname = file.basename;
+      }))
+      .pipe(gulp.dest('components/react-blocks'))
 }
 
 function stylesPages() {
@@ -105,7 +122,8 @@ function template() {
 
 // Watch files
 function watchFiles() {
-    gulp.watch("src/sass/blocks/*.scss", gulp.series(styles, browserSyncReload));
+    gulp.watch("src/sass/blocks/*.scss", gulp.series(stylesACFBlocks, browserSyncReload));
+    gulp.watch("src/sass/react-blocks/*.scss", gulp.series(stylesReactBlocks, browserSyncReload));
     gulp.watch("src/sass/pages/*.scss", gulp.series(stylesPages, browserSyncReload));
     gulp.watch("src/sass/shortcodes/*.scss", gulp.series(stylesShortcodes, browserSyncReload));
     gulp.watch("src/sass/*.scss", gulp.series(stylesCommon, browserSyncReload));
@@ -146,5 +164,5 @@ function fonts() {
         .pipe(gulp.dest('assets/fonts/'))
 }
 
-module.exports.dev = gulp.series(styles, stylesPages, stylesCommon, stylesShortcodes, template, scripts, scriptsCommon, fonts);
+module.exports.dev = gulp.series(stylesACFBlocks, stylesReactBlocks, stylesPages, stylesCommon, stylesShortcodes, template, scripts, scriptsCommon, fonts);
 module.exports.watch = gulp.parallel(watchFiles, browserSync);
