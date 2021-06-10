@@ -168,7 +168,7 @@ class M4ReactBlocks
     {
         $link = $this->files_dir . '/' . $this->current_block . "/";
         $sys_link = $this->sys_dir . '/' . $this->current_block . "/";
-        return str_replace($sys_link, $link, $file_link);
+        return filemtime(str_replace($link, $sys_link, $file_link));
     }
 }
 
