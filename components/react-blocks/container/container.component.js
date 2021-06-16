@@ -12,6 +12,7 @@
     setAttributes,
     bgColor,
     setBgColor,
+    isSelected,
   }) {
     const colors = useSelect((select) => {
       return select("core/block-editor")
@@ -35,7 +36,7 @@
         colorClassName ? " has-background " + colorClassName : ""
       }`,
       style: {
-        border: "#adb2ad solid 1px",
+        border: isSelected ? "1px solid #494949" : "1px solid #a6a6a6",
         backgroundColor: bgColor.color,
       },
     });
@@ -253,6 +254,7 @@
   blocks.registerBlockType("fancy-blocks/container", {
     apiVersion: 2,
     title: "Container",
+    description: "This block allows you to create a container of any width and with any paddings.",
     icon: "media-default",
     category: "fancy-containers",
     attributes: {
