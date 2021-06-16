@@ -1,0 +1,5 @@
+@import "../utils/text.scss";
+
+:root .text-box {
+    @extend %text
+}

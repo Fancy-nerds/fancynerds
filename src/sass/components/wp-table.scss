@@ -1,0 +1,31 @@
+@import "../mixins/all";
+
+.wp-block-table {
+  margin: 20px 0;
+  table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    thead {
+      border-bottom: 3px solid $black;
+    }
+    tfoot {
+      border-top: 3px solid $black;
+    }
+    td,
+    th {
+      padding: 10px;
+      border: 1px solid $black;
+    }
+  }
+  &.is-style-stripes {
+    tbody {
+      tr:nth-child(odd) {
+        background-color: $blue-light-2;
+      }
+    }
+  }
+  figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+  }
+}

@@ -1,6 +1,61 @@
 @import "../mixins/all";
 
-.blockquote {
+:root blockquote {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 30px;
+  margin: 30px 0;
+  width: 82%;
+  border-left: 3px solid $orange;
+  &.wp-block-quote {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  &.is-style-large {
+    padding-left: 30px;
+    border-left: 3px solid $orange;
+    margin: 30px 0;
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      font-style: normal;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  & p {
+    margin: 15px 0;
+    line-height: 1.875;
+    font-style: normal;
+    color: $black-light;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  cite, .wp-block-quote__citation {
+    color: #a5b7d2;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    position: relative;
+    padding-left: 10px;
+    font-style: normal;
+    &:before {
+      position: absolute;
+      content: "-";
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/*.blockquote {
   &__text {
     color: $black;
     font-size: 20px;
@@ -41,4 +96,4 @@
     font-size: $default;
     line-height: 26px;
   }
-}
+}*/

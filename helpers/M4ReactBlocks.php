@@ -130,7 +130,7 @@ class M4ReactBlocks
             array(
                 array(
                     'slug'  => 'fancy-containers',
-                    'title' => 'Fancy Blocks',
+                    'title' => 'Containers',
                 ),
             )
         );
