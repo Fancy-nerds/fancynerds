@@ -44,16 +44,9 @@ h3,
 h4,
 h5,
 h6,
-p,
-ul,
-ol,
-li {
+p {
   margin: 0;
   padding: 0;
-}
-
-li {
-  list-style-type: none;
 }
 
 input,
@@ -114,6 +107,7 @@ img.image--rounded {
 
 @import "components/wp-gallery.scss";
 @import "components/wp-table.scss";
+@import "components/list.scss";
 @import "components/iti.scss";
 @import "components/form.scss";
 @import "components/slider.scss";

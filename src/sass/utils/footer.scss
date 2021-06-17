@@ -10,7 +10,7 @@
   );
   padding-top: 110px;
   padding-bottom: 170px;
-  
+
   @media screen and (max-width: 768px) {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -65,11 +65,16 @@
   .form__subscribe {
     margin-top: 30px;
   }
-  &__menu{
-    li{
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
       margin-bottom: 10px;
     }
-    a{
+    a {
       color: $blue-light;
       font-family: "RedHatDisplay", "Montserrat";
       font-size: 16px;
@@ -83,15 +88,22 @@
       }
     }
   }
-  &_widget{
-    &_1{
+  &_widget {
+    &_1 {
       color: $blue-light;
       font-size: 14px;
-      li{
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        padding: 0;
+        margin: 0;
         margin-bottom: 20px;
         line-height: 2;
       }
-      a{
+      a {
         color: $white;
       }
     }
