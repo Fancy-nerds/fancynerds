@@ -60,7 +60,13 @@
   &__flags {
     display: flex;
     align-items: center;
-
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
+    }
     .current-lang {
       display: none;
     }
@@ -202,7 +208,8 @@
   display: flex;
   align-items: center;
   height: 100%;
-
+  margin: 0;
+  padding: 0;
   @include media-breakpoint-down(md) {
     flex-direction: column;
     height: auto;
@@ -214,11 +221,13 @@
     font-size: $default;
     font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
     font-weight: 700;
+    margin: 0;
     margin-right: 30px;
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
+    padding: 0;
     @include media-breakpoint-down(md) {
       margin-right: 0;
       margin-bottom: 10px;

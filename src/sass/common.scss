@@ -38,23 +38,6 @@ a {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
 
 input,
 button,
@@ -102,6 +85,7 @@ img.image--rounded {
   visibility: hidden;
 }
 
+@import "utils/text.scss";
 @import "utils/palette.scss";
 @import "utils/fonts.scss";
 @import "utils/grid.scss";
@@ -114,6 +98,7 @@ img.image--rounded {
 
 @import "components/wp-gallery.scss";
 @import "components/wp-table.scss";
+@import "components/list.scss";
 @import "components/iti.scss";
 @import "components/form.scss";
 @import "components/slider.scss";
