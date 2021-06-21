@@ -235,7 +235,7 @@
   font-size: 36px;
   line-height: 48px;
   font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
   font-weight: 900;
   @include media-breakpoint-down(xs) {
     font-size: 32px;
@@ -308,12 +308,12 @@ h1.title {
 }
 
 .paragraph {
-  color: #606060;
+  /*color: #606060;
   line-height: 30px;
   z-index: 1;
-  font-size: $default;
+  font-size: $default;*/
 
-  .link {
+  /*.link {
     color: $blue;
     transition: color, border-color 0.3s, 0.3s;
     will-change: color, border-color;
@@ -323,7 +323,7 @@ h1.title {
       color: $blue;
       border-color: transparent;
     }
-  }
+  }*/
 }
 
 .link {

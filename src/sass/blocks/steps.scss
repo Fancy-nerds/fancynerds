@@ -135,7 +135,11 @@
       border-radius: 50%;
     }
   }
-
+  &__content {
+    p {
+      margin: 0;
+    }
+  }
   &__title {
     color: $black;
     font-family: "RedHatDisplay", "Montserrat";
