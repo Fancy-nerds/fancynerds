@@ -93,10 +93,25 @@ p {
 }
 
 a {
-  color: $orange;
+  color: $blue;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
-    color: $orange;
+    color: $blue-hover;
+  }
+}
+
+:where(body.wp-admin) {
+  a {
+    color: #2271b1;
+  }
+}
+
+:where(.acf-block-preview) a {
+  color: $blue;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: $blue-hover;
   }
 }
