@@ -11,3 +11,5 @@
 //= partials/contactForm.js
 
 //= partials/switcher.js
+
+//= partials/videoModal.js
