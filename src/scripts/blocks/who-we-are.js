@@ -8,9 +8,12 @@ function initWhoWeAreBlock() {
     e.preventDefault();
     const type = e.target.dataset.type;
     const ref = e.target.dataset.ref;
+    const ratio = e.target.dataset.ratio ? +e.target.dataset.ratio : undefined;
+
     openVideoModal({
       type,
       ref,
+      ratio
     });
   }
 }
