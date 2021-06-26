@@ -11,7 +11,7 @@
   height: 100%;
   z-index: 9999;
   padding: 15px;
-  transition: background-color, 600ms;
+  transition: background-color, 600ms ease;
   &--showed {
     background-color: rgba(0, 0, 0, 0.4);
     %video-modal__box {
@@ -26,11 +26,11 @@
     position: relative;
     opacity: 0;
     transform: translateY(-60px);
-    transition: opacity 600ms, transform 600ms;
+    transition: opacity 600ms, transform 600ms ease;
     @extend %video-modal__box;
   }
   &__inner {
-    padding-bottom: 50%;
+    padding-bottom: 56.25%;
     iframe,
     video {
       position: absolute;

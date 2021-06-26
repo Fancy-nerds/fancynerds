@@ -49,8 +49,8 @@ endif; ?>
 					<h2 class="title"><?= $title; ?></h2>
 					<p class="description"><?= $description; ?></p>
 					<p class="paragraph"><?= $paragraph; ?></p>
-					<div class="who-we-are__video" data-type="native" data-ratio="1.77777" data-ref="/wp-content/uploads/2021/06/freestock_2529101.mp4">
-						<a href="<?= $url; ?>" class="button button--play button--circle">
+					<div class="who-we-are__video">
+						<a href="<?= $url; ?>" class="button button--play button--circle" <?= M4GetVideoSettingsAttrs(get_field('video_settings')) ?>>
 							<span class="circle circle-1"></span>
 							<span class="circle circle-2"></span>
 						</a>

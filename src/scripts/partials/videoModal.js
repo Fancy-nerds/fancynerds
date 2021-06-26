@@ -1,6 +1,6 @@
 /**
- *
- * @param {{ type: "yt" | "native", ref: String, ratio: Number }} opts
+ * Open video modal
+ * @param {{ type: "yt" | "native", ref: String, ratio: Number, autoplay: Boolean }} opts
  */
 function openVideoModal(opts) {
   const { closeBtn, modalContainerEl, modalRoot } = createModal();
@@ -17,7 +17,7 @@ function openVideoModal(opts) {
     const innerEl = modalRoot.querySelector(".video-modal__inner");
     const vidEl = createVideo();
 
-    innerEl.style.paddingBottom = opts.ratio ? `${1 / opts.ratio * 100}%` : ''
+    innerEl.style.paddingBottom = aspectRatioToPadding();
 
     innerEl.append(vidEl);
     return { closeBtn, modalContainerEl, modalRoot };
@@ -42,20 +42,22 @@ function openVideoModal(opts) {
     let vidEl = null;
     switch (opts.type) {
       case "native":
-        vidEl = createNativeVideo(opts.ref);
+        vidEl = createNativeVideo(opts);
         break;
 
       case "yt":
-        vidEl = createYtVideo(opts.ref);
+        vidEl = createYtVideo(opts);
         break;
     }
 
     return vidEl;
   }
 
-  function createYtVideo(id) {
+  function createYtVideo({ ref, autoplay = false }) {
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${id}`;
+    iframe.src = `https://www.youtube.com/embed/${ref}${
+      autoplay ? "?autoplay=1&mute=1" : ""
+    }`;
     iframe.allowFullscreen = true;
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
@@ -63,10 +65,43 @@ function openVideoModal(opts) {
     return iframe;
   }
 
-  function createNativeVideo(src) {
+  function createNativeVideo({ ref, autoplay = false }) {
     const video = document.createElement("video");
     video.controls = true;
-    video.src = src;
+    video.src = ref;
+    video.muted = autoplay;
+    video.autoplay = autoplay;
     return video;
   }
+
+  function aspectRatioToPadding() {
+    return (
+      (opts.ratio
+        ? opts.ratio
+            .split(":")
+            .map((val) => parseFloat(val))
+            .reverse()
+            .reduce((acc, val) => (acc ? acc / val : val)) * 100
+        : 56.25) + "%"
+    );
+  }
 }
+
+openVideoModal.createTriggerVideoModalBtn = (btnEl) => {
+  btnEl.addEventListener("click", openVideoModal.onVideoModalBtnClick);
+};
+
+openVideoModal.onVideoModalBtnClick = (e) => {
+  e.preventDefault();
+  const type = e.currentTarget.dataset.type;
+  const ref = e.currentTarget.dataset.ref;
+  const ratio = e.currentTarget.dataset.ratio;
+  const autoplay = typeof e.currentTarget.dataset.autoplay === "string";
+
+  openVideoModal({
+    type,
+    ref,
+    ratio,
+    autoplay,
+  });
+};
