@@ -20,6 +20,8 @@ require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
 require_once 'helpers/M4ReactBlocks.php';
 require_once 'helpers/M4Ajax.php';
+require_once 'helpers/M4GetVideoSettingsAttrs.php';
+
 
 
 if (!function_exists('fancynerds_setup')) :

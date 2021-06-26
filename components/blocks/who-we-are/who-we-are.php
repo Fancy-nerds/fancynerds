@@ -50,7 +50,7 @@ endif; ?>
 					<p class="description"><?= $description; ?></p>
 					<p class="paragraph"><?= $paragraph; ?></p>
 					<div class="who-we-are__video">
-						<a href="<?= $url; ?>" class="button button--play button--circle">
+						<a href="<?= $url; ?>" class="button button--play button--circle" <?= M4GetVideoSettingsAttrs(get_field('video_settings')) ?>>
 							<span class="circle circle-1"></span>
 							<span class="circle circle-2"></span>
 						</a>
