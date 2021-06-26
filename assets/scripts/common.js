@@ -523,7 +523,7 @@ function openVideoModal(opts) {
 }
 
 openVideoModal.createTriggerVideoModalBtn = (btnEl) => {
-  btnEl.addEventListener("click", openVideoModal.onVideoModalBtnClick);
+  btnEl && btnEl.addEventListener("click", openVideoModal.onVideoModalBtnClick);
 };
 
 openVideoModal.onVideoModalBtnClick = (e) => {
@@ -532,6 +532,8 @@ openVideoModal.onVideoModalBtnClick = (e) => {
   const ref = e.currentTarget.dataset.ref;
   const ratio = e.currentTarget.dataset.ratio;
   const autoplay = typeof e.currentTarget.dataset.autoplay === "string";
+
+  if (!ref) return;
 
   openVideoModal({
     type,
