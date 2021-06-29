@@ -9,8 +9,7 @@
  *
  * @package fancynerds
  */
-
-wp_footer(); ?>
+?>
 
 </main>
 
@@ -118,6 +117,8 @@ wp_footer(); ?>
 		</div>
 	</div>
 </template>
+
+<? wp_footer(); ?>
 </body>
 
 </html>
