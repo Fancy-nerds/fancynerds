@@ -1,32 +1,40 @@
-function initModal(el, trigger, targetOpts) {
-  const opts = Object.assign(targetOpts || {}, {
+function initModal(el, trigger, targetOpts = {}) {
+  const opts = {
     overlayClose: false,
-  });
+    ...targetOpts,
+  };
   // Get the modal
   const modal = typeof el === "string" ? document.querySelector(el) : el;
 
   // Get the button that opens the modal
-  const btn =
+  const triggerBtn =
     typeof trigger === "string" ? document.querySelector(trigger) : trigger;
 
   // Get the <span> element that closes the modal
-  const span = modal.querySelector(".close");
+  const closeBtn = modal.querySelector(".close");
 
   // When the user clicks the button, open the modal
-  btn.onclick = function () {
+  triggerBtn.onclick = function (e) {
+    e.preventDefault();
     modal.style.display = "block";
+    opts.onOpen && opts.onOpen();
   };
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
+  if (!closeBtn.onclick)
+    closeBtn.onclick = function (e) {
+      e.preventDefault();
+      modal.style.display = "none";
+      opts.onClose && opts.onClose();
+    };
 
   // When the user clicks anywhere outside of the modal, close it
-  opts.overlayClose &&
-    (window.onclick = function (event) {
+  if (opts.overlayClose)
+    modal.onclick = function (event) {
+      console.log("red");
       if (event.target == modal) {
         modal.style.display = "none";
+        opts.onClose && opts.onClose();
       }
-    });
+    };
 }
