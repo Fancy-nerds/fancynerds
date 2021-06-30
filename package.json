@@ -5,6 +5,7 @@
   "author": "Fancynerds Team",
   "license": "ISC",
   "scripts": {
+    "build": "npx gulp build",
     "dev": "npx gulp dev",
     "watch": "npx gulp watch"
   },

@@ -172,7 +172,15 @@ function watchFiles() {
     "src/sass/shortcodes/*.scss",
     gulp.series(stylesShortcodes, browserSyncReload)
   );
-  gulp.watch("src/sass/*.scss", gulp.series(stylesCommon, browserSyncReload));
+  gulp.watch(
+    [
+      "src/sass/*.scss",
+      "src/sass/mixin/*.scss",
+      "src/sass/components/*.scss",
+      "src/sass/utils/*.scss",
+    ],
+    gulp.series(stylesCommon, browserSyncReload)
+  );
   gulp.watch(
     "src/templates/pages/*.html",
     gulp.series(template, browserSyncReload)
@@ -224,4 +232,17 @@ module.exports.dev = gulp.series(
   scriptsCommon,
   fonts
 );
+
+module.exports.build = gulp.series(
+  stylesACFBlocks,
+  stylesReactBlocks,
+  stylesPages,
+  stylesCommon,
+  stylesShortcodes,
+  template,
+  scripts,
+  scriptsCommon,
+  fonts
+);
+
 module.exports.watch = gulp.parallel(watchFiles, browserSync);
