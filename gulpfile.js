@@ -9,6 +9,7 @@ const shorthand = require("gulp-shorthand");
 const autoprefixer = require("gulp-autoprefixer");
 const rigger = require("gulp-rigger");
 const browsersync = require("browser-sync").create();
+const gulpif = require("gulp-if");
 const rename = require("gulp-rename");
 
 // BrowserSync
@@ -33,7 +34,7 @@ function stylesCommon() {
   return gulp
     .src("src/sass/*.scss")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(
       sass({
         includePaths: ["node_modules"],
@@ -44,7 +45,7 @@ function stylesCommon() {
         cascade: false,
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(gulp.dest("assets/styles/"));
 }
 
@@ -52,7 +53,7 @@ function stylesACFBlocks() {
   return gulp
     .src("src/sass/blocks/*.scss")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(
       sass({
         includePaths: ["node_modules"],
@@ -63,7 +64,7 @@ function stylesACFBlocks() {
         cascade: false,
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
         file.dirname = file.basename;
@@ -76,7 +77,7 @@ function stylesReactBlocks() {
   return gulp
     .src("src/sass/react-blocks/*.scss")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(
       sass({
         includePaths: ["node_modules"],
@@ -87,7 +88,7 @@ function stylesReactBlocks() {
         cascade: false,
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
         file.dirname = file.basename.replace(".component", "");
@@ -101,7 +102,7 @@ function stylesPages() {
     gulp
       .src("src/sass/pages/*.scss")
       .pipe(plumber())
-      .pipe(sourcemaps.init())
+      .pipe(gulpif(isDev, sourcemaps.init()))
       .pipe(
         sass({
           includePaths: ["node_modules"],
@@ -118,7 +119,7 @@ function stylesPages() {
       // }, details => {
       //     console.log(`${details.name}: Original size:${details.stats.originalSize} - Minified size: ${details.stats.minifiedSize}`)
       // }))
-      .pipe(sourcemaps.write())
+      .pipe(gulpif(isDev, sourcemaps.write()))
       .pipe(gulp.dest("assets/styles/pages/"))
   );
 }
@@ -127,7 +128,7 @@ function stylesShortcodes() {
   return gulp
     .src("src/sass/shortcodes/*.scss")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(isDev, sourcemaps.init()))
     .pipe(
       sass({
         includePaths: ["node_modules"],
@@ -138,7 +139,7 @@ function stylesShortcodes() {
         cascade: false,
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
         file.dirname = file.basename;
@@ -186,7 +187,15 @@ function watchFiles() {
     gulp.series(template, browserSyncReload)
   );
   // gulp.watch("src/assets/images/**/*", gulp.series(images, browserSyncReload));
-  gulp.watch("src/scripts/**/*.js", gulp.series(commonScripts, blockScripts, reactBlockScripts, browserSyncReload));
+  gulp.watch(
+    "src/scripts/**/*.js",
+    gulp.series(
+      commonScripts,
+      blockScripts,
+      reactBlockScripts,
+      browserSyncReload
+    )
+  );
 }
 
 //Images
@@ -228,7 +237,27 @@ function fonts() {
   return gulp.src("src/fonts/**/*").pipe(gulp.dest("assets/fonts/"));
 }
 
+//Modes
+function setDevEnv(cb) {
+  process.env.NODE_ENV = "development";
+  cb();
+}
+
+function setProdEnv(cb) {
+  process.env.NODE_ENV = "production";
+  cb();
+}
+
+function isProd() {
+  return process.env.NODE_ENV === "production";
+}
+
+function isDev() {
+  return process.env.NODE_ENV === "development";
+}
+
 module.exports.dev = gulp.series(
+  setDevEnv,
   stylesACFBlocks,
   stylesReactBlocks,
   stylesPages,
@@ -242,6 +271,7 @@ module.exports.dev = gulp.series(
 );
 
 module.exports.build = gulp.series(
+  setProdEnv,
   stylesACFBlocks,
   stylesReactBlocks,
   stylesPages,
@@ -254,4 +284,4 @@ module.exports.build = gulp.series(
   fonts
 );
 
-module.exports.watch = gulp.parallel(watchFiles, browserSync);
+module.exports.watch = gulp.parallel(setDevEnv, watchFiles, browserSync);
