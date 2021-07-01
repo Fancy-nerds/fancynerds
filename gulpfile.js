@@ -186,7 +186,7 @@ function watchFiles() {
     gulp.series(template, browserSyncReload)
   );
   // gulp.watch("src/assets/images/**/*", gulp.series(images, browserSyncReload));
-  gulp.watch("src/scripts/**/*.js", gulp.series(commonScripts, blockScripts, browserSyncReload));
+  gulp.watch("src/scripts/**/*.js", gulp.series(commonScripts, blockScripts, reactBlockScripts, browserSyncReload));
 }
 
 //Images
@@ -209,6 +209,13 @@ function blockScripts() {
     .pipe(gulp.dest("components/blocks"));
 }
 
+function reactBlockScripts() {
+  return gulp
+    .src("src/scripts/react-blocks/**/*.js")
+    .pipe(rigger())
+    .pipe(gulp.dest("components/react-blocks"));
+}
+
 function commonScripts() {
   return gulp
     .src("src/scripts/*.js")
@@ -229,6 +236,7 @@ module.exports.dev = gulp.series(
   stylesShortcodes,
   template,
   blockScripts,
+  reactBlockScripts,
   commonScripts,
   fonts
 );
@@ -241,6 +249,7 @@ module.exports.build = gulp.series(
   stylesShortcodes,
   template,
   blockScripts,
+  reactBlockScripts,
   commonScripts,
   fonts
 );
