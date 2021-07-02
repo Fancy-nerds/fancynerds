@@ -3,7 +3,7 @@
 const gulp = require("gulp");
 const plumber = require("gulp-plumber");
 const sass = require("gulp-sass");
-const cleanCSS = require("gulp-clean-css");
+const cssnano = require("gulp-cssnano");
 const sourcemaps = require("gulp-sourcemaps");
 const shorthand = require("gulp-shorthand");
 const autoprefixer = require("gulp-autoprefixer");
@@ -11,7 +11,9 @@ const rigger = require("gulp-rigger");
 const browsersync = require("browser-sync").create();
 const gulpif = require("gulp-if");
 const rename = require("gulp-rename");
-
+const cssConfig = {
+  preset: 'default'
+}
 // BrowserSync
 function browserSync(done) {
   browsersync.init({
@@ -45,6 +47,7 @@ function stylesCommon() {
         cascade: false,
       })
     )
+    .pipe(cssnano(cssConfig))
     .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(gulp.dest("assets/styles/"));
 }
@@ -64,6 +67,7 @@ function stylesACFBlocks() {
         cascade: false,
       })
     )
+    .pipe(cssnano(cssConfig))
     .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
@@ -88,6 +92,7 @@ function stylesReactBlocks() {
         cascade: false,
       })
     )
+    .pipe(cssnano(cssConfig))
     .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
@@ -113,12 +118,7 @@ function stylesPages() {
           cascade: false,
         })
       )
-      // .pipe(cleanCSS({
-      //     debug: true,
-      //     compatibility: '*'
-      // }, details => {
-      //     console.log(`${details.name}: Original size:${details.stats.originalSize} - Minified size: ${details.stats.minifiedSize}`)
-      // }))
+      .pipe(cssnano(cssConfig))
       .pipe(gulpif(isDev, sourcemaps.write()))
       .pipe(gulp.dest("assets/styles/pages/"))
   );
@@ -139,6 +139,7 @@ function stylesShortcodes() {
         cascade: false,
       })
     )
+    .pipe(cssnano(cssConfig))
     .pipe(gulpif(isDev, sourcemaps.write()))
     .pipe(
       rename(function (file) {
