@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx gulp build",
     "dev": "npx gulp dev",
-    "watch": "npx gulp watch"
+    "serve": "npx gulp serve"
   },
   "keywords": [
     "fancynerds"
