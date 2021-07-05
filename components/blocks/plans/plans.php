@@ -84,7 +84,7 @@ endif; ?>
 								endif; ?>
 							</div>
 							<div class="plans__action">
-								<a href="<?= $benefit['url']; ?>" class="button button--image <?= $buttonClasses[$i]; ?>"><?= $benefit['button']; ?>
+								<a href="javascript:;" class="button button--image <?= $buttonClasses[$i]; ?>"><?= $benefit['button']; ?>
 									<span>
 										<i class="flaticon-right-arrow-1"></i>
 									</span>
