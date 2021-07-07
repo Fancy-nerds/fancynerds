@@ -1,6 +1,6 @@
 const browsersync = require("browser-sync").create();
 
-module.exports.browserSync = (done) => {
+function browserSync(done) {
   browsersync.init({
     server: {
       baseDir: "assets/templates",
@@ -11,7 +11,11 @@ module.exports.browserSync = (done) => {
   done();
 }
 
-module.exports.browserSyncReload = (done) => {
+function browserSyncReload(done) {
   browsersync.reload();
   done();
 }
+
+module.exports.browserSync = browserSync;
+
+module.exports.browserSyncReload = browserSyncReload;

@@ -1,17 +1,25 @@
-module.exports.isProd = () => {
+function isProd() {
   return process.env.NODE_ENV === "production";
-};
+}
 
-module.exports.isDev = () => {
+function isDev() {
   return process.env.NODE_ENV === "development";
-};
+}
 
-module.exports.setDevEnv = (cb) => {
+function setDevEnv(cb) {
   process.env.NODE_ENV = "development";
   cb();
-};
+}
 
-module.exports.setProdEnv = (cb) => {
+function setProdEnv(cb) {
   process.env.NODE_ENV = "production";
   cb();
-};
+}
+
+module.exports.isProd = isProd;
+
+module.exports.isDev = isDev;
+
+module.exports.setDevEnv = setDevEnv;
+
+module.exports.setProdEnv = setProdEnv;
