@@ -70,7 +70,7 @@
 		<div class="modal-body">
 			<form id="global-contact-form" class="form-ajx contact-modal__form" novalidate>
 				<div class="contact-modal__grid">
-					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
+					<input name="TITLE" value="<?= CONTACT_US_TITLE ?>" type="hidden" />
 					
 					<!-- Hidden input with Language value for Bitrix24 lead -->
 					<?= M4Html::getLangHidden(['curr_lang'=>pll_current_language()]); ?>
