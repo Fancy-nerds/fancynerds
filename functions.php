@@ -16,6 +16,7 @@ if (!defined('_S_VERSION')) {
 require_once 'helpers/M4Funcs.php';
 require_once 'helpers/M4Hooks.php';
 require_once 'helpers/M4Helpers.php';
+require_once 'helpers/M4Html.php';
 require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
 require_once 'helpers/M4ReactBlocks.php';

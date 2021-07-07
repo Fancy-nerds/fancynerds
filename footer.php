@@ -57,6 +57,7 @@
 
 </div><!-- #page -->
 
+
 <div id="contactUsModal" class="modal contact-modal">
 	<!-- Modal content -->
 	<div class="modal-content">
@@ -70,6 +71,10 @@
 			<form id="global-contact-form" class="form-ajx contact-modal__form" novalidate>
 				<div class="contact-modal__grid">
 					<input name="TITLE" value="Fancy-nerds.com Contact us Form" type="hidden" />
+					
+					<!-- Hidden input with Language value for Bitrix24 lead -->
+					<?= M4Html::getLangHidden(['curr_lang'=>pll_current_language()]); ?>
+
 					<?= (isset($_COOKIE['wp_affiliates']) ? "<input name='" . C_REST_AFF_ID . "' value='" . $_COOKIE['wp_affiliates'] . "' type='hidden'/>" : ""); ?>
 					<div class="contact-modal__col form__control-box">
 						<label class="form__label">
