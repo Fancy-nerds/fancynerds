@@ -20,7 +20,8 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php
-	if (pll_current_language() == 'ru') { ?>
+	$curr_lang = pll_current_language();
+	if ($curr_lang == 'ru') { ?>
 		<link rel="stylesheet" id="fontMonserrat-css" href="<?= get_template_directory_uri() . '/assets/styles/fontMonserrat.css' ?>" media="all">
 	<?php }
 	?>

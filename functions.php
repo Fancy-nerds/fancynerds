@@ -13,9 +13,11 @@ if (!defined('_S_VERSION')) {
 	define('_S_VERSION', '1.0.0');
 }
 
+require_once 'inc/consts.php';
 require_once 'helpers/M4Funcs.php';
 require_once 'helpers/M4Hooks.php';
 require_once 'helpers/M4Helpers.php';
+require_once 'helpers/M4Html.php';
 require_once 'helpers/M4Shortcodes.php';
 require_once 'helpers/M4Blocks.php';
 require_once 'helpers/M4ReactBlocks.php';
