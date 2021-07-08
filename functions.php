@@ -118,7 +118,7 @@ if (!function_exists('fancynerds_setup')) :
 			)
 		);
 
-		if( function_exists('acf_add_options_page') ) {
+		if (function_exists('acf_add_options_page')) {
 			acf_add_options_page(array(
 				'page_title' 	=> 'API Keys',
 				'menu_title'	=> 'API Keys',
@@ -160,14 +160,14 @@ function fancynerds_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
-	register_sidebar( array(
+	register_sidebar(array(
 		'name'          => esc_html__('Footer widget 1', 'fancynerds'),
 		'id'            => 'footer_widget_1',
 		'before_widget' => '<section id="%1$s" class="widget footer_widget_1 %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	));
 }
 add_action('widgets_init', 'fancynerds_widgets_init');
 
@@ -346,21 +346,61 @@ function fancy_setup_theme_supported_features()
 	));
 
 	add_theme_support('editor-gradient-presets', array(
-        array(
+		array(
 			'name' => esc_attr__('dark blue to blue gradient', 'fancynerds'),
 			'slug' => 'dark-blue-to-blue',
 			'gradient' => 'linear-gradient(to left, #04b6f1 0%, #002cae 62%, #002cae 100%)',
 		),
-    ));
+	));
 }
 
 add_action('after_setup_theme', 'fancy_setup_theme_supported_features');
 
 
 
-pll_register_string( 'contact_us', 'Contact Us', 'header' );
+pll_register_string('contact_us', 'Contact Us', 'header');
 
 
-pll_register_string( 'footer_title1', 'Imprint', 'footer' );
-pll_register_string( 'footer_title2', 'Services', 'footer' );
-pll_register_string( 'footer_title3', 'Information', 'footer' );
+pll_register_string('footer_title1', 'Imprint', 'footer');
+pll_register_string('footer_title2', 'Services', 'footer');
+pll_register_string('footer_title3', 'Information', 'footer');
+
+add_action('show_user_profile', 'user_edit_social_links');
+add_action('edit_user_profile', 'user_edit_social_links');
+function user_edit_social_links($user)
+{
+	$checked = (isset($user->artwork_approved) && $user->artwork_approved) ? ' checked="checked"' : '';
+?>
+	<h2>Social Links</h2>
+	<table class="form-table" role="presentation">
+		<tbody>
+			<tr class="user-user-facebook-link">
+				<th><label for="user_facebook_link">Facebook</label></th>
+				<td><input type="text" class="regular-text" name="user_facebook_link" id="user_facebook_link" value="<?= $user->user_facebook_link ?>"></td>
+			</tr>
+			<tr class="user-user-twitter-link">
+				<th><label for="user_twitter_link">Twitter</label></th>
+				<td><input type="text" class="regular-text" name="user_twitter_link" id="user_twitter_link" value="<?= $user->user_twitter_link ?>"></td>
+			</tr>
+			<tr class="user-user-linkedin-link">
+				<th><label for="user_linkedin_link">Linkedin</label></th>
+				<td><input type="text" class="regular-text" name="user_linkedin_link" id="user_linkedin_link" value="<?= $user->user_linkedin_link ?>"></td>
+			</tr>
+			<tr class="user-user-instagram-link">
+				<th><label for="user_instagram_link">Instagram</label></th>
+				<td><input type="text" class="regular-text" name="user_instagram_link" id="user_instagram_link" value="<?= $user->user_instagram_link ?>"></td>
+			</tr>
+		</tbody>
+	</table>
+<?php
+}
+
+add_action('personal_options_update', 'user_update_social_links');
+add_action('edit_user_profile_update', 'user_update_social_links');
+function user_update_social_links($user_id)
+{
+	update_user_meta($user_id, 'user_facebook_link', $_POST['user_facebook_link'] ?? '');
+	update_user_meta($user_id, 'user_twitter_link', $_POST['user_twitter_link'] ?? '');
+	update_user_meta($user_id, 'user_linkedin_link', $_POST['user_linkedin_link'] ?? '');
+	update_user_meta($user_id, 'user_instagram_link', $_POST['user_instagram_link'] ?? '');
+}
