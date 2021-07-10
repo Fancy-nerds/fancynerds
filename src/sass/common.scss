@@ -6,7 +6,7 @@ body {
   margin: 0 !important;
   padding: 0;
   font-family: "RedHatText", "Montserrat", Arial, sans-serif;
-  font-size: $default;
+  font-size: font-size(16px);
 }
 
 html {
@@ -73,6 +73,7 @@ img.image--rounded {
 
 @import "components/category.scss";
 @import "components/wp-gallery.scss";
+@import "components/fb-nav.scss";
 @import "components/wp-table.scss";
 @import "components/list.scss";
 @import "components/iti.scss";

@@ -37,7 +37,7 @@
     &__work {
         font-family: "RedHatDisplay", "Montserrat";
         color: $black-light;
-        font-size: $default;
+        font-size: font-size(16px);
         line-height: 26px;
     }
 }

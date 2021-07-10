@@ -13,7 +13,6 @@
       display: block;
     }
   }
-
   &__content {
     padding: 50px 50px 20px;
     box-sizing: border-box;
@@ -22,7 +21,7 @@
   &__work {
     color: $orange;
     font-family: "RedHatDisplay", "Montserrat";
-    font-size: $default;
+    font-size: font-size(16px);
     font-weight: 500;
     margin-bottom: 10px;
   }
@@ -37,7 +36,7 @@
 
   &__text {
     color: #606060;
-    font-size: $default;
+    font-size: font-size(16px);
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 10px;

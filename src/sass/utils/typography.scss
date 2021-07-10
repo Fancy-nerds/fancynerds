@@ -5,7 +5,7 @@
   border: none;
   border-radius: 25px;
   font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
-  font-size: $default;
+  font-size: font-size(16px);
   font-weight: 700;
   display: inline-block;
   box-sizing: border-box;
@@ -311,7 +311,7 @@ h1.title {
   /*color: #606060;
   line-height: 30px;
   z-index: 1;
-  font-size: $default;*/
+  font-size: font-size(16px);*/
 
   /*.link {
     color: $blue;
