@@ -123,14 +123,17 @@ $categories = wp_get_post_categories($post->ID, [
 							</div>
 						</div>
 						<div class="article__fb-nav">
-							<?
-							the_post_navigation(
-								array(
-									'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'fancynerds') . '</span> <span class="nav-title">%title</span>',
-									'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'fancynerds') . '</span> <span class="nav-title">%title</span>',
-								)
-							);
-							?>
+							<div class="fb-nav-container">
+								<?
+								the_post_navigation(
+									array(
+										'prev_text' => '<span class="fb-nav__btn fb-nav__btn--prev"><span class="fb-nav__arr fb-nav__arr--prev"><i class="flaticon-left-arrow"></i></span>' . esc_html__('Previous', 'fancynerds'),
+										'next_text' => '<span class="fb-nav__btn fb-nav__btn--next">' . esc_html__('Next', 'fancynerds') . '<span class="fb-nav__arr fb-nav__arr--next"><i class="flaticon-right-arrow-1"></i></span>',
+									)
+								);
+								?>
+							</div>
+
 						</div>
 
 						<div class="related-posts">
