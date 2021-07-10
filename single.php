@@ -17,6 +17,10 @@ $user_tw = get_the_author_meta('user_twitter_link', $author_id);
 $user_fb = get_the_author_meta('user_facebook_link', $author_id);
 $user_lkdn = get_the_author_meta('user_linkedin_link', $author_id);
 $user_in = get_the_author_meta('user_instagram_link', $author_id);
+$categories = wp_get_post_categories($post->ID, [
+	'fields' => 'all'
+]);
+
 ?>
 <main class="main">
 	<?
@@ -30,7 +34,16 @@ $user_in = get_the_author_meta('user_instagram_link', $author_id);
 				]) ?>
 				<div class="container">
 					<div class="article__heading">
-						<div class="article-label">Marketing</div>
+						<? if (count($categories)) { ?>
+							<div class="article__categories">
+								<div class="category-list">
+									<? foreach ($categories as $cat) { ?>
+										<div class="category-label"><?= $cat->name ?></div>
+									<? } ?>
+
+								</div>
+							</div>
+						<? } ?>
 						<h1 class="title"><?= the_title() ?></h1>
 						<div class="article-state">
 							<div class="article-state__item article-state__author">
@@ -125,7 +138,7 @@ $user_in = get_the_author_meta('user_instagram_link', $author_id);
 							<div class="row">
 								<div class="col col-50">
 									<div class="card">
-										<div class="article-label">Marketing</div>
+										<div class="category-label">Marketing</div>
 										<div class="card__image">
 											<img src="assets/images/31147.png">
 										</div>
@@ -147,7 +160,7 @@ $user_in = get_the_author_meta('user_instagram_link', $author_id);
 								</div>
 								<div class="col col-50">
 									<div class="card">
-										<div class="article-label">Marketing</div>
+										<div class="category-label">Marketing</div>
 										<div class="card__image">
 											<img src="assets/images/31147.png">
 										</div>
