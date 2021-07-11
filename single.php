@@ -17,8 +17,9 @@ $user_tw = get_the_author_meta('user_twitter_link', $author_id);
 $user_fb = get_the_author_meta('user_facebook_link', $author_id);
 $user_lkdn = get_the_author_meta('user_linkedin_link', $author_id);
 $user_in = get_the_author_meta('user_instagram_link', $author_id);
-$categories = wp_get_post_categories($post->ID, [
-	'fields' => 'all'
+$categories_top = wp_get_post_categories($post->ID, [
+	'fields' => 'all',
+	'parent' => 0
 ]);
 
 ?>
@@ -34,10 +35,10 @@ $categories = wp_get_post_categories($post->ID, [
 				]) ?>
 				<div class="container">
 					<div class="article__heading">
-						<? if (count($categories)) { ?>
+						<? if (count($categories_top)) { ?>
 							<div class="article__categories">
 								<div class="category-list">
-									<? foreach ($categories as $cat) { ?>
+									<? foreach ($categories_top as $cat) { ?>
 										<div class="category-label"><?= $cat->name ?></div>
 									<? } ?>
 
@@ -48,7 +49,7 @@ $categories = wp_get_post_categories($post->ID, [
 						<div class="article-state">
 							<div class="article-state__item article-state__author">
 								<i class="flaticon-user"></i>
-								By <?= $user_display_name ?>
+								<?= esc_html__('By', 'fancynerds') ?> <?= $user_display_name ?>
 							</div>
 							<div class="article-state__item article-state__date">
 								<i class="flaticon-clock"></i>
@@ -56,7 +57,7 @@ $categories = wp_get_post_categories($post->ID, [
 							</div>
 							<div class="article-state__item article-state__comments">
 								<i class="flaticon-chat"></i>
-								0 Comments
+								0 <?= esc_html__('Comments', 'fancynerds') ?>
 							</div>
 						</div>
 					</div>
@@ -86,7 +87,7 @@ $categories = wp_get_post_categories($post->ID, [
 												]); ?>">
 								</div>
 								<div class="author__content">
-									<div class="author__work">Author</div>
+									<div class="author__work"><?= esc_html__('Author', 'fancynerds') ?></div>
 									<div class="author__name"><?= $user_display_name ?></div>
 									<div class="author__text"><?= $user_desc ?></div>
 									<div class="author__social">
