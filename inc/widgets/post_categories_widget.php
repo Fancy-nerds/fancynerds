@@ -18,6 +18,10 @@ class Post_Categories_Widget extends WP_Widget
 
     public function widget($args, $instance)
     {
+        $cat_ids = wp_get_post_categories(get_the_ID());
+
+        if (!count($cat_ids)) return $instance;
+
         echo $args['before_widget'];
        
         $default_title = __('Categories');
@@ -30,10 +34,7 @@ class Post_Categories_Widget extends WP_Widget
             echo $args['before_title'] . $title . $args['after_title'];
         }
 
-        $cat_ids = wp_get_post_categories(get_the_ID());
-        /*usort(get_the_category(get_the_ID()),  function ($a, $b) {
-            return strcasecmp($a->name, $b->name);
-        });*/
+        
 
         function get_list($hie_list)
         {
