@@ -14,6 +14,7 @@ if (!defined('_S_VERSION')) {
 }
 
 require_once 'inc/consts.php';
+require_once 'inc/widgets/index.php';
 require_once 'helpers/M4Funcs.php';
 require_once 'helpers/M4Hooks.php';
 require_once 'helpers/M4Helpers.php';
@@ -153,6 +154,17 @@ function fancynerds_widgets_init()
 		array(
 			'name'          => esc_html__('Sidebar', 'fancynerds'),
 			'id'            => 'sidebar-1',
+			'description'   => esc_html__('Add widgets here.', 'fancynerds'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Sidebar for posts', 'fancynerds'),
+			'id'            => 'sidebar-post',
 			'description'   => esc_html__('Add widgets here.', 'fancynerds'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
