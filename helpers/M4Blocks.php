@@ -102,7 +102,7 @@ class M4Blocks
 				'icon' => 'nametag'
 			],
 			[
-				'name' => 'seo form',
+				'name' => 'seo-form',
 				'icon' => 'nametag'
 			],
 			[
