@@ -12,38 +12,37 @@ extract(M4Helpers::prepBlock($block));
 
 /* Render screenshot for preview */
 if (get_field('is_example', $block['id'])) :
-    echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
-    return;
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
+	return;
 endif;
 ?>
 
 <div class="<?php echo esc_attr($className); ?>" <?= $style; ?> id="<?php echo esc_attr($id); ?>">
-    <?= $blockInnerBefore ?>
-    <div class="container">
-        <div class="seo-form__wrapper">
-            <div class="seo-form__bg">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/seo-form-bg.png">
-            </div>
-            <div class="seo-form__rocket-man">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/rocket-man.svg" width="258" height="350">
-            </div>
-            <div class="seo-form__content">
-                <h6 class="seo-form__title">Know your SEO Score!</h6>
-                <form class="seo-form__form">
-                    <span class="seo-form__item">
-                        <input type="text" placeholder="Your Website URL" />
-                    </span>
-                    <span class="seo-form__item">
-                        <input type="text" placeholder="Email">
-                    </span>
+	<div class="container">
+		<div class="seo-form__wrapper">
+			<div class="seo-form__bg">
+				<img src="<?php bloginfo('template_directory'); ?>/assets/images/seo-form-bg.png">
+			</div>
+			<div class="seo-form__rocket-man">
+				<img src="<?php bloginfo('template_directory'); ?>/assets/images/rocket-man.svg" width="258" height="350">
+			</div>
+			<div class="seo-form__content">
+				<h6 class="seo-form__title">Know your SEO Score!</h6>
+				<form class="seo-form__form">
+					<span class="seo-form__item">
+						<input type="text" placeholder="Your Website URL" />
+					</span>
+					<span class="seo-form__item">
+						<input type="text" placeholder="Email">
+					</span>
 
-                    <button type="submit" href="#" class="button button--orange button--image seo-form__submit">Start Now
-                        <span>
-                            <i class="flaticon-right-arrow-1"></i>
-                        </span>
-                    </a>
-                </form>
-            </div>
-        </div>
-    </div>
+					<button type="submit" href="#" class="button button--orange button--image seo-form__submit">Start Now
+						<span>
+							<i class="flaticon-right-arrow-1"></i>
+						</span>
+					</a>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
