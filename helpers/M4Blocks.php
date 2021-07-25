@@ -99,27 +99,27 @@ class M4Blocks
 			],
 			[
 				'name' => 'cases-slider',
-				'icon' => 'nametag'
+				'icon' => 'chart-line'
 			],
 			[
 				'name' => 'seo-form',
-				'icon' => 'nametag'
+				'icon' => 'airplane'
 			],
 			[
 				'name' => 'faq-list',
-				'icon' => 'nametag'
+				'icon' => 'money'
 			],
 			[
 				'name' => 'advantages',
-				'icon' => 'nametag'
+				'icon' => 'superhero'
 			],
 			[
 				'name' => 'support-form',
-				'icon' => 'nametag'
+				'icon' => 'privacy'
 			],
 			[
 				'name' => 'support',
-				'icon' => 'nametag'
+				'icon' => 'calculator'
 			],
 			[
 				'name' => 'job-list',

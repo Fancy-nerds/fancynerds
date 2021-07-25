@@ -10,44 +10,58 @@
  */
 
 extract(M4Helpers::prepBlock($block));
+
+$subtitle = get_field('subtitle') ?: 'Your subtitle here...';
+$title = get_field('title') ?: 'Your title here...';
+$paragraph = get_field('paragraph') ?: 'Your paragraph here...';
+$bg_image = get_field('bg_image') ?: null;
+$list = get_field('list');
+
+/* Render screenshot for preview */
+if (get_field('is_example', $block['id'])) :
+	echo "<img src='" . get_template_directory_uri() . "/components/blocks/" . $block['title'] . "/" . $block['title'] . ".png'/>";
+	return;
+endif;
 ?>
 <div class="<?= $className; ?>" id="<?php echo esc_attr($id); ?>" <?= $style; ?>>
-    <div class="container">
-        <div class="advantages__grid">
-            <div class="advantages__col">
-                <div class="advantages__image">
-                    <img src="<?= get_template_directory_uri() . '/assets/images/advantages-img.svg' ?>">
-                </div>
-            </div>
-            <div class="advantages__col">
-                <div class="advantages__content">
-                    <div class="heading heading--left">
-                        <div class="subtitle subtitle__dot-before">Content Marketing</div>
-                        <h2 class="title">If You Can Dream It, We Can Rank It</h2>
-                    </div>
-
-                    <p class="paragraph">
-                        Our approach to SEO is uniquely built around what we know works…and what we know doesn’t work.
-                        With over 200 verified factors in play within Google’s search algorithm, most agencies will
-                        rely on old tactics that no longer work, or guess with new tactics that they hope will stick.
-                    </p>
-                    <div class="advantages__counters">
-                        <div class="advantages__counters_item">
-                            <div class="advantages__counters_count">330+</div>
-                            <div class="advantages__counters_text">Active Clients</div>
-                        </div>
-                        <div class="advantages__counters_item">
-                            <div class="advantages__counters_count">850+</div>
-                            <div class="advantages__counters_text">Projects Done</div>
-                        </div>
-                        <div class="advantages__counters_item">
-                            <div class="advantages__counters_count">25+</div>
-                            <div class="advantages__counters_text">Team Advisors</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+	<div class="container">
+		<div class="advantages__grid">
+			<div class="advantages__col">
+				<?php
+				if ($bg_image) : ?>
+					<div class="advantages__image">
+						<?= M4Helpers::getImgHtml(['img_id' => $bg_image, 'size' => 'full']); ?>
+					</div>
+				<?php
+				endif; ?>
+			</div>
+			<div class="advantages__col">
+				<div class="advantages__content">
+					<div class="heading heading--left">
+						<div class="subtitle subtitle__dot-before">
+							<?= $subtitle; ?>
+						</div>
+						<h2 class="title">
+							<?= $title; ?>
+						</h2>
+					</div>
+					<p class="paragraph"><?= $paragraph; ?></p>
+					<?php
+					if (is_array($list) && count($list) > 0) :?>
+					<div class="advantages__counters">
+						<?php
+						foreach ($list as $item) : ?>
+						<div class="advantages__counters_item">
+							<div class="advantages__counters_count"><?= $item['count'];?></div>
+							<div class="advantages__counters_text"><?= $item['text'];?></div>
+						</div>
+						<?php
+						endforeach;?>
+					</div>
+					<?php
+					endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
