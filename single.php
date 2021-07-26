@@ -189,14 +189,15 @@ $categories_top = wp_get_post_categories($post->ID, [
 					</div>
 
 					<div class="article__sidebar">
-						<div class="ceo">
+						<!--<div class="ceo">
 							<div class="ceo__image">
 								<img src="../../assets/images/author-image.png">
 							</div>
 							<div class="ceo__name">Kate Olson</div>
 							<div class="ceo__description">She is the CEO. She's a big fan her cat Tux, & dinner parties.</div>
 							<div class="ceo__social"></div>
-						</div>
+						</div>-->
+						<? get_sidebar('post'); ?>
 					</div>
 				</div>
 
@@ -214,5 +215,4 @@ $categories_top = wp_get_post_categories($post->ID, [
 <!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

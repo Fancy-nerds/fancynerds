@@ -61,18 +61,15 @@
 
   &__content {
     padding: 70px 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    column-gap: 30px;
   }
 
   &__main {
-    width: 870px;
-    margin-right: 30px;
-    flex-grow: 1;
   }
 
   &__sidebar {
-    width: 270px;
-    flex-shrink: 0;
   }
 
   &__fb-nav {
