@@ -13,3 +13,5 @@
 //= partials/switcher.js
 
 //= partials/videoModal.js
+
+//= partials/header.js

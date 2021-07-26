@@ -1,59 +1,94 @@
-function initContactForm() {
-  const form = document.querySelector("#global-contact-form");
+function initContactForm(form, triggerEl) {
+  form =
+    typeof form === "string"
+      ? document.querySelector("#global-contact-form")
+      : form;
 
-  initModal("#contactUsModal", "#triggerContactModal");
+  initModal(form.closest('.contact-modal'), triggerEl);
 
   if (!form) return;
+
   let gwidget;
 
-  const iti = intlTelInput(form["PHONE"], {
-    initialCountry: "auto",
-    nationalMode: false,
-    formatOnDisplay: true,
-    async geoIpLookup(success, failure) {
-      try {
-        if (sessionStorage.getItem("locale"))
-          return success(sessionStorage.getItem("locale"));
-        const res = await fetch("https://ipinfo.io?token=e6e9834a6240d1");
-        const data = await res.json();
-        const countryCode = data && data.country ? data.country : "de";
-        sessionStorage.setItem("locale", countryCode);
-        success(countryCode);
-      } catch (error) {
-        failure(error);
-      }
-    },
-    //separateDialCode: true,
-    utilsScript: templateUrl + "/vendor/intl-tel-input/utils.js",
-  });
+  if (form["PHONE"]) initPhoneValidation();
 
-  form["PHONE"].addEventListener("keyup", formatIntlTelInput);
-  form["PHONE"].addEventListener("change", formatIntlTelInput);
+  const validate = initValidation();
 
-  function formatIntlTelInput() {
-    if (typeof intlTelInputUtils !== "undefined") {
-      var currentText = iti.getNumber(intlTelInputUtils.numberFormat.E164);
-      if (typeof currentText === "string") {
-        iti.setNumber(currentText);
+   //lazy init captcha
+   initLazlyCaptcha();
+
+  form.addEventListener("submit", submit);
+
+ 
+
+  function initPhoneValidation() {
+    const iti = intlTelInput(form["PHONE"], {
+      initialCountry: "auto",
+      nationalMode: false,
+      formatOnDisplay: true,
+      async geoIpLookup(success, failure) {
+        try {
+          if (sessionStorage.getItem("locale"))
+            return success(sessionStorage.getItem("locale"));
+          const res = await fetch("https://ipinfo.io?token=e6e9834a6240d1");
+          const data = await res.json();
+          const countryCode = data && data.country ? data.country : "de";
+          sessionStorage.setItem("locale", countryCode);
+          success(countryCode);
+        } catch (error) {
+          failure(error);
+        }
+      },
+      //separateDialCode: true,
+      utilsScript: templateUrl + "/vendor/intl-tel-input/utils.js",
+    });
+
+    form["PHONE"].addEventListener("keyup", formatIntlTelInput);
+    form["PHONE"].addEventListener("change", formatIntlTelInput);
+
+    function formatIntlTelInput() {
+      if (typeof intlTelInputUtils !== "undefined") {
+        var currentText = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+        if (typeof currentText === "string") {
+          iti.setNumber(currentText);
+        }
       }
     }
   }
 
-  const validate = new ValidateForm(form, {
-    NAME: {
-      validators: ["required"],
-    },
-    LAST_NAME: {
-      validators: ["required"],
-    },
-    EMAIL: {
-      validators: ["email"],
-    },
-    PHONE: {
-      validators: ["phone"],
-    },
-  });
-  form.addEventListener("submit", async (e) => {
+  function initValidation() {
+    return new ValidateForm(form, {
+      NAME: {
+        validators: ["required"],
+      },
+      LAST_NAME: {
+        validators: ["required"],
+      },
+      EMAIL: {
+        validators: ["email"],
+      },
+      PHONE: {
+        validators: ["phone"],
+      },
+    });
+  }
+
+  function initLazlyCaptcha() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) initGrecaptcha();
+        });
+      },
+      {
+        threshold: 0,
+      }
+    );
+
+    observer.observe(form);
+  }
+
+  async function submit(e) {
     e.preventDefault();
     const validateRes = await validate.trigger();
     if (validateRes.length) return;
@@ -87,24 +122,6 @@ function initContactForm() {
     }
     grecaptcha.reset(gwidget);
     submitBtn.classList.remove("button--loading");
-  });
-
-  //lazy init captcha
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) onFormVisible();
-      });
-    },
-    {
-      threshold: 0,
-    }
-  );
-
-  observer.observe(form);
-
-  function onFormVisible() {
-    initGrecaptcha();
   }
 
   async function initGrecaptcha() {
@@ -118,5 +135,3 @@ function initContactForm() {
     );
   }
 }
-
-window.addEventListener("load", () => initContactForm());
