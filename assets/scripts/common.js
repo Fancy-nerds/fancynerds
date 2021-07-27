@@ -109,6 +109,46 @@ Iodine.addRule("phone", (val) => {
 });
 Iodine.setErrorMessages({ phone: `Isn't valid phone number` });
 
+class PhoneValidation {
+  iti = null;
+  init(phoneInp) {
+    if (!phoneInp || phoneInp.dataset.intlTelInputId) return;
+
+    this.iti = intlTelInput(phoneInp, {
+      initialCountry: "auto",
+      nationalMode: false,
+      formatOnDisplay: true,
+      async geoIpLookup(success, failure) {
+        try {
+          if (sessionStorage.getItem("locale"))
+            return success(sessionStorage.getItem("locale"));
+          const res = await fetch("https://ipinfo.io?token=e6e9834a6240d1");
+          const data = await res.json();
+          const countryCode = data && data.country ? data.country : "de";
+          sessionStorage.setItem("locale", countryCode);
+          success(countryCode);
+        } catch (error) {
+          failure(error);
+        }
+      },
+      //separateDialCode: true,
+      utilsScript: templateUrl + "/vendor/intl-tel-input/utils.js",
+    });
+
+    phoneInp.addEventListener("keyup", () => this.formatIntlTelInput());
+    phoneInp.addEventListener("change", () => this.formatIntlTelInput());
+  }
+
+  formatIntlTelInput() {
+    if (typeof intlTelInputUtils !== "undefined") {
+      var currentText = this.iti.getNumber(intlTelInputUtils.numberFormat.E164);
+      if (typeof currentText === "string") {
+        this.iti.setNumber(currentText);
+      }
+    }
+  }
+}
+
 const initCaptcha = (function () {
   let captchaIsLoading = false;
 
@@ -180,7 +220,6 @@ function initModal(el, trigger, targetOpts = {}) {
   // When the user clicks anywhere outside of the modal, close it
   if (opts.overlayClose)
     modal.onclick = function (event) {
-      console.log("red");
       if (event.target == modal) {
         modal.style.display = "none";
         opts.onClose && opts.onClose();
@@ -289,66 +328,40 @@ function initModal(el, trigger, targetOpts = {}) {
   }
 })();
 	
-function initContactForm(form, triggerEl) {
-  form =
-    typeof form === "string"
-      ? document.querySelector("#global-contact-form")
-      : form;
+class ModalContactForm {
+  gwidget = null;
+  form = null;
+  triggerEl = null;
+  validate = null;
+  iti = null;
+  phoneValidation = null;
+  constructor(form, triggerEl, phoneValidation = new PhoneValidation()) {
+    this.form = typeof form === "string" ? document.querySelector(form) : form;
 
-  initModal(form.closest('.contact-modal'), triggerEl);
+    if (!this.form) throw new Error("invalid form selector or element");
 
-  if (!form) return;
+    this.triggerEl =
+      triggerEl === "string" ? document.querySelector(triggerEl) : triggerEl;
 
-  let gwidget;
-
-  if (form["PHONE"]) initPhoneValidation();
-
-  const validate = initValidation();
-
-   //lazy init captcha
-   initLazlyCaptcha();
-
-  form.addEventListener("submit", submit);
-
- 
-
-  function initPhoneValidation() {
-    const iti = intlTelInput(form["PHONE"], {
-      initialCountry: "auto",
-      nationalMode: false,
-      formatOnDisplay: true,
-      async geoIpLookup(success, failure) {
-        try {
-          if (sessionStorage.getItem("locale"))
-            return success(sessionStorage.getItem("locale"));
-          const res = await fetch("https://ipinfo.io?token=e6e9834a6240d1");
-          const data = await res.json();
-          const countryCode = data && data.country ? data.country : "de";
-          sessionStorage.setItem("locale", countryCode);
-          success(countryCode);
-        } catch (error) {
-          failure(error);
-        }
-      },
-      //separateDialCode: true,
-      utilsScript: templateUrl + "/vendor/intl-tel-input/utils.js",
-    });
-
-    form["PHONE"].addEventListener("keyup", formatIntlTelInput);
-    form["PHONE"].addEventListener("change", formatIntlTelInput);
-
-    function formatIntlTelInput() {
-      if (typeof intlTelInputUtils !== "undefined") {
-        var currentText = iti.getNumber(intlTelInputUtils.numberFormat.E164);
-        if (typeof currentText === "string") {
-          iti.setNumber(currentText);
-        }
-      }
-    }
+    this.phoneValidation = phoneValidation
+    
+    this.init();
   }
 
-  function initValidation() {
-    return new ValidateForm(form, {
+  init() {
+    initModal(this.form.closest(".contact-modal"), this.triggerEl);
+
+    this.phoneValidation.init(this.form["PHONE"]);
+
+    this.validate = this.initValidation();
+
+    this.initLazlyCaptcha();
+
+    this.form.addEventListener("submit", (e) => this.submit(e));
+  }
+
+  initValidation() {
+    return new ValidateForm(this.form, {
       NAME: {
         validators: ["required"],
       },
@@ -364,11 +377,11 @@ function initContactForm(form, triggerEl) {
     });
   }
 
-  function initLazlyCaptcha() {
+  initLazlyCaptcha() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) initGrecaptcha();
+          if (entry.isIntersecting) this.initGrecaptcha();
         });
       },
       {
@@ -376,12 +389,23 @@ function initContactForm(form, triggerEl) {
       }
     );
 
-    observer.observe(form);
+    observer.observe(this.form);
   }
 
-  async function submit(e) {
+  async initGrecaptcha() {
+    if (this.gwidget) return;
+    this.gwidget = await initCaptcha(
+      this.form.querySelector(".contact-modal__recaptcha"),
+      {
+        sitekey: grePublicKey,
+        size: window.innerWidth < 360 ? "compact" : "normal",
+      }
+    );
+  }
+
+  async submit(e) {
     e.preventDefault();
-    const validateRes = await validate.trigger();
+    const validateRes = await this.validate.trigger();
     if (validateRes.length) return;
 
     hideFormMsg(form);
@@ -390,7 +414,7 @@ function initContactForm(form, triggerEl) {
     const formData = new FormData();
 
     formData.append("action", "m4ajx_lead");
-    serializeArray(form).forEach((el, ind) => {
+    serializeArray(this.form).forEach((el, ind) => {
       formData.append(`dataSubm[${ind}][name]`, el.name);
       formData.append(`dataSubm[${ind}][value]`, el.value);
     });
@@ -405,25 +429,14 @@ function initContactForm(form, triggerEl) {
       let rawData = await res.json();
 
       if (rawData.success) {
-        form.reset();
-        showFormSuccess(rawData.data.message, form);
+        this.form.reset();
+        showFormSuccess(rawData.data.message, this.form);
       } else throw new Error(rawData.data.message);
     } catch (error) {
-      showFormError(error.message, form);
+      showFormError(error.message, this.form);
     }
-    grecaptcha.reset(gwidget);
+    grecaptcha.reset(this.gwidget);
     submitBtn.classList.remove("button--loading");
-  }
-
-  async function initGrecaptcha() {
-    if (gwidget) return;
-    gwidget = await initCaptcha(
-      form.querySelector(".contact-modal__recaptcha"),
-      {
-        sitekey: grePublicKey,
-        size: window.innerWidth < 360 ? "compact" : "normal",
-      }
-    );
   }
 }
 
@@ -567,7 +580,7 @@ openVideoModal.onVideoModalBtnClick = (e) => {
 };
 
 window.addEventListener("load", () =>
-  initContactForm(
+  new ModalContactForm(
     document.querySelector("#global-contact-form"),
     document.querySelector("#triggerContactModal")
   )

@@ -1,5 +1,5 @@
 window.addEventListener("load", () =>
-  initContactForm(
+  new ModalContactForm(
     document.querySelector("#global-contact-form"),
     document.querySelector("#triggerContactModal")
   )

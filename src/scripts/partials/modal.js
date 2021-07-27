@@ -31,7 +31,6 @@ function initModal(el, trigger, targetOpts = {}) {
   // When the user clicks anywhere outside of the modal, close it
   if (opts.overlayClose)
     modal.onclick = function (event) {
-      console.log("red");
       if (event.target == modal) {
         modal.style.display = "none";
         opts.onClose && opts.onClose();
