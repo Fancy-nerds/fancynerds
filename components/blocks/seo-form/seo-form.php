@@ -29,18 +29,22 @@ endif;
 			<div class="seo-form__content">
 				<h6 class="seo-form__title">Know your SEO Score!</h6>
 				<form class="seo-form__form">
-					<span class="seo-form__item">
-						<input type="text" placeholder="Your Website URL" />
-					</span>
-					<span class="seo-form__item">
-						<input type="text" placeholder="Email">
-					</span>
-
-					<button type="submit" href="#" class="button button--orange button--image seo-form__submit">Start Now
-						<span>
-							<i class="flaticon-right-arrow-1"></i>
+					<div class="seo-form__inner">
+						<span class="seo-form__item">
+							<input type="text" name="SITE_URL" placeholder="Your Website URL" />
 						</span>
-					</a>
+						<span class="seo-form__item">
+							<input type="text" name="EMAIL" placeholder="Email" />
+						</span>
+						<span class="seo-form__item">
+							<button type="submit" class="button button--orange button--image seo-form__submit">Start Now
+								<span>
+									<i class="flaticon-right-arrow-1"></i>
+								</span>
+							</button>
+						</span>
+					</div>
+					<div class="form-ajx__result form-ajx__result--white_box"></div>
 				</form>
 			</div>
 		</div>
