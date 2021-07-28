@@ -6,11 +6,20 @@
       text-align: center;
       margin-top: 20px;
       width: 100%;
+      &:empty {
+        display: none;
+      }
       &--success {
         color: #0160e7;
       }
       &--error {
         color: #fe4c1c;
+      }
+      &--white_box {
+        padding: 8px 15px;
+        background: #fffffffa;
+        border-radius: 20px;
+        box-shadow: 10px 7px 30px rgba(0, 36, 143, 0.2);
       }
     }
   }
@@ -73,7 +82,7 @@
     }
     &--error {
       border-color: #fe4c1c;
-      background-color: #fff1ed;
+      background-color: #ffded5;
     }
     &--small {
       padding: 10px 20px;
