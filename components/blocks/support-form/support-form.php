@@ -20,15 +20,15 @@ extract(M4Helpers::prepBlock($block));
             </div>
             <div class="form__group">
                 <div class="support-form__split">
-                    <input placeholder="Your Name *" type="text" class="form__control" />
-                    <input placeholder="Your Email *" type="text" class="form__control" />
+                    <input placeholder="Your Name *" name="NAME" type="text" class="form__control" />
+                    <input placeholder="Your Email *" name="EMAIL" type="text" class="form__control" />
                 </div>
             </div>
             <div class="form__group">
-                <input placeholder="Website" type="text" class="form__control" />
+                <input placeholder="Website" name="SITE_URL" type="text" class="form__control" />
             </div>
             <div class="form__group">
-                <textarea placeholder="Message..." type="text" class="form__control"></textarea>
+                <textarea placeholder="Message..." name="MSG" type="text" class="form__control"></textarea>
             </div>
             <div class="form__buttons">
                 <button type="submit" class="button button--orange button--image">
@@ -38,6 +38,7 @@ extract(M4Helpers::prepBlock($block));
                     </span>
                 </button>
             </div>
+            <div class="form-ajx__result form-ajx__result--white_box"></div>
         </form>
     </div>
 </section>
