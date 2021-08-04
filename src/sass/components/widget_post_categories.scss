@@ -1,0 +1,9 @@
+.widget_post_categories {
+  .widget-title {
+    font-weight: 700;
+    padding-left: 17px;
+    position: relative;
+    @include font-size(20px);
+    
+  }
+}

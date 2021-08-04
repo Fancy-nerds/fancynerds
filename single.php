@@ -37,9 +37,9 @@ $categories_top = wp_get_post_categories($post->ID, [
 					<div class="article__heading">
 						<? if (count($categories_top)) { ?>
 							<div class="article__categories">
-								<div class="category-list">
+								<div class="article-category-list">
 									<? foreach ($categories_top as $cat) { ?>
-										<div class="category-label"><?= $cat->name ?></div>
+										<a href="<?= get_term_link($cat->term_id) ?>" class="article-category-label"><?= $cat->name ?></a>
 									<? } ?>
 
 								</div>
@@ -47,15 +47,15 @@ $categories_top = wp_get_post_categories($post->ID, [
 						<? } ?>
 						<h1 class="title"><?= the_title() ?></h1>
 						<div class="article-state">
-							<div class="article-state__item article-state__author">
+							<a href="<?= get_author_posts_url($author_id) ?>" class="article-state__item article-state__item--white article-state__author">
 								<i class="flaticon-user"></i>
 								<?= esc_html__('By', 'fancynerds') ?> <?= $user_display_name ?>
-							</div>
-							<div class="article-state__item article-state__date">
+							</a>
+							<div class="article-state__item article-state__item--white article-state__date">
 								<i class="flaticon-clock"></i>
 								<?= get_the_date() ?>
 							</div>
-							<div class="article-state__item article-state__comments">
+							<div class="article-state__item article-state__item--white article-state__comments">
 								<i class="flaticon-chat"></i>
 								0 <?= esc_html__('Comments', 'fancynerds') ?>
 							</div>

@@ -39,7 +39,7 @@ class Post_Categories_Widget extends WP_Widget
         function get_list($hie_list)
         {
             $prefix = 'id-';
-            echo '<ul>';
+            echo '<ul class="category-list">';
             
             foreach ($hie_list as $raw_id => $children) {
                 $cat_id = str_replace($prefix, '', $raw_id);
@@ -47,8 +47,11 @@ class Post_Categories_Widget extends WP_Widget
                 $link = get_category_link($cat_id);
 
 ?>
-                <li>
-                    <a href="<?= $link ?>"><?= esc_html__($cat->name) ?></a>
+                <li class="category-item">
+                    <a href="<?= $link ?>">
+                        <?= esc_html__($cat->name) ?>
+                        <span>(<?= $cat->count ?>)</span>
+                    </a>
                     <? if (count($children)) {
                         get_list($children);
                     } ?>

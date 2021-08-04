@@ -2,25 +2,59 @@
 
 .category {
   &-list {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    row-gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  &-label {
-    position: relative;
-    display: inline-block;
-    color: $white;
-    font-family: "RedHatDisplay", "Montserrat";
-    font-size: 12px;
-    line-height: 16px;
+  &-item {
+    font-family: "Red Hat Display", sans-serif;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 6px 9px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    background-color: $orange;
-    text-align: center;
+    @include font-size(14px);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    @include line-height(24, 14);
+    a {
+      position: relative;
+      display: inline-block;
+      color: $black;
+      margin: 0 0 10px;
+      padding-left: 0;
+      text-decoration: none;
+      transition: color 300ms, padding-left 300ms;
+      &:hover {
+        color: $blue;
+        padding-left: 15px;
+        &:before {
+          width: 10px;
+          opacity: 1;
+        }
+        span {
+          color: $blue;
+        }
+      }
+      &:before {
+        content: "";
+        width: 0;
+        opacity: 1;
+        visibility: visible;
+        background: #00c3ff;
+        position: absolute;
+        left: 0;
+        top: 11px;
+        height: 3px;
+        opacity: 0;
+        transition: width 300ms, opacity 300ms;
+      }
+      span {
+        color: $gray;
+        transition: color 300ms;
+      }
+    }
+
+    & %category-item {
+      padding-left: 15px;
+    }
+    @extend %category-item;
   }
 }

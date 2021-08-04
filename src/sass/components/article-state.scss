@@ -1,26 +1,48 @@
-@import '../mixins/all';
+@import "../mixins/all";
 
 .article-state {
-    margin-bottom: 15px;
-
-    &__item {
-        color: $gray;
-        font-family: "RedHatDisplay", "Montserrat";
-        font-size: 13px;
-        font-weight: 500;
-        display: inline-block;
-        margin-right: 4px;
-
+  margin-bottom: 15px;
+  display: flex;
+  column-gap: 15px;
+  &__item {
+    color: $gray;
+    font-family: "RedHatDisplay", "Montserrat";
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 4px;
+    @at-root a#{&} {
+      cursor: pointer;
+      text-decoration: none;
+      &, i {
+        transition: color 300ms;
+      }
+      &:hover {
+        color: $gray-dark;
         i {
-            margin-right: 4px;
-
-            &:before {
-                font-size: 12px;
-            }
+          color: $orange;
         }
-
-        &:last-child {
-            margin-right: 0;
-        }
+      }
     }
+    &--white {
+      color: $white;
+      @at-root a#{&} {
+        &:hover {
+          color: $gray;
+        }
+      }
+    }
+    
+    i {
+      margin-right: 4px;
+
+      &:before {
+        font-size: 12px;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
