@@ -19,7 +19,6 @@ $user_lkdn = get_the_author_meta('user_linkedin_link', $author_id);
 $user_in = get_the_author_meta('user_instagram_link', $author_id);
 $categories_top = wp_get_post_categories($post->ID, [
 	'fields' => 'all',
-	'parent' => 0
 ]);
 
 ?>
