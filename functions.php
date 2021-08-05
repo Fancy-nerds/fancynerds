@@ -416,3 +416,5 @@ function user_update_social_links($user_id)
 	update_user_meta($user_id, 'user_linkedin_link', $_POST['user_linkedin_link'] ?? '');
 	update_user_meta($user_id, 'user_instagram_link', $_POST['user_instagram_link'] ?? '');
 }
+
+add_filter( 'use_widgets_block_editor', '__return_false' );
