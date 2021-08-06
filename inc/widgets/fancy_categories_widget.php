@@ -10,10 +10,6 @@ class Fancy_Categories_Widget extends WP_Widget
             'fancy_categories',
             'Fancy Categories'
         );
-
-        add_action('widgets_init', function () {
-            register_widget('Fancy_Categories_Widget');
-        });
     }
 
     public function form($instance)
@@ -173,4 +169,3 @@ class Fancy_Categories_Widget extends WP_Widget
     }
 }
 
-new Fancy_Categories_Widget();

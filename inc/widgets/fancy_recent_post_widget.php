@@ -1,19 +1,16 @@
 <?
 
-class Post_Categories_Widget extends WP_Widget
+class Fancy_Recent_Post_Widget extends WP_Widget
 {
 
     function __construct()
     {
 
         parent::__construct(
-            'post_categories',  // Base ID
-            'Post Categories'   // Name
+            'fancy_recent_post',  // Base ID
+            'Fancy Recent Posts'   // Name
         );
 
-        add_action('widgets_init', function () {
-            register_widget('Post_Categories_Widget');
-        });
     }
 
     public function widget($args, $instance)
@@ -121,5 +118,3 @@ class Post_Categories_Widget extends WP_Widget
         return $instance;
     }
 }
-
-new Post_Categories_Widget();

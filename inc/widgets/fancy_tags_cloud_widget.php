@@ -11,9 +11,6 @@ class Fancy_Tags_Cloud_Widget extends WP_Widget
             'Fancy Tags Cloud'   // Name
         );
 
-        add_action('widgets_init', function () {
-            register_widget('Fancy_Tags_Cloud_Widget');
-        });
     }
 
     public function form($instance)
@@ -86,5 +83,3 @@ class Fancy_Tags_Cloud_Widget extends WP_Widget
         return $instance;
     }
 }
-
-new Fancy_Tags_Cloud_Widget();
