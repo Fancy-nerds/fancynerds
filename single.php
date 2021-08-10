@@ -72,10 +72,14 @@ $categories_top = wp_get_post_categories($post->ID, [
 						<div class="article__footer">
 							<div class="article__actions">
 								<div class="article__tags">
-
+									<?= get_template_part('template-parts/article', 'tags', [
+										'post_id' => $post->ID
+									]); ?>
 								</div>
 								<div class="article__socials">
-
+									<?= get_template_part('template-parts/article', 'share', [
+										'post_id' => $post->ID
+									]); ?>
 								</div>
 							</div>
 
