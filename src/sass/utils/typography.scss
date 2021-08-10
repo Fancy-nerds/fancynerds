@@ -232,23 +232,26 @@
 .title {
   color: $black;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 48px;
+  @include font-size(36px);
+  @include line-height(48, 36);
   font-family: "RedHatDisplay", "Montserrat", Arial, sans-serif;
   margin: 0 0 20px;
   font-weight: 900;
   @include media-breakpoint-down(xs) {
-    font-size: 32px;
-    line-height: 42px;
+    @include font-size(32px);
+    @include line-height(42, 32);
   }
 }
 
 h1.title {
-  font-size: 56px;
-  line-height: 72px;
+  @include font-size(56px);
+  @include line-height(72, 56);
   @include media-breakpoint-down(md) {
-    font-size: 46px;
-    line-height: 54px;
+    @include font-size(46px);
+    @include line-height(54, 46);
+  }
+  @include media-breakpoint-down(xs) {
+    @include font-size(32px);
   }
 }
 

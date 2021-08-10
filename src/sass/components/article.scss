@@ -14,7 +14,9 @@
     flex-direction: column;
     justify-content: flex-end;
     // z-index: 1;
-
+    @include media-breakpoint-down(sm) {
+      min-height: 480px;
+    }
     &:after {
       position: absolute;
       content: "";
@@ -63,6 +65,10 @@
     display: grid;
     grid-template-columns: 1fr 270px;
     column-gap: 30px;
+    row-gap: 40px;
+    @include media-breakpoint-down(md) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__main {
