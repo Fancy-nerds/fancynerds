@@ -10,8 +10,7 @@
 
 get_header();
 $author_id = $post->post_author;
-$user_meta =
-	$user_display_name = get_the_author_meta('display_name', $author_id);
+$user_display_name = get_the_author_meta('display_name', $author_id);
 $user_desc = get_the_author_meta('user_description', $author_id);
 $user_tw = get_the_author_meta('user_twitter_link', $author_id);
 $user_fb = get_the_author_meta('user_facebook_link', $author_id);
@@ -36,9 +35,9 @@ $categories_top = wp_get_post_categories($post->ID, [
 					<div class="article__heading">
 						<? if (count($categories_top)) { ?>
 							<div class="article__categories">
-								<div class="article-category-list">
+								<div class="category-cloud-list article-category-list">
 									<? foreach ($categories_top as $cat) { ?>
-										<a href="<?= get_term_link($cat->term_id) ?>" class="article-category-label"><?= $cat->name ?></a>
+										<a href="<?= get_term_link($cat->term_id) ?>" class="category-cloud-label article-category-label"><?= $cat->name ?></a>
 									<? } ?>
 
 								</div>
@@ -48,7 +47,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 						<div class="article-state">
 							<a href="<?= get_author_posts_url($author_id) ?>" class="article-state__item article-state__item--white article-state__author">
 								<i class="flaticon-user"></i>
-								<?= esc_html__('By', 'fancynerds') ?> <?= $user_display_name ?>
+								<?= esc_html__('By') ?> <?= $user_display_name ?>
 							</a>
 							<div class="article-state__item article-state__item--white article-state__date">
 								<i class="flaticon-clock"></i>
@@ -56,7 +55,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 							</div>
 							<div class="article-state__item article-state__item--white article-state__comments">
 								<i class="flaticon-chat"></i>
-								0 <?= esc_html__('Comments', 'fancynerds') ?>
+								0 <?= esc_html__('Comments') ?>
 							</div>
 						</div>
 					</div>
@@ -72,12 +71,12 @@ $categories_top = wp_get_post_categories($post->ID, [
 						<div class="article__footer">
 							<div class="article__actions">
 								<div class="article__tags">
-									<?= get_template_part('template-parts/article', 'tags', [
+									<?= get_template_part('template-parts/post', 'tags', [
 										'post_id' => $post->ID
 									]); ?>
 								</div>
 								<div class="article__socials">
-									<?= get_template_part('template-parts/article', 'share', [
+									<?= get_template_part('template-parts/post', 'share', [
 										'post_id' => $post->ID
 									]); ?>
 								</div>
@@ -90,7 +89,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 												]); ?>">
 								</div>
 								<div class="author__content">
-									<div class="author__work"><?= esc_html__('Author', 'fancynerds') ?></div>
+									<div class="author__work"><?= esc_html__('Author') ?></div>
 									<div class="author__name"><?= $user_display_name ?></div>
 									<div class="author__text"><?= $user_desc ?></div>
 									<div class="author__social">
@@ -131,64 +130,20 @@ $categories_top = wp_get_post_categories($post->ID, [
 								<?
 								the_post_navigation(
 									array(
-										'prev_text' => '<span class="fb-nav__btn fb-nav__btn--prev"><span class="fb-nav__arr fb-nav__arr--prev"><i class="flaticon-left-arrow"></i></span>' . esc_html__('Previous', 'fancynerds'),
-										'next_text' => '<span class="fb-nav__btn fb-nav__btn--next">' . esc_html__('Next', 'fancynerds') . '<span class="fb-nav__arr fb-nav__arr--next"><i class="flaticon-right-arrow-1"></i></span>',
+										'prev_text' => '<span class="fb-nav__btn fb-nav__btn--prev"><span class="fb-nav__arr fb-nav__arr--prev"><i class="flaticon-left-arrow"></i></span>' . esc_html__('Previous'),
+										'next_text' => '<span class="fb-nav__btn fb-nav__btn--next">' . esc_html__('Next') . '<span class="fb-nav__arr fb-nav__arr--next"><i class="flaticon-right-arrow-1"></i></span>',
 									)
 								);
 								?>
 							</div>
 
 						</div>
-
-						<div class="related-posts">
-							<h2 class="title">Related Posts</h2>
-							<div class="row">
-								<div class="col col-50">
-									<div class="card">
-										<div class="category-label">Marketing</div>
-										<div class="card__image">
-											<img src="assets/images/31147.png">
-										</div>
-										<div class="card__content">
-											<div class="article-state">
-												<div class="article-state__item article-state__author">
-													<i class="flaticon-user"></i>
-													By Pablo Villalpando
-												</div>
-												<div class="article-state__item article-state__date">
-													<i class="flaticon-clock"></i>
-													October 10, 2019
-												</div>
-											</div>
-											<div class="card__title">What Makes a Quality Backlink?</div>
-											<div class="card__excerpt paragraph">Our campaigns get your business in front of the right people at the right time...</div>
-										</div>
-									</div>
-								</div>
-								<div class="col col-50">
-									<div class="card">
-										<div class="category-label">Marketing</div>
-										<div class="card__image">
-											<img src="assets/images/31147.png">
-										</div>
-										<div class="card__content">
-											<div class="article-state">
-												<div class="article-state__item article-state__author">
-													<i class="flaticon-user"></i>
-													By Pablo Villalpando
-												</div>
-												<div class="article-state__item article-state__date">
-													<i class="flaticon-clock"></i>
-													October 10, 2019
-												</div>
-											</div>
-											<div class="card__title">What Makes a Quality Backlink?</div>
-											<div class="card__excerpt paragraph">Our campaigns get your business in front of the right people at the right time...</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<div class="article__related">
+							<?= get_template_part('template-parts/related', 'posts', [
+								'post_id' => $post->ID
+							]); ?>
 						</div>
+
 					</div>
 
 					<div class="article__sidebar">

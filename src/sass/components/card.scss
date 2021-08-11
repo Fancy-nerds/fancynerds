@@ -1,5 +1,4 @@
 @import "../mixins/all";
-@import "article-state.scss";
 
 .card {
   width: 100%;
@@ -9,7 +8,7 @@
   background-color: $white;
   &__image {
     height: 280px;
-
+    display: block;
     picture {
       height: 100%;
     }
@@ -35,6 +34,20 @@
     font-weight: 700;
     line-height: 36px;
     margin-bottom: 10px;
+    transition: 300ms color;
+    display: block;
+    &:hover {
+      text-decoration: none;
+      color: $orange;
+    }
+  }
+
+  &__category {
+    &-list {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
   }
 
   .category-label {

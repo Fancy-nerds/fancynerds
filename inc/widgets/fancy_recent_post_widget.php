@@ -123,9 +123,11 @@ class Fancy_Recent_Post_Widget extends WP_Widget
 				}
 				?>
 				<div class="recent-post">
-					<?= get_the_post_thumbnail($recent_post->ID, [70, 70], [
-						'class' => 'recent-post__thumb'
-					]) ?>
+					<a href="<? the_permalink($recent_post->ID); ?>">
+						<?= get_the_post_thumbnail($recent_post->ID, [70, 70], [
+							'class' => 'recent-post__thumb'
+						]) ?>
+					</a>
 					<div class="recent-post__info">
 						<h6 class="recent-post__title">
 							<a href="<? the_permalink($recent_post->ID); ?>" class="recent-post__link" <?php echo $aria_current; ?>>

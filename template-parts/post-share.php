@@ -1,6 +1,9 @@
 <?
-$title = get_the_title($args['post_id']);
-$link = get_permalink($args['post_id']);
+/**
+ * args: post_id
+ */
+$title = get_the_title($args['post_id'] ?? get_the_ID());
+$link = get_permalink($args['post_id'] ?? get_the_ID());
 ?>
 <div class="share-list">
     <a class="share-link share-link--tw" target="_blank" href="https://twitter.com/intent/tweet?text=<?= urlencode($title) ?>&url=<?= urlencode($link) ?>" title="Twitter">

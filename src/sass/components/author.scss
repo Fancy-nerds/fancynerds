@@ -12,10 +12,17 @@
     img {
       display: block;
     }
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
   &__content {
     padding: 50px 50px 20px;
     box-sizing: border-box;
+    @include media-breakpoint-down(sm) {
+      padding: 25px;
+    }
+   
   }
 
   &__work {
