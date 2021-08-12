@@ -166,6 +166,17 @@ function fancynerds_widgets_init()
 	);
 	register_sidebar(
 		array(
+			'name'          => esc_html__('Sidebar for archive', 'fancynerds'),
+			'id'            => 'sidebar-archive',
+			'description'   => esc_html__('Add widgets here.', 'fancynerds'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
 			'name'          => esc_html__('Sidebar for posts', 'fancynerds'),
 			'id'            => 'sidebar-post',
 			'description'   => esc_html__('Add widgets here.', 'fancynerds'),
