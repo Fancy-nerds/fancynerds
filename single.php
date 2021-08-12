@@ -55,7 +55,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 							</div>
 							<div class="article-state__item article-state__item--white article-state__comments">
 								<i class="flaticon-chat"></i>
-								0 <?= esc_html__('Comments') ?>
+								<?= get_comments_number() ?>&nbsp;&nbsp;<?= esc_html__('Comments') ?>
 							</div>
 						</div>
 					</div>
@@ -143,6 +143,14 @@ $categories_top = wp_get_post_categories($post->ID, [
 								'post_id' => $post->ID
 							]); ?>
 						</div>
+						<? if (comments_open() || get_comments_number()) { ?>
+							<div class="article__comments">
+								<?= get_template_part('template-parts/comments', 'basic', [
+									'post_id' => $post->ID
+								]);
+								?>
+							</div>
+						<? } ?>
 
 					</div>
 

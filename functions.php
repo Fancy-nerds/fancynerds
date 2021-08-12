@@ -16,6 +16,7 @@ if (!defined('_S_VERSION')) {
 require_once 'inc/consts.php';
 require_once 'inc/default-thumbnail.php';
 require_once 'inc/widgets/index.php';
+require_once 'inc/shortcodes/index.php';
 require_once 'inc/excerpt-extend.php';
 require_once 'helpers/M4Funcs.php';
 require_once 'helpers/M4Hooks.php';
