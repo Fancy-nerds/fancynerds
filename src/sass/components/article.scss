@@ -33,7 +33,11 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 30px;
+    row-gap: 30px;
     margin-bottom: 40px;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
   }
   &__thumbnail {
     position: absolute;
