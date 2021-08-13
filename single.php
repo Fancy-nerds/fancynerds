@@ -47,7 +47,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 						<div class="article-state">
 							<a href="<?= get_author_posts_url($author_id) ?>" class="article-state__item article-state__item--white article-state__author">
 								<i class="flaticon-user"></i>
-								<?= esc_html__('By') ?> <?= $user_display_name ?>
+								<?= esc_html__('By', 'fancynerds') ?> <?= $user_display_name ?>
 							</a>
 							<div class="article-state__item article-state__item--white article-state__date">
 								<i class="flaticon-clock"></i>
@@ -55,7 +55,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 							</div>
 							<div class="article-state__item article-state__item--white article-state__comments">
 								<i class="flaticon-chat"></i>
-								<?= get_comments_number() ?>&nbsp;&nbsp;<?= esc_html__('Comments') ?>
+								<?= get_comments_number() ?>&nbsp;&nbsp;<?= esc_html__('Comments', 'fancynerds') ?>
 							</div>
 						</div>
 					</div>
@@ -89,7 +89,7 @@ $categories_top = wp_get_post_categories($post->ID, [
 												]); ?>">
 								</div>
 								<div class="author__content">
-									<div class="author__work"><?= esc_html__('Author') ?></div>
+									<div class="author__work"><?= esc_html__('Author', 'fancynerds') ?></div>
 									<div class="author__name"><?= $user_display_name ?></div>
 									<div class="author__text"><?= $user_desc ?></div>
 									<div class="author__social">
@@ -130,8 +130,8 @@ $categories_top = wp_get_post_categories($post->ID, [
 								<?
 								the_post_navigation(
 									array(
-										'prev_text' => '<span class="fb-nav__btn fb-nav__btn--prev"><span class="fb-nav__arr fb-nav__arr--prev"><i class="flaticon-left-arrow"></i></span>' . esc_html__('Previous'),
-										'next_text' => '<span class="fb-nav__btn fb-nav__btn--next">' . esc_html__('Next') . '<span class="fb-nav__arr fb-nav__arr--next"><i class="flaticon-right-arrow-1"></i></span>',
+										'prev_text' => '<span class="fb-nav__btn fb-nav__btn--prev"><span class="fb-nav__arr fb-nav__arr--prev"><i class="flaticon-left-arrow"></i></span>' . esc_html__('Previous', 'fancynerds'),
+										'next_text' => '<span class="fb-nav__btn fb-nav__btn--next">' . esc_html__('Next', 'fancynerds') . '<span class="fb-nav__arr fb-nav__arr--next"><i class="flaticon-right-arrow-1"></i></span>',
 									)
 								);
 								?>

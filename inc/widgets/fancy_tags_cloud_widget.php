@@ -16,15 +16,15 @@ class Fancy_Tags_Cloud_Widget extends WP_Widget
     public function form($instance)
     {
 
-        $title = !empty($instance['title']) ? $instance['title'] : esc_html__('');
+        $title = !empty($instance['title']) ? $instance['title'] : '';
         $taxonomy = !empty($instance['taxonomy']) ? $instance['taxonomy'] : 'post_tag';
 ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html__('Title:'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html__('Title:', 'fancynerds'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('taxonomy')); ?>"><?php echo esc_html__('Taxonomy:'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('taxonomy')); ?>"><?php echo esc_html__('Taxonomy:', 'fancynerds'); ?></label>
             <select class="widefat" id="<?php echo esc_attr($this->get_field_id('taxonomy')); ?>" name="<?php echo esc_attr($this->get_field_name('taxonomy')); ?>">
                 <option value="category" <?= $taxonomy === 'category' ? 'selected' : '' ?>>
                     Categories </option>
@@ -52,7 +52,7 @@ class Fancy_Tags_Cloud_Widget extends WP_Widget
 
         echo $args['before_widget'];
 
-        $default_title = __('Tags');
+        $default_title = __('Tags', 'fancynerds');
         $title         = !empty($instance['title']) ? $instance['title'] : $default_title;
 
         $title = apply_filters('widget_title', $title, $instance, $this->id_base);

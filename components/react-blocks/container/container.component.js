@@ -158,14 +158,14 @@
           )
         ),
         el(blockEditor.PanelColorSettings, {
-          title: __("Color settings"),
+          title: __("Color settings", "fancynerds"),
           disableCustomColors: true,
           colorSettings: [
             {
               colors,
               value: bgColor.color,
               onChange: setBgColor,
-              label: __("Background color"),
+              label: __("Background color", "fancynerds"),
             },
           ],
         })
@@ -254,7 +254,8 @@
   blocks.registerBlockType("fancy-blocks/container", {
     apiVersion: 2,
     title: "Container",
-    description: "This block allows you to create a container of any width and with any paddings.",
+    description:
+      "This block allows you to create a container of any width and with any paddings.",
     icon: "media-default",
     category: "fancy-containers",
     attributes: {

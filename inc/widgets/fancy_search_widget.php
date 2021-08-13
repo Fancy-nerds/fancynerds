@@ -24,7 +24,7 @@ class Fancy_Serach_Widget extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'fancy_search_widget',
-			'description'                 => __( 'A search form for your site.' ),
+			'description'                 => __( 'A search form for your site.', 'fancynerds' ),
 			'customize_selective_refresh' => true,
 			'show_instance_in_rest'       => true,
 		);

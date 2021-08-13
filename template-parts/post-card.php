@@ -25,7 +25,7 @@ $categories_top = wp_get_post_categories($args['post_id'], [
         <div class="article-state">
             <a href="<?= get_author_posts_url($author_id) ?>" class="article-state__item article-state__author">
                 <i class="flaticon-user"></i>
-                <?= __("By") ?> <?= $user_display_name ?>
+                <?= __('By', 'fancynerds') ?> <?= $user_display_name ?>
             </a>
             <div class="article-state__item article-state__date">
                 <i class="flaticon-clock"></i>

@@ -27,11 +27,11 @@ class Fancy_Recent_Post_Widget extends WP_Widget
 	{
 		$widget_ops = array(
 			'classname'                   => 'widget_recent_entries',
-			'description'                 => __('Your site&#8217;s most recent Posts.'),
+			'description'                 => __('Your site&#8217;s most recent Posts.', 'fancynerds'),
 			'customize_selective_refresh' => true,
 			'show_instance_in_rest'       => true,
 		);
-		parent::__construct('fancy-recent-posts', __('Fancy Recent Posts'), $widget_ops);
+		parent::__construct('fancy-recent-posts', __('Fancy Recent Posts', 'fancynerds'), $widget_ops);
 		$this->alt_option_name = 'widget_recent_entries';
 	}
 
@@ -50,7 +50,7 @@ class Fancy_Recent_Post_Widget extends WP_Widget
 			$args['widget_id'] = $this->id;
 		}
 
-		$default_title = __('Recent Posts');
+		$default_title = __('Recent Posts', 'fancynerds');
 		$title         = (!empty($instance['title'])) ? $instance['title'] : $default_title;
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
@@ -115,7 +115,7 @@ class Fancy_Recent_Post_Widget extends WP_Widget
 			<?php foreach ($r->posts as $recent_post) : ?>
 				<?php
 				$post_title   = get_the_title($recent_post->ID);
-				$title        = (!empty($post_title)) ? $post_title : __('(no title)');
+				$title        = (!empty($post_title)) ? $post_title : __('(no title)', 'fancynerds');
 				$aria_current = '';
 
 				if (get_queried_object_id() === $recent_post->ID) {

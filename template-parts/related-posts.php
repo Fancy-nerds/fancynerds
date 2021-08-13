@@ -16,7 +16,7 @@ if ($tags) {
     if ($my_query->have_posts()) {
 ?>
         <div class="related-posts">
-            <h2 class="title"><?= __("Related Posts") ?></h2>
+            <h2 class="title"><?= __('Related Posts', 'fancynerds') ?></h2>
             <div class="related-posts__grid">
                 <? while ($my_query->have_posts()) {
                     $my_query->the_post(); ?>

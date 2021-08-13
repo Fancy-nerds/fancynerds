@@ -15,16 +15,16 @@ class Fancy_Categories_Widget extends WP_Widget
     public function form($instance)
     {
 
-        $title = !empty($instance['title']) ? $instance['title'] : esc_html__('');
+        $title = !empty($instance['title']) ? $instance['title'] : '';
         $hie = !empty($instance['hie']) ? 1 : 0;
 ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html__('Title:'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php echo esc_html__('Title:', 'fancynerds'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <p>
             <input type="checkbox" id="<?php echo esc_attr($this->get_field_id('hie')); ?>" name="<?php echo esc_attr($this->get_field_name('hie')); ?>" <?= $hie ? 'checked' : '' ?>>
-            <label for="<?php echo esc_attr($this->get_field_id('hie')); ?>"><?php echo esc_html__('enable hierarchy'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('hie')); ?>"><?php echo esc_html__('enable hierarchy', 'fancynerds'); ?></label>
         </p>
         <?php
 
@@ -45,7 +45,7 @@ class Fancy_Categories_Widget extends WP_Widget
         echo $args['before_widget'];
 
 
-        $title = apply_filters('widget_title', !empty($instance['title']) ? esc_html__($instance['title']) : esc_html__('Categories'), $instance, $this->id_base);
+        $title = apply_filters('widget_title', !empty($instance['title']) ? esc_html__($instance['title'], 'fancynerds') : esc_html__('Categories', 'fancynerds'), $instance, $this->id_base);
 
         if ($title) {
             echo $args['before_title'] . $title . $args['after_title'];

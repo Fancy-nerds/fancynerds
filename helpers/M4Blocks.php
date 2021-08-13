@@ -135,8 +135,8 @@ class M4Blocks
 				// register a testimonial block.
 				acf_register_block_type(array(
 					'name'              => $block['name'],
-					'title'             => __($block['name']),
-					'description'       => __('A custom ' . $block['name'] . ' block.'),
+					'title'             => __($block['name'], 'fancynerds'),
+					'description'       => __('A custom ' . $block['name'] . ' block.', 'fancynerds'),
 					'render_template'   => 'components/blocks/' . $block['name'] . '/' . $block['name'] . '.php',
 					'category'          => 'formatting',
 					'icon'              => $block['icon'],
