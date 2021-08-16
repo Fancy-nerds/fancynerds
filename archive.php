@@ -18,17 +18,23 @@ get_header(); ?>
 	</div>
 	<div class="container">
 		<div class="archive__content">
-			<div class="archive__grid">
-				<? if (have_posts()) :
-					while (have_posts()) : the_post(); ?>
+
+			<? if (have_posts()) { ?>
+				<div class="archive__grid">
+					<? while (have_posts()) : the_post(); ?>
 						<?= get_template_part('template-parts/post', 'card', [
 							'post_id' => $post->ID
 						]); ?>
-				<?
-					endwhile;
-				endif;
-				?>
-			</div>
+					<?
+					endwhile; ?>
+				</div>
+			<? } else {
+			?>
+				<h2 class="archive__empty-title"><?= __('Sorry, no posts found', 'fancynerds') ?></h2>
+			<?
+			};
+			?>
+
 			<div class="archive__sidebar">
 				<?
 				get_sidebar('archive');
