@@ -1,0 +1,31 @@
+@import "../mixins/all";
+
+.archive {
+  &__content {
+    padding: 70px 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    column-gap: 30px;
+    row-gap: 40px;
+    align-items: flex-start;
+    @include media-breakpoint-down(md) {
+      padding: 70px 0 90px;
+      grid-template-columns: 1fr;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 70px 0;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__empty-title {
+    text-align: center;
+  }
+}

@@ -1,0 +1,54 @@
+@import "../mixins/all";
+
+.share {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    column-gap: 15px;
+  }
+  &-link {
+    @include reset-link();
+    overflow: hidden;
+    height: 38px;
+    width: 38px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 50%;
+    color: $white;
+    transition: transform 300ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      transform: translateY(-5px);
+    }
+    svg {
+      color: $white;
+    }
+    &--tw {
+      background-color: #44b1e4;
+      svg {
+        width: 18px
+      }
+    }
+    &--fb {
+      background-color: #4661c5;
+      svg {
+        width: 14px
+      }
+    }
+    &--pt {
+      background-color: #ff2e2e;
+      svg {
+        width: 16px
+      }
+    }
+    &--in {
+      background-color: #0073B0;
+      svg {
+        width: 16px
+      }
+    }
+  }
+}

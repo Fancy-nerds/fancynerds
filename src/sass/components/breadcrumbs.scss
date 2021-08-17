@@ -1,16 +1,22 @@
 @import "../mixins/all";
 
-.breadcrumbs {
+.rank-math-breadcrumb {
   color: $gray;
-
-  &__item {
-    color: $black-light;
-    font-size: $default;
+  a, .last {
+    
+    font-size: font-size(16px);
     font-weight: 500;
     line-height: 24px;
     text-decoration: none;
-    &.active {
-      color: $gray;
+  }
+  a {
+    color: $black-light;
+    transition: 300ms color;
+    &:hover {
+      color: $orange;
     }
+  }
+  .last {
+    color: $gray;
   }
 }

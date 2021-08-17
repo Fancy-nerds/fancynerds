@@ -233,7 +233,7 @@
 
   &__package {
     color: $gray;
-    font-size: $default;
+    font-size: font-size(16px);
     font-weight: 500;
     margin-bottom: 40px;
   }
@@ -255,7 +255,7 @@
   }
 
   &__point {
-    font-size: $default;
+    font-size: font-size(16px);
     color: $black-light;
     margin-bottom: 20px;
 

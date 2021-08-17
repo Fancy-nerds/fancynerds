@@ -1,0 +1,112 @@
+@import "../mixins/all";
+
+/*@import "../components/card.scss";
+@import "../components/ceo.scss";
+@import "../components/author.scss";*/
+
+.article {
+  &__hero {
+    min-height: 600px;
+    position: relative;
+    padding: 100px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // z-index: 1;
+    @include media-breakpoint-down(sm) {
+      min-height: 480px;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(34, 35, 40, 0.5);
+      // z-index: 11;
+    }
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-bottom: 40px;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+  &__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__heading {
+    position: relative;
+    z-index: 3;
+    h1 {
+      color: $white;
+    }
+  }
+
+  &__categories {
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    padding: 70px 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    column-gap: 30px;
+    row-gap: 40px;
+    @include media-breakpoint-down(md) {
+      padding: 70px 0 90px;
+      grid-template-columns: 1fr;
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 70px 0;
+      
+    }
+  }
+
+  &__main {
+  }
+
+  &__sidebar {
+  }
+  &__footer {
+    margin-top: 40px;
+  }
+  &__fb-nav {
+    margin-top: 50px;
+  }
+  &__related {
+    margin-top: 100px;
+    @include media-breakpoint-down(md) {
+      margin-top: 60px;
+    }
+    @include media-breakpoint-down(xs) {
+      margin-top: 40px;
+    }
+  }
+  &__comments {
+    margin-top: 90px;
+    @include media-breakpoint-down(md) {
+      margin-top: 60px;
+    }
+    @include media-breakpoint-down(xs) {
+      margin-top: 40px;
+    }
+  }
+}
