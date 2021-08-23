@@ -17,6 +17,8 @@ $subtitle = get_field('subtitle');
 $params = get_field('blog_config');
 $posts = [];
 
+if (!$params) return;
+
 if ($params['type'] === 'recent') {
 	$posts = wp_get_recent_posts([
 		'numberposts'      => (int) $params['max_count'],
@@ -38,6 +40,8 @@ if ($params['type'] === 'recent') {
 		return $a['post'];
 	}, $params['posts']);
 }
+
+if (!$posts || !count($posts)) return;
 
 ?>
 
