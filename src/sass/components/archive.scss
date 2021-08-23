@@ -28,4 +28,11 @@
   &__empty-title {
     text-align: center;
   }
+  &__pagination {
+    margin-top: 70px;
+    margin-bottom: 0;
+    @include media-breakpoint-down(xs) {
+      margin-top: 40px;
+    }
+  }
 }
