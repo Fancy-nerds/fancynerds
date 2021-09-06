@@ -1,0 +1,37 @@
+@import "../mixins/all";
+
+.pagination {
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 8px;
+  }
+  .page {
+    &-numbers {
+      border-radius: 50%;
+      box-shadow: 6px 6px 13px 0 rgba(42, 67, 113, 0.15);
+      @include font-size(18px);
+      color: $black;
+      background: $white;
+      font-weight: 600;
+      height: 40px;
+      width: 40px;
+      display: block;
+      text-align: center;
+      line-height: 40px;
+      transition: all 0.3s linear;
+      &:hover {
+        text-decoration: none;
+        box-shadow: 6px 6px 13px 0 rgba(0, 195, 255, 0.3);
+        background: $blue;
+        color: $white;
+      }
+      &.current {
+        box-shadow: 6px 6px 13px 0 rgba(0, 195, 255, 0.3);
+        background: $blue;
+        color: $white;
+      }
+    }
+  }
+}

@@ -9,90 +9,70 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 extract(M4Helpers::prepBlock($block));
+
+$label = get_field('label');
+$title = get_field('title');
+$subtitle = get_field('subtitle');
+
+$params = get_field('blog_config');
+$posts = [];
+
+if (!$params) return;
+
+if ($params['type'] === 'recent') {
+	$posts = wp_get_recent_posts([
+		'numberposts'      => (int) $params['max_count'],
+		'orderby'          => 'post_date',
+		'order'            => 'DESC',
+		'post_type'        => 'post',
+		'post_status'      => 'publish',
+		'suppress_filters' => false,
+	], OBJECT);
+} elseif ($params['type'] === 'random') {
+	$posts = get_posts([
+		'numberposts' => (int) $params['max_count'],
+		'orderby'     => 'rand',
+		'post_type'   => 'post',
+		'post_status' => 'publish',
+	]);
+} elseif ($params['type'] === 'custom') {
+	$posts = array_map(function ($a) {
+		return $a['post'];
+	}, $params['posts']);
+}
+
+if (!$posts || !count($posts)) return;
+
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" <?= $style; ?> class="section <?php echo esc_attr($className); ?>">
 	<div class="blog__circles">
-		<img src="<?php bloginfo('template_directory');?>/assets/images/blog-cicles.png" width="1742" height="601">
+		<img src="<?php bloginfo('template_directory'); ?>/assets/images/blog-cicles.png" width="1742" height="601">
 	</div>
 	<div class="blog__container">
+		<? if ($label || $title || $subtitle) { ?>
 		<div class="blog__header">
 			<div class="heading">
-				<h4 class="subtitle subtitle__dot-before subtitle__dot-after">Our blog</h4>
-				<h2 class="title">Our Latest Media</h2>
-				<p class="paragraph">
-					Our campaigns get your business in front of the right people at the
-					right time to increase organic traffic and boost engagement.
-				</p>
+				<? if ($label) { ?>
+					<h4 class="subtitle subtitle__dot-before subtitle__dot-after"><?= $label ?></h4>
+				<? } ?>
+				<? if ($title) { ?>
+					<h2 class="title"><?= $title ?></h2>
+				<? } ?>
+				<? if ($subtitle) { ?>
+					<p class="paragraph">
+						<?= $subtitle ?>
+					</p>
+				<? } ?>
 			</div>
 		</div>
+		<? } ?>
 		<div class="blog__list">
-			<div class="blog__col">
-				<div class="card">
-					<div class="article-label">Marketing</div>
-					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/1837.png" width="370" height="280">
-					</div>
-					<div class="card__content">
-						<div class="article-state">
-							<div class="article-state__item article-state__author">
-								<i class="flaticon-user"></i>
-								By Pablo Villalpando
-							</div>
-							<div class="article-state__item article-state__date">
-								<i class="flaticon-clock"></i>
-								October 10, 2019
-							</div>
-						</div>
-						<div class="card__title">15 SEO Best Practices: Website Architecture</div>
-						<div class="card__excerpt paragraph">Our campaigns get your business in front of the right people at the right time...</div>
-					</div>
-				</div>
-			</div>
-			<div class="blog__col">
-				<div class="card">
-					<div class="article-label">Marketing</div>
-					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/14717.png" width="370" height="280">
-					</div>
-					<div class="card__content">
-						<div class="article-state">
-							<div class="article-state__item article-state__author">
-								<i class="flaticon-user"></i>
-								By Pablo Villalpando
-							</div>
-							<div class="article-state__item article-state__date">
-								<i class="flaticon-clock"></i>
-								October 10, 2019
-							</div>
-						</div>
-						<div class="card__title">What Makes a Quality Backlink?</div>
-						<div class="card__excerpt paragraph">Our campaigns get your business in front of the right people at the right time...</div>
-					</div>
-				</div>
-			</div>
-			<div class="blog__col">
-				<div class="card">
-					<div class="article-label">Marketing</div>
-					<div class="card__image">
-						<img src="<?php bloginfo('template_directory');?>/assets/images/2447945.png" width="370" height="280">
-					</div>
-					<div class="card__content">
-						<div class="article-state">
-							<div class="article-state__item article-state__author">
-								<i class="flaticon-user"></i>
-								By Pablo Villalpando
-							</div>
-							<div class="article-state__item article-state__date">
-								<i class="flaticon-clock"></i>
-								October 10, 2019
-							</div>
-						</div>
-						<div class="card__title">A Guide to Google’s SEO Algorithm Updates</div>
-						<div class="card__excerpt paragraph">Our campaigns get your business in front of the right people at the right time...</div>
-					</div>
-				</div>
-			</div>
+			<? foreach ($posts as $post) {
+					get_template_part('template-parts/post', 'card', [
+					'post_id' => gettype($post) === 'object' ? $post->ID : $post,
+				]);
+			} ?>
 		</div>
 	</div>
 </section>

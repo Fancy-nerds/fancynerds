@@ -9,6 +9,7 @@ const gulpif = require("gulp-if");
 const { isDev } = require("../api/mode");
 const cssConfig = {
   preset: "default",
+  discardUnused: {fontFace: false}
 };
 
 function createStyleTask(src, out, renameFunc = () => {}) {

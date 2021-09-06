@@ -9,17 +9,26 @@
   &__image {
     width: 250px;
     flex-shrink: 0;
+    img {
+      display: block;
+    }
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
-
   &__content {
     padding: 50px 50px 20px;
     box-sizing: border-box;
+    @include media-breakpoint-down(sm) {
+      padding: 25px;
+    }
+   
   }
 
   &__work {
     color: $orange;
     font-family: "RedHatDisplay", "Montserrat";
-    font-size: $default;
+    font-size: font-size(16px);
     font-weight: 500;
     margin-bottom: 10px;
   }
@@ -34,7 +43,7 @@
 
   &__text {
     color: #606060;
-    font-size: $default;
+    font-size: font-size(16px);
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 10px;

@@ -22,7 +22,7 @@
 	<?php
 	$curr_lang = pll_current_language();
 	if ($curr_lang == 'ru') { ?>
-		<link rel="stylesheet" id="fontMonserrat-css" href="<?= get_template_directory_uri() . '/assets/styles/fontMonserrat.css' ?>" media="all">
+		<link rel="stylesheet" id="fontMonserrat-css" href="<?= get_template_directory_uri() . '/assets/styles/font-montserrat.css' ?>" media="all">
 	<?php }
 	?>
 

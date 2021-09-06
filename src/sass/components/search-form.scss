@@ -1,0 +1,53 @@
+@import "../mixins/all";
+
+.search {
+  &-form {
+    position: relative;
+  }
+  &-field {
+    width: 100%;
+    padding: 0 48px 0 20px;
+    height: 50px;
+    line-height: 1;
+    border: 1px solid $blue-light-4;
+    background: transparent;
+    border-radius: 23px;
+  }
+  &-submit {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    outline: none;
+    font-size: 26px;
+    color: $gray;
+    padding: 0 5px;
+    cursor: pointer;
+   
+    i {
+      width: 40px;
+      height: 40px;
+      line-height: 36px;
+      background: $orange;
+      color: $white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      border-radius: 50%;
+      font-weight: bold;
+      transition: background-color 0.3s linear;
+      &:before {
+        @include font-size(18px);
+        margin-left: 2px;
+      }
+      &:hover {
+        background-color: #00c3ff;
+      }
+    }
+  }
+}
