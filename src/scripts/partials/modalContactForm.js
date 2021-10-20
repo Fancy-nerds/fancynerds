@@ -78,9 +78,9 @@ class ModalContactForm {
     const validateRes = await this.validate.trigger();
     if (validateRes.length) return;
 
-    hideFormMsg(form);
+    hideFormMsg(this.form);
 
-    const submitBtn = getSubmitBtn(form);
+    const submitBtn = getSubmitBtn(this.form);
     const formData = new FormData();
 
     formData.append("action", "m4ajx_lead");
